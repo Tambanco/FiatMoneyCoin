@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4968CB88286AFE780085DDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB87286AFE780085DDB6 /* AppDelegate.swift */; };
+		4968CB8A286AFE780085DDB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB89286AFE780085DDB6 /* SceneDelegate.swift */; };
+		4968CB8C286AFE780085DDB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB8B286AFE780085DDB6 /* ViewController.swift */; };
+		4968CB8F286AFE780085DDB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4968CB8D286AFE780085DDB6 /* Main.storyboard */; };
+		4968CB92286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */; };
+		4968CB94286AFE780085DDB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4968CB93286AFE780085DDB6 /* Assets.xcassets */; };
+		4968CB97286AFE780085DDB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4968CB95286AFE780085DDB6 /* LaunchScreen.storyboard */; };
+		4968CBA2286AFE780085DDB6 /* FiatMoneyCoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CBA1286AFE780085DDB6 /* FiatMoneyCoinTests.swift */; };
+		4968CBAC286AFE780085DDB6 /* FiatMoneyCoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CBAB286AFE780085DDB6 /* FiatMoneyCoinUITests.swift */; };
+		4968CBAE286AFE780085DDB6 /* FiatMoneyCoinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CBAD286AFE780085DDB6 /* FiatMoneyCoinUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4968CB9E286AFE780085DDB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4968CB7C286AFE780085DDB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4968CB83286AFE780085DDB6;
+			remoteInfo = FiatMoneyCoin;
+		};
+		4968CBA8286AFE780085DDB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4968CB7C286AFE780085DDB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4968CB83286AFE780085DDB6;
+			remoteInfo = FiatMoneyCoin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4968CB84286AFE780085DDB6 /* FiatMoneyCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiatMoneyCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4968CB87286AFE780085DDB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4968CB89286AFE780085DDB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4968CB8B286AFE780085DDB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4968CB8E286AFE780085DDB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4968CB91286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FiatMoneyCoin.xcdatamodel; sourceTree = "<group>"; };
+		4968CB93286AFE780085DDB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4968CB96286AFE780085DDB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4968CB98286AFE780085DDB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4968CB9D286AFE780085DDB6 /* FiatMoneyCoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FiatMoneyCoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4968CBA1286AFE780085DDB6 /* FiatMoneyCoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatMoneyCoinTests.swift; sourceTree = "<group>"; };
+		4968CBA7286AFE780085DDB6 /* FiatMoneyCoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FiatMoneyCoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4968CBAB286AFE780085DDB6 /* FiatMoneyCoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatMoneyCoinUITests.swift; sourceTree = "<group>"; };
+		4968CBAD286AFE780085DDB6 /* FiatMoneyCoinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatMoneyCoinUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4968CB81286AFE780085DDB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4968CB9A286AFE780085DDB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4968CBA4286AFE780085DDB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4968CB7B286AFE780085DDB6 = {
+			isa = PBXGroup;
+			children = (
+				4968CB86286AFE780085DDB6 /* FiatMoneyCoin */,
+				4968CBA0286AFE780085DDB6 /* FiatMoneyCoinTests */,
+				4968CBAA286AFE780085DDB6 /* FiatMoneyCoinUITests */,
+				4968CB85286AFE780085DDB6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4968CB85286AFE780085DDB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4968CB84286AFE780085DDB6 /* FiatMoneyCoin.app */,
+				4968CB9D286AFE780085DDB6 /* FiatMoneyCoinTests.xctest */,
+				4968CBA7286AFE780085DDB6 /* FiatMoneyCoinUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4968CB86286AFE780085DDB6 /* FiatMoneyCoin */ = {
+			isa = PBXGroup;
+			children = (
+				4968CB87286AFE780085DDB6 /* AppDelegate.swift */,
+				4968CB89286AFE780085DDB6 /* SceneDelegate.swift */,
+				4968CB8B286AFE780085DDB6 /* ViewController.swift */,
+				4968CB8D286AFE780085DDB6 /* Main.storyboard */,
+				4968CB93286AFE780085DDB6 /* Assets.xcassets */,
+				4968CB95286AFE780085DDB6 /* LaunchScreen.storyboard */,
+				4968CB98286AFE780085DDB6 /* Info.plist */,
+				4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */,
+			);
+			path = FiatMoneyCoin;
+			sourceTree = "<group>";
+		};
+		4968CBA0286AFE780085DDB6 /* FiatMoneyCoinTests */ = {
+			isa = PBXGroup;
+			children = (
+				4968CBA1286AFE780085DDB6 /* FiatMoneyCoinTests.swift */,
+			);
+			path = FiatMoneyCoinTests;
+			sourceTree = "<group>";
+		};
+		4968CBAA286AFE780085DDB6 /* FiatMoneyCoinUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4968CBAB286AFE780085DDB6 /* FiatMoneyCoinUITests.swift */,
+				4968CBAD286AFE780085DDB6 /* FiatMoneyCoinUITestsLaunchTests.swift */,
+			);
+			path = FiatMoneyCoinUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4968CB83286AFE780085DDB6 /* FiatMoneyCoin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4968CBB1286AFE780085DDB6 /* Build configuration list for PBXNativeTarget "FiatMoneyCoin" */;
+			buildPhases = (
+				4968CB80286AFE780085DDB6 /* Sources */,
+				4968CB81286AFE780085DDB6 /* Frameworks */,
+				4968CB82286AFE780085DDB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FiatMoneyCoin;
+			productName = FiatMoneyCoin;
+			productReference = 4968CB84286AFE780085DDB6 /* FiatMoneyCoin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4968CB9C286AFE780085DDB6 /* FiatMoneyCoinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4968CBB4286AFE780085DDB6 /* Build configuration list for PBXNativeTarget "FiatMoneyCoinTests" */;
+			buildPhases = (
+				4968CB99286AFE780085DDB6 /* Sources */,
+				4968CB9A286AFE780085DDB6 /* Frameworks */,
+				4968CB9B286AFE780085DDB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4968CB9F286AFE780085DDB6 /* PBXTargetDependency */,
+			);
+			name = FiatMoneyCoinTests;
+			productName = FiatMoneyCoinTests;
+			productReference = 4968CB9D286AFE780085DDB6 /* FiatMoneyCoinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4968CBA6286AFE780085DDB6 /* FiatMoneyCoinUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4968CBB7286AFE780085DDB6 /* Build configuration list for PBXNativeTarget "FiatMoneyCoinUITests" */;
+			buildPhases = (
+				4968CBA3286AFE780085DDB6 /* Sources */,
+				4968CBA4286AFE780085DDB6 /* Frameworks */,
+				4968CBA5286AFE780085DDB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4968CBA9286AFE780085DDB6 /* PBXTargetDependency */,
+			);
+			name = FiatMoneyCoinUITests;
+			productName = FiatMoneyCoinUITests;
+			productReference = 4968CBA7286AFE780085DDB6 /* FiatMoneyCoinUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4968CB7C286AFE780085DDB6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					4968CB83286AFE780085DDB6 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					4968CB9C286AFE780085DDB6 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 4968CB83286AFE780085DDB6;
+					};
+					4968CBA6286AFE780085DDB6 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 4968CB83286AFE780085DDB6;
+					};
+				};
+			};
+			buildConfigurationList = 4968CB7F286AFE780085DDB6 /* Build configuration list for PBXProject "FiatMoneyCoin" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4968CB7B286AFE780085DDB6;
+			productRefGroup = 4968CB85286AFE780085DDB6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4968CB83286AFE780085DDB6 /* FiatMoneyCoin */,
+				4968CB9C286AFE780085DDB6 /* FiatMoneyCoinTests */,
+				4968CBA6286AFE780085DDB6 /* FiatMoneyCoinUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4968CB82286AFE780085DDB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4968CB97286AFE780085DDB6 /* LaunchScreen.storyboard in Resources */,
+				4968CB94286AFE780085DDB6 /* Assets.xcassets in Resources */,
+				4968CB8F286AFE780085DDB6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4968CB9B286AFE780085DDB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4968CBA5286AFE780085DDB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4968CB80286AFE780085DDB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4968CB8C286AFE780085DDB6 /* ViewController.swift in Sources */,
+				4968CB88286AFE780085DDB6 /* AppDelegate.swift in Sources */,
+				4968CB8A286AFE780085DDB6 /* SceneDelegate.swift in Sources */,
+				4968CB92286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4968CB99286AFE780085DDB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4968CBA2286AFE780085DDB6 /* FiatMoneyCoinTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4968CBA3286AFE780085DDB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4968CBAE286AFE780085DDB6 /* FiatMoneyCoinUITestsLaunchTests.swift in Sources */,
+				4968CBAC286AFE780085DDB6 /* FiatMoneyCoinUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4968CB9F286AFE780085DDB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4968CB83286AFE780085DDB6 /* FiatMoneyCoin */;
+			targetProxy = 4968CB9E286AFE780085DDB6 /* PBXContainerItemProxy */;
+		};
+		4968CBA9286AFE780085DDB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4968CB83286AFE780085DDB6 /* FiatMoneyCoin */;
+			targetProxy = 4968CBA8286AFE780085DDB6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4968CB8D286AFE780085DDB6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4968CB8E286AFE780085DDB6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4968CB95286AFE780085DDB6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4968CB96286AFE780085DDB6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4968CBAF286AFE780085DDB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4968CBB0286AFE780085DDB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4968CBB2286AFE780085DDB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4LU2BMBADH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FiatMoneyCoin/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tambanco.FiatMoneyCoin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4968CBB3286AFE780085DDB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4LU2BMBADH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FiatMoneyCoin/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tambanco.FiatMoneyCoin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4968CBB5286AFE780085DDB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4LU2BMBADH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tambanco.FiatMoneyCoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FiatMoneyCoin.app/FiatMoneyCoin";
+			};
+			name = Debug;
+		};
+		4968CBB6286AFE780085DDB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4LU2BMBADH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tambanco.FiatMoneyCoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FiatMoneyCoin.app/FiatMoneyCoin";
+			};
+			name = Release;
+		};
+		4968CBB8286AFE780085DDB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4LU2BMBADH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tambanco.FiatMoneyCoinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FiatMoneyCoin;
+			};
+			name = Debug;
+		};
+		4968CBB9286AFE780085DDB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4LU2BMBADH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Tambanco.FiatMoneyCoinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FiatMoneyCoin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4968CB7F286AFE780085DDB6 /* Build configuration list for PBXProject "FiatMoneyCoin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4968CBAF286AFE780085DDB6 /* Debug */,
+				4968CBB0286AFE780085DDB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4968CBB1286AFE780085DDB6 /* Build configuration list for PBXNativeTarget "FiatMoneyCoin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4968CBB2286AFE780085DDB6 /* Debug */,
+				4968CBB3286AFE780085DDB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4968CBB4286AFE780085DDB6 /* Build configuration list for PBXNativeTarget "FiatMoneyCoinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4968CBB5286AFE780085DDB6 /* Debug */,
+				4968CBB6286AFE780085DDB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4968CBB7286AFE780085DDB6 /* Build configuration list for PBXNativeTarget "FiatMoneyCoinUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4968CBB8286AFE780085DDB6 /* Debug */,
+				4968CBB9286AFE780085DDB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4968CB91286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodel */,
+			);
+			currentVersion = 4968CB91286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodel */;
+			path = FiatMoneyCoin.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4968CB7C286AFE780085DDB6 /* Project object */;
+}
