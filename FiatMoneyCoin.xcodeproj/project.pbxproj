@@ -103,10 +103,22 @@
 			path = "Fiat Module";
 			sourceTree = "<group>";
 		};
+		494F5327286B0B2400F23709 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				4968CB93286AFE780085DDB6 /* Assets.xcassets */,
+				4968CB95286AFE780085DDB6 /* LaunchScreen.storyboard */,
+				4968CB98286AFE780085DDB6 /* Info.plist */,
+			);
+			name = "Supporting files";
+			path = "FiatMoneyCoin/Supporting files";
+			sourceTree = "<group>";
+		};
 		4968CB7B286AFE780085DDB6 = {
 			isa = PBXGroup;
 			children = (
 				4968CB86286AFE780085DDB6 /* FiatMoneyCoin */,
+				494F5327286B0B2400F23709 /* Supporting files */,
 				4968CBA0286AFE780085DDB6 /* FiatMoneyCoinTests */,
 				4968CBAA286AFE780085DDB6 /* FiatMoneyCoinUITests */,
 				4968CB85286AFE780085DDB6 /* Products */,
@@ -127,9 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				494F531C286B002100F23709 /* App */,
-				4968CB93286AFE780085DDB6 /* Assets.xcassets */,
-				4968CB95286AFE780085DDB6 /* LaunchScreen.storyboard */,
-				4968CB98286AFE780085DDB6 /* Info.plist */,
 				494F5325286B00F100F23709 /* Fiat Module */,
 			);
 			path = FiatMoneyCoin;
@@ -459,7 +468,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4LU2BMBADH;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FiatMoneyCoin/Info.plist;
+				INFOPLIST_FILE = "/Users/tambanco/Desktop/iOS/FiatMoneyCoin/FiatMoneyCoin/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -486,7 +495,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4LU2BMBADH;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FiatMoneyCoin/Info.plist;
+				INFOPLIST_FILE = "/Users/tambanco/Desktop/iOS/FiatMoneyCoin/FiatMoneyCoin/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
