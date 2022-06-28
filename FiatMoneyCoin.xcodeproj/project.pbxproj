@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494F531E286B00CB00F23709 /* FiatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F531D286B00CB00F23709 /* FiatModel.swift */; };
+		494F5321286B00D700F23709 /* FiatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F531F286B00D700F23709 /* FiatViewController.swift */; };
+		494F5322286B00D700F23709 /* FiatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494F5320286B00D700F23709 /* FiatView.xib */; };
+		494F5324286B00E500F23709 /* FiatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F5323286B00E500F23709 /* FiatPresenter.swift */; };
 		4968CB88286AFE780085DDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB87286AFE780085DDB6 /* AppDelegate.swift */; };
 		4968CB8A286AFE780085DDB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB89286AFE780085DDB6 /* SceneDelegate.swift */; };
-		4968CB8C286AFE780085DDB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB8B286AFE780085DDB6 /* ViewController.swift */; };
-		4968CB8F286AFE780085DDB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4968CB8D286AFE780085DDB6 /* Main.storyboard */; };
 		4968CB92286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */; };
 		4968CB94286AFE780085DDB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4968CB93286AFE780085DDB6 /* Assets.xcassets */; };
 		4968CB97286AFE780085DDB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4968CB95286AFE780085DDB6 /* LaunchScreen.storyboard */; };
@@ -37,11 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		494F531D286B00CB00F23709 /* FiatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatModel.swift; sourceTree = "<group>"; };
+		494F531F286B00D700F23709 /* FiatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatViewController.swift; sourceTree = "<group>"; };
+		494F5320286B00D700F23709 /* FiatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiatView.xib; sourceTree = "<group>"; };
+		494F5323286B00E500F23709 /* FiatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatPresenter.swift; sourceTree = "<group>"; };
 		4968CB84286AFE780085DDB6 /* FiatMoneyCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiatMoneyCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4968CB87286AFE780085DDB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4968CB89286AFE780085DDB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4968CB8B286AFE780085DDB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4968CB8E286AFE780085DDB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4968CB91286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FiatMoneyCoin.xcdatamodel; sourceTree = "<group>"; };
 		4968CB93286AFE780085DDB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4968CB96286AFE780085DDB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +82,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		494F531C286B002100F23709 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4968CB87286AFE780085DDB6 /* AppDelegate.swift */,
+				4968CB89286AFE780085DDB6 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		494F5325286B00F100F23709 /* Fiat Module */ = {
+			isa = PBXGroup;
+			children = (
+				494F531D286B00CB00F23709 /* FiatModel.swift */,
+				4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */,
+				494F531F286B00D700F23709 /* FiatViewController.swift */,
+				494F5320286B00D700F23709 /* FiatView.xib */,
+				494F5323286B00E500F23709 /* FiatPresenter.swift */,
+			);
+			path = "Fiat Module";
+			sourceTree = "<group>";
+		};
 		4968CB7B286AFE780085DDB6 = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +126,11 @@
 		4968CB86286AFE780085DDB6 /* FiatMoneyCoin */ = {
 			isa = PBXGroup;
 			children = (
-				4968CB87286AFE780085DDB6 /* AppDelegate.swift */,
-				4968CB89286AFE780085DDB6 /* SceneDelegate.swift */,
-				4968CB8B286AFE780085DDB6 /* ViewController.swift */,
-				4968CB8D286AFE780085DDB6 /* Main.storyboard */,
+				494F531C286B002100F23709 /* App */,
 				4968CB93286AFE780085DDB6 /* Assets.xcassets */,
 				4968CB95286AFE780085DDB6 /* LaunchScreen.storyboard */,
 				4968CB98286AFE780085DDB6 /* Info.plist */,
-				4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */,
+				494F5325286B00F100F23709 /* Fiat Module */,
 			);
 			path = FiatMoneyCoin;
 			sourceTree = "<group>";
@@ -234,9 +256,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494F5322286B00D700F23709 /* FiatView.xib in Resources */,
 				4968CB97286AFE780085DDB6 /* LaunchScreen.storyboard in Resources */,
 				4968CB94286AFE780085DDB6 /* Assets.xcassets in Resources */,
-				4968CB8F286AFE780085DDB6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +283,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4968CB8C286AFE780085DDB6 /* ViewController.swift in Sources */,
+				494F5321286B00D700F23709 /* FiatViewController.swift in Sources */,
 				4968CB88286AFE780085DDB6 /* AppDelegate.swift in Sources */,
+				494F5324286B00E500F23709 /* FiatPresenter.swift in Sources */,
 				4968CB8A286AFE780085DDB6 /* SceneDelegate.swift in Sources */,
 				4968CB92286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld in Sources */,
+				494F531E286B00CB00F23709 /* FiatModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +325,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4968CB8D286AFE780085DDB6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4968CB8E286AFE780085DDB6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4968CB95286AFE780085DDB6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -446,7 +462,6 @@
 				INFOPLIST_FILE = FiatMoneyCoin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -474,7 +489,6 @@
 				INFOPLIST_FILE = FiatMoneyCoin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
