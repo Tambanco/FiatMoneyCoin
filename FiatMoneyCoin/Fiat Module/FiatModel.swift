@@ -11,4 +11,14 @@ import Foundation
 
 struct FiatModel {
     
+    let success: Bool
+    let timestamp: String?
+    let base: String?
+    let date: String?
+    let rates: Rates
+    
+}
+
+struct Rates {
+    var currency: [String]
 }

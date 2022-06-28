@@ -15,7 +15,7 @@ class FiatViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NetworkManager.getLatest(base: "RUB", symbols: "USD")
     }
 }
 
