@@ -34,7 +34,8 @@ final class NetworkManager {
                 return
             }
             print(String(data: data, encoding: .utf8)!)
-            JSONParser.parseJSON(json: data)
+            let json = String(data: data, encoding: .utf8)!.data(using: .utf8)!
+            JSONParser.parseJSON(json: json)
             semaphore.signal()
         }
         
