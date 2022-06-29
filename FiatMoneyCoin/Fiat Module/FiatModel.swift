@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct FiatModel {
+    let base: String
+    let symbols: String
+}
