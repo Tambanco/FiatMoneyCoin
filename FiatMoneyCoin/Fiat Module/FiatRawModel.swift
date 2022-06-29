@@ -9,11 +9,17 @@
 
 import Foundation
 
-struct FiatRawModel: Decodable {
-    
+struct FiatRawModel: Codable {
+    let base, date: String
+    let rates: Rates
     let success: Bool
-    let timestamp: String?
-    let base: String?
-    let date: String?
-    let rates: [String?]
+    let timestamp: Int
+}
+
+struct Rates: Codable {
+    let usd: Double
+
+    enum CodingKeys: String, CodingKey {
+        case usd = "USD"
+    }
 }

@@ -15,6 +15,6 @@ class JSONParser: Parcelable {
     static func parseJSON(json: Data) {
         let decoder = JSONDecoder()
         let fiatLatest = try? decoder.decode(FiatRawModel.self, from: json)
-        print(fiatLatest?.rates ?? "parse failure")
+        print(fiatLatest ?? "parsing failure")
     }
 }
