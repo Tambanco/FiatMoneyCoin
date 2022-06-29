@@ -15,7 +15,10 @@ class FiatViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkManager.getLatest(base: "RUB", symbols: "USD")
+        
+    }
+    @IBAction func getDataPressed(_ sender: UIButton) {
+        presenter.getLatestRate()
     }
 }
 

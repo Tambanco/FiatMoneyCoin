@@ -9,16 +9,11 @@
 
 import Foundation
 
-struct FiatModel {
+struct FiatModel: Decodable {
     
     let success: Bool
     let timestamp: String?
     let base: String?
     let date: String?
-    let rates: Rates
-    
-}
-
-struct Rates {
-    var currency: [String]
+    let rates: [String?]
 }
