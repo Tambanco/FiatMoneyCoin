@@ -7,13 +7,25 @@
 
 import Foundation
 
+enum HTTPMethod: String {
+    case get = "GET"
+    case head = "HEAD"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+    case connect = "CONNECT"
+    case options = "OPTIONS"
+    case trace = "TRACE"
+    case patch = "PATCH"
+}
+
 final class NetworkManager {
     static func getLatest(base: String, symbols: String) {
         let semaphore = DispatchSemaphore (value: 0)
 
         let url = "https://api.apilayer.com/fixer/latest?symbols=\(symbols)&base=\(base)"
         var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
-        request.httpMethod = "GET"
+        request.httpMethod = HTTPMethod.get.rawValue
         request.addValue("3a11lBtAQyGHH4mlHEUiMhPOGMYmOb3r", forHTTPHeaderField: "apikey")
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
