@@ -12,7 +12,7 @@ import UIKit
 class FiatViewController: UIViewController {
 
 	var presenter: FiatPresenterProtocol!
-    var fiatCurrency: [Double] = [0]
+    var fiatCurrency: [Double] = []
     
     @IBOutlet weak var tableView: UITableView!
     

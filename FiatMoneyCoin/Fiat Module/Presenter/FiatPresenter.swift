@@ -16,12 +16,20 @@ protocol FiatViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
+    var currencyList: [String] { get set }
+    func getCurrencyList()
     func getConvert()
     init(view: FiatViewProtocol, model:  FiatModel)
 
 }
 
 class FiatPresenter: FiatPresenterProtocol {
+    var currencyList: [String] = []
+    
+    func getCurrencyList() {
+        
+    }
+    
     
     weak var view: FiatViewProtocol?
     var model: FiatModel
