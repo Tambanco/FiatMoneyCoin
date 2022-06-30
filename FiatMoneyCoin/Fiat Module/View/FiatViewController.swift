@@ -23,8 +23,30 @@ class FiatViewController: UIViewController {
     
     func setupTableView() {
         tableView.backgroundColor = .systemRed
-        
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "FiatCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 80
     }
+}
+
+// MARK: - TableView
+extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! TableViewCell
+        cell.backgroundColor = .systemTeal
+        cell.amountCurrency.text = "1500 EUR"
+        cell.amountBaseCurrency.text = String(1500 * 54)
+        cell.earnPercent.text = "-0.64 %"
+        cell.amountForCell.text = String(1500 * 54)
+        return cell
+    }
+    
+    
 }
 
 // MARK: - Binding
