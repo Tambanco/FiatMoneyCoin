@@ -99,7 +99,6 @@
 			children = (
 				4968CB87286AFE780085DDB6 /* AppDelegate.swift */,
 				4968CB89286AFE780085DDB6 /* SceneDelegate.swift */,
-				49C6FE39286C9AC500D996AE /* ModuleBuilder.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -128,6 +127,7 @@
 		494F532A286B0F8800F23709 /* Service Layer */ = {
 			isa = PBXGroup;
 			children = (
+				49C6FE39286C9AC500D996AE /* ModuleBuilder.swift */,
 				494F5328286B0F8400F23709 /* NetworkManager.swift */,
 				494F532E286B37E600F23709 /* JSONParser.swift */,
 			);
