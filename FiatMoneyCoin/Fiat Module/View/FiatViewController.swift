@@ -54,5 +54,9 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Binding
 extension FiatViewController: FiatViewProtocol {
+    func setupView() {
+        <#code#>
+    }
+    
     
 }

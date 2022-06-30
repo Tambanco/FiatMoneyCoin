@@ -11,7 +11,7 @@ import Foundation
 
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
-
+    func setupView()
 }
 
 // MARK: Input protocol
