@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol Builder {
+protocol Builder: AnyObject {
     static func createFiatModule() -> UIViewController
 }
 

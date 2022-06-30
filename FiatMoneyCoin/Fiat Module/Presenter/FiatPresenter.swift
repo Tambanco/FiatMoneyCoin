@@ -8,10 +8,12 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
     func setupView(currencyList: [String])
+    func present(viewControllerToPresent: UIViewController)
 }
 
 // MARK: Input protocol
@@ -27,31 +29,17 @@ protocol FiatPresenterProtocol: AnyObject {
 class FiatPresenter: FiatPresenterProtocol {
     
     var currencyList: [String] = []
+    weak var view: FiatViewProtocol?
+    var model: FiatModel
     
     func getCurrencyList() {
         NetworkManager.getSymbols()
     }
     
     func showAddAlert() {
-        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            switch action.style{
-                case .default:
-                print("default")
-                
-                case .cancel:
-                print("cancel")
-                
-                case .destructive:
-                print("destructive")
-                
-            }
-        }))
-        self.present(alert, animated: true, completion: nil)
+        AlertManager.showAddAlert(title: "Currency List", message: "", view: view)
     }
     
-    weak var view: FiatViewProtocol?
-    var model: FiatModel
     
     func getConvert() {
         NetworkManager.getConvert(amount: 1500, from: "EUR", to: "RUB")

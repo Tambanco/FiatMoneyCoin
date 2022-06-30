@@ -54,6 +54,10 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Binding
 extension FiatViewController: FiatViewProtocol {
+    func present(viewControllerToPresent: UIViewController) {
+        self.present(viewControllerToPresent, animated: true)
+    }
+    
     func setupView(currencyList: [String]) {
         fiatCurrencyList = currencyList
     }
