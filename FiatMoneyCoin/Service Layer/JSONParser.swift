@@ -8,25 +8,28 @@
 import Foundation
 
 protocol Parcelable: AnyObject {
-    static func parseJSON<T: Decodable>(json: Data, model: T)
+    static func parseJSONCurrencyList(json: Data)
+    static func parseJSONConvertedCurrency(json: Data)
 }
 
 class JSONParser: Parcelable {
-    static func parseJSON<T>(json: Data, model: T) where T : Decodable {
+    static func parseJSONCurrencyList(json: Data) {
         let decoder = JSONDecoder()
         do {
-            let fiatLatest = try decoder.decode(model.self as! T.Type, from: json)
-            print(fiatLatest)
+            let fiatList = try decoder.decode(CurrencyListModel.self, from: json)
+            print(fiatList)
         } catch {
             print("parsing failure")
         }
-//        let fiatLatest = try? decoder.decode(model.self, from: json)
-//        print(fiatLatest ?? )
     }
     
-//    static func parseJSON(json: Data) {
-//        let decoder = JSONDecoder()
-//        let fiatLatest = try? decoder.decode(FiatRawModel.self, from: json)
-//        print(fiatLatest ?? "parsing failure")
-//    }
+    static func parseJSONConvertedCurrency(json: Data) {
+        let decoder = JSONDecoder()
+        do {
+            let convertedCurrency = try decoder.decode(FiatRawModel.self, from: json)
+            print(convertedCurrency)
+        } catch {
+            print("parsing failure")
+        }
+    }
 }

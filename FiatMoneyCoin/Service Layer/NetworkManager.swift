@@ -19,16 +19,12 @@ enum HTTPMethod: String {
     case patch = "PATCH"
 }
 
-protocol NetworkManagerProtocol {
-    var apiKey: String { get }
+protocol NetworkManagerProtocol: Codable {
     static func getSymbols()
     static func getConvert(amount: Float, from: String, to: String)
 }
 
 final class NetworkManager: NetworkManagerProtocol {
-    
-    var apiKey: String = "3a11lBtAQyGHH4mlHEUiMhPOGMYmOb3r"
-    
     static func getSymbols() {
         let semaphore = DispatchSemaphore (value: 0)
         
@@ -44,7 +40,7 @@ final class NetworkManager: NetworkManagerProtocol {
             }
             print(String(data: data, encoding: .utf8)!)
             let json = String(data: data, encoding: .utf8)!.data(using: .utf8)!
-            JSONParser.parseJSON(json: json)
+            JSONParser.parseJSONCurrencyList(json: json)
             semaphore.signal()
         }
         
@@ -67,7 +63,7 @@ final class NetworkManager: NetworkManagerProtocol {
             }
             print(String(data: data, encoding: .utf8)!)
             let json = String(data: data, encoding: .utf8)!.data(using: .utf8)!
-            JSONParser.parseJSON(json: json)
+            JSONParser.parseJSONConvertedCurrency(json: json)
             semaphore.signal()
         }
         

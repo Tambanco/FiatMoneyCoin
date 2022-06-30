@@ -19,12 +19,11 @@ class FiatViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 //        presenter.getConvert()
-        presenter.getCurrencyList()
         setupTableView()
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        
+        presenter.getCurrencyList()
     }
     
     func setupTableView() {
@@ -56,8 +55,6 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Binding
 extension FiatViewController: FiatViewProtocol {
     func setupView() {
-        <#code#>
+        print("pusto")
     }
-    
-    
 }
