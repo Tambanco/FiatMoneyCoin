@@ -12,11 +12,12 @@ import UIKit
 class FiatViewController: UIViewController {
 
 	var presenter: FiatPresenterProtocol!
-    var tableView: UITableView!
-
+//    var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.getConvert()
+//        presenter.getConvert()
         setupTableView()
     }
     
@@ -26,6 +27,7 @@ class FiatViewController: UIViewController {
         tableView.delegate = self
         tableView.register(FiatTableViewCell.self, forCellReuseIdentifier: "FiatCell")
         tableView.rowHeight = 80
+        tableView.backgroundColor = .systemRed
         tableView.separatorStyle = .none
     }
 }
