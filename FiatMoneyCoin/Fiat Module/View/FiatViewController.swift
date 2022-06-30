@@ -16,11 +16,14 @@ class FiatViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
 	override func viewDidLoad() {
         super.viewDidLoad()
 //        presenter.getConvert()
         setupTableView()
+    }
+    
+    @IBAction func addButton(_ sender: UIButton) {
+        
     }
     
     func setupTableView() {
@@ -47,8 +50,6 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         cell.amountForCell.text = String(1500 * 54)
         return cell
     }
-    
-    
 }
 
 // MARK: - Binding
