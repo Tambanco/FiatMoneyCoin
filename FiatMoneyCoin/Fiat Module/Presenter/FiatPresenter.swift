@@ -19,17 +19,36 @@ protocol FiatPresenterProtocol: AnyObject {
     var currencyList: [String] { get set }
     func getCurrencyList()
     func getConvert()
+    func showAddAlert()
     init(view: FiatViewProtocol, model:  FiatModel)
 
 }
 
 class FiatPresenter: FiatPresenterProtocol {
+    
     var currencyList: [String] = []
     
     func getCurrencyList() {
         NetworkManager.getSymbols()
     }
     
+    func showAddAlert() {
+        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style{
+                case .default:
+                print("default")
+                
+                case .cancel:
+                print("cancel")
+                
+                case .destructive:
+                print("destructive")
+                
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     weak var view: FiatViewProtocol?
     var model: FiatModel
