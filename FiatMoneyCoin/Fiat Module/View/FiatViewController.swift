@@ -23,7 +23,8 @@ class FiatViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        presenter.getCurrencyList()
+//        presenter.getCurrencyList()
+        presenter.showAddAlert()
     }
     
     func setupTableView() {

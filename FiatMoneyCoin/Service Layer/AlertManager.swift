@@ -10,20 +10,14 @@ import UIKit
 
 enum AlertManager {
     static func showAddAlert(title: String, message: String, view: FiatViewProtocol?) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            switch action.style{
-                case .default:
-                print("default")
-                
-                case .cancel:
-                print("cancel")
-                
-                case .destructive:
-                print("destructive")
-                
-            }
-        }))
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let addAction = UIAlertAction(title: "Добавить", style: .default, handler: { action in
+        })
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alert.addAction(addAction)
+        alert.addAction(cancelAction)
         view?.setupView(currencyList: ["String"])
         DispatchQueue.main.async {
             view?.present(viewControllerToPresent: alert)
