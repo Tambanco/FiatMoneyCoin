@@ -30,7 +30,7 @@ final class NetworkManager: NetworkManagerProtocol {
     var apiKey: String = "3a11lBtAQyGHH4mlHEUiMhPOGMYmOb3r"
     
     static func getSymbols() {
-        var semaphore = DispatchSemaphore (value: 0)
+        let semaphore = DispatchSemaphore (value: 0)
         
         let url = "https://api.apilayer.com/fixer/symbols"
         var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
@@ -43,6 +43,8 @@ final class NetworkManager: NetworkManagerProtocol {
                 return
             }
             print(String(data: data, encoding: .utf8)!)
+            let json = String(data: data, encoding: .utf8)!.data(using: .utf8)!
+            JSONParser.parseJSON(json: json)
             semaphore.signal()
         }
         

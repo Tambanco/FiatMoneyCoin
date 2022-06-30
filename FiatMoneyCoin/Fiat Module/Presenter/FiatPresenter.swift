@@ -27,7 +27,7 @@ class FiatPresenter: FiatPresenterProtocol {
     var currencyList: [String] = []
     
     func getCurrencyList() {
-        
+        NetworkManager.getSymbols()
     }
     
     
