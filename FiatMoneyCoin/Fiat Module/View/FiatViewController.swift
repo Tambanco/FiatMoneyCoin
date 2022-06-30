@@ -17,10 +17,37 @@ class FiatViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.getConvert()
-        
+        setupTableView()
+    }
+    
+    func setupTableView() {
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(FiatTableViewCell.self, forCellReuseIdentifier: "FiatCell")
+        tableView.rowHeight = 80
+        tableView.separatorStyle = .none
     }
 }
 
+// MARK: - TableViewDelegate, DataSource
+extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! FiatTableViewCell
+        cell.amountBaseCurrency.text = "1500"
+        cell.amountCurrency.text = String(1500 * 54)
+        cell.amountForCell = cell.amountCurrency
+        cell.earnPercent.text = "0.64 %"
+        
+        return cell
+    }
+    
+}
 // MARK: - Binding
 extension FiatViewController: FiatViewProtocol {
     
