@@ -20,10 +20,10 @@ enum HTTPMethod: String {
 }
 
 final class NetworkManager {
-    static func getLatest(base: String, symbols: String) {
+    static func getConvert(amount: Float, from: String, to: String) {
         let semaphore = DispatchSemaphore (value: 0)
         
-        let url = "https://api.apilayer.com/fixer/latest?symbols=\(symbols)&base=\(base)"
+        let url = "https://api.apilayer.com/fixer/convert?to=\(to)&from=\(from)&amount=\(amount)"
         var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
         request.httpMethod = HTTPMethod.get.rawValue
         request.addValue("3a11lBtAQyGHH4mlHEUiMhPOGMYmOb3r", forHTTPHeaderField: "apikey")
@@ -42,4 +42,27 @@ final class NetworkManager {
         task.resume()
         semaphore.wait()
     }
+    
+//    static func getLatest(base: String, symbols: String) {
+//        let semaphore = DispatchSemaphore (value: 0)
+//        
+//        let url = "https://api.apilayer.com/fixer/latest?symbols=\(symbols)&base=\(base)"
+//        var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
+//        request.httpMethod = HTTPMethod.get.rawValue
+//        request.addValue("3a11lBtAQyGHH4mlHEUiMhPOGMYmOb3r", forHTTPHeaderField: "apikey")
+//        
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let data = data else {
+//                print(String(describing: error))
+//                return
+//            }
+//            print(String(data: data, encoding: .utf8)!)
+//            let json = String(data: data, encoding: .utf8)!.data(using: .utf8)!
+//            JSONParser.parseJSON(json: json)
+//            semaphore.signal()
+//        }
+//        
+//        task.resume()
+//        semaphore.wait()
+//    }
 }

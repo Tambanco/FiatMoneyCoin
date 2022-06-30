@@ -8,6 +8,7 @@
 import Foundation
 
 struct FiatModel {
-    let base: String
-    let symbols: String
+    let amount: Double
+    let from: String
+    let to: String
 }

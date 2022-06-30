@@ -78,15 +78,6 @@
                         <constraint firstItem="7iM-tp-hsB" firstAttribute="leading" secondItem="cxL-PP-HJF" secondAttribute="trailing" constant="10" id="yy1-MA-s71"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU5-3K-Lyb">
-                    <rect key="frame" x="246" y="61" width="78" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="GetData"/>
-                    <connections>
-                        <action selector="getDataPressed:" destination="-1" eventType="touchUpInside" id="sFg-Lg-4W4"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>

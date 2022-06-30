@@ -14,7 +14,7 @@ protocol Builder {
 
 class ModuleBuilder: Builder {
     static func createFiatModule() -> UIViewController {
-        let model = FiatModel(base: "RUB", symbols: "USD")
+        let model = FiatModel(amount: 1500, from: "EUR", to: "RUB")
         let view = FiatViewController()
         let presenter = FiatPresenter(view: view, model: model)
         view.presenter = presenter

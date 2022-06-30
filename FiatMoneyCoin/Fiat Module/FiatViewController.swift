@@ -12,13 +12,12 @@ import UIKit
 class FiatViewController: UIViewController {
 
 	var presenter: FiatPresenterProtocol!
+    var tableView: UITableView!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.getConvert()
         
-    }
-    @IBAction func getDataPressed(_ sender: UIButton) {
-        presenter.getLatestRate()
     }
 }
 

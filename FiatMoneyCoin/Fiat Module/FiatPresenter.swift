@@ -16,21 +16,19 @@ protocol FiatViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
-    func getLatestRate()
+    func getConvert()
     init(view: FiatViewProtocol, model:  FiatModel)
 
 }
 
 class FiatPresenter: FiatPresenterProtocol {
+    
     weak var view: FiatViewProtocol?
     var model: FiatModel
     
-    func getLatestRate() {
-        NetworkManager.getLatest(base: model.base, symbols: model.symbols)
+    func getConvert() {
+        NetworkManager.getConvert(amount: 1500, from: "EUR", to: "RUB")
     }
-    
-    
-    // Enter buisness logic here
     
     required init(view: FiatViewProtocol, model: FiatModel) {
         self.view = view
