@@ -18,6 +18,7 @@ class JSONParser: Parcelable {
         do {
             let fiatList = try decoder.decode(CurrencyListModel.self, from: json)
             print(fiatList)
+            
         } catch {
             print("parsing failure")
         }
