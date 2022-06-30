@@ -23,6 +23,8 @@
 		4968CBAE286AFE780085DDB6 /* FiatMoneyCoinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CBAD286AFE780085DDB6 /* FiatMoneyCoinUITestsLaunchTests.swift */; };
 		49C6FE3A286C9AC500D996AE /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6FE39286C9AC500D996AE /* ModuleBuilder.swift */; };
 		49C6FE3C286C9C6600D996AE /* FiatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6FE3B286C9C6600D996AE /* FiatModel.swift */; };
+		49C6FE3F286D9F2200D996AE /* FiatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6FE3D286D9F2200D996AE /* FiatTableViewCell.swift */; };
+		49C6FE40286D9F2200D996AE /* FiatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C6FE3E286D9F2200D996AE /* FiatTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		4968CBAD286AFE780085DDB6 /* FiatMoneyCoinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatMoneyCoinUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		49C6FE39286C9AC500D996AE /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		49C6FE3B286C9C6600D996AE /* FiatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatModel.swift; sourceTree = "<group>"; };
+		49C6FE3D286D9F2200D996AE /* FiatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatTableViewCell.swift; sourceTree = "<group>"; };
+		49C6FE3E286D9F2200D996AE /* FiatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiatTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +107,9 @@
 		494F5325286B00F100F23709 /* Fiat Module */ = {
 			isa = PBXGroup;
 			children = (
-				49C6FE3B286C9C6600D996AE /* FiatModel.swift */,
-				494F531D286B00CB00F23709 /* FiatRawModel.swift */,
-				4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */,
-				494F5320286B00D700F23709 /* FiatView.xib */,
-				494F531F286B00D700F23709 /* FiatViewController.swift */,
-				494F5323286B00E500F23709 /* FiatPresenter.swift */,
+				49C6FE41286D9F8900D996AE /* Model */,
+				49C6FE42286D9F9A00D996AE /* View */,
+				49C6FE43286D9FBA00D996AE /* Presenter */,
 			);
 			path = "Fiat Module";
 			sourceTree = "<group>";
@@ -179,6 +180,35 @@
 				4968CBAD286AFE780085DDB6 /* FiatMoneyCoinUITestsLaunchTests.swift */,
 			);
 			path = FiatMoneyCoinUITests;
+			sourceTree = "<group>";
+		};
+		49C6FE41286D9F8900D996AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49C6FE3B286C9C6600D996AE /* FiatModel.swift */,
+				494F531D286B00CB00F23709 /* FiatRawModel.swift */,
+				4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49C6FE42286D9F9A00D996AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				494F5320286B00D700F23709 /* FiatView.xib */,
+				494F531F286B00D700F23709 /* FiatViewController.swift */,
+				49C6FE3D286D9F2200D996AE /* FiatTableViewCell.swift */,
+				49C6FE3E286D9F2200D996AE /* FiatTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49C6FE43286D9FBA00D996AE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				494F5323286B00E500F23709 /* FiatPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				494F5322286B00D700F23709 /* FiatView.xib in Resources */,
+				49C6FE40286D9F2200D996AE /* FiatTableViewCell.xib in Resources */,
 				4968CB97286AFE780085DDB6 /* LaunchScreen.storyboard in Resources */,
 				4968CB94286AFE780085DDB6 /* Assets.xcassets in Resources */,
 			);
@@ -312,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C6FE3F286D9F2200D996AE /* FiatTableViewCell.swift in Sources */,
 				494F5321286B00D700F23709 /* FiatViewController.swift in Sources */,
 				4968CB88286AFE780085DDB6 /* AppDelegate.swift in Sources */,
 				494F532F286B37E600F23709 /* JSONParser.swift in Sources */,
