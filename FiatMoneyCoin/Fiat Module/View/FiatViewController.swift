@@ -15,16 +15,26 @@ class FiatViewController: UIViewController {
     var fiatCurrencyList: [String] = []
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var fiatTotalView: UIView!
+    
     
 	override func viewDidLoad() {
         super.viewDidLoad()
 //        presenter.getConvert()
         setupTableView()
+        setupTotalView()
     }
     
     @IBAction func addButton(_ sender: UIButton) {
 //        presenter.getCurrencyList()
         presenter.showAddAlert()
+    }
+    
+    func setupTotalView() {
+        
+        presenter.caculateTotalFiat()
+        fiatTotalView.layer.cornerRadius = 10
+        fiatTotalView.layer.masksToBounds = true
     }
     
     func setupTableView() {

@@ -22,15 +22,21 @@ protocol FiatPresenterProtocol: AnyObject {
     func getCurrencyList()
     func getConvert()
     func showAddAlert()
+    func caculateTotalFiat()
     init(view: FiatViewProtocol, model:  FiatModel)
 
 }
 
 class FiatPresenter: FiatPresenterProtocol {
     
+    
     var currencyList: [String] = []
     weak var view: FiatViewProtocol?
     var model: FiatModel
+    
+    func caculateTotalFiat() {
+        
+    }
     
     func getCurrencyList() {
         NetworkManager.getSymbols()

@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FiatViewController" customModule="FiatMoneyCoin" customModuleProvider="target">
             <connections>
+                <outlet property="fiatTotalView" destination="EsV-Jm-mgG" id="2jM-Vg-vV1"/>
                 <outlet property="tableView" destination="BKx-4f-0nB" id="h20-nc-CRc"/>
                 <outlet property="view" destination="q7X-Le-t7N" id="Odf-lK-wLf"/>
             </connections>
