@@ -37,7 +37,7 @@ class FiatPresenter: FiatPresenterProtocol {
     
     func caculateTotalFiat() {
         let totalValue = 0
-        let earnValue = -100
+        let earnValue = 0
         let earnPercent = 0
         
         self.view?.setupTotalValue(totalValue: "\(totalValue)", earnValue: "\(earnValue)", earnPercent: "\(earnPercent) %")
