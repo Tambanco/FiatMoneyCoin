@@ -12,7 +12,8 @@ import UIKit
 
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
-    func setupView(currencyList: [String])
+    func setupTableView(currencyList: [String])
+    func setupTotalValue(totalValue: Double, earnValue: Double, earnPercent: Double)
     func present(viewControllerToPresent: UIViewController)
 }
 

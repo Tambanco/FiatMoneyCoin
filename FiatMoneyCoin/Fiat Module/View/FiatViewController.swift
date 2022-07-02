@@ -17,6 +17,10 @@ class FiatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var fiatTotalView: UIView!
     
+    @IBOutlet weak var totalValu: UILabel!
+    @IBOutlet weak var earnValue: UILabel!
+    @IBOutlet weak var eranPercent: UILabel!
+    
     
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +35,13 @@ class FiatViewController: UIViewController {
     }
     
     func setupTotalView() {
-        
         presenter.caculateTotalFiat()
         fiatTotalView.layer.cornerRadius = 10
         fiatTotalView.layer.masksToBounds = true
     }
     
     func setupTableView() {
-        tableView.backgroundColor = .systemRed
+//        tableView.backgroundColor = .systemRed
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "FiatCell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -65,11 +68,15 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Binding
 extension FiatViewController: FiatViewProtocol {
+    func setupTotalValue(totalValue: Double, earnValue: Double, earnPercent: Double) {
+        <#code#>
+    }
+    
     func present(viewControllerToPresent: UIViewController) {
         self.present(viewControllerToPresent, animated: true)
     }
     
-    func setupView(currencyList: [String]) {
+    func setupTableView(currencyList: [String]) {
         fiatCurrencyList = currencyList
     }
 }
