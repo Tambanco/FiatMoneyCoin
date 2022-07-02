@@ -36,7 +36,11 @@ class FiatPresenter: FiatPresenterProtocol {
     var model: FiatModel
     
     func caculateTotalFiat() {
-        self.view?.setupTotalValue(totalValue: "1500", earnValue: "+100", earnPercent: "+2,1 %")
+        let totalValue = 0
+        let earnValue = -100
+        let earnPercent = 0
+        
+        self.view?.setupTotalValue(totalValue: "\(totalValue)", earnValue: "\(earnValue)", earnPercent: "\(earnPercent) %")
     }
     
     func getCurrencyList() {
