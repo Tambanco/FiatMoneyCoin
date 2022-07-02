@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,28 +80,38 @@
                     <rect key="frame" x="0.0" y="275" width="390" height="569"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIL-c9-OXO">
-                    <rect key="frame" x="311" y="708" width="31" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FR-mD-KKW">
+                    <rect key="frame" x="303" y="694" width="31" height="31"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="capsule"/>
+                    <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                        <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                    </buttonConfiguration>
                     <connections>
-                        <action selector="addButton:" destination="-1" eventType="touchUpInside" id="DMj-9Y-H4j"/>
+                        <action selector="addButton:" destination="-1" eventType="touchUpInside" id="JXP-H3-I1l"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="EsV-Jm-mgG" firstAttribute="leading" secondItem="q7X-Le-t7N" secondAttribute="leading" constant="20" id="CLO-vW-l32"/>
+                <constraint firstItem="2FR-mD-KKW" firstAttribute="top" secondItem="BKx-4f-0nB" secondAttribute="bottom" constant="-150" id="PDQ-mS-5fz"/>
                 <constraint firstItem="EsV-Jm-mgG" firstAttribute="top" secondItem="q7X-Le-t7N" secondAttribute="top" constant="100" id="RaA-pT-JGH"/>
                 <constraint firstItem="BKx-4f-0nB" firstAttribute="leading" secondItem="q7X-Le-t7N" secondAttribute="leading" id="fzW-u0-gqT"/>
                 <constraint firstAttribute="trailing" secondItem="BKx-4f-0nB" secondAttribute="trailing" id="im4-ee-P31"/>
                 <constraint firstAttribute="trailing" secondItem="EsV-Jm-mgG" secondAttribute="trailing" constant="20" id="oi3-WK-AkQ"/>
                 <constraint firstItem="BKx-4f-0nB" firstAttribute="top" secondItem="EsV-Jm-mgG" secondAttribute="bottom" constant="20" id="qO6-su-uEh"/>
+                <constraint firstItem="2FR-mD-KKW" firstAttribute="leading" secondItem="BKx-4f-0nB" secondAttribute="trailing" constant="-87" id="x8b-z3-hFA"/>
                 <constraint firstAttribute="bottom" secondItem="BKx-4f-0nB" secondAttribute="bottom" id="zBg-ut-ErW"/>
             </constraints>
             <point key="canvasLocation" x="73.84615384615384" y="-9.24170616113744"/>
         </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="0bJ-kf-g3d">
+            <rect key="frame" x="0.0" y="0.0" width="67" height="31"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+            <point key="canvasLocation" x="330" y="352"/>
+        </button>
     </objects>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
