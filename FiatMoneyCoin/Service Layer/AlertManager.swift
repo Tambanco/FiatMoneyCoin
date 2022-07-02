@@ -14,7 +14,12 @@ enum AlertManager {
         
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Введите сумму"
-            alertTextField.autocapitalizationType = .sentences
+            alertTextField.keyboardType = .decimalPad
+        }
+        
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Выберите валюту"
+            
         }
 
         let addAction = UIAlertAction(title: "Добавить", style: .default, handler: { action in
