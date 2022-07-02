@@ -13,7 +13,7 @@ import UIKit
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
     func setupTableView(currencyList: [String])
-    func setupTotalValue(totalValue: Double, earnValue: Double, earnPercent: Double)
+    func setupTotalValue(totalValue: String, earnValue: String, earnPercent: String)
     func present(viewControllerToPresent: UIViewController)
 }
 
@@ -36,7 +36,7 @@ class FiatPresenter: FiatPresenterProtocol {
     var model: FiatModel
     
     func caculateTotalFiat() {
-        
+        self.view?.setupTotalValue(totalValue: "1500", earnValue: "+100", earnPercent: "+2,1 %")
     }
     
     func getCurrencyList() {

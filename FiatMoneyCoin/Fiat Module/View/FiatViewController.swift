@@ -17,7 +17,7 @@ class FiatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var fiatTotalView: UIView!
     
-    @IBOutlet weak var totalValu: UILabel!
+    @IBOutlet weak var totalValue: UILabel!
     @IBOutlet weak var earnValue: UILabel!
     @IBOutlet weak var eranPercent: UILabel!
     
@@ -68,8 +68,11 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Binding
 extension FiatViewController: FiatViewProtocol {
-    func setupTotalValue(totalValue: Double, earnValue: Double, earnPercent: Double) {
-        <#code#>
+    func setupTotalValue(totalValue: String, earnValue: String, earnPercent: String) {
+        self.totalValue.text = totalValue
+        self.earnValue.text = earnValue
+        self.eranPercent.text = earnPercent
+        
     }
     
     func present(viewControllerToPresent: UIViewController) {
