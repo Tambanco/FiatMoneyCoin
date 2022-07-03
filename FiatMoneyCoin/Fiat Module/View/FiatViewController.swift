@@ -36,7 +36,7 @@ class FiatViewController: UIViewController {
     
     func setupTotalView() {
         presenter.caculateTotalFiat()
-        fiatTotalView.layer.backgroundColor = UIColor.systemGreen.cgColor
+        fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
         fiatTotalView.layer.cornerRadius = 10
         fiatTotalView.layer.masksToBounds = true
     }
