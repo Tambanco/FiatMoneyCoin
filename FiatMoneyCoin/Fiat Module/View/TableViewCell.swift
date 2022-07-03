@@ -18,15 +18,11 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var earnPercent: UILabel!
     @IBOutlet weak var amountForCell: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-            
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
+        layer.backgroundColor = Constants.backgroundColorCell
+        layer.cornerRadius = 10
+        layer.masksToBounds = true
     }
 }

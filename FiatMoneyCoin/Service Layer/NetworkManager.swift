@@ -40,7 +40,6 @@ final class NetworkManager: NetworkManagerProtocol {
                 print(String(describing: error))
                 return
             }
-//            print(String(data: data, encoding: .utf8)!)
             let json = String(data: data, encoding: .utf8)!.data(using: .utf8)!
             fiatsList = JSONParser.parseJSONCurrencyList(json: json)
             semaphore.signal()

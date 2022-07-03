@@ -24,7 +24,6 @@ class FiatViewController: UIViewController {
     
 	override func viewDidLoad() {
         super.viewDidLoad()
-//        presenter.getConvert()
         setupTableView()
         setupTotalView()
     }

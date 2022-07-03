@@ -21,9 +21,7 @@ class JSONParser: Parcerable {
         
         do {
             let fiatList = try decoder.decode(CurrencyListModel.self, from: json)
-//            print(fiatList)
             fiatsSymbols = fiatList.symbols.compactMap { $0.key }
-//            print(fiats)
         } catch {
             print("parsing failure")
         }
