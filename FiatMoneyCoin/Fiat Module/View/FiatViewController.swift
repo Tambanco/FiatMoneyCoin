@@ -58,10 +58,11 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! TableViewCell
         cell.backgroundColor = .systemTeal
-        cell.amountCurrency.text = String(fiatCurrencyList[indexPath.row])
-        cell.amountBaseCurrency.text = String(1500 * 54)
-        cell.earnPercent.text = "-0.64 %"
-        cell.amountForCell.text = String(1500 * 54)
+        cell.amountCurrency.text = "0"
+        cell.amountBaseCurrency.text = String(0)
+        cell.earnPercent.text = String("0" + " " + "%")
+        cell.amountForCell.text = String(0)
+        cell.amountCurrencySymbol.text = fiatCurrencyList[indexPath.row]
         return cell
     }
 }

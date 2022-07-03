@@ -30,7 +30,6 @@ enum AlertManager {
         
         alert.addAction(addAction)
         alert.addAction(cancelAction)
-        view?.setupTableView(currencyList: ["String"])
         DispatchQueue.main.async {
             view?.present(viewControllerToPresent: alert)
         }
