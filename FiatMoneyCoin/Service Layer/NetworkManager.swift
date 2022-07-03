@@ -20,13 +20,15 @@ enum HTTPMethod: String {
 }
 
 protocol NetworkManagerProtocol: Codable {
-    static func getSymbols()
+    static func getSymbols() -> [String]
     static func getConvert(amount: Float, from: String, to: String)
 }
 
 final class NetworkManager: NetworkManagerProtocol {
-    static func getSymbols() {
+    static func getSymbols() -> [String] {
         let semaphore = DispatchSemaphore (value: 0)
+        
+        var fiatsList: [String] = []
         
         let url = "https://api.apilayer.com/fixer/symbols"
         var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
@@ -38,14 +40,16 @@ final class NetworkManager: NetworkManagerProtocol {
                 print(String(describing: error))
                 return
             }
-            print(String(data: data, encoding: .utf8)!)
+//            print(String(data: data, encoding: .utf8)!)
             let json = String(data: data, encoding: .utf8)!.data(using: .utf8)!
-            JSONParser.parseJSONCurrencyList(json: json)
+            fiatsList = JSONParser.parseJSONCurrencyList(json: json)
             semaphore.signal()
         }
         
         task.resume()
         semaphore.wait()
+        
+        return fiatsList
     }
     
     static func getConvert(amount: Float, from: String, to: String) {

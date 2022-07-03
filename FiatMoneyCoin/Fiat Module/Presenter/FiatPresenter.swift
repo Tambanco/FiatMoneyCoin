@@ -19,7 +19,7 @@ protocol FiatViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
-    var currencyList: [String] { get set }
+    var currencyList: [CurrencyListModel] { get set }
     func getCurrencyList()
     func getConvert()
     func showAddAlert()
@@ -31,7 +31,7 @@ protocol FiatPresenterProtocol: AnyObject {
 class FiatPresenter: FiatPresenterProtocol {
     
     
-    var currencyList: [String] = []
+    var currencyList: [CurrencyListModel] = []
     weak var view: FiatViewProtocol?
     var model: FiatModel
     
@@ -44,7 +44,8 @@ class FiatPresenter: FiatPresenterProtocol {
     }
     
     func getCurrencyList() {
-        NetworkManager.getSymbols()
+        var testArray = NetworkManager.getSymbols()
+        
     }
     
     func showAddAlert() {
