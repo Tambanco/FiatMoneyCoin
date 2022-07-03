@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4919649528718B25000B8D98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919649428718B25000B8D98 /* Constants.swift */; };
 		492F1779286DBDCC00CED477 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F1777286DBDCC00CED477 /* TableViewCell.swift */; };
 		492F177A286DBDCC00CED477 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492F1778286DBDCC00CED477 /* TableViewCell.xib */; };
 		492F177E286E007900CED477 /* CurrencyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F177D286E007900CED477 /* CurrencyListModel.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4919649428718B25000B8D98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		492F1777286DBDCC00CED477 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		492F1778286DBDCC00CED477 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		492F177D286E007900CED477 /* CurrencyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListModel.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4919649628718B32000B8D98 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4919649428718B25000B8D98 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		494F531C286B002100F23709 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 				494F531C286B002100F23709 /* App */,
 				494F5325286B00F100F23709 /* Fiat Module */,
 				494F532A286B0F8800F23709 /* Service Layer */,
+				4919649628718B32000B8D98 /* Utils */,
 			);
 			path = FiatMoneyCoin;
 			sourceTree = "<group>";
@@ -360,6 +371,7 @@
 				492F1779286DBDCC00CED477 /* TableViewCell.swift in Sources */,
 				4968CB8A286AFE780085DDB6 /* SceneDelegate.swift in Sources */,
 				4968CB92286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld in Sources */,
+				4919649528718B25000B8D98 /* Constants.swift in Sources */,
 				494F531E286B00CB00F23709 /* FiatRawModel.swift in Sources */,
 				49C6FE3C286C9C6600D996AE /* FiatModel.swift in Sources */,
 			);
