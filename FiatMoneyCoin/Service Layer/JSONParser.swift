@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol Parcelable: AnyObject {
+protocol Parcerable: AnyObject {
     static func parseJSONCurrencyList(json: Data)
     static func parseJSONConvertedCurrency(json: Data)
 }
 
-class JSONParser: Parcelable {
+class JSONParser: Parcerable {
     static func parseJSONCurrencyList(json: Data) {
         let decoder = JSONDecoder()
         do {
