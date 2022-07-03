@@ -44,8 +44,8 @@ class FiatPresenter: FiatPresenterProtocol {
     }
     
     func getCurrencyList() {
-        var testArray = NetworkManager.getSymbols()
-        
+        let testArray = NetworkManager.getSymbols()
+        view?.setupTableView(currencyList: testArray)
     }
     
     func showAddAlert() {

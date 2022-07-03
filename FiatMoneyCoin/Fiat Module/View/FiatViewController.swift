@@ -66,7 +66,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: - Binding
+// MARK: - Bindings
 extension FiatViewController: FiatViewProtocol {
     func setupTotalValue(totalValue: String, earnValue: String, earnPercent: String) {
         self.totalValue.text = totalValue
@@ -81,5 +81,6 @@ extension FiatViewController: FiatViewProtocol {
     
     func setupTableView(currencyList: [String]) {
         fiatCurrencyList = currencyList
+        self.tableView.reloadData()
     }
 }
