@@ -10,6 +10,6 @@ import UIKit
 class PickerView: UIPickerView {
 
     static func callPickerView(pickerData: [String]) {
-        
+        print("callPickerView")
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum AlertManager {
+class AlertManager {
     static func showAddAlert(title: String, message: String, view: FiatViewProtocol?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
@@ -19,9 +19,9 @@ enum AlertManager {
         
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Выберите валюту"
-            
+            alertTextField.addTarget(self, action: #selector(callPickerView), for: .allTouchEvents)
         }
-
+        
         let addAction = UIAlertAction(title: "Добавить", style: .default, handler: { action in
             print("dobavit")
         })
@@ -34,4 +34,8 @@ enum AlertManager {
             view?.present(viewControllerToPresent: alert)
         }
     }
+    
+    @objc func callPickerView() {
+         PickerView.callPickerView(pickerData: ["USD", "RUB", "EUR"])
+     }
 }
