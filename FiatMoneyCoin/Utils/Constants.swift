@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 struct Constants {
-    static let backgroundColorView: CGColor = UIColor(rgb: 0x659999).cgColor
-    static let backgroundColorCell: CGColor = UIColor(rgb: 0x659999).cgColor
+    static let backgroundColorView: CGColor = UIColor(hexString: "659999").cgColor
+    static let backgroundColorCell: CGColor = UIColor(hexString: "659999").cgColor
 }
