@@ -35,7 +35,3 @@ enum AlertManager {
         }
     }
 }
-
-extension AlertManager: UIPickerViewDelegate {
-    
-}
