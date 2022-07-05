@@ -216,12 +216,36 @@
 		497F53B32874D1B600465DF6 /* CurrencyModule */ = {
 			isa = PBXGroup;
 			children = (
-				497F53AB2874D17700465DF6 /* CurrencyViewController.swift */,
-				497F53AC2874D17700465DF6 /* CurrencyView.xib */,
-				497F53AF2874D18600465DF6 /* CurrencyModel.swift */,
-				497F53B12874D1A700465DF6 /* CurrencyPresenter.swift */,
+				497F53B62874D1F400465DF6 /* View */,
+				497F53B52874D1EC00465DF6 /* Model */,
+				497F53B42874D1E300465DF6 /* Presenter */,
 			);
 			path = CurrencyModule;
+			sourceTree = "<group>";
+		};
+		497F53B42874D1E300465DF6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				497F53B12874D1A700465DF6 /* CurrencyPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		497F53B52874D1EC00465DF6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				497F53AF2874D18600465DF6 /* CurrencyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		497F53B62874D1F400465DF6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				497F53AB2874D17700465DF6 /* CurrencyViewController.swift */,
+				497F53AC2874D17700465DF6 /* CurrencyView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		49C6FE41286D9F8900D996AE /* Model */ = {
