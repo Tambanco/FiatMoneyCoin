@@ -20,15 +20,15 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ap8-Kg-cZS">
-                    <rect key="frame" x="20" y="408" width="350" height="34"/>
+                    <rect key="frame" x="20" y="464" width="350" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                 </textField>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVg-zF-4jd">
-                    <rect key="frame" x="0.0" y="462" width="390" height="216"/>
+                    <rect key="frame" x="0.0" y="518" width="390" height="216"/>
                 </pickerView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Wyv-7M-0LH">
-                    <rect key="frame" x="20" y="698" width="350" height="31"/>
+                    <rect key="frame" x="20" y="754" width="350" height="31"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7Z-4w-8Al">
                             <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="31"/>
@@ -55,7 +55,7 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axI-xH-ZCf">
-                    <rect key="frame" x="16" y="351" width="354" height="37"/>
+                    <rect key="frame" x="16" y="407" width="354" height="37"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                 <constraint firstAttribute="trailing" secondItem="Ap8-Kg-cZS" secondAttribute="trailing" constant="20" id="h8h-ng-2OH"/>
                 <constraint firstItem="dVg-zF-4jd" firstAttribute="top" secondItem="Ap8-Kg-cZS" secondAttribute="bottom" constant="20" id="kAL-yi-lGW"/>
                 <constraint firstItem="Ap8-Kg-cZS" firstAttribute="top" secondItem="axI-xH-ZCf" secondAttribute="bottom" constant="20" id="ovv-kV-Lqk"/>
-                <constraint firstAttribute="bottom" secondItem="axI-xH-ZCf" secondAttribute="bottom" constant="456" id="pHy-Yl-bMw"/>
+                <constraint firstAttribute="bottom" secondItem="axI-xH-ZCf" secondAttribute="bottom" constant="400" id="pHy-Yl-bMw"/>
                 <constraint firstItem="Ap8-Kg-cZS" firstAttribute="leading" secondItem="q7X-Le-t7N" secondAttribute="leading" constant="20" id="rXP-f2-srP"/>
                 <constraint firstAttribute="trailing" secondItem="Wyv-7M-0LH" secondAttribute="trailing" constant="20" id="uRH-nR-scV"/>
                 <constraint firstAttribute="trailing" secondItem="dVg-zF-4jd" secondAttribute="trailing" id="xQE-y8-3il"/>
