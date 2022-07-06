@@ -44,8 +44,12 @@ class FiatPresenter: FiatPresenterProtocol {
     }
     
     func getCurrencyList() {
-        let testArray = NetworkManager.getSymbols()
-        view?.setupTableView(currencyList: testArray)
+        let testArray = NetworkManager.getSymbols() //массив валют []
+        let addCurrencyVC = ModuleBuilder.createCurrencyModule()
+        view?.present(viewControllerToPresent: addCurrencyVC)
+        
+//        view?.setupTableView(currencyList: testArray)
+        
     }
     
     func showAddAlert() {

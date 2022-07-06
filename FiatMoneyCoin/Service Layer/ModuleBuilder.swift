@@ -10,6 +10,7 @@ import UIKit
 
 protocol Builder: AnyObject {
     static func createFiatModule() -> UIViewController
+    static func createCurrencyModule() -> UIViewController
 }
 
 class ModuleBuilder: Builder {
@@ -22,8 +23,8 @@ class ModuleBuilder: Builder {
     }
     
     static func createCurrencyModule() -> UIViewController {
-        let currencyListTest = ["USD", "EUR", "GBP"]
-        let model = CurrencyModel(amount: 0, symbols: currencyListTest)
+        let currencyListTest: [String] = []
+        let model = CurrencyModel(amount: "", symbols: currencyListTest)
         let view = CurrencyViewController()
         let presenter = CurrencyPresenter(view: view, model: model)
         view.presenter = presenter

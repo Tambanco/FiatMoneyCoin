@@ -29,8 +29,6 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
         view?.setTotalValue(value: String(model.amount), currencyList: model.symbols)
     }
     
-    // Enter buisness logic here
-    
     required init(view: CurrencyViewProtocol, model: CurrencyModel) {
         self.view = view
         self.model = model
