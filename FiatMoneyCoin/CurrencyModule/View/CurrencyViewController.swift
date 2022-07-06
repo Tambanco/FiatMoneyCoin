@@ -21,7 +21,7 @@ class CurrencyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        presenter.getCurrencyList()
+        presenter.getCurrencyList()
         setupCurrencyView()
         setupPickerView()
     }
@@ -44,7 +44,6 @@ class CurrencyViewController: UIViewController {
     func setupPickerView() {
         currencyPV.delegate = self
         currencyPV.dataSource = self
-        
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {

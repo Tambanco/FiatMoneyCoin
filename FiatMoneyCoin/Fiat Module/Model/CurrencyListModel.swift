@@ -9,5 +9,5 @@ import Foundation
 
 struct CurrencyListModel: Codable {
     let success: Bool
-    let symbols: [String: String]
+    let symbols: [String : String]
 }

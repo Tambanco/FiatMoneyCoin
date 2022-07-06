@@ -30,9 +30,6 @@ class FiatViewController: UIViewController {
     
     @IBAction func addButton(_ sender: UIButton) {
         presenter.getCurrencyList()
-//        presenter.showAddAlert()
-//        let addCurrencyVC = ModuleBuilder.createCurrencyModule()
-//        present(addCurrencyVC, animated: true, completion: nil)
     }
     
     func setupTotalView() {
@@ -43,7 +40,6 @@ class FiatViewController: UIViewController {
     }
     
     func setupTableView() {
-//        tableView.backgroundColor = .systemRed
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "FiatCell")
         tableView.delegate = self
         tableView.dataSource = self
