@@ -33,7 +33,6 @@ class FiatViewController: UIViewController {
         presenter.showAddAlert()
         let addCurrencyVC = ModuleBuilder.createCurrencyModule()
         present(addCurrencyVC, animated: true, completion: nil)
-        
     }
     
     func setupTotalView() {

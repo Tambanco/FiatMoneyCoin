@@ -21,20 +21,17 @@ class CurrencyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.getCurrencyList()
         setupCurrencyView()
         setupPickerView()
-        presenter.getCurrencyList()
-    
     }
     
     func  setupCurrencyView() {
-        
     }
     
     func setupPickerView() {
-        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-        pickerView.dataSource = self
-        pickerView.delegate = self
+        currencyPV.delegate = self
+        currencyPV.dataSource = self
         
     }
     
@@ -51,26 +48,19 @@ extension CurrencyViewController: CurrencyViewProtocol {
     func setTotalValue(value: String, currencyList: [String]) {
         self.totalValue = value
         self.currencyList = currencyList
-        
-        addCurrencyTF.text = totalValue
     }
 }
 
 extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        0
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return currencyList.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 30))
-        label.text = currencyList[row]
-        label.sizeToFit()
-        return label
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return currencyList[row]
     }
-    
-    
 }
