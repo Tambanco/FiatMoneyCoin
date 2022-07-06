@@ -188,8 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				494F531C286B002100F23709 /* App */,
-				494F5325286B00F100F23709 /* Fiat Module */,
 				494F532A286B0F8800F23709 /* Service Layer */,
+				494F5325286B00F100F23709 /* Fiat Module */,
 				4919649628718B32000B8D98 /* Utils */,
 				497F53B32874D1B600465DF6 /* CurrencyModule */,
 			);

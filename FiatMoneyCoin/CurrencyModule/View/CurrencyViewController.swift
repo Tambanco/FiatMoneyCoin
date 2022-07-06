@@ -12,14 +12,65 @@ import UIKit
 class CurrencyViewController: UIViewController {
 
 	var presenter: CurrencyPresenterProtocol!
+    
+    var totalValue: String = ""
+    var currencyList: [String] = []
 
-	override func viewDidLoad() {
+    @IBOutlet weak var addCurrencyTF: UITextField!
+    @IBOutlet weak var currencyPV: UIPickerView!
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
+        setupCurrencyView()
+        setupPickerView()
+        presenter.getCurrencyList()
+    
+    }
+    
+    func  setupCurrencyView() {
         
+    }
+    
+    func setupPickerView() {
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        
+    }
+    
+    @IBAction func cancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func addButton(_ sender: UIButton) {
     }
 }
 
 // MARK: - Binding
 extension CurrencyViewController: CurrencyViewProtocol {
+    func setTotalValue(value: String, currencyList: [String]) {
+        self.totalValue = value
+        self.currencyList = currencyList
+        
+        addCurrencyTF.text = totalValue
+    }
+}
+
+extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return currencyList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 30))
+        label.text = currencyList[row]
+        label.sizeToFit()
+        return label
+    }
+    
     
 }

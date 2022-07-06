@@ -11,19 +11,23 @@ import Foundation
 
 // MARK: Output protocol
 protocol CurrencyViewProtocol: AnyObject {
-
+    func setTotalValue(value: String, currencyList: [String])
 }
 
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
     init(view: CurrencyViewProtocol, model:  CurrencyModel)
-
+    func getCurrencyList()
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
-
+    
     weak var view: CurrencyViewProtocol?
     var model: CurrencyModel
+    
+    func getCurrencyList() {
+        view?.setTotalValue(value: String(model.amount), currencyList: model.symbols)
+    }
     
     // Enter buisness logic here
     

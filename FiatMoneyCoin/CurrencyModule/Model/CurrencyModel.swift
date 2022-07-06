@@ -10,5 +10,6 @@
 import Foundation
 
 struct CurrencyModel {
-    
+    var amount: Double
+    let symbols: [String]
 }

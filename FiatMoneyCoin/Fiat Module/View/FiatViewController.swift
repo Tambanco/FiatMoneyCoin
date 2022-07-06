@@ -31,6 +31,9 @@ class FiatViewController: UIViewController {
     @IBAction func addButton(_ sender: UIButton) {
 //        presenter.getCurrencyList()
         presenter.showAddAlert()
+        let addCurrencyVC = ModuleBuilder.createCurrencyModule()
+        present(addCurrencyVC, animated: true, completion: nil)
+        
     }
     
     func setupTotalView() {

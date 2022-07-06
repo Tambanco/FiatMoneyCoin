@@ -20,4 +20,13 @@ class ModuleBuilder: Builder {
         view.presenter = presenter
         return view
     }
+    
+    static func createCurrencyModule() -> UIViewController {
+        let currencyListTest = ["USD", "EUR", "GBP"]
+        let model = CurrencyModel(amount: 0, symbols: currencyListTest)
+        let view = CurrencyViewController()
+        let presenter = CurrencyPresenter(view: view, model: model)
+        view.presenter = presenter
+        return view
+    }
 }
