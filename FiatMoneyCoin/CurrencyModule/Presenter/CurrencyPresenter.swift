@@ -8,22 +8,33 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: Output protocol
 protocol CurrencyViewProtocol: AnyObject {
     func setTotalValue(value: String, currencyList: [String])
+    func present(viewControllerToPresent: UIViewController)
 }
 
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
     init(view: CurrencyViewProtocol, model:  CurrencyModel)
     func getCurrencyList()
+    func showFiatView(amount: String, symbol: String)
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
     
+    
+    
     weak var view: CurrencyViewProtocol?
     var model: CurrencyModel
+    
+    func showFiatView(amount: String, symbol: String) {
+        let fiatVC = ModuleBuilder.createFiatModule(amount: amount, currencySymbol: symbol)
+        fiatVC.modalPresentationStyle = .fullScreen
+        view?.present(viewControllerToPresent: fiatVC)
+    }
     
     func getCurrencyList() {
         view?.setTotalValue(value: String(model.amount), currencyList: model.symbols)

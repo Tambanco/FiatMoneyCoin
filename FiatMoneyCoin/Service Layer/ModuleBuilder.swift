@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 protocol Builder: AnyObject {
-    static func createFiatModule() -> UIViewController
+    static func createFiatModule(amount: String, currencySymbol: String) -> UIViewController
     static func createCurrencyModule(amount: String, currencyList: [String]) -> UIViewController
 }
 
 class ModuleBuilder: Builder {
-    static func createFiatModule() -> UIViewController {
-        let model = FiatModel(amount: 0, from: "EUR", to: "RUB")
+    static func createFiatModule(amount: String, currencySymbol: String) -> UIViewController {
+        let model = FiatModel(amount: amount, symbol: currencySymbol)
         let view = FiatViewController()
         let presenter = FiatPresenter(view: view, model: model)
         view.presenter = presenter

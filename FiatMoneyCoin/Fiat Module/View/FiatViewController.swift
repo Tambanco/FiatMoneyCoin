@@ -12,6 +12,7 @@ import UIKit
 class FiatViewController: UIViewController {
 
 	var presenter: FiatPresenterProtocol!
+    var amountCell: String = ""
     var fiatCurrencyList: [String] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -56,7 +57,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! TableViewCell
         cell.backgroundColor = .systemTeal
-        cell.amountCurrency.text = "0"
+        cell.amountCurrency.text = amountCell
         cell.amountBaseCurrency.text = String(0)
         cell.earnPercent.text = String("0" + " " + "%")
         cell.amountForCell.text = String(0)
