@@ -10,22 +10,23 @@
 import Foundation
 
 struct FiatRawModel: Codable {
+    let motd: MOTD
     let success: Bool
-    let query: Query
-    let info: Info
-    let date: String
-    let result: Double
+    let symbols: [String: Symbol]
 }
 
-// MARK: - Info
-struct Info: Codable {
-    let timestamp: Int
-    let rate: Double
+struct MOTD: Codable {
+    let msg: String
+    let url: String
 }
 
-// MARK: - Query
-struct Query: Codable {
-    let from, to: String
-    let amount: Int
+struct Symbol: Codable {
+    let symbolDescription: String
+    let code: String
+    
+    enum CodingKeys: String, CodingKey {
+        case symbolDescription = "description"
+        case code
+    }
 }
 

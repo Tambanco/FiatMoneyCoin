@@ -19,10 +19,8 @@ protocol FiatViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
-    var currencyList: [CurrencyListModel] { get set }
+//    var currencyList: [CurrencyListModel] { get set }
     func getCurrencyList()
-    func getConvert()
-    func showAddAlert()
     func caculateTotalFiat()
     init(view: FiatViewProtocol, model:  FiatModel)
 
@@ -30,7 +28,7 @@ protocol FiatPresenterProtocol: AnyObject {
 
 class FiatPresenter: FiatPresenterProtocol {
     
-    var currencyList: [CurrencyListModel] = []
+//    var currencyList: [CurrencyListModel] = []
     weak var view: FiatViewProtocol?
     var model: FiatModel
     
@@ -46,14 +44,6 @@ class FiatPresenter: FiatPresenterProtocol {
         let currencyList = NetworkManager.getSymbols()
         let addCurrencyVC = ModuleBuilder.createCurrencyModule(amount: "0", currencyList: currencyList)
         view?.present(viewControllerToPresent: addCurrencyVC)
-    }
-    
-    func showAddAlert() {
-        AlertManager.showAddAlert(title: "Currency List", message: "", view: view)
-    }
-    
-    func getConvert() {
-        NetworkManager.getConvert(amount: 1500, from: "EUR", to: "RUB")
     }
     
     required init(view: FiatViewProtocol, model: FiatModel) {

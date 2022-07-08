@@ -9,7 +9,6 @@ import Foundation
 
 protocol Parcerable: AnyObject {
     static func parseJSONCurrencyList(json: Data) -> [String]
-    static func parseJSONConvertedCurrency(json: Data)
 }
 
 class JSONParser: Parcerable {
@@ -20,23 +19,13 @@ class JSONParser: Parcerable {
         var fiatsSymbols: [String] = []
         
         do {
-            let fiatList = try decoder.decode(CurrencyListModel.self, from: json)
-            fiatsSymbols = fiatList.symbols.compactMap{ "\($0) \($1)" }.sorted()
+            let fiatList = try decoder.decode(FiatRawModel.self, from: json)
+            fiatsSymbols = fiatList.symbols.compactMap{ "\($0.description) \($1.symbolDescription)" }.sorted()
             
         } catch {
             print("parsing failure")
         }
         
         return fiatsSymbols
-    }
-    
-    static func parseJSONConvertedCurrency(json: Data) {
-        let decoder = JSONDecoder()
-        do {
-            let convertedCurrency = try decoder.decode(FiatRawModel.self, from: json)
-            print(convertedCurrency)
-        } catch {
-            print("parsing failure")
-        }
     }
 }
