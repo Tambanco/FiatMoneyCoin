@@ -17,7 +17,6 @@ class FiatViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var fiatTotalView: UIView!
-    
     @IBOutlet weak var totalValue: UILabel!
     @IBOutlet weak var earnValue: UILabel!
     @IBOutlet weak var eranPercent: UILabel!
@@ -34,7 +33,7 @@ class FiatViewController: UIViewController {
     }
     
     func setupTotalView() {
-        presenter.caculateTotalFiat()
+//        presenter.caculateTotalFiat()
         fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
         fiatTotalView.layer.cornerRadius = 10
         fiatTotalView.layer.masksToBounds = true

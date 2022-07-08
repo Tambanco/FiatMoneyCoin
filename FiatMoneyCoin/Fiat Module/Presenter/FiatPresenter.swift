@@ -19,7 +19,6 @@ protocol FiatViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
-//    var currencyList: [CurrencyListModel] { get set }
     func getCurrencyList()
     func caculateTotalFiat()
     init(view: FiatViewProtocol, model:  FiatModel)
@@ -27,8 +26,6 @@ protocol FiatPresenterProtocol: AnyObject {
 }
 
 class FiatPresenter: FiatPresenterProtocol {
-    
-//    var currencyList: [CurrencyListModel] = []
     weak var view: FiatViewProtocol?
     var model: FiatModel
     

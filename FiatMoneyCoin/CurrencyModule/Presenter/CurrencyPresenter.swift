@@ -29,7 +29,8 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     var model: CurrencyModel
     
     func showFiatView(amount: String, symbol: String) {
-        let fiatVC = ModuleBuilder.createFiatModule(amount: amount, currencySymbol: symbol)
+//        let fiatVC = ModuleBuilder.createFiatModule(amount: amount, currencySymbol: symbol)
+        let fiatVC = FiatViewController()
         fiatVC.modalPresentationStyle = .fullScreen
         view?.present(viewControllerToPresent: fiatVC)
     }
