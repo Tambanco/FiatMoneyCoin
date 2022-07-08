@@ -30,7 +30,6 @@ protocol FiatPresenterProtocol: AnyObject {
 
 class FiatPresenter: FiatPresenterProtocol {
     
-    
     var currencyList: [CurrencyListModel] = []
     weak var view: FiatViewProtocol?
     var model: FiatModel
@@ -52,7 +51,6 @@ class FiatPresenter: FiatPresenterProtocol {
     func showAddAlert() {
         AlertManager.showAddAlert(title: "Currency List", message: "", view: view)
     }
-    
     
     func getConvert() {
         NetworkManager.getConvert(amount: 1500, from: "EUR", to: "RUB")

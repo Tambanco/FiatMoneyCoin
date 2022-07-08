@@ -25,8 +25,6 @@ protocol CurrencyPresenterProtocol: AnyObject {
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
     
-    
-    
     weak var view: CurrencyViewProtocol?
     var model: CurrencyModel
     
