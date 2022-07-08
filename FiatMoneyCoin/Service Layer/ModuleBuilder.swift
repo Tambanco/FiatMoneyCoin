@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-protocol Builder: AnyObject {
+protocol AssemblyBuilderProtocol: AnyObject {
     static func createFiatModule(amount: String, currencySymbol: String) -> UIViewController
     static func createCurrencyModule(amount: String, currencyList: [String]) -> UIViewController
 }
 
-class ModuleBuilder: Builder {
+class ModuleBuilder: AssemblyBuilderProtocol {
     static func createFiatModule(amount: String, currencySymbol: String) -> UIViewController {
         let model = FiatModel(amount: amount, symbol: currencySymbol)
         let view = FiatViewController()
