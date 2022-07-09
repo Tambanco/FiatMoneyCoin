@@ -13,7 +13,7 @@ protocol AssemblyBuilderProtocol: AnyObject {
     static func createCurrencyModule(amount: String, currencyList: [String]) -> UIViewController
 }
 
-class ModuleBuilder: AssemblyBuilderProtocol {
+class AssemblyModuleBuilder: AssemblyBuilderProtocol {
     static func createFiatModule(amount: String, currencySymbol: String) -> UIViewController {
         let model = FiatModel(amount: amount, symbol: currencySymbol)
         let view = FiatViewController()

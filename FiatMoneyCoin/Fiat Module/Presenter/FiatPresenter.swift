@@ -39,7 +39,7 @@ class FiatPresenter: FiatPresenterProtocol {
     
     func getCurrencyList() {
         let currencyList = NetworkManager.getSymbols()
-        let addCurrencyVC = ModuleBuilder.createCurrencyModule(amount: "0", currencyList: currencyList)
+        let addCurrencyVC = AssemblyModuleBuilder.createCurrencyModule(amount: "0", currencyList: currencyList)
         view?.present(viewControllerToPresent: addCurrencyVC)
     }
     
