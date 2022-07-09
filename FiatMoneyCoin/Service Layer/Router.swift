@@ -15,11 +15,12 @@ protocol RouterMain {
 
 protocol RouterProtocol: RouterMain {
     func initialViewController()
-    func showCurrencyView(amount: String, symbol: String)
+    func showCurrencyView(symbol: [String])
     func popToRoot()
 }
 
 class Router: RouterProtocol {
+    
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
     
@@ -30,18 +31,21 @@ class Router: RouterProtocol {
     
     func initialViewController() {
         if let navigationController = navigationController {
-            guard let mainViewController = assemblyBuilder else { return }
+            guard let fiatViewController = assemblyBuilder?.createFiatModule(router: self, amount: "0", currencySymbol: "foo") else { return }
+            navigationController.viewControllers = [fiatViewController]
         }
     }
     
-    func showCurrencyView(amount: String, symbol: String) {
-        <#code#>
+    func showCurrencyView(symbol: [String]) {
+        if let navigationController = navigationController {
+            guard let currencyViewController = assemblyBuilder?.createCurrencyModule(router: self, currencyList: symbol) else { return }
+            navigationController.pushViewController(currencyViewController, animated: true)
+        }
     }
     
     func popToRoot() {
-        <#code#>
+        if let navigationController = navigationController {
+            navigationController.popToRootViewController(animated: true)
+        }
     }
-    
-    
-    
 }

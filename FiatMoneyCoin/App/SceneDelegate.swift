@@ -16,7 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = AssemblyModuleBuilder.createFiatModule(amount: "bar", currencySymbol: "baz")
+        let assemblyBuilder = AssemblyModuleBuilder()
+        let fiatViewController = FiatViewController()
+        let navigationController = UINavigationController(rootViewController: fiatViewController)
+        let router = Router(navigationController: navigationController, assemblyBuilder: assemblyBuilder)
+        window?.rootViewController = assemblyBuilder.createFiatModule(router: router, amount: "bar", currencySymbol: "baz")
         window?.rootViewController?.view.backgroundColor = .white
         window?.makeKeyAndVisible()
     }
