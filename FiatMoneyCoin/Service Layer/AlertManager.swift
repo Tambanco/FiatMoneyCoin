@@ -31,7 +31,7 @@ class AlertManager {
         alert.addAction(addAction)
         alert.addAction(cancelAction)
         DispatchQueue.main.async {
-            view?.present(viewControllerToPresent: alert)
+//            view?.present(viewControllerToPresent: alert)
         }
     }
     

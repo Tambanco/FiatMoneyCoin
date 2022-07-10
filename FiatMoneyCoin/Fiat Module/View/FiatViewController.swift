@@ -33,7 +33,7 @@ class FiatViewController: UIViewController {
     }
     
     func setupTotalView() {
-//        presenter.caculateTotalFiat()
+        presenter.caculateTotalFiat()
         fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
         fiatTotalView.layer.cornerRadius = 10
         fiatTotalView.layer.masksToBounds = true
@@ -71,11 +71,6 @@ extension FiatViewController: FiatViewProtocol {
         self.totalValue.text = totalValue
         self.earnValue.text = earnValue
         self.eranPercent.text = earnPercent
-        
-    }
-    
-    func present(viewControllerToPresent: UIViewController) {
-        self.present(viewControllerToPresent, animated: true)
     }
     
     func setupTableView(currencyList: [String]) {

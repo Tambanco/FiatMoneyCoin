@@ -18,11 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let assemblyBuilder = AssemblyModuleBuilder()
         let navigationController = UINavigationController()
         let router = Router(navigationController: navigationController, assemblyBuilder: assemblyBuilder)
-        let amountForCell = ["foo": "bar"]
-        let fiatViewController = assemblyBuilder.createFiatModule(router: router, amountForCell: amountForCell)
-        navigationController.viewControllers = [fiatViewController]
+        router.initialViewController()
+        navigationController.view.backgroundColor = .systemGray
         window?.rootViewController = navigationController
-        window?.rootViewController?.view.backgroundColor = .white
         window?.makeKeyAndVisible()
     }
 }

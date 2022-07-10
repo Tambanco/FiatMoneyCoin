@@ -15,7 +15,7 @@ class CurrencyViewController: UIViewController {
     
     var totalValue: String = ""
     var currencyList: [String] = []
-    var amountValueForCell: String = ""
+    var newValueForCell: String = ""
     var symbol: String = ""
     
     
@@ -54,7 +54,7 @@ class CurrencyViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        presenter.showFiatView(amount: amountValueForCell, symbol: symbol)
+        presenter.updateFiatView(newValueForCell: newValueForCell, symbol: symbol)
     }
 }
 
@@ -85,6 +85,6 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         symbol = currencyList[row] as String
-        amountValueForCell = addCurrencyTF.text ?? "foo"
+        newValueForCell = addCurrencyTF.text ?? "foo"
     }
 }

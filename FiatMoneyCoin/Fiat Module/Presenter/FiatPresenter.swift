@@ -14,7 +14,6 @@ import UIKit
 protocol FiatViewProtocol: AnyObject {
     func setupTableView(currencyList: [String])
     func setupTotalValue(totalValue: String, earnValue: String, earnPercent: String)
-    func present(viewControllerToPresent: UIViewController)
 }
 
 // MARK: Input protocol
@@ -40,6 +39,7 @@ class FiatPresenter: FiatPresenterProtocol {
     func getCurrencyList() {
         let currencyList = NetworkManager.getSymbols()
         router?.showCurrencyView(symbol: currencyList)
+        
     }
     
     required init(router: RouterProtocol, view: FiatViewProtocol, model:  FiatModel) {

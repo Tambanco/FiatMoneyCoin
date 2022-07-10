@@ -20,22 +20,18 @@ protocol CurrencyViewProtocol: AnyObject {
 protocol CurrencyPresenterProtocol: AnyObject {
     init(router: RouterProtocol, view: CurrencyViewProtocol, model:  CurrencyModel)
     func getCurrencyList()
-    func showFiatView(amount: String, symbol: String)
+    func updateFiatView(newValueForCell: String, symbol: String)
     func cancelAdding()
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
-    
-    
     weak var view: CurrencyViewProtocol?
     var router: RouterProtocol?
     var model: CurrencyModel
     
-    func showFiatView(amount: String, symbol: String) {
-//        let fiatVC = ModuleBuilder.createFiatModule(amount: amount, currencySymbol: symbol)
-//        let fiatVC = FiatViewController()
-//        fiatVC.modalPresentationStyle = .fullScreen
-//        view?.present(viewControllerToPresent: fiatVC)
+    func updateFiatView(newValueForCell: String, symbol: String) {
+        router?.setFiatView(amount: newValueForCell, symbol: symbol)
+        router?.popToRoot()
     }
     
     func getCurrencyList() {
