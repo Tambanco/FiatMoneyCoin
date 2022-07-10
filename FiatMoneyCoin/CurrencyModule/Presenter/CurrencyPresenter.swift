@@ -18,7 +18,7 @@ protocol CurrencyViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
-    init(view: CurrencyViewProtocol, model:  CurrencyModel)
+    init(router: RouterProtocol, view: CurrencyViewProtocol, model:  CurrencyModel)
     func getCurrencyList()
     func showFiatView(amount: String, symbol: String)
 }
@@ -26,6 +26,7 @@ protocol CurrencyPresenterProtocol: AnyObject {
 class CurrencyPresenter: CurrencyPresenterProtocol {
     
     weak var view: CurrencyViewProtocol?
+    var router: RouterProtocol?
     var model: CurrencyModel
     
     func showFiatView(amount: String, symbol: String) {
@@ -36,10 +37,11 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     }
     
     func getCurrencyList() {
-        view?.setTotalValue(value: String(model.amount), currencyList: model.symbols)
+//        view?.setTotalValue(value: String(model.amount), currencyList: model.symbols)
     }
     
-    required init(view: CurrencyViewProtocol, model: CurrencyModel) {
+    required init(router: RouterProtocol, view: CurrencyViewProtocol, model: CurrencyModel) {
+        self.router = router
         self.view = view
         self.model = model
     }

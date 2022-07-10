@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol RouterMain {
-    var navigationController: UINavigationController? { get set }
+//    var navigationController: UINavigationController? { get set }
     var assemblyBuilder: AssemblyBuilderProtocol? { get set }
 }
 
@@ -31,8 +31,8 @@ class Router: RouterProtocol {
     
     func initialViewController() {
         if let navigationController = navigationController {
-            guard let fiatViewController = assemblyBuilder?.createFiatModule(router: self, amount: "0", currencySymbol: "foo") else { return }
-            navigationController.viewControllers = [fiatViewController]
+            guard let fiatViewController = assemblyBuilder?.createFiatModule(router: self, amountForCell: ["String" : "String"]) else { return }
+            navigationController.pushViewController(fiatViewController, animated: true)
         }
     }
     

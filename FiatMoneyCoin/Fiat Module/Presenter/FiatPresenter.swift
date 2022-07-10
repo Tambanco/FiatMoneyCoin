@@ -21,8 +21,7 @@ protocol FiatViewProtocol: AnyObject {
 protocol FiatPresenterProtocol: AnyObject {
     func getCurrencyList()
     func caculateTotalFiat()
-    init(view: FiatViewProtocol, model:  FiatModel, router: RouterProtocol)
-
+    init(router: RouterProtocol, view: FiatViewProtocol, model:  FiatModel)
 }
 
 class FiatPresenter: FiatPresenterProtocol {
@@ -41,12 +40,9 @@ class FiatPresenter: FiatPresenterProtocol {
     func getCurrencyList() {
         let currencyList = NetworkManager.getSymbols()
         router?.showCurrencyView(symbol: currencyList)
-//        let assemblyBuilder = AssemblyModuleBuilder()
-//        let addCurrencyVC = assemblyBuilder.createCurrencyModule(router: , amount: "0", currencyList: currencyList)
-//        view?.present(viewControllerToPresent: addCurrencyVC)
     }
     
-    required init(view: FiatViewProtocol, model: FiatModel, router: RouterProtocol) {
+    required init(router: RouterProtocol, view: FiatViewProtocol, model:  FiatModel) {
         self.view = view
         self.model = model
         self.router = router
