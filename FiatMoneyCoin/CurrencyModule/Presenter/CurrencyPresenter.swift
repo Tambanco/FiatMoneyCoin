@@ -12,7 +12,7 @@ import UIKit
 
 // MARK: Output protocol
 protocol CurrencyViewProtocol: AnyObject {
-    func setTotalValue(value: String, currencyList: [String])
+    func setTotalValue(currencyList: [String])
     func present(viewControllerToPresent: UIViewController)
 }
 
@@ -21,9 +21,11 @@ protocol CurrencyPresenterProtocol: AnyObject {
     init(router: RouterProtocol, view: CurrencyViewProtocol, model:  CurrencyModel)
     func getCurrencyList()
     func showFiatView(amount: String, symbol: String)
+    func cancelAdding()
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
+    
     
     weak var view: CurrencyViewProtocol?
     var router: RouterProtocol?
@@ -31,13 +33,17 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     
     func showFiatView(amount: String, symbol: String) {
 //        let fiatVC = ModuleBuilder.createFiatModule(amount: amount, currencySymbol: symbol)
-        let fiatVC = FiatViewController()
-        fiatVC.modalPresentationStyle = .fullScreen
-        view?.present(viewControllerToPresent: fiatVC)
+//        let fiatVC = FiatViewController()
+//        fiatVC.modalPresentationStyle = .fullScreen
+//        view?.present(viewControllerToPresent: fiatVC)
     }
     
     func getCurrencyList() {
-//        view?.setTotalValue(value: String(model.amount), currencyList: model.symbols)
+        view?.setTotalValue(currencyList: model.symbols)
+    }
+    
+    func cancelAdding() {
+        router?.popToRoot()
     }
     
     required init(router: RouterProtocol, view: CurrencyViewProtocol, model: CurrencyModel) {

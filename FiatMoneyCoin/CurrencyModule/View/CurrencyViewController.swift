@@ -50,7 +50,7 @@ class CurrencyViewController: UIViewController {
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        presenter.cancelAdding()
     }
     
     @IBAction func addButton(_ sender: UIButton) {
@@ -65,8 +65,7 @@ extension CurrencyViewController: CurrencyViewProtocol {
         self.present(viewControllerToPresent, animated: true)
     }
     
-    func setTotalValue(value: String, currencyList: [String]) {
-        self.totalValue = value
+    func setTotalValue(currencyList: [String]) {
         self.currencyList = currencyList
     }
 }
