@@ -14,6 +14,9 @@ protocol RouterMain {
 }
 
 protocol RouterProtocol: RouterMain {
+    
+    var currencySymbol: String? { get set }
+    
     func initialViewController()
     func showCurrencyView(symbol: [String])
     func updateFiatView(amount: String, symbol: String)
@@ -21,6 +24,7 @@ protocol RouterProtocol: RouterMain {
 }
 
 class Router: RouterProtocol {
+    var currencySymbol: String?
     
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
@@ -45,10 +49,8 @@ class Router: RouterProtocol {
     }
     
     func updateFiatView(amount: String, symbol: String) {
-        if let navigationController = navigationController {
-            guard let fiatViewController = assemblyBuilder?.createFiatModule(router: self, newValueForCell: amount, symbol: symbol) else { return }
-            navigationController.pushViewController(fiatViewController, animated: true)
-        }
+        currencySymbol = symbol
+        popToRoot()
     }
     
     func popToRoot() {

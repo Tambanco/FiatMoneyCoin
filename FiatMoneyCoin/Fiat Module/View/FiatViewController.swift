@@ -26,6 +26,10 @@ class FiatViewController: UIViewController {
         setupTableView()
         setupTotalView()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.fetchCurrency()
+    }
     
     @IBAction func addButton(_ sender: UIButton) {
         presenter.getCurrencyList()
@@ -72,8 +76,8 @@ extension FiatViewController: FiatViewProtocol {
         self.eranPercent.text = earnPercent
     }
     
-    func setupTableView(currencyList: [String]) {
-        fiatCurrencyList = currencyList
+    func addNewCurrency(currencyList: String) {
+        fiatCurrencyList.append(currencyList)
         self.tableView.reloadData()
     }
 }
