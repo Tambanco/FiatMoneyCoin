@@ -12,9 +12,7 @@ protocol Parcerable: AnyObject {
 }
 
 class JSONParser: Parcerable {
-    
     static func parseJSONCurrencyList(json: Data) -> [String] {
-
         let decoder = JSONDecoder()
         var fiatsSymbols: [String] = []
         

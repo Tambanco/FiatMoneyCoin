@@ -14,7 +14,6 @@ protocol RouterMain {
 }
 
 protocol RouterProtocol: RouterMain {
-    
     var currencySymbol: String? { get set }
     
     func initialViewController()
@@ -25,7 +24,6 @@ protocol RouterProtocol: RouterMain {
 
 class Router: RouterProtocol {
     var currencySymbol: String?
-    
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
     

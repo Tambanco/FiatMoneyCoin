@@ -34,7 +34,6 @@ final class NetworkManager: NetworkManagerProtocol {
             fiatsList = JSONParser.parseJSONCurrencyList(json: json)
             semaphore.signal()
         }
-        
         task.resume()
         semaphore.wait()
         
