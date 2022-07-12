@@ -15,14 +15,16 @@ protocol RouterMain {
 
 protocol RouterProtocol: RouterMain {
     var currencySymbol: String? { get set }
+    var currencyValue: String? { get set }
     
     func initialViewController()
     func showCurrencyView(symbol: [String])
-    func updateFiatView(amount: String, symbol: String)
+    func setNewValues(value: String, symbol: String)
     func popToRoot()
 }
 
 class Router: RouterProtocol {
+    var currencyValue: String?
     var currencySymbol: String?
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
@@ -46,7 +48,8 @@ class Router: RouterProtocol {
         }
     }
     
-    func updateFiatView(amount: String, symbol: String) {
+    func setNewValues(value: String, symbol: String) {
+        currencyValue = value
         currencySymbol = symbol
         popToRoot()
     }

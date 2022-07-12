@@ -20,7 +20,7 @@ protocol CurrencyViewProtocol: AnyObject {
 protocol CurrencyPresenterProtocol: AnyObject {
     init(router: RouterProtocol, view: CurrencyViewProtocol, model:  CurrencyModel)
     func getCurrencyList()
-    func setNewValueForFiatCell(newValueForCell: String, symbol: String)
+    func setNewValueForCurrency(newCurrencyValue: String, newCurrencySymbol: String)
     func cancelAdding()
 }
 
@@ -29,8 +29,8 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     var router: RouterProtocol?
     var model: CurrencyModel
     
-    func setNewValueForFiatCell(newValueForCell: String, symbol: String) {
-        router?.updateFiatView(amount: newValueForCell, symbol: symbol)
+    func setNewValueForCurrency(newCurrencyValue: String, newCurrencySymbol: String) {
+        router?.setNewValues(value: newCurrencyValue, symbol: newCurrencySymbol)
     }
     
     func getCurrencyList() {

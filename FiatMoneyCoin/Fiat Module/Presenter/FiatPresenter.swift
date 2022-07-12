@@ -12,7 +12,7 @@ import UIKit
 
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
-    func addNewCurrency(currencyList: String)
+    func addNewCurrency(value: String, symbol: String)
     func setupTotalValue(totalValue: String, earnValue: String, earnPercent: String)
 }
 
@@ -39,8 +39,9 @@ class FiatPresenter: FiatPresenterProtocol {
     }
     
     func fetchCurrency() {
+        guard let newValue = router?.currencyValue else { return }
         guard let newCurrency = router?.currencySymbol else { return }
-        view?.addNewCurrency(currencyList: newCurrency)
+        view?.addNewCurrency(value: newValue, symbol: newCurrency)
     }
     
     func getCurrencyList() {

@@ -70,14 +70,16 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Bindings
 extension FiatViewController: FiatViewProtocol {
+    
     func setupTotalValue(totalValue: String, earnValue: String, earnPercent: String) {
         self.totalValue.text = totalValue
         self.earnValue.text = earnValue
         self.eranPercent.text = earnPercent
     }
     
-    func addNewCurrency(currencyList: String) {
-        fiatCurrencyList.append(currencyList)
+    func addNewCurrency(value: String, symbol: String) {
+        amountCell = value
+        fiatCurrencyList.append(symbol)
         self.tableView.reloadData()
     }
 }
