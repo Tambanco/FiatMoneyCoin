@@ -20,7 +20,7 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    
         layer.backgroundColor = Constants.backgroundColorCell
         layer.cornerRadius = 10
         layer.masksToBounds = true
