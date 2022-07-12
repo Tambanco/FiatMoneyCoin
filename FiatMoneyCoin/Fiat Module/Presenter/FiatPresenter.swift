@@ -39,7 +39,6 @@ class FiatPresenter: FiatPresenterProtocol {
     func getCurrencyList() {
         let currencyList = NetworkManager.getSymbols()
         router?.showCurrencyView(symbol: currencyList)
-        
     }
     
     required init(router: RouterProtocol, view: FiatViewProtocol, model:  FiatModel) {

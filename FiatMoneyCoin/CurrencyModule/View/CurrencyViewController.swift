@@ -48,7 +48,11 @@ class CurrencyViewController: UIViewController {
         currencyPV.delegate = self
         currencyPV.dataSource = self
         symbol = currencyList[currencyPV.selectedRow(inComponent: 0)]
-        
+        addCurrencyTF.addTarget(self, action: #selector(textFieldEndEditing), for: .editingChanged)
+    }
+    
+    @objc func textFieldEndEditing() {
+        newValueForCell = addCurrencyTF.text ?? "foo"
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -56,7 +60,7 @@ class CurrencyViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        presenter.updateFiatView(newValueForCell: newValueForCell, symbol: symbol)
+        presenter.setNewValueForFiatCell(newValueForCell: newValueForCell, symbol: symbol)
     }
 }
 
@@ -89,5 +93,4 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         symbol = currencyList[row] as String
         newValueForCell = addCurrencyTF.text ?? "foo"
     }
-    
 }

@@ -16,8 +16,7 @@ protocol RouterMain {
 protocol RouterProtocol: RouterMain {
     func initialViewController()
     func showCurrencyView(symbol: [String])
-    func setFiatView(amount: String, symbol: String) -> (String, String)
-    func updateFiatView()
+    func updateFiatView(amount: String, symbol: String)
     func popToRoot()
 }
 
@@ -45,15 +44,11 @@ class Router: RouterProtocol {
         }
     }
     
-    func setFiatView(amount: String, symbol: String) -> (String, String) {
-        let amount = amount
-        let symbol = symbol
-        
-        return (amount, symbol)
-    }
-    
-    func updateFiatView() {
-        
+    func updateFiatView(amount: String, symbol: String) {
+        if let navigationController = navigationController {
+            guard let fiatViewController = assemblyBuilder?.createFiatModule(router: self, newValueForCell: amount, symbol: symbol) else { return }
+            navigationController.pushViewController(fiatViewController, animated: true)
+        }
     }
     
     func popToRoot() {
