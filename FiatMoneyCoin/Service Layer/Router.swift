@@ -54,7 +54,7 @@ class Router: RouterProtocol {
     }
     
     func updateFiatView() {
-        <#code#>
+        
     }
     
     func popToRoot() {
