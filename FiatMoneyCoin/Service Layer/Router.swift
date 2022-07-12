@@ -23,7 +23,6 @@ protocol RouterProtocol: RouterMain {
 
 class Router: RouterProtocol {
     
-    
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
     

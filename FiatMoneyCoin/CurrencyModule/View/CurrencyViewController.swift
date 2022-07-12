@@ -47,6 +47,8 @@ class CurrencyViewController: UIViewController {
     func setupPickerView() {
         currencyPV.delegate = self
         currencyPV.dataSource = self
+        symbol = currencyList[currencyPV.selectedRow(inComponent: 0)]
+        
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -87,4 +89,5 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         symbol = currencyList[row] as String
         newValueForCell = addCurrencyTF.text ?? "foo"
     }
+    
 }
