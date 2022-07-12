@@ -8,7 +8,6 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    
     static let reuseID = "FiatCell"
 
     @IBOutlet weak var currencyImage: UIImageView!
@@ -20,7 +19,7 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        
         layer.backgroundColor = Constants.backgroundColorCell
         layer.cornerRadius = 10
         layer.masksToBounds = true

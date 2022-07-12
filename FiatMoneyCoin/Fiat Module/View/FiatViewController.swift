@@ -15,16 +15,17 @@ class FiatViewController: UIViewController {
     var amountCell: String = "0"
     var fiatCurrencyList: [String] = []
     
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var fiatTotalView: UIView!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalValue: UILabel!
     @IBOutlet weak var earnValue: UILabel!
     @IBOutlet weak var eranPercent: UILabel!
     
 	override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
         setupTotalView()
+        setupTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,11 +33,12 @@ class FiatViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        presenter.getCurrencyList()
+        presenter.showCurrencyView()
     }
     
     func setupTotalView() {
         presenter.caculateTotalFiat()
+        fiatTotalView.dropShadow(color: .systemRed, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 3, scale: true)
         fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
         fiatTotalView.layer.cornerRadius = 10
         fiatTotalView.layer.masksToBounds = true

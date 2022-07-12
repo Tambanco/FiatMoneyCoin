@@ -18,7 +18,7 @@ protocol RouterProtocol: RouterMain {
     var currencyValue: String? { get set }
     
     func initialViewController()
-    func showCurrencyView(symbol: [String])
+    func showCurrencyView()
     func setNewValues(value: String, symbol: String)
     func popToRoot()
 }
@@ -41,9 +41,11 @@ class Router: RouterProtocol {
         }
     }
     
-    func showCurrencyView(symbol: [String]) {
+    func showCurrencyView() {
+        let currencyList = NetworkManager.getSymbols()
+        
         if let navigationController = navigationController {
-            guard let currencyViewController = assemblyBuilder?.createCurrencyModule(router: self, currencyList: symbol) else { return }
+            guard let currencyViewController = assemblyBuilder?.createCurrencyModule(router: self, currencyList: currencyList) else { return }
             navigationController.pushViewController(currencyViewController, animated: true)
         }
     }

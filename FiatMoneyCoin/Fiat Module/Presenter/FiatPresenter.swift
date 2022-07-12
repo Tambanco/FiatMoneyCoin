@@ -18,7 +18,7 @@ protocol FiatViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
-    func getCurrencyList()
+    func showCurrencyView()
     func caculateTotalFiat()
     func fetchCurrency()
     init(router: RouterProtocol, view: FiatViewProtocol, model:  FiatModel)
@@ -44,9 +44,8 @@ class FiatPresenter: FiatPresenterProtocol {
         view?.addNewCurrency(value: newValue, symbol: newCurrency)
     }
     
-    func getCurrencyList() {
-        let currencyList = NetworkManager.getSymbols()
-        router?.showCurrencyView(symbol: currencyList)
+    func showCurrencyView() {
+        router?.showCurrencyView()
     }
     
     required init(router: RouterProtocol, view: FiatViewProtocol, model:  FiatModel) {

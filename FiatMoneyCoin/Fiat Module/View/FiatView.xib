@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FiatViewController" customModule="FiatMoneyCoin" customModuleProvider="target">
             <connections>
+                <outlet property="addButton" destination="iIL-c9-OXO" id="BKF-ib-SYn"/>
                 <outlet property="earnValue" destination="qAM-BG-FHR" id="68V-bC-jPL"/>
                 <outlet property="eranPercent" destination="5jC-wD-sLn" id="o3c-pF-6rS"/>
                 <outlet property="fiatTotalView" destination="EsV-Jm-mgG" id="2jM-Vg-vV1"/>
@@ -62,7 +63,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.65098039220000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
                     <constraints>
                         <constraint firstItem="7iM-tp-hsB" firstAttribute="centerY" secondItem="cxL-PP-HJF" secondAttribute="centerY" id="5Wd-KE-qKP"/>
                         <constraint firstItem="cxL-PP-HJF" firstAttribute="top" secondItem="dud-30-w1O" secondAttribute="bottom" constant="10" id="82F-wr-Eib"/>
@@ -88,7 +89,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="capsule">
-                        <color key="baseBackgroundColor" red="0.39607843139999999" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
                     </buttonConfiguration>
                     <connections>
                         <action selector="addButton:" destination="-1" eventType="touchUpInside" id="DMj-9Y-H4j"/>
@@ -112,6 +113,9 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
