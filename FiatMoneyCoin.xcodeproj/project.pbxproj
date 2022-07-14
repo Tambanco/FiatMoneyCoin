@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4918A7C0287FE3920054D284 /* FiatPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918A7BF287FE3920054D284 /* FiatPresenterTest.swift */; };
 		4919649528718B25000B8D98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919649428718B25000B8D98 /* Constants.swift */; };
 		492F1779286DBDCC00CED477 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F1777286DBDCC00CED477 /* TableViewCell.swift */; };
 		492F177A286DBDCC00CED477 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492F1778286DBDCC00CED477 /* TableViewCell.xib */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4918A7BF287FE3920054D284 /* FiatPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatPresenterTest.swift; sourceTree = "<group>"; };
 		4919649428718B25000B8D98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		492F1777286DBDCC00CED477 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		492F1778286DBDCC00CED477 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4918A7BE287FE3590054D284 /* TestFiatModule */ = {
+			isa = PBXGroup;
+			children = (
+				4918A7BF287FE3920054D284 /* FiatPresenterTest.swift */,
+			);
+			path = TestFiatModule;
+			sourceTree = "<group>";
+		};
 		4919649628718B32000B8D98 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				4968CBA1286AFE780085DDB6 /* FiatMoneyCoinTests.swift */,
+				4918A7BE287FE3590054D284 /* TestFiatModule */,
 			);
 			path = FiatMoneyCoinTests;
 			sourceTree = "<group>";
@@ -433,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4918A7C0287FE3920054D284 /* FiatPresenterTest.swift in Sources */,
 				4968CBA2286AFE780085DDB6 /* FiatMoneyCoinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
