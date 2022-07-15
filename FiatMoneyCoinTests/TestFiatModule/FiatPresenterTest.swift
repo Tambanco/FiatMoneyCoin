@@ -9,6 +9,10 @@ import XCTest
 @testable import FiatMoneyCoin
 
 class MockView: FiatViewProtocol {
+    func updateView() {
+        
+    }
+    
     var valueTest: String?
     var symbolTest: String?
     var totalValueTest: String?
