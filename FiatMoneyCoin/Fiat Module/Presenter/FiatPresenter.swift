@@ -25,8 +25,6 @@ protocol FiatPresenterProtocol: AnyObject {
 }
 
 class FiatPresenter: FiatPresenterProtocol {
-    
-    
     weak var view: FiatViewProtocol?
     var router: RouterProtocol?
     var model: FiatModel

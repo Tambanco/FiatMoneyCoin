@@ -19,8 +19,8 @@ class CurrencyViewController: UIViewController {
     var newCurrencySymbol: String = ""
     
     
-    @IBOutlet weak var addCurrencyTF: UITextField!
-    @IBOutlet weak var currencyPV: UIPickerView!
+    @IBOutlet weak var addCurrencyTextField: UITextField!
+    @IBOutlet weak var currencyPickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +45,14 @@ class CurrencyViewController: UIViewController {
     }
     
     func setupPickerView() {
-        currencyPV.delegate = self
-        currencyPV.dataSource = self
-        newCurrencySymbol = currencyList[currencyPV.selectedRow(inComponent: 0)]
-        addCurrencyTF.addTarget(self, action: #selector(textFieldEndEditing), for: .editingChanged)
+        currencyPickerView.delegate = self
+        currencyPickerView.dataSource = self
+        newCurrencySymbol = currencyList[currencyPickerView.selectedRow(inComponent: 0)]
+        addCurrencyTextField.addTarget(self, action: #selector(textFieldEndEditing), for: .editingChanged)
     }
     
     @objc func textFieldEndEditing() {
-        newCurrencyValue = addCurrencyTF.text ?? "foo"
+        newCurrencyValue = addCurrencyTextField.text ?? "foo"
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -91,6 +91,6 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         newCurrencySymbol = currencyList[row] as String
-        newCurrencyValue = addCurrencyTF.text ?? "foo"
+        newCurrencyValue = addCurrencyTextField.text ?? "foo"
     }
 }

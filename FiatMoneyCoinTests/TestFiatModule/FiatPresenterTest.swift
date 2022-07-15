@@ -8,29 +8,60 @@
 import XCTest
 @testable import FiatMoneyCoin
 
+class MockView: FiatViewProtocol {
+    var valueTest: String?
+    var symbolTest: String?
+    var totalValueTest: String?
+    var earnValueTest: String?
+    var earnPercentTest: String?
+    
+    func addNewCurrency(value: String, symbol: String) {
+        self.valueTest = value
+        self.symbolTest = symbol
+    }
+    
+    func setupTotalValue(totalValue: String, earnValue: String, earnPercent: String) {
+        self.totalValueTest = totalValue
+        self.earnValueTest = earnValue
+        self.earnPercentTest = earnPercent
+    }
+}
+
+class MockRouter: RouterProtocol {
+    var currencySymbol: String?
+    
+    var currencyValue: String?
+    
+    func initialViewController() {
+        
+    }
+    
+    func showCurrencyView() {
+        
+    }
+    
+    func setNewValues(value: String, symbol: String) {
+        
+    }
+    
+    func popToRoot() {
+        
+    }
+    
+    var navigationController: UINavigationController?
+    
+    var assemblyBuilder: AssemblyBuilderProtocol?
+    
+    
+}
+
 class FiatPresenterTest: XCTestCase {
+    var view: FiatViewProtocol!
+    var router: RouterProtocol!
+    var model: FiatModel!
+    
+    func testPresenterNotNil() {
+        view = MockView()
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
