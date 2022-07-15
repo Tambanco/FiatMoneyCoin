@@ -13,7 +13,6 @@ class FiatViewController: UIViewController {
 
 	var presenter: FiatPresenterProtocol!
     var amountCell: String = "0"
-    var fiatCurrencyList: [String] = []
     
     @IBOutlet weak var fiatTotalView: UIView!
     @IBOutlet weak var addButton: UIButton!
@@ -56,7 +55,7 @@ class FiatViewController: UIViewController {
 // MARK: - TableView
 extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fiatCurrencyList.count
+        return presenter.fiatCurrencyList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,7 +64,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         cell.amountBaseCurrency.text = String(0)
         cell.earnPercent.text = String("0" + " " + "%")
         cell.amountForCell.text = String(0)
-        cell.amountCurrencySymbol.text = fiatCurrencyList[indexPath.row]
+        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList[indexPath.row]
         return cell
     }
 }
@@ -79,9 +78,8 @@ extension FiatViewController: FiatViewProtocol {
         self.eranPercent.text = earnPercent
     }
     
-    func addNewCurrency(value: String, symbol: String) {
+    func addNewCurrency(value: String) {
         amountCell = value
-        fiatCurrencyList.append(symbol)
         self.tableView.reloadData()
     }
 }
