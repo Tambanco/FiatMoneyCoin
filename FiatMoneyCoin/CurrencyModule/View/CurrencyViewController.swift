@@ -14,7 +14,6 @@ class CurrencyViewController: UIViewController {
     var presenter: CurrencyPresenterProtocol!
     
     var totalValue: String = ""
-    var currencyList: [String] = []
     var newCurrencyValue: String = ""
     var newCurrencySymbol: String = ""
     
@@ -47,7 +46,7 @@ class CurrencyViewController: UIViewController {
     func setupPickerView() {
         currencyPickerView.delegate = self
         currencyPickerView.dataSource = self
-        newCurrencySymbol = currencyList[currencyPickerView.selectedRow(inComponent: 0)]
+        newCurrencySymbol = presenter.currencyList[currencyPickerView.selectedRow(inComponent: 0)]
         addCurrencyTextField.addTarget(self, action: #selector(textFieldEndEditing), for: .editingChanged)
     }
     
@@ -72,7 +71,7 @@ extension CurrencyViewController: CurrencyViewProtocol {
     }
     
     func setTotalValue(currencyList: [String]) {
-        self.currencyList = currencyList
+        presenter.currencyList = currencyList
     }
 }
 
@@ -82,15 +81,15 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return currencyList.count
+        return presenter.currencyList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return currencyList[row]
+        return presenter.currencyList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        newCurrencySymbol = currencyList[row] as String
+        newCurrencySymbol = presenter.currencyList[row] as String
         newCurrencyValue = addCurrencyTextField.text ?? "foo"
     }
 }

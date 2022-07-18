@@ -18,6 +18,7 @@ protocol CurrencyViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
+    var currencyList: [String] { get set }
     
     func getCurrencyList()
     func setNewValueForCurrency(newCurrencyValue: String, newCurrencySymbol: String)
@@ -26,6 +27,8 @@ protocol CurrencyPresenterProtocol: AnyObject {
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
+    var currencyList: [String] = []
+    
     weak var view: CurrencyViewProtocol?
     var router: RouterProtocol?
     var model: CurrencyModel
