@@ -11,11 +11,33 @@ enum HTTPMethod: String {
     case get = "GET"
 }
 
-protocol NetworkManagerProtocol: Codable {
-    static func getSymbols() -> [String]
+protocol NetworkServiceProtocol: Codable {
+//    static func getSymbols() -> [String]
+    func getCurrencyList(completion: @escaping (Result<[Symbol]?, Error>) -> Void)
 }
 
-final class NetworkManager: NetworkManagerProtocol {
+final class NewtworlService: NetworkServiceProtocol {
+    func getCurrencyList(completion: @escaping (Result<[Symbol]?, Error>) -> Void) {
+        let urlString = "https://api.exchangerate.host/symbols"
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            do {
+                let object = try JSONDecoder().decode([Symbol].self, from: data!)
+                completion(.success(object))
+            } catch {
+                completion(.failure(error))
+            }
+        }.resume()
+    }
+}
+
+final class NetworkManager {
     static func getSymbols() -> [String] {
         let semaphore = DispatchSemaphore (value: 0)
         
