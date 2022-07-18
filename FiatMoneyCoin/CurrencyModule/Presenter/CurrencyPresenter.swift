@@ -18,10 +18,11 @@ protocol CurrencyViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
-    init(router: RouterProtocol, view: CurrencyViewProtocol, model:  CurrencyModel)
+    
     func getCurrencyList()
     func setNewValueForCurrency(newCurrencyValue: String, newCurrencySymbol: String)
     func cancelAdding()
+    init(router: RouterProtocol, view: CurrencyViewProtocol, model:  CurrencyModel)
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
