@@ -12,51 +12,40 @@ import UIKit
 
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
-    func updateView()
-    func setupTotalValue(totalValue: String, earnValue: String, earnPercent: String)
+    func updateFiatView()
 }
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
     var fiatCurrencyList: [String] { get set }
-    var amountCell: String { get set }
-    
     func showCurrencyView()
-    func caculateTotalFiat()
     func fetchCurrency()
-    init(router: RouterProtocol, view: FiatViewProtocol, model:  FiatModel)
+    init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class FiatPresenter: FiatPresenterProtocol {
-    var amountCell: String = "0"
-    var fiatCurrencyList: [String] = []
-    
     weak var view: FiatViewProtocol?
     var router: RouterProtocol?
-    var model: FiatModel
+    var networkService: NetworkServiceProtocol?
     
-    func caculateTotalFiat() {
-        let totalValue = 0
-        let earnValue = 0
-        let earnPercent = 0
-        self.view?.setupTotalValue(totalValue: "\(totalValue)", earnValue: "\(earnValue)", earnPercent: "\(earnPercent) %")
-    }
+    var amountCell: String = "0"
+    var fiatCurrencyList: [String] = []
     
     func fetchCurrency() {
         guard let newValue = router?.currencyValue else { return }
         guard let newCurrency = router?.currencySymbol else { return }
         amountCell = newValue
         self.fiatCurrencyList.append(newCurrency)
-        view?.updateView()
+        view?.updateFiatView()
     }
     
     func showCurrencyView() {
         router?.showCurrencyView()
     }
     
-    required init(router: RouterProtocol, view: FiatViewProtocol, model:  FiatModel) {
+    required init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol) {
         self.view = view
-        self.model = model
+        self.networkService = networkService
         self.router = router
     }
 }

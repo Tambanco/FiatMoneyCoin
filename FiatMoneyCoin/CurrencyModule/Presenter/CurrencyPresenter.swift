@@ -12,42 +12,49 @@ import UIKit
 
 // MARK: Output protocol
 protocol CurrencyViewProtocol: AnyObject {
-    func setTotalValue(currencyList: [String])
-    func present(viewControllerToPresent: UIViewController)
+    func success()
+    func failure(error: Error)
 }
 
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
-    var currencyList: [String] { get set }
-    
-    func getCurrencyList()
-    func setNewValueForCurrency(newCurrencyValue: String, newCurrencySymbol: String)
-    func cancelAdding()
-    init(router: RouterProtocol, view: CurrencyViewProtocol, model:  CurrencyModel)
+    var symbols: [Symbol]? { get set }
+    func cancel()
+    init(router: RouterProtocol, view: CurrencyViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
-    var currencyList: [String] = []
+    
+    var symbols: [Symbol]? = []
     
     weak var view: CurrencyViewProtocol?
     var router: RouterProtocol?
-    var model: CurrencyModel
+    var networkService: NetworkServiceProtocol?
     
-    func setNewValueForCurrency(newCurrencyValue: String, newCurrencySymbol: String) {
-        router?.setNewValues(value: newCurrencyValue, symbol: newCurrencySymbol)
-    }
-    
-    func getCurrencyList() {
-        view?.setTotalValue(currencyList: model.symbols)
-    }
-    
-    func cancelAdding() {
+    func cancel() {
         router?.popToRoot()
     }
     
-    required init(router: RouterProtocol, view: CurrencyViewProtocol, model: CurrencyModel) {
+    required init(router: RouterProtocol, view: CurrencyViewProtocol, networkService: NetworkServiceProtocol) {
         self.router = router
         self.view = view
-        self.model = model
+        self.networkService = networkService
+        
+        getSymbols()
+    }
+    
+    func getSymbols() {
+        networkService?.getCurrencyList(completion: { [weak self] result in  // проверить утечки памяти
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let symbols):
+                    self.symbols = symbols
+                    self.view?.success()
+                case .failure(let error):
+                    self.view?.failure(error: error)
+                }
+            }
+        })
     }
 }

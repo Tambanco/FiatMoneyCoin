@@ -16,7 +16,6 @@ protocol RouterMain {
 protocol RouterProtocol: RouterMain {
     var currencySymbol: String? { get set }
     var currencyValue: String? { get set }
-    
     func initialViewController()
     func showCurrencyView()
     func setNewValues(value: String, symbol: String)
@@ -36,16 +35,15 @@ class Router: RouterProtocol {
     
     func initialViewController() {
         if let navigationController = navigationController {
-            guard let fiatViewController = assemblyBuilder?.createFiatModule(router: self, newValueForCell: "foo", symbol: "bar") else { return }
+            guard let fiatViewController = assemblyBuilder?.createFiatModule(router: self) else { return }
             navigationController.pushViewController(fiatViewController, animated: true)
         }
     }
     
     func showCurrencyView() {
-        let currencyList = NetworkManager.getSymbols()
         
         if let navigationController = navigationController {
-            guard let currencyViewController = assemblyBuilder?.createCurrencyModule(router: self, currencyList: currencyList) else { return }
+            guard let currencyViewController = assemblyBuilder?.createCurrencyModule(router: self) else { return }
             navigationController.pushViewController(currencyViewController, animated: true)
         }
     }

@@ -14,15 +14,14 @@ class CurrencyViewController: UIViewController {
     var presenter: CurrencyPresenterProtocol!
     
     var totalValue: String = ""
-    var newCurrencyValue: String = ""
-    var newCurrencySymbol: String = ""
+//    var newCurrencyValue: String = ""
+//    var newCurrencySymbol: String = ""
     
     @IBOutlet weak var addCurrencyTextField: UITextField!
     @IBOutlet weak var currencyPickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.getCurrencyList()
         setupCurrencyView()
         setupPickerView()
     }
@@ -45,50 +44,50 @@ class CurrencyViewController: UIViewController {
     func setupPickerView() {
         currencyPickerView.delegate = self
         currencyPickerView.dataSource = self
-        newCurrencySymbol = presenter.currencyList[currencyPickerView.selectedRow(inComponent: 0)]
+//        newCurrencySymbol = presenter.symbols[currencyPickerView.selectedRow(inComponent: 0)]
         addCurrencyTextField.addTarget(self, action: #selector(textFieldEndEditing), for: .editingChanged)
     }
     
     @objc func textFieldEndEditing() {
-        newCurrencyValue = addCurrencyTextField.text ?? "foo"
+//        newCurrencyValue = addCurrencyTextField.text ?? "foo"
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
-        presenter.cancelAdding()
+        presenter.cancel()
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        presenter.setNewValueForCurrency(newCurrencyValue: newCurrencyValue, newCurrencySymbol: newCurrencySymbol)
+//        presenter.setNewValueForCurrency(newCurrencyValue: newCurrencyValue, newCurrencySymbol: newCurrencySymbol)
     }
 }
 
-// MARK: - Binding
-extension CurrencyViewController: CurrencyViewProtocol {
-    
-    func present(viewControllerToPresent: UIViewController) {
-        self.present(viewControllerToPresent, animated: true)
-    }
-    
-    func setTotalValue(currencyList: [String]) {
-        presenter.currencyList = currencyList
-    }
-}
-
+// MARK: - PickerView
 extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return presenter.currencyList.count
+        return presenter.symbols?.count ?? 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return presenter.currencyList[row]
+        return presenter.symbols?[row].symbolDescription
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        newCurrencySymbol = presenter.currencyList[row] as String
-        newCurrencyValue = addCurrencyTextField.text ?? "foo"
+        
     }
+}
+
+// MARK: - Binding
+extension CurrencyViewController: CurrencyViewProtocol {
+    func success() {
+        
+    }
+    
+    func failure(error: Error) {
+        print(error.localizedDescription)
+    }
+    
 }

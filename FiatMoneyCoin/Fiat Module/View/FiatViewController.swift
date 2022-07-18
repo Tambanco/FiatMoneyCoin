@@ -34,7 +34,6 @@ class FiatViewController: UIViewController {
     }
     
     func setupTotalView() {
-        presenter.caculateTotalFiat()
         fiatTotalView.dropShadow(color: .systemRed, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 3, scale: true)
         fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
         fiatTotalView.layer.cornerRadius = 10
@@ -58,7 +57,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! TableViewCell
-        cell.amountCurrency.text = presenter.amountCell
+        cell.amountCurrency.text = "foo"
         cell.amountBaseCurrency.text = String(0)
         cell.earnPercent.text = String("0" + " " + "%")
         cell.amountForCell.text = String(0)
@@ -69,13 +68,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Bindings
 extension FiatViewController: FiatViewProtocol {
-    func updateView() {
-        self.tableView.reloadData()
-    }
-    
-    func setupTotalValue(totalValue: String, earnValue: String, earnPercent: String) {
-        self.totalValue.text = totalValue
-        self.earnValue.text = earnValue
-        self.eranPercent.text = earnPercent
+    func updateFiatView() {
+        tableView.reloadData()
     }
 }

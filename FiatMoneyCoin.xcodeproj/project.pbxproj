@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4918A7C0287FE3920054D284 /* FiatPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918A7BF287FE3920054D284 /* FiatPresenterTest.swift */; };
 		4919649528718B25000B8D98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919649428718B25000B8D98 /* Constants.swift */; };
 		492F1779286DBDCC00CED477 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F1777286DBDCC00CED477 /* TableViewCell.swift */; };
 		492F177A286DBDCC00CED477 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492F1778286DBDCC00CED477 /* TableViewCell.xib */; };
@@ -15,7 +14,7 @@
 		494F5321286B00D700F23709 /* FiatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F531F286B00D700F23709 /* FiatViewController.swift */; };
 		494F5322286B00D700F23709 /* FiatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494F5320286B00D700F23709 /* FiatView.xib */; };
 		494F5324286B00E500F23709 /* FiatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F5323286B00E500F23709 /* FiatPresenter.swift */; };
-		494F5329286B0F8400F23709 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F5328286B0F8400F23709 /* NetworkManager.swift */; };
+		494F5329286B0F8400F23709 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F5328286B0F8400F23709 /* NetworkService.swift */; };
 		494F532F286B37E600F23709 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F532E286B37E600F23709 /* JSONParser.swift */; };
 		4966A2B12878DF8500FFB855 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966A2B02878DF8500FFB855 /* Router.swift */; };
 		4966A2B3287E20D400FFB855 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966A2B2287E20D400FFB855 /* DropShadow.swift */; };
@@ -54,7 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4918A7BF287FE3920054D284 /* FiatPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatPresenterTest.swift; sourceTree = "<group>"; };
 		4919649428718B25000B8D98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		492F1777286DBDCC00CED477 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		492F1778286DBDCC00CED477 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -62,7 +60,7 @@
 		494F531F286B00D700F23709 /* FiatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatViewController.swift; sourceTree = "<group>"; };
 		494F5320286B00D700F23709 /* FiatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiatView.xib; sourceTree = "<group>"; };
 		494F5323286B00E500F23709 /* FiatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatPresenter.swift; sourceTree = "<group>"; };
-		494F5328286B0F8400F23709 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		494F5328286B0F8400F23709 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		494F532E286B37E600F23709 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		4966A2B02878DF8500FFB855 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		4966A2B2287E20D400FFB855 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 		4918A7BE287FE3590054D284 /* TestFiatModule */ = {
 			isa = PBXGroup;
 			children = (
-				4918A7BF287FE3920054D284 /* FiatPresenterTest.swift */,
 			);
 			path = TestFiatModule;
 			sourceTree = "<group>";
@@ -164,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				49C6FE39286C9AC500D996AE /* AssemblyModuleBuilder.swift */,
-				494F5328286B0F8400F23709 /* NetworkManager.swift */,
+				494F5328286B0F8400F23709 /* NetworkService.swift */,
 				494F532E286B37E600F23709 /* JSONParser.swift */,
 				4966A2B02878DF8500FFB855 /* Router.swift */,
 			);
@@ -424,7 +421,7 @@
 				494F532F286B37E600F23709 /* JSONParser.swift in Sources */,
 				494F5324286B00E500F23709 /* FiatPresenter.swift in Sources */,
 				4966A2B3287E20D400FFB855 /* DropShadow.swift in Sources */,
-				494F5329286B0F8400F23709 /* NetworkManager.swift in Sources */,
+				494F5329286B0F8400F23709 /* NetworkService.swift in Sources */,
 				4966A2B12878DF8500FFB855 /* Router.swift in Sources */,
 				49C6FE3A286C9AC500D996AE /* AssemblyModuleBuilder.swift in Sources */,
 				497F53B22874D1A700465DF6 /* CurrencyPresenter.swift in Sources */,
@@ -444,7 +441,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4918A7C0287FE3920054D284 /* FiatPresenterTest.swift in Sources */,
 				4968CBA2286AFE780085DDB6 /* FiatMoneyCoinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
