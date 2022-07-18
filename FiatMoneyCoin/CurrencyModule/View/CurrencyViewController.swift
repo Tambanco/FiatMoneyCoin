@@ -17,7 +17,6 @@ class CurrencyViewController: UIViewController {
     var newCurrencyValue: String = ""
     var newCurrencySymbol: String = ""
     
-    
     @IBOutlet weak var addCurrencyTextField: UITextField!
     @IBOutlet weak var currencyPickerView: UIPickerView!
     
