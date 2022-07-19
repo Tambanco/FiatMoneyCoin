@@ -19,16 +19,26 @@ protocol CurrencyViewProtocol: AnyObject {
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
     var symbols: [String]? { get set }
+    var newValue: String? { get set }
+    var newSymbol: String? { get set }
+    func setNewValue()
     func cancel()
     init(router: RouterProtocol, view: CurrencyViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
+    var newSymbol: String?
+    var newValue: String?
     var symbols: [String]? = []
     
     weak var view: CurrencyViewProtocol?
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
+    
+    func setNewValue() {
+        print(newSymbol, newValue)
+        router?.popToRoot()
+    }
     
     func cancel() {
         router?.popToRoot()
