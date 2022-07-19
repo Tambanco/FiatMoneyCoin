@@ -27,16 +27,16 @@ protocol CurrencyPresenterProtocol: AnyObject {
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
+    var symbols: [String]? = []
     var newSymbol: String?
     var newValue: String?
-    var symbols: [String]? = []
     
     weak var view: CurrencyViewProtocol?
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
     
     func setNewValue() {
-        print(newSymbol, newValue)
+        router?.setNewValues(value: newValue, symbol: newSymbol)
         router?.popToRoot()
     }
     

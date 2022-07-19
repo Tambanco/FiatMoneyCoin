@@ -8,6 +8,6 @@
 import Foundation
 
 struct FiatModel {
-    let valueForCell: String
-    let symbol: String
+    let valueForCell: String?
+    let symbol: String?
 }

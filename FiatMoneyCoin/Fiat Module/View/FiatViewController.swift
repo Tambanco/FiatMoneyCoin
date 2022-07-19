@@ -52,16 +52,16 @@ class FiatViewController: UIViewController {
 // MARK: - TableView
 extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.fiatCurrencyList.count
+        return presenter.fiatCurrencyList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! TableViewCell
-        cell.amountCurrency.text = "foo"
+//        cell.amountCurrency.text = presenter.fiatCurrencyList
         cell.amountBaseCurrency.text = String(0)
         cell.earnPercent.text = String("0" + " " + "%")
         cell.amountForCell.text = String(0)
-        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList[indexPath.row]
+//        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList?.symbol[indexPath.row]
         return cell
     }
 }

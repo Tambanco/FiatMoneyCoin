@@ -17,25 +17,20 @@ protocol FiatViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
-    var fiatCurrencyList: [String] { get set }
+    var fiatCurrencyList: [FiatModel]? { get set }
     func showCurrencyView()
     func fetchCurrency()
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class FiatPresenter: FiatPresenterProtocol {
+    var fiatCurrencyList: [FiatModel]? = []
     weak var view: FiatViewProtocol?
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
     
-    var amountCell: String = "0"
-    var fiatCurrencyList: [String] = []
-    
     func fetchCurrency() {
-        guard let newValue = router?.currencyValue else { return }
-        guard let newCurrency = router?.currencySymbol else { return }
-        amountCell = newValue
-        self.fiatCurrencyList.append(newCurrency)
+//        fiatCurrencyList?.append(FiatModel.init(valueForCell: router?.currencyValue, symbol: router?.currencySymbol))
         view?.updateFiatView()
     }
     
