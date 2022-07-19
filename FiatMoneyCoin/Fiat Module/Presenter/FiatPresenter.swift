@@ -30,10 +30,13 @@ class FiatPresenter: FiatPresenterProtocol {
     var networkService: NetworkServiceProtocol?
     
     func fetchCurrency() {
-//        fiatCurrencyList?.append(FiatModel.init(valueForCell: router?.currencyValue, symbol: router?.currencySymbol))
-        view?.updateFiatView()
+        let newCurrencyValue = router?.currencyValue
+        let newSymbolValue = router?.currencySymbol
+        if newSymbolValue != nil {
+            fiatCurrencyList?.append(FiatModel.init(valueForCell: newCurrencyValue, symbol: newSymbolValue))
+            view?.updateFiatView()
+        }
     }
-    
     func showCurrencyView() {
         router?.showCurrencyView()
     }
