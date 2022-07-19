@@ -8,11 +8,16 @@
 import Foundation
 
 protocol Parcerable: AnyObject {
-    static func parseJSONCurrencyList(json: Data) -> [String]
+    static func parseCurrencyList(json: Data) -> [String]
+    static func parseConvertedResult(json: Data) -> String
 }
 
 class JSONParser: Parcerable {
-    static func parseJSONCurrencyList(json: Data) -> [String] {
+    static func parseConvertedResult(json: Data) -> String {
+        return ""
+    }
+    
+    static func parseCurrencyList(json: Data) -> [String] {
         let decoder = JSONDecoder()
         var fiatsSymbols: [String] = []
         
@@ -26,4 +31,6 @@ class JSONParser: Parcerable {
         
         return fiatsSymbols
     }
+    
+   
 }
