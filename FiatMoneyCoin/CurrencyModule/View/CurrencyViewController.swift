@@ -68,7 +68,7 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return presenter.symbols?[row].symbolDescription
+        return presenter.symbols?[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -79,7 +79,7 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 // MARK: - Binding
 extension CurrencyViewController: CurrencyViewProtocol {
     func success() {
-        
+        currencyPickerView.reloadAllComponents()
     }
     
     func failure(error: Error) {

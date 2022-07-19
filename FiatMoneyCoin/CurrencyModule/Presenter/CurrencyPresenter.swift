@@ -18,14 +18,13 @@ protocol CurrencyViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
-    var symbols: [Symbol]? { get set }
+    var symbols: [String]? { get set }
     func cancel()
     init(router: RouterProtocol, view: CurrencyViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
-    
-    var symbols: [Symbol]? = []
+    var symbols: [String]? = []
     
     weak var view: CurrencyViewProtocol?
     var router: RouterProtocol?
@@ -49,7 +48,7 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let symbols):
-                    self.symbols = symbols as? [Symbol]
+                    self.symbols = symbols
                     self.view?.success()
                 case .failure(let error):
                     self.view?.failure(error: error)
