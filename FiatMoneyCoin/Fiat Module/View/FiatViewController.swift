@@ -38,9 +38,9 @@ class FiatViewController: UIViewController {
         fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
         fiatTotalView.layer.cornerRadius = 10
         fiatTotalView.layer.masksToBounds = true
-        totalValue.text = presenter.fiatTotalValue.totalValue
-        earnValue.text = presenter.fiatTotalValue.earnValue
-        earnPercent.text = presenter.fiatTotalValue.earnPercent
+        totalValue.text = String(presenter.fiatTotalValue.totalValue)
+        earnValue.text = String(presenter.fiatTotalValue.earnValue)
+        earnPercent.text = String(presenter.fiatTotalValue.earnPercent)
     }
     
     func setupTableView() {

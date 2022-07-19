@@ -8,7 +8,7 @@
 import Foundation
 
 struct FiatTotalModel {
-    var totalValue: String
-    var earnValue: String
-    var earnPercent: String
+    var totalValue: Double
+    var earnValue: Double
+    var earnPercent: Double
 }
