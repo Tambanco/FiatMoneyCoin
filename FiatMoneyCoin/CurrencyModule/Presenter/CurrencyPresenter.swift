@@ -43,7 +43,7 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     }
     
     func getSymbols() {
-        networkService?.getCurrencyList(completion: { [weak self] result in  // проверить утечки памяти
+        networkService?.getCurrencyList(completion: { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
