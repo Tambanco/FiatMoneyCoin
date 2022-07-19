@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4908DED62886E4F400D229A8 /* FiatPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DED52886E4F400D229A8 /* FiatPresenterTest.swift */; };
+		4908DED92886E70900D229A8 /* CurrencyPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DED82886E70900D229A8 /* CurrencyPresenterTest.swift */; };
 		4919649528718B25000B8D98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919649428718B25000B8D98 /* Constants.swift */; };
 		492F1779286DBDCC00CED477 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F1777286DBDCC00CED477 /* TableViewCell.swift */; };
 		492F177A286DBDCC00CED477 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492F1778286DBDCC00CED477 /* TableViewCell.xib */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		4908DED52886E4F400D229A8 /* FiatPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatPresenterTest.swift; sourceTree = "<group>"; };
+		4908DED82886E70900D229A8 /* CurrencyPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPresenterTest.swift; sourceTree = "<group>"; };
 		4919649428718B25000B8D98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		492F1777286DBDCC00CED477 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		492F1778286DBDCC00CED477 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 				4908DED52886E4F400D229A8 /* FiatPresenterTest.swift */,
 			);
 			path = TestFiatModule;
+			sourceTree = "<group>";
+		};
+		4908DEDA2886E70D00D229A8 /* TestCurrencyModule */ = {
+			isa = PBXGroup;
+			children = (
+				4908DED82886E70900D229A8 /* CurrencyPresenterTest.swift */,
+			);
+			path = TestCurrencyModule;
 			sourceTree = "<group>";
 		};
 		4919649628718B32000B8D98 /* Utils */ = {
@@ -209,6 +219,7 @@
 			children = (
 				4968CBA1286AFE780085DDB6 /* FiatMoneyCoinTests.swift */,
 				4908DED72886E4F800D229A8 /* TestFiatModule */,
+				4908DEDA2886E70D00D229A8 /* TestCurrencyModule */,
 			);
 			path = FiatMoneyCoinTests;
 			sourceTree = "<group>";
@@ -446,6 +457,7 @@
 			files = (
 				4908DED62886E4F400D229A8 /* FiatPresenterTest.swift in Sources */,
 				4968CBA2286AFE780085DDB6 /* FiatMoneyCoinTests.swift in Sources */,
+				4908DED92886E70900D229A8 /* CurrencyPresenterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
