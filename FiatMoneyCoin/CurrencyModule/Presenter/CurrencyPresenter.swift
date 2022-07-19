@@ -49,7 +49,7 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let symbols):
-                    self.symbols = symbols
+                    self.symbols = symbols as? [Symbol]
                     self.view?.success()
                 case .failure(let error):
                     self.view?.failure(error: error)

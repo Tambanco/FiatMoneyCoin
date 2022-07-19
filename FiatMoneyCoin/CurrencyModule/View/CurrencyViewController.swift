@@ -13,10 +13,6 @@ class CurrencyViewController: UIViewController {
     
     var presenter: CurrencyPresenterProtocol!
     
-    var totalValue: String = ""
-//    var newCurrencyValue: String = ""
-//    var newCurrencySymbol: String = ""
-    
     @IBOutlet weak var addCurrencyTextField: UITextField!
     @IBOutlet weak var currencyPickerView: UIPickerView!
     

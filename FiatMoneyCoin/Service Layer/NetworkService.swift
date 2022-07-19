@@ -12,26 +12,29 @@ enum HTTPMethod: String {
 }
 
 protocol NetworkServiceProtocol: Codable {
-    func getCurrencyList(completion: @escaping (Result<[Symbol]?, Error>) -> Void)
+    func getCurrencyList(completion: @escaping (Result<[String]?, Error>) -> Void)
 }
 
 final class NewtworkService: NetworkServiceProtocol {
-    func getCurrencyList(completion: @escaping (Result<[Symbol]?, Error>) -> Void) {
+    func getCurrencyList(completion: @escaping (Result<[String]?, Error>) -> Void) {
+        
         let urlString = "https://api.exchangerate.host/symbols"
         guard let url = URL(string: urlString) else { return }
         
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            if let error = error {
-                completion(.failure(error))
+        var request = URLRequest(url: url, timeoutInterval: Double.infinity)
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data else {
+                completion(.failure(error!))
                 return
             }
             
-            do {
-                let object = try JSONDecoder().decode([Symbol].self, from: data!)
-                completion(.success(object))
-            } catch {
-                completion(.failure(error))
-            }
-        }.resume()
+            let json = String(data: data, encoding: .utf8)!.data(using: .utf8)!
+            var fiatList: [String] = []
+            fiatList = JSONParser.parseJSONCurrencyList(json: json)
+            completion(.success(fiatList))
+        }
+        task.resume()
     }
 }
