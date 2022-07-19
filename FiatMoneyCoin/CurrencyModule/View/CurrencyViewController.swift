@@ -10,7 +10,6 @@
 import UIKit
 
 class CurrencyViewController: UIViewController {
-    
     var presenter: CurrencyPresenterProtocol!
     
     @IBOutlet weak var addCurrencyTextField: UITextField!
@@ -40,12 +39,11 @@ class CurrencyViewController: UIViewController {
     func setupPickerView() {
         currencyPickerView.delegate = self
         currencyPickerView.dataSource = self
-//        newCurrencySymbol = presenter.symbols[currencyPickerView.selectedRow(inComponent: 0)]
         addCurrencyTextField.addTarget(self, action: #selector(textFieldEndEditing), for: .editingChanged)
     }
     
     @objc func textFieldEndEditing() {
-//        newCurrencyValue = addCurrencyTextField.text ?? "foo"
+        
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -53,7 +51,7 @@ class CurrencyViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-//        presenter.setNewValueForCurrency(newCurrencyValue: newCurrencyValue, newCurrencySymbol: newCurrencySymbol)
+        
     }
 }
 
@@ -85,5 +83,4 @@ extension CurrencyViewController: CurrencyViewProtocol {
     func failure(error: Error) {
         print(error.localizedDescription)
     }
-    
 }
