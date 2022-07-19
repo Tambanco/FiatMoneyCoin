@@ -42,6 +42,12 @@ class CurrencyPresenterTest: XCTestCase {
     var networkService: NetworkServiceProtocol!
     var router: RouterProtocol!
     var symbols = [String]()
+    
+    override func setUp() {
+        let navigationController = UINavigationController()
+        let assemblyBuilder = AssemblyModuleBuilder()
+        router = Router(navigationController: navigationController, assemblyBuilder: assemblyBuilder)
+    }
 
     override func tearDown() {
         view = nil
@@ -49,7 +55,7 @@ class CurrencyPresenterTest: XCTestCase {
         networkService = nil
     }
     
-    func testGetSuccess() {
+    func testGetSuccessSymbols() {
         let symbols = ["foo", "bar", "baz"]
         
         view = MockView()
@@ -68,5 +74,26 @@ class CurrencyPresenterTest: XCTestCase {
         }
         
         XCTAssertNotEqual(catchSymbols?.count, 0)
+    }
+    
+    func testGetFailureSymbols() {
+//        let symbols = ["foo", "bar", "baz"]
+        
+        view = MockView()
+        networkService = MockNetworkService()
+        presenter = CurrencyPresenter(router: router, view: view, networkService: networkService)
+        
+        var catchError: Error?
+        
+        networkService.getCurrencyList { result in
+            switch result {
+            case .success(let symbols):
+                print(symbols)
+            case .failure(let error):
+                catchError = error
+            }
+        }
+        
+        XCTAssertNotNil(catchError)
     }
 }
