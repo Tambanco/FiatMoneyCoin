@@ -10,6 +10,7 @@
 		4908DED62886E4F400D229A8 /* FiatPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DED52886E4F400D229A8 /* FiatPresenterTest.swift */; };
 		4908DED92886E70900D229A8 /* CurrencyPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DED82886E70900D229A8 /* CurrencyPresenterTest.swift */; };
 		4908DEDC2886FB4400D229A8 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DEDB2886FB4400D229A8 /* RouterTest.swift */; };
+		4908DEDE2887269C00D229A8 /* FiatTotalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DEDD2887269C00D229A8 /* FiatTotalModel.swift */; };
 		4919649528718B25000B8D98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919649428718B25000B8D98 /* Constants.swift */; };
 		492F1779286DBDCC00CED477 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F1777286DBDCC00CED477 /* TableViewCell.swift */; };
 		492F177A286DBDCC00CED477 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492F1778286DBDCC00CED477 /* TableViewCell.xib */; };
@@ -59,6 +60,7 @@
 		4908DED52886E4F400D229A8 /* FiatPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatPresenterTest.swift; sourceTree = "<group>"; };
 		4908DED82886E70900D229A8 /* CurrencyPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPresenterTest.swift; sourceTree = "<group>"; };
 		4908DEDB2886FB4400D229A8 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
+		4908DEDD2887269C00D229A8 /* FiatTotalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatTotalModel.swift; sourceTree = "<group>"; };
 		4919649428718B25000B8D98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		492F1777286DBDCC00CED477 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		492F1778286DBDCC00CED477 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		49C6FE41286D9F8900D996AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4908DEDD2887269C00D229A8 /* FiatTotalModel.swift */,
 				49C6FE3B286C9C6600D996AE /* FiatModel.swift */,
 				494F531D286B00CB00F23709 /* FiatRawModel.swift */,
 				4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */,
@@ -439,6 +442,7 @@
 				494F5324286B00E500F23709 /* FiatPresenter.swift in Sources */,
 				4966A2B3287E20D400FFB855 /* DropShadow.swift in Sources */,
 				494F5329286B0F8400F23709 /* NetworkService.swift in Sources */,
+				4908DEDE2887269C00D229A8 /* FiatTotalModel.swift in Sources */,
 				4966A2B12878DF8500FFB855 /* Router.swift in Sources */,
 				49C6FE3A286C9AC500D996AE /* AssemblyModuleBuilder.swift in Sources */,
 				497F53B22874D1A700465DF6 /* CurrencyPresenter.swift in Sources */,

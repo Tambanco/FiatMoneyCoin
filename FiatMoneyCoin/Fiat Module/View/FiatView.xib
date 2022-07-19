@@ -10,8 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FiatViewController" customModule="FiatMoneyCoin" customModuleProvider="target">
             <connections>
                 <outlet property="addButton" destination="iIL-c9-OXO" id="BKF-ib-SYn"/>
+                <outlet property="earnPercent" destination="5jC-wD-sLn" id="o3c-pF-6rS"/>
                 <outlet property="earnValue" destination="qAM-BG-FHR" id="68V-bC-jPL"/>
-                <outlet property="eranPercent" destination="5jC-wD-sLn" id="o3c-pF-6rS"/>
                 <outlet property="fiatTotalView" destination="EsV-Jm-mgG" id="2jM-Vg-vV1"/>
                 <outlet property="tableView" destination="BKx-4f-0nB" id="h20-nc-CRc"/>
                 <outlet property="totalValue" destination="7iM-tp-hsB" id="adK-Bb-3nI"/>
