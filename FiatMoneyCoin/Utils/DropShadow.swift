@@ -9,8 +9,6 @@ import Foundation
 import UIKit
 
 extension UIView {
-
-  // OUTPUT 1
   func dropShadow(scale: Bool = true) {
     layer.masksToBounds = false
     layer.shadowColor = UIColor.black.cgColor
@@ -23,7 +21,6 @@ extension UIView {
     layer.rasterizationScale = scale ? UIScreen.main.scale : 1
   }
 
-  // OUTPUT 2
   func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
     layer.masksToBounds = false
     layer.shadowColor = color.cgColor

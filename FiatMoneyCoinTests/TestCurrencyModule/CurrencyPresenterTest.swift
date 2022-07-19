@@ -17,6 +17,10 @@ class MockView: CurrencyViewProtocol {
 }
 
 class MockNetworkService: NetworkServiceProtocol {
+    func convertTwoCurrensies(from: String, to: String, amount: Double, completion: @escaping (Result<String?, Error>) -> Void) {
+        
+    }
+    
     var symbols: [String]!
     
     init() {}

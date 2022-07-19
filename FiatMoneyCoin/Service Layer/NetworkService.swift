@@ -53,7 +53,7 @@ final class NewtworkService: NetworkServiceProtocol {
             
             let json = String(data: data, encoding: .utf8)!.data(using: .utf8)!
             var convertedResult: String = ""
-//            convertedResult = JSONParser.parseJSONCurrencyList(json: json)
+            convertedResult = JSONParser.parseConvertedResult(json: json)
             completion(.success(convertedResult))
         }
         task.resume()
