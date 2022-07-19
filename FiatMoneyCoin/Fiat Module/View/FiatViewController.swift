@@ -71,7 +71,12 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Bindings
 extension FiatViewController: FiatViewProtocol {
+    
     func updateFiatView() {
         tableView.reloadData()
+    }
+    
+    func setTotalValue(totalValue: Double) {
+        self.totalValue.text = String(totalValue)
     }
 }

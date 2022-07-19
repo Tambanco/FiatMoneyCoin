@@ -13,27 +13,35 @@ import UIKit
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
     func updateFiatView()
+    func setTotalValue(totalValue: Double)
 }
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
     var fiatCurrencyList: [FiatModel]? { get set }
     var fiatTotalValue: FiatTotalModel { get set }
+    var fiatTotalSum: Double { get set }
+    var totalValues: [Double] { get set }
     func showCurrencyView()
     func fetchCurrency()
-    func calculateTotalFiat()
+    func calculateTotalFiat(newValue: Double)
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class FiatPresenter: FiatPresenterProtocol {
-    
+    var totalValues: [Double] = []
+    var fiatTotalSum: Double = 0
     var fiatTotalValue = FiatTotalModel(totalValue: 0, earnValue: 0, earnPercent: 0)
     var fiatCurrencyList: [FiatModel]? = []
     weak var view: FiatViewProtocol?
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
     
-    func calculateTotalFiat() {
+    func calculateTotalFiat(newValue: Double) {
+        
+        totalValues.append(newValue)
+        fiatTotalSum = totalValues.reduce(0, +)
+        view?.setTotalValue(totalValue: fiatTotalSum)
     }
     
     func fetchCurrency() {
@@ -41,6 +49,7 @@ class FiatPresenter: FiatPresenterProtocol {
         let newSymbolValue = router?.currencySymbol
         if newSymbolValue != nil {
             fiatCurrencyList?.append(FiatModel.init(valueForCell: newCurrencyValue, symbol: newSymbolValue))
+            calculateTotalFiat(newValue: Double(newCurrencyValue ?? "0") ?? 0)
             view?.updateFiatView()
         }
     }
