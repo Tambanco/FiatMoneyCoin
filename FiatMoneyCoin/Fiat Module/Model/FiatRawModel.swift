@@ -10,12 +10,12 @@
 import Foundation
 
 struct FiatRawModel: Codable {
-    let motd: MOTD
+    let motd: MOTDFiat
     let success: Bool
     let symbols: [String: Symbol]
 }
 
-struct MOTD: Codable {
+struct MOTDFiat: Codable {
     let msg: String
     let url: String
 }
