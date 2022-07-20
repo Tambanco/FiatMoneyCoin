@@ -57,7 +57,7 @@ class FiatPresenter: FiatPresenterProtocol {
                     let newValue = FiatModel(amountCurrency: amountCurrency ?? "foo",
                                              amountCurrencySymbol: amountCurrencySymbol ?? "bar",
                                              amountBaseCurrency: self.baseCurrency,
-                                             convertedValue: self.convertedCurrency)
+                                             convertedValue: "\(self.convertedCurrency!) \(self.baseCurrency)")
                     self.fiatCurrencyList.append(newValue)
                     self.view?.updateFiatView()
                 case .failure(let error):
