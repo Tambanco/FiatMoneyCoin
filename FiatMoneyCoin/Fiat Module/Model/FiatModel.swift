@@ -8,5 +8,8 @@
 import Foundation
 
 struct FiatModel {
-    var symbolValue: [String: String?]
+    var amountCurrency: String
+    var amountCurrencySymbol: String
+    var amountBaseCurrency: String
+    var convertedValue: String
 }

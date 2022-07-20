@@ -14,14 +14,14 @@ protocol RouterMain {
 }
 
 protocol RouterProtocol: RouterMain {
-    var newCurrency: NewCurrencyModel { get set }
+    var newCurrency: NewCurrencyModel? { get set }
     func initialViewController()
     func showCurrencyView()
     func popToRoot()
 }
 
 class Router: RouterProtocol {
-    var newCurrency: NewCurrencyModel = NewCurrencyModel(symbolValue: [:])
+    var newCurrency: NewCurrencyModel? = NewCurrencyModel()
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
     

@@ -8,5 +8,6 @@
 import Foundation
 
 struct NewCurrencyModel {
-    var symbolValue: [String: String?]
+    var newValue: String?
+    var newSymbol: String?
 }

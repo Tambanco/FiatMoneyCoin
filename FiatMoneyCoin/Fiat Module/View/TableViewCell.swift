@@ -13,9 +13,8 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var currencyImage: UIImageView!
     @IBOutlet weak var amountCurrency: UILabel!
     @IBOutlet weak var amountCurrencySymbol: UILabel!
-    @IBOutlet weak var amountBaseCurrency: UILabel!
+    @IBOutlet weak var convertedValue: UILabel!
     @IBOutlet weak var earnPercent: UILabel!
-    @IBOutlet weak var amountForCell: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
