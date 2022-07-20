@@ -58,7 +58,6 @@ class FiatPresenter: FiatPresenterProtocol {
                                              amountCurrencySymbol: amountCurrencySymbol ?? "bar",
                                              amountBaseCurrency: self.baseCurrency,
                                              convertedValue: self.convertedCurrency)
-                    
                     self.fiatCurrencyList.append(newValue)
                     self.view?.updateFiatView()
                 case .failure(let error):
