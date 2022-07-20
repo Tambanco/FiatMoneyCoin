@@ -66,17 +66,5 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
                 }
             }
         })
-        
-        networkService?.convertTwoCurrensies(from: "USD", to: "RUB", amount: 1500, completion: { [weak self] result in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let result):
-                    self.result = result
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        })
     }
 }

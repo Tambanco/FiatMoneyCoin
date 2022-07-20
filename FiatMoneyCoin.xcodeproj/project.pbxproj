@@ -292,8 +292,8 @@
 			children = (
 				494F531F286B00D700F23709 /* FiatViewController.swift */,
 				494F5320286B00D700F23709 /* FiatView.xib */,
-				492F1777286DBDCC00CED477 /* TableViewCell.swift */,
 				492F1778286DBDCC00CED477 /* TableViewCell.xib */,
+				492F1777286DBDCC00CED477 /* TableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

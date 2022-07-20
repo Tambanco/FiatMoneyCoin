@@ -38,9 +38,9 @@ class FiatViewController: UIViewController {
         fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
         fiatTotalView.layer.cornerRadius = 10
         fiatTotalView.layer.masksToBounds = true
-        totalValue.text = String(presenter.fiatTotalValue.totalValue)
-        earnValue.text = String(presenter.fiatTotalValue.earnValue)
-        earnPercent.text = String(presenter.fiatTotalValue.earnPercent)
+        totalValue.text = "foo"
+        earnValue.text = "bar"
+        earnPercent.text = "baz"
     }
     
     func setupTableView() {
@@ -64,7 +64,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         cell.amountCurrencySymbol.text = presenter.fiatCurrencyList?[indexPath.row].symbol
         cell.amountBaseCurrency.text = "RUB"
         cell.earnPercent.text = String("0" + " " + "%")
-        cell.amountForCell.text = String(0)
+        cell.amountForCell.text = "bat"
         return cell
     }
 }
@@ -74,9 +74,5 @@ extension FiatViewController: FiatViewProtocol {
     
     func updateFiatView() {
         tableView.reloadData()
-    }
-    
-    func setTotalValue(totalValue: Double) {
-        self.totalValue.text = String(totalValue)
     }
 }

@@ -13,18 +13,13 @@ import UIKit
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
     func updateFiatView()
-    func setTotalValue(totalValue: Double)
 }
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
     var fiatCurrencyList: [FiatModel]? { get set }
-    var fiatTotalValue: FiatTotalModel { get set }
-    var fiatTotalSum: Double { get set }
-    var totalValues: [Double] { get set }
     func showCurrencyView()
     func fetchCurrency()
-    func calculateTotalFiat(newValue: Double)
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
 
@@ -33,15 +28,14 @@ class FiatPresenter: FiatPresenterProtocol {
     var fiatTotalSum: Double = 0
     var fiatTotalValue = FiatTotalModel(totalValue: 0, earnValue: 0, earnPercent: 0)
     var fiatCurrencyList: [FiatModel]? = []
+    
     weak var view: FiatViewProtocol?
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
     
     func calculateTotalFiat(newValue: Double) {
-        
         totalValues.append(newValue)
         fiatTotalSum = totalValues.reduce(0, +)
-        view?.setTotalValue(totalValue: fiatTotalSum)
     }
     
     func fetchCurrency() {
