@@ -17,14 +17,14 @@ protocol FiatViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
-    var fiatCurrencyList: [FiatModel]? { get set }
+    var fiatCurrencyList: [FiatModel] { get set }
     func showCurrencyView()
     func fetchCurrency()
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class FiatPresenter: FiatPresenterProtocol {
-    var fiatCurrencyList: [FiatModel]? = []
+    var fiatCurrencyList: [FiatModel] = []
     
     weak var view: FiatViewProtocol?
     var router: RouterProtocol?

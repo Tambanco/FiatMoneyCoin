@@ -9,6 +9,6 @@
 
 import Foundation
 
-struct CurrencyModel {
+struct SymbolsModel {
     let symbols: [String]
 }
