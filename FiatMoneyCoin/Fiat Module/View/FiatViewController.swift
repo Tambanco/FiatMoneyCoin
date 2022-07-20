@@ -24,7 +24,7 @@ class FiatViewController: UIViewController {
         setupTotalView()
         setupTableView()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchCurrency()
     }
@@ -38,9 +38,9 @@ class FiatViewController: UIViewController {
         fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
         fiatTotalView.layer.cornerRadius = 10
         fiatTotalView.layer.masksToBounds = true
-        totalValue.text = String(presenter.fiatTotalValue.totalValue)
-        earnValue.text = String(presenter.fiatTotalValue.earnValue)
-        earnPercent.text = String(presenter.fiatTotalValue.earnPercent)
+        totalValue.text = "foo"
+        earnValue.text = "bar"
+        earnPercent.text = "baz"
     }
     
     func setupTableView() {
@@ -55,16 +55,15 @@ class FiatViewController: UIViewController {
 // MARK: - TableView
 extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.fiatCurrencyList?.count ?? 0
+        return presenter.fiatCurrencyList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! TableViewCell
-        cell.amountCurrency.text = presenter.fiatCurrencyList?[indexPath.row].valueForCell ?? "0"
-        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList?[indexPath.row].symbol
-        cell.amountBaseCurrency.text = "RUB"
+        cell.amountCurrency.text = presenter.fiatCurrencyList[indexPath.row].amountCurrency
+        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList[indexPath.row].amountCurrencySymbol
+        cell.convertedValue.text = presenter.fiatCurrencyList[indexPath.row].convertedValue
         cell.earnPercent.text = String("0" + " " + "%")
-        cell.amountForCell.text = String(0)
         return cell
     }
 }

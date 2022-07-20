@@ -17,6 +17,12 @@ class MockView: CurrencyViewProtocol {
 }
 
 class MockNetworkService: NetworkServiceProtocol {
+    func convertTwoCurrensies(from: String, to: String, amount: Double, completion: @escaping (Result<String?, Error>) -> Void) {
+        
+    }
+    
+
+    
     var symbols: [String]!
     
     init() {}
@@ -77,7 +83,6 @@ class CurrencyPresenterTest: XCTestCase {
     }
     
     func testGetFailureSymbols() {
-//        let symbols = ["foo", "bar", "baz"]
         
         view = MockView()
         networkService = MockNetworkService()
@@ -88,7 +93,7 @@ class CurrencyPresenterTest: XCTestCase {
         networkService.getCurrencyList { result in
             switch result {
             case .success(let symbols):
-                print(symbols)
+                print(symbols ?? "")
             case .failure(let error):
                 catchError = error
             }

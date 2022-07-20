@@ -14,17 +14,14 @@ protocol RouterMain {
 }
 
 protocol RouterProtocol: RouterMain {
-    var currencySymbol: String? { get set }
-    var currencyValue: String? { get set }
+    var newCurrency: NewCurrencyModel? { get set }
     func initialViewController()
     func showCurrencyView()
-    func setNewValues(value: String?, symbol: String?)
     func popToRoot()
 }
 
 class Router: RouterProtocol {
-    var currencyValue: String?
-    var currencySymbol: String?
+    var newCurrency: NewCurrencyModel? = NewCurrencyModel()
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
     
@@ -45,11 +42,6 @@ class Router: RouterProtocol {
             guard let currencyViewController = assemblyBuilder?.createCurrencyModule(router: self) else { return }
             navigationController.pushViewController(currencyViewController, animated: true)
         }
-    }
-    
-    func setNewValues(value: String?, symbol: String?) {
-        currencyValue = value
-        currencySymbol = symbol
     }
     
     func popToRoot() {

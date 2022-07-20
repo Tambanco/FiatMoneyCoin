@@ -11,6 +11,8 @@ import UIKit
 
 class CurrencyViewController: UIViewController {
     var presenter: CurrencyPresenterProtocol!
+    private var newValue: String?
+    private var newSymbol: String?
     
     @IBOutlet weak var addCurrencyTextField: UITextField!
     @IBOutlet weak var currencyPickerView: UIPickerView!
@@ -43,14 +45,16 @@ class CurrencyViewController: UIViewController {
     }
     
     @objc func textFieldEndEditing() {
-        presenter.newValue = addCurrencyTextField.text
+        newValue = addCurrencyTextField.text
     }
-    
     @IBAction func cancelButton(_ sender: UIButton) {
         presenter.cancel()
     }
     
     @IBAction func addButton(_ sender: UIButton) {
+        guard let newSymbol = newSymbol else { return }
+        presenter.newCurrencyValue?.newSymbol = newSymbol
+        presenter.newCurrencyValue?.newValue = newValue
         presenter.setNewValue()
     }
 }
@@ -70,7 +74,7 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        presenter.newSymbol = presenter.symbols?[row]
+        newSymbol = presenter.symbols?[row]
     }
 }
 
@@ -78,7 +82,7 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension CurrencyViewController: CurrencyViewProtocol {
     func success() {
         currencyPickerView.reloadAllComponents()
-        presenter.newSymbol = presenter.symbols?[currencyPickerView.selectedRow(inComponent: 0)]
+        newSymbol = presenter.symbols?[currencyPickerView.selectedRow(inComponent: 0)]
     }
     
     func failure(error: Error) {
