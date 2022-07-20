@@ -11,5 +11,5 @@ struct FiatModel {
     var amountCurrency: String
     var amountCurrencySymbol: String
     var amountBaseCurrency: String
-    var convertedValue: String
+    var convertedValue: String?
 }

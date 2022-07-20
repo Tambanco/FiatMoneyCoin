@@ -18,12 +18,17 @@ protocol FiatViewProtocol: AnyObject {
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
     var fiatCurrencyList: [FiatModel] { get set }
+    var baseCurrency: String { get set }
+    var convertedCurrency: String? { get set }
     func showCurrencyView()
     func fetchCurrency()
+    func currencyConverter(amount: String?, symbol: String?)
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class FiatPresenter: FiatPresenterProtocol {
+    var baseCurrency: String = "RUB"
+    var convertedCurrency: String?
     var fiatCurrencyList: [FiatModel] = []
     
     weak var view: FiatViewProtocol?
@@ -34,17 +39,35 @@ class FiatPresenter: FiatPresenterProtocol {
         let amountCurrencySymbol = router?.newCurrency?.newSymbol
         guard amountCurrencySymbol != nil else { return }
         let amountCurrency = router?.newCurrency?.newValue
-        let amountBaseCurrency = "RUB"
-        let convertedValue = "100"
-        
+        currencyConverter(amount: amountCurrency, symbol: amountCurrencySymbol)
+
         let newValue = FiatModel(amountCurrency: amountCurrency ?? "foo",
                                  amountCurrencySymbol: amountCurrencySymbol ?? "bar",
-                                 amountBaseCurrency: amountBaseCurrency, convertedValue: convertedValue)
+                                 amountBaseCurrency: baseCurrency, convertedValue: convertedCurrency)
         
         fiatCurrencyList.append(newValue)
         self.view?.updateFiatView()
-        
     }
+    
+    func currencyConverter(amount: String?, symbol: String?){
+        let symbolToConvert = symbol!
+        let currencyCode = String(symbolToConvert.prefix(3))
+        networkService?.convertTwoCurrensies(from: currencyCode,
+                                             to: baseCurrency,
+                                             amount: amount!,
+                                             completion: { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let convertedValue):
+                    self.convertedCurrency = convertedValue
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        })
+    }
+    
     func showCurrencyView() {
         router?.showCurrencyView()
     }

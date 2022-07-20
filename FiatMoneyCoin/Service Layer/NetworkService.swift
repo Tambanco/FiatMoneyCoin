@@ -13,7 +13,7 @@ enum HTTPMethod: String {
 
 protocol NetworkServiceProtocol: Codable {
     func getCurrencyList(completion: @escaping (Result<[String]?, Error>) -> Void)
-    func convertTwoCurrensies(from:String, to: String, amount: Double, completion: @escaping (Result<String?, Error>) -> Void)
+    func convertTwoCurrensies(from:String, to: String, amount: String, completion: @escaping (Result<String?, Error>) -> Void)
 }
 
 final class NewtworkService: NetworkServiceProtocol {
@@ -38,7 +38,7 @@ final class NewtworkService: NetworkServiceProtocol {
         task.resume()
     }
     
-    func convertTwoCurrensies(from: String, to: String, amount: Double, completion: @escaping (Result<String?, Error>) -> Void) {
+    func convertTwoCurrensies(from: String, to: String, amount: String, completion: @escaping (Result<String?, Error>) -> Void) {
         let urlString = "https://api.exchangerate.host/convert?from=\(from)&to=\(to)&amount=\(amount)"
         guard let url = URL(string: urlString) else { return }
         
@@ -52,7 +52,7 @@ final class NewtworkService: NetworkServiceProtocol {
             }
             
             let json = String(data: data, encoding: .utf8)!.data(using: .utf8)!
-            var convertedResult: String = ""
+            var convertedResult: String?
             convertedResult = JSONParser.parseConvertedResult(json: json)
             completion(.success(convertedResult))
         }

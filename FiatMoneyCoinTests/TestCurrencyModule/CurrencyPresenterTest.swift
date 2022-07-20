@@ -21,6 +21,8 @@ class MockNetworkService: NetworkServiceProtocol {
         
     }
     
+
+    
     var symbols: [String]!
     
     init() {}
