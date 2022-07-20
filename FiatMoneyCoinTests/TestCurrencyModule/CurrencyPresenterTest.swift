@@ -81,7 +81,6 @@ class CurrencyPresenterTest: XCTestCase {
     }
     
     func testGetFailureSymbols() {
-//        let symbols = ["foo", "bar", "baz"]
         
         view = MockView()
         networkService = MockNetworkService()
@@ -92,7 +91,7 @@ class CurrencyPresenterTest: XCTestCase {
         networkService.getCurrencyList { result in
             switch result {
             case .success(let symbols):
-                print(symbols)
+                print(symbols ?? "")
             case .failure(let error):
                 catchError = error
             }

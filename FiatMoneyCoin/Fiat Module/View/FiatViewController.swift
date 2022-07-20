@@ -24,7 +24,7 @@ class FiatViewController: UIViewController {
         setupTotalView()
         setupTableView()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchCurrency()
     }
@@ -60,9 +60,9 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! TableViewCell
-        cell.amountCurrency.text = presenter.fiatCurrencyList?[indexPath.row].valueForCell ?? "0"
-        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList?[indexPath.row].symbol
-        cell.amountBaseCurrency.text = "RUB"
+        cell.amountCurrency.text = "foo"
+        cell.amountCurrencySymbol.text = "bar"
+        cell.amountBaseCurrency.text = "baz"
         cell.earnPercent.text = String("0" + " " + "%")
         cell.amountForCell.text = "bat"
         return cell

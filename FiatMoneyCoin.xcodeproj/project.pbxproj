@@ -243,8 +243,8 @@
 		497F53B32874D1B600465DF6 /* CurrencyModule */ = {
 			isa = PBXGroup;
 			children = (
-				497F53B62874D1F400465DF6 /* View */,
 				497F53B52874D1EC00465DF6 /* Model */,
+				497F53B62874D1F400465DF6 /* View */,
 				497F53B42874D1E300465DF6 /* Presenter */,
 			);
 			path = CurrencyModule;
@@ -278,9 +278,9 @@
 		49C6FE41286D9F8900D996AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				49C6FE3B286C9C6600D996AE /* FiatModel.swift */,
 				4954555E288742CB00793DFE /* ConvertedModel.swift */,
 				4908DEDD2887269C00D229A8 /* FiatTotalModel.swift */,
-				49C6FE3B286C9C6600D996AE /* FiatModel.swift */,
 				494F531D286B00CB00F23709 /* FiatRawModel.swift */,
 				4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */,
 			);
