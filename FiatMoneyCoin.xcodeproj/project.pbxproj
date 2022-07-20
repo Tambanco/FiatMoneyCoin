@@ -15,8 +15,8 @@
 		4919649528718B25000B8D98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919649428718B25000B8D98 /* Constants.swift */; };
 		492F1779286DBDCC00CED477 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F1777286DBDCC00CED477 /* TableViewCell.swift */; };
 		492F177A286DBDCC00CED477 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492F1778286DBDCC00CED477 /* TableViewCell.xib */; };
-		49437ECE28888E3F0092BCA6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 49437ECD28888E3F0092BCA6 /* SnapKit */; };
-		49437ED128888E5A0092BCA6 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 49437ED028888E5A0092BCA6 /* SnapKit-Dynamic */; };
+		49437ED328888FF40092BCA6 /* FiatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49437ED228888FF40092BCA6 /* FiatCell.swift */; };
+		49437ED62888926C0092BCA6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 49437ED52888926C0092BCA6 /* SnapKit */; };
 		494F531E286B00CB00F23709 /* FiatRawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F531D286B00CB00F23709 /* FiatRawModel.swift */; };
 		494F5321286B00D700F23709 /* FiatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F531F286B00D700F23709 /* FiatViewController.swift */; };
 		494F5322286B00D700F23709 /* FiatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494F5320286B00D700F23709 /* FiatView.xib */; };
@@ -69,6 +69,7 @@
 		4919649428718B25000B8D98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		492F1777286DBDCC00CED477 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		492F1778286DBDCC00CED477 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		49437ED228888FF40092BCA6 /* FiatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatCell.swift; sourceTree = "<group>"; };
 		494F531D286B00CB00F23709 /* FiatRawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatRawModel.swift; sourceTree = "<group>"; };
 		494F531F286B00D700F23709 /* FiatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatViewController.swift; sourceTree = "<group>"; };
 		494F5320286B00D700F23709 /* FiatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiatView.xib; sourceTree = "<group>"; };
@@ -104,8 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49437ECE28888E3F0092BCA6 /* SnapKit in Frameworks */,
-				49437ED128888E5A0092BCA6 /* SnapKit-Dynamic in Frameworks */,
+				49437ED62888926C0092BCA6 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +301,7 @@
 				494F5320286B00D700F23709 /* FiatView.xib */,
 				492F1778286DBDCC00CED477 /* TableViewCell.xib */,
 				492F1777286DBDCC00CED477 /* TableViewCell.swift */,
+				49437ED228888FF40092BCA6 /* FiatCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,8 +331,7 @@
 			);
 			name = FiatMoneyCoin;
 			packageProductDependencies = (
-				49437ECD28888E3F0092BCA6 /* SnapKit */,
-				49437ED028888E5A0092BCA6 /* SnapKit-Dynamic */,
+				49437ED52888926C0092BCA6 /* SnapKit */,
 			);
 			productName = FiatMoneyCoin;
 			productReference = 4968CB84286AFE780085DDB6 /* FiatMoneyCoin.app */;
@@ -406,8 +406,7 @@
 			);
 			mainGroup = 4968CB7B286AFE780085DDB6;
 			packageReferences = (
-				49437ECC28888E3F0092BCA6 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				49437ECF28888E5A0092BCA6 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				49437ED42888926C0092BCA6 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 4968CB85286AFE780085DDB6 /* Products */;
 			projectDirPath = "";
@@ -459,6 +458,7 @@
 				494F532F286B37E600F23709 /* JSONParser.swift in Sources */,
 				494F5324286B00E500F23709 /* FiatPresenter.swift in Sources */,
 				4966A2B3287E20D400FFB855 /* DropShadow.swift in Sources */,
+				49437ED328888FF40092BCA6 /* FiatCell.swift in Sources */,
 				494F5329286B0F8400F23709 /* NetworkService.swift in Sources */,
 				4908DEDE2887269C00D229A8 /* FiatTotalModel.swift in Sources */,
 				4966A2B12878DF8500FFB855 /* Router.swift in Sources */,
@@ -811,15 +811,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		49437ECC28888E3F0092BCA6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				branch = develop;
-				kind = branch;
-			};
-		};
-		49437ECF28888E5A0092BCA6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		49437ED42888926C0092BCA6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
@@ -830,15 +822,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		49437ECD28888E3F0092BCA6 /* SnapKit */ = {
+		49437ED52888926C0092BCA6 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 49437ECC28888E3F0092BCA6 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 49437ED42888926C0092BCA6 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		49437ED028888E5A0092BCA6 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 49437ECC28888E3F0092BCA6 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 

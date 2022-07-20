@@ -44,7 +44,8 @@ class FiatViewController: UIViewController {
     }
     
     func setupTableView() {
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "FiatCell")
+//        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "FiatCell")
+        tableView.register(FiatCell.self, forCellReuseIdentifier: FiatCell.reuseId)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -59,11 +60,13 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! TableViewCell
-        cell.amountCurrency.text = presenter.fiatCurrencyList[indexPath.row].amountCurrency
-        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList[indexPath.row].amountCurrencySymbol
-        cell.convertedValue.text = presenter.fiatCurrencyList[indexPath.row].convertedValue
-        cell.earnPercent.text = String("0" + " " + "%")
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! TableViewCell
+//        cell.amountCurrency.text = presenter.fiatCurrencyList[indexPath.row].amountCurrency
+//        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList[indexPath.row].amountCurrencySymbol
+//        cell.convertedValue.text = presenter.fiatCurrencyList[indexPath.row].convertedValue
+//        cell.earnPercent.text = String("0" + " " + "%")
+        let cell = tableView.dequeueReusableCell(withIdentifier: FiatCell.reuseId, for: indexPath) as! FiatCell
+        cell.symbolImageView.image = UIImage(named: "image.jpeg")
         return cell
     }
 }

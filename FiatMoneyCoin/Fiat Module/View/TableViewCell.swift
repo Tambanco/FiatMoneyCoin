@@ -8,7 +8,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    static let reuseID = "FiatCell"
+    static let reuseID = "FiatCellCell"
 
     @IBOutlet weak var currencyImage: UIImageView!
     @IBOutlet weak var amountCurrency: UILabel!
