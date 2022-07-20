@@ -19,7 +19,7 @@ protocol CurrencyViewProtocol: AnyObject {
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
     var symbols: [String]? { get set }
-    var newCurrencyValue: FiatModel? { get set }
+    var newCurrencyValue: FiatModel { get set }
     
     func setNewValue()
     func cancel()
@@ -27,7 +27,7 @@ protocol CurrencyPresenterProtocol: AnyObject {
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
-    var newCurrencyValue: FiatModel? = FiatModel(symbolValue: [:])
+    var newCurrencyValue: FiatModel = FiatModel(symbolValue: [:])
     var symbols: [String]? = []
     
     weak var view: CurrencyViewProtocol?

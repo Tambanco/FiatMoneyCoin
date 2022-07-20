@@ -52,7 +52,8 @@ class CurrencyViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        presenter.newCurrencyValue?.symbolValue.updateValue(newValue, forKey: newSymbol)
+        guard let newSymbol = newSymbol else { return }
+        presenter.newCurrencyValue.symbolValue.updateValue(newValue, forKey: newSymbol)
         presenter.setNewValue()
     }
 }

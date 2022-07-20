@@ -8,5 +8,5 @@
 import Foundation
 
 struct FiatModel {
-    var symbolValue: [String?: String?]
+    var symbolValue: [String: String?]
 }
