@@ -22,7 +22,7 @@ class JSONParser: Parcerable {
             fiatsSymbols = fiatList.symbols.compactMap{ "\($0.description) \($1.symbolDescription)" }.sorted()
             
         } catch {
-            print("parsing failure")
+            print("parsing symbols failure")
         }
         
         return fiatsSymbols
@@ -37,10 +37,9 @@ class JSONParser: Parcerable {
             convertedValue = String(converted.result)
             
         } catch {
-            print("parsing failure")
+            print("parsing result of conversion failure")
         }
         
         return convertedValue
     }
-   
 }

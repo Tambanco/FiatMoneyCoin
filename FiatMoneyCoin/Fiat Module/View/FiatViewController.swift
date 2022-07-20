@@ -70,7 +70,6 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Bindings
 extension FiatViewController: FiatViewProtocol {
-    
     func updateFiatView() {
         tableView.reloadData()
     }

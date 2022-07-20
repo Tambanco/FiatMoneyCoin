@@ -36,36 +36,37 @@ class FiatPresenter: FiatPresenterProtocol {
     var networkService: NetworkServiceProtocol?
     
     func fetchCurrency() {
-        let amountCurrencySymbol = router?.newCurrency?.newSymbol
-        guard amountCurrencySymbol != nil else { return }
         let amountCurrency = router?.newCurrency?.newValue
+        let amountCurrencySymbol = router?.newCurrency?.newSymbol
         currencyConverter(amount: amountCurrency, symbol: amountCurrencySymbol)
-
-        let newValue = FiatModel(amountCurrency: amountCurrency ?? "foo",
-                                 amountCurrencySymbol: amountCurrencySymbol ?? "bar",
-                                 amountBaseCurrency: baseCurrency, convertedValue: convertedCurrency)
-        
-        fiatCurrencyList.append(newValue)
-        self.view?.updateFiatView()
     }
     
-    func currencyConverter(amount: String?, symbol: String?){
+    func currencyConverter(amount: String?, symbol: String?) {
+        guard symbol != nil else { return }
         let symbolToConvert = symbol!
         let currencyCode = String(symbolToConvert.prefix(3))
-        networkService?.convertTwoCurrensies(from: currencyCode,
-                                             to: baseCurrency,
-                                             amount: amount!,
-                                             completion: { [weak self] result in
+        networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount!, completion: { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
                 case .success(let convertedValue):
                     self.convertedCurrency = convertedValue
+                    let amountCurrency = self.router?.newCurrency?.newValue
+                    let amountCurrencySymbol = self.router?.newCurrency?.newSymbol
+                    
+                    let newValue = FiatModel(amountCurrency: amountCurrency ?? "foo",
+                                             amountCurrencySymbol: amountCurrencySymbol ?? "bar",
+                                             amountBaseCurrency: self.baseCurrency,
+                                             convertedValue: self.convertedCurrency)
+                    
+                    self.fiatCurrencyList.append(newValue)
+                    self.view?.updateFiatView()
                 case .failure(let error):
                     print(error)
                 }
             }
-        })
+        }
+        )
     }
     
     func showCurrencyView() {
