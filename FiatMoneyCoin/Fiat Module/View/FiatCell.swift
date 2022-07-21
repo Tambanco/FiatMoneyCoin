@@ -13,7 +13,7 @@ class FiatCell: UITableViewCell {
     
     lazy var cellView: UIView! = {
         let view = UIView()
-        view.backgroundColor = .systemGray
+        view.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.1)
         view.layer.cornerRadius = 15
         return view
     }()
@@ -26,28 +26,24 @@ class FiatCell: UITableViewCell {
     lazy var amountCurrency: UILabel! = {
         let label = UILabel()
         label.text = "currency"
-        label.textColor = .white
         return label
     }()
     
     lazy var amountCurrencySymbol: UILabel! = {
         let label = UILabel()
         label.text = "symbol"
-        label.textColor = .white
         return label
     }()
     
     lazy var convertedValue: UILabel! = {
         let label = UILabel()
         label.text = "converted"
-        label.textColor = .white
         return label
     }()
     
     lazy var earnPercent: UILabel! = {
         let label = UILabel()
         label.text = "earnPercent"
-        label.textColor = .white
         return label
     }()
     

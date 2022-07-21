@@ -67,6 +67,10 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 //        cell.earnPercent.text = String("0" + " " + "%")
         let cell = tableView.dequeueReusableCell(withIdentifier: FiatCell.reuseId, for: indexPath) as! FiatCell
         cell.currencyImage.image = UIImage(systemName: "dollarsign.circle.fill")
+        cell.amountCurrency.text = presenter.fiatCurrencyList[indexPath.row].amountCurrency
+        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList[indexPath.row].amountCurrencySymbol
+        cell.convertedValue.text = presenter.fiatCurrencyList[indexPath.row].convertedValue
+        cell.earnPercent.text = String("0" + " " + "%")
         return cell
     }
 }
