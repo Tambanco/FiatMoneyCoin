@@ -49,7 +49,7 @@ class FiatViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.rowHeight = 80
+        tableView.rowHeight = 100
     }
 }
 
@@ -66,7 +66,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 //        cell.convertedValue.text = presenter.fiatCurrencyList[indexPath.row].convertedValue
 //        cell.earnPercent.text = String("0" + " " + "%")
         let cell = tableView.dequeueReusableCell(withIdentifier: FiatCell.reuseId, for: indexPath) as! FiatCell
-        cell.symbolImageView.image = UIImage(named: "image.jpeg")
+        cell.currencyImage.image = UIImage(systemName: "dollarsign.circle.fill")
         return cell
     }
 }
