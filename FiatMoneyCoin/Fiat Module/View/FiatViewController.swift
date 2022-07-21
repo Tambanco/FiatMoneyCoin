@@ -8,11 +8,14 @@
 //
 
 import UIKit
+import SnapKit
 
 class FiatViewController: UIViewController {
 	var presenter: FiatPresenterProtocol!
+    var fiatTotalView: UIView!
+    var fiatTableView: UITableView!
     
-    @IBOutlet weak var fiatTotalView: UIView!
+//    @IBOutlet weak var fiatTotalView: UIView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalValue: UILabel!
@@ -34,21 +37,32 @@ class FiatViewController: UIViewController {
     }
     
     func setupTotalView() {
-        fiatTotalView.dropShadow(color: .systemRed, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 3, scale: true)
-        fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
-        fiatTotalView.layer.cornerRadius = 10
-        fiatTotalView.layer.masksToBounds = true
-        totalValue.text = "foo"
-        earnValue.text = "bar"
-        earnPercent.text = "baz"
+        view.addSubview(fiatTotalView)
+        
+        fiatTotalView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(300)
+        }
+//        fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
+//        fiatTotalView.layer.cornerRadius = 10
+//        fiatTotalView.layer.masksToBounds = true
+//        totalValue.text = "foo"
+//        earnValue.text = "bar"
+//        earnPercent.text = "baz"
+        
     }
     
     func setupTableView() {
-        tableView.register(FiatCell.self, forCellReuseIdentifier: FiatCell.reuseId)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 100
+        fiatTableView.register(FiatCell.self, forCellReuseIdentifier: FiatCell.reuseId)
+        fiatTableView.delegate = self
+        fiatTableView.dataSource = self
+        fiatTableView.separatorStyle = .none
+        fiatTableView.rowHeight = 100
+        
+        self.view.addSubview(tableView)
+        
+
     }
 }
 
