@@ -41,6 +41,7 @@ class CurrencyView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        backgroundColor = .brown
         addSubview(addCurrencyHeader)
         addSubview(newValueTextField)
         addSubview(currencyPickerView)
@@ -48,7 +49,7 @@ class CurrencyView: UIView {
         addSubview(addCurrencyButton)
         
         addCurrencyButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(200)
+            make.top.equalToSuperview().inset(20)
             make.leading.equalToSuperview().inset(20)
         }
         
