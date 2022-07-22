@@ -24,11 +24,10 @@ class FiatViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchCurrency()
-//        fiatTotalView.layer.shadowColor = UIColor.black.cgColor
-//        fiatTotalView.layer.shadowOpacity = 1
-//        fiatTotalView.layer.shadowOffset = .zero
-//        fiatTotalView.layer.shadowRadius = 10
-        fiatTotalView.dropShadow(scale: true)
+        fiatTotalView.layer.shadowColor = UIColor.black.cgColor
+        fiatTotalView.layer.shadowOpacity = 0.5
+        fiatTotalView.layer.shadowOffset = .zero
+        fiatTotalView.layer.shadowRadius = 10
     }
     
     func setupTotalView() {
