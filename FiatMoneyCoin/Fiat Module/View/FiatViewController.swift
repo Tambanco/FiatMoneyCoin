@@ -12,8 +12,8 @@ import SnapKit
 
 class FiatViewController: UIViewController {
 	var presenter: FiatPresenterProtocol!
-    var fiatTotalView: UIView!
-    var fiatTableView: UITableView!
+    var fiatTotalView: FiatTotalView!
+//    var fiatTableView: UITableView!
     
 //    @IBOutlet weak var fiatTotalView: UIView!
     @IBOutlet weak var addButton: UIButton!
@@ -25,7 +25,7 @@ class FiatViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
         setupTotalView()
-        setupTableView()
+//        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,12 +37,14 @@ class FiatViewController: UIViewController {
     }
     
     func setupTotalView() {
+        fiatTotalView = FiatTotalView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         view.addSubview(fiatTotalView)
         
         fiatTotalView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(10)
-            make.trailing.equalToSuperview().inset(10)
-            make.height.equalTo(300)
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.leading.equalToSuperview().inset(0)
+            make.trailing.equalToSuperview().inset(0)
+            make.height.equalTo(225)
         }
 //        fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
 //        fiatTotalView.layer.cornerRadius = 10
@@ -53,17 +55,24 @@ class FiatViewController: UIViewController {
         
     }
     
-    func setupTableView() {
-        fiatTableView.register(FiatCell.self, forCellReuseIdentifier: FiatCell.reuseId)
-        fiatTableView.delegate = self
-        fiatTableView.dataSource = self
-        fiatTableView.separatorStyle = .none
-        fiatTableView.rowHeight = 100
-        
-        self.view.addSubview(tableView)
-        
-
-    }
+//    func setupTableView() {
+//        fiatTableView = UITableView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+//        fiatTableView.register(FiatCell.self, forCellReuseIdentifier: FiatCell.reuseId)
+//        fiatTableView.delegate = self
+//        fiatTableView.dataSource = self
+//        fiatTableView.separatorStyle = .none
+//        fiatTableView.rowHeight = 100
+//        fiatTableView.backgroundColor = .black
+//
+//        self.view.addSubview(fiatTableView)
+//
+//        fiatTableView.snp.makeConstraints { make in
+//            make.top.equalTo(fiatTotalView.snp.bottom)
+//            make.leading.equalToSuperview()
+//            make.trailing.equalToSuperview()
+//            make.bottom.equalTo(view.safeAreaInsets.bottom)
+//        }
+//    }
 }
 
 // MARK: - TableView
