@@ -11,11 +11,10 @@ import UIKit
 
 class CurrencyViewController: UIViewController {
     var presenter: CurrencyPresenterProtocol!
+    var currencyView: CurrencyView!
+    
     private var newValue: String?
     private var newSymbol: String?
-    
-    @IBOutlet weak var addCurrencyTextField: UITextField!
-    @IBOutlet weak var currencyPickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +23,15 @@ class CurrencyViewController: UIViewController {
     }
     
     func  setupCurrencyView() {
+        currencyView = CurrencyView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        self.view.addSubview(currencyView)
+        
+        currencyView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(300)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -39,13 +47,13 @@ class CurrencyViewController: UIViewController {
     }
     
     func setupPickerView() {
-        currencyPickerView.delegate = self
-        currencyPickerView.dataSource = self
-        addCurrencyTextField.addTarget(self, action: #selector(textFieldEndEditing), for: .editingChanged)
+        currencyView.currencyPickerView.delegate = self
+        currencyView.currencyPickerView.dataSource = self
+        currencyView.newValueTextField.addTarget(self, action: #selector(textFieldEndEditing), for: .editingChanged)
     }
     
     @objc func textFieldEndEditing() {
-        newValue = addCurrencyTextField.text
+        newValue = currencyView.newValueTextField.text
     }
     @IBAction func cancelButton(_ sender: UIButton) {
         presenter.cancel()
@@ -81,8 +89,8 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 // MARK: - Binding
 extension CurrencyViewController: CurrencyViewProtocol {
     func success() {
-        currencyPickerView.reloadAllComponents()
-        newSymbol = presenter.symbols?[currencyPickerView.selectedRow(inComponent: 0)]
+        currencyView.currencyPickerView.reloadAllComponents()
+        newSymbol = presenter.symbols?[currencyView.currencyPickerView.selectedRow(inComponent: 0)]
     }
     
     func failure(error: Error) {

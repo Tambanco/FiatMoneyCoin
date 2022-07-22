@@ -11,45 +11,71 @@ import UIKit
 
 class FiatViewController: UIViewController {
 	var presenter: FiatPresenterProtocol!
-    
-    @IBOutlet weak var fiatTotalView: UIView!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var totalValue: UILabel!
-    @IBOutlet weak var earnValue: UILabel!
-    @IBOutlet weak var earnPercent: UILabel!
+    var fiatTotalView: FiatTotalView!
+    var fiatTableView: UITableView!
+    var addNewFiatButton: UIButton!
     
 	override func viewDidLoad() {
         super.viewDidLoad()
         setupTotalView()
         setupTableView()
+        setupAddButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchCurrency()
-    }
-    
-    @IBAction func addButton(_ sender: UIButton) {
-        presenter.showCurrencyView()
+        fiatTotalView.layer.shadowColor = UIColor.black.cgColor
+        fiatTotalView.layer.shadowOpacity = 0.5
+        fiatTotalView.layer.shadowOffset = .zero
+        fiatTotalView.layer.shadowRadius = 10
     }
     
     func setupTotalView() {
-        fiatTotalView.dropShadow(color: .systemRed, opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 3, scale: true)
-        fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
-        fiatTotalView.layer.cornerRadius = 10
-        fiatTotalView.layer.masksToBounds = true
-        totalValue.text = "foo"
-        earnValue.text = "bar"
-        earnPercent.text = "baz"
+        fiatTotalView = FiatTotalView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        view.addSubview(fiatTotalView)
+        
+        fiatTotalView.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.leading.equalToSuperview().inset(0)
+            make.trailing.equalToSuperview().inset(0)
+            make.height.equalTo(225)
+        }
     }
     
     func setupTableView() {
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "FiatCell")
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 80
+        fiatTableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        fiatTableView.register(FiatCell.self, forCellReuseIdentifier: FiatCell.reuseId)
+        fiatTableView.delegate = self
+        fiatTableView.dataSource = self
+        fiatTableView.separatorStyle = .none
+        fiatTableView.rowHeight = 100
+        
+        self.view.addSubview(fiatTableView)
+        
+        fiatTableView.snp.makeConstraints { make in
+            make.top.equalTo(fiatTotalView.snp.bottom).inset(-10)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+        }
     }
+    
+    func setupAddButton() {
+        var config = UIButton.Configuration.filled()
+        config.cornerStyle = .capsule
+        config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+        addNewFiatButton = UIButton(configuration: config, primaryAction: UIAction() { _ in
+            self.presenter.showCurrencyView()
+        })
+        
+        view.addSubview(addNewFiatButton)
+        
+        addNewFiatButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(30)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(70)
+        }
+    }
+    
 }
 
 // MARK: - TableView
@@ -59,7 +85,8 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FiatCell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: FiatCell.reuseId, for: indexPath) as! FiatCell
+        cell.currencyImage.image = UIImage(systemName: "dollarsign.circle.fill")
         cell.amountCurrency.text = presenter.fiatCurrencyList[indexPath.row].amountCurrency
         cell.amountCurrencySymbol.text = presenter.fiatCurrencyList[indexPath.row].amountCurrencySymbol
         cell.convertedValue.text = presenter.fiatCurrencyList[indexPath.row].convertedValue
@@ -71,6 +98,6 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Bindings
 extension FiatViewController: FiatViewProtocol {
     func updateFiatView() {
-        tableView.reloadData()
+        fiatTableView.reloadData()
     }
 }

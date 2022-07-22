@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
         let router = Router(navigationController: navigationController, assemblyBuilder: assemblyBuilder)
         router.initialViewController()
-        navigationController.view.backgroundColor = .systemGray
+        navigationController.view.backgroundColor = .white
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
