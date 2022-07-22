@@ -31,6 +31,7 @@ class CurrencyViewController: UIViewController {
             make.top.equalToSuperview().inset(200)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
+            make.height.equalTo(300)
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

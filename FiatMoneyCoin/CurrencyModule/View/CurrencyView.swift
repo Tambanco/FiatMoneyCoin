@@ -9,10 +9,9 @@ import UIKit
 
 class CurrencyView: UIView {
     
-    lazy var addCurrencyHeader: UILabel! = {
+    lazy var header: UILabel! = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 44)
-        label.textColor = .white
         label.text = "Add new currency"
         return label
     }()
@@ -20,21 +19,29 @@ class CurrencyView: UIView {
     lazy var newValueTextField: UITextField! = {
         let textField = UITextField()
         textField.placeholder = "Enter new value"
+        textField.layer.backgroundColor = UIColor.brown.cgColor
         return textField
     }()
     
     lazy var currencyPickerView: UIPickerView! = {
         let pickerView = UIPickerView()
+        pickerView.layer.backgroundColor = UIColor.blue.cgColor
         return pickerView
     }()
     
     lazy var cancelButton: UIButton! = {
-        let button = UIButton()
+        var config = UIButton.Configuration.filled()
+        config.cornerStyle = .capsule
+        let button = UIButton(configuration: config)
+        button.setTitle("Cancel", for: .normal)
         return button
     }()
     
     lazy var addCurrencyButton: UIButton! = {
-        let button = UIButton()
+        var config = UIButton.Configuration.filled()
+        config.cornerStyle = .capsule
+        let button = UIButton(configuration: config)
+        button.setTitle("Add", for: .normal)
         return button
     }()
     
@@ -42,19 +49,19 @@ class CurrencyView: UIView {
         super.init(frame: frame)
         
         backgroundColor = .brown
-        addSubview(addCurrencyHeader)
+        addSubview(header)
         addSubview(newValueTextField)
         addSubview(currencyPickerView)
         addSubview(cancelButton)
         addSubview(addCurrencyButton)
         
-        addCurrencyButton.snp.makeConstraints { make in
+        header.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(20)
             make.leading.equalToSuperview().inset(20)
         }
         
         newValueTextField.snp.makeConstraints { make in
-            make.top.equalTo(addCurrencyButton.snp.bottom).inset(-20)
+            make.top.equalTo(header.snp.bottom).inset(-20)
             make.leading.equalToSuperview().inset(20)
             make.trailing.equalToSuperview().inset(20)
         }
@@ -63,19 +70,16 @@ class CurrencyView: UIView {
             make.top.equalTo(newValueTextField.snp.bottom).inset(-20)
             make.leading.equalToSuperview().inset(20)
             make.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(200)
         }
         
         cancelButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(20)
             make.top.equalTo(currencyPickerView.snp.bottom).inset(20)
-            make.width.equalTo(50)
         }
         
         addCurrencyButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(20)
             make.top.equalTo(currencyPickerView.snp.bottom).inset(20)
-            make.width.equalTo(50)
         }
     }
     
