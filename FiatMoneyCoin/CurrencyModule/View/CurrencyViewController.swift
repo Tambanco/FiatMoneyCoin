@@ -16,9 +16,6 @@ class CurrencyViewController: UIViewController {
     private var newValue: String?
     private var newSymbol: String?
     
-//    @IBOutlet weak var addCurrencyTextField: UITextField!
-//    @IBOutlet weak var currencyPickerView: UIPickerView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCurrencyView()
