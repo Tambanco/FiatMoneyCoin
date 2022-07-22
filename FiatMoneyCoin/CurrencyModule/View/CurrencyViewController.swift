@@ -24,14 +24,12 @@ class CurrencyViewController: UIViewController {
     
     func  setupCurrencyView() {
         currencyView = CurrencyView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        currencyView.layer.backgroundColor = UIColor.green.cgColor
         self.view.addSubview(currencyView)
         
         currencyView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(200)
+            make.top.equalToSuperview().inset(300)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.height.equalTo(300)
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

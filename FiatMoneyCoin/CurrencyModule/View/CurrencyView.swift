@@ -19,13 +19,11 @@ class CurrencyView: UIView {
     lazy var newValueTextField: UITextField! = {
         let textField = UITextField()
         textField.placeholder = "Enter new value"
-        textField.layer.backgroundColor = UIColor.brown.cgColor
         return textField
     }()
     
     lazy var currencyPickerView: UIPickerView! = {
         let pickerView = UIPickerView()
-        pickerView.layer.backgroundColor = UIColor.blue.cgColor
         return pickerView
     }()
     
@@ -48,7 +46,6 @@ class CurrencyView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .brown
         addSubview(header)
         addSubview(newValueTextField)
         addSubview(currencyPickerView)
@@ -63,7 +60,6 @@ class CurrencyView: UIView {
         newValueTextField.snp.makeConstraints { make in
             make.top.equalTo(header.snp.bottom).inset(-20)
             make.leading.equalToSuperview().inset(20)
-            make.trailing.equalToSuperview().inset(20)
         }
         
         currencyPickerView.snp.makeConstraints { make in
@@ -74,13 +70,13 @@ class CurrencyView: UIView {
         
         cancelButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(50)
-            make.top.equalTo(currencyPickerView.snp.bottom).inset(20)
+            make.top.equalTo(currencyPickerView.snp.bottom).inset(-20)
             make.width.equalTo(100)
         }
         
         addCurrencyButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(50)
-            make.top.equalTo(currencyPickerView.snp.bottom).inset(20)
+            make.top.equalTo(currencyPickerView.snp.bottom).inset(-20)
             make.width.equalTo(100)
         }
     }
