@@ -11,7 +11,7 @@ class FiatTotalView: UIView {
     lazy var fiatCardView: UIView! = {
         let view = UIView()
         view.layer.cornerRadius = 15
-        view.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.7)
+        view.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.9)
         return view
     }()
     
@@ -93,7 +93,6 @@ class FiatTotalView: UIView {
             make.leading.equalTo(earnLabel.snp.trailing).inset(-10)
             make.centerY.equalTo(earnLabel)
         }
-        
     }
     
     required init?(coder: NSCoder) {

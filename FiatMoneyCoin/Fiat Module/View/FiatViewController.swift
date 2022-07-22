@@ -8,31 +8,22 @@
 //
 
 import UIKit
-import SnapKit
 
 class FiatViewController: UIViewController {
 	var presenter: FiatPresenterProtocol!
     var fiatTotalView: FiatTotalView!
     var fiatTableView: UITableView!
-    
-    @IBOutlet weak var addButton: UIButton!
-//    @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var totalValue: UILabel!
-//    @IBOutlet weak var earnValue: UILabel!
-//    @IBOutlet weak var earnPercent: UILabel!
+    var addNewFiatButton: UIButton!
     
 	override func viewDidLoad() {
         super.viewDidLoad()
         setupTotalView()
         setupTableView()
+        setupAddButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchCurrency()
-    }
-    
-    @IBAction func addButton(_ sender: UIButton) {
-        presenter.showCurrencyView()
     }
     
     func setupTotalView() {
@@ -54,10 +45,9 @@ class FiatViewController: UIViewController {
         fiatTableView.dataSource = self
         fiatTableView.separatorStyle = .none
         fiatTableView.rowHeight = 100
-        fiatTableView.backgroundColor = .black
-
+        
         self.view.addSubview(fiatTableView)
-
+        
         fiatTableView.snp.makeConstraints { make in
             make.top.equalTo(fiatTotalView.snp.bottom).inset(-10)
             make.leading.equalToSuperview()
@@ -65,6 +55,23 @@ class FiatViewController: UIViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
+    
+    func setupAddButton() {
+        var config = UIButton.Configuration.filled()
+        config.cornerStyle = .capsule
+        config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+        addNewFiatButton = UIButton(configuration: config, primaryAction: UIAction() { _ in
+            self.presenter.showCurrencyView()
+        })
+        
+        view.addSubview(addNewFiatButton)
+        
+        addNewFiatButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(30)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(70)
+        }
+    }
+    
 }
 
 // MARK: - TableView
