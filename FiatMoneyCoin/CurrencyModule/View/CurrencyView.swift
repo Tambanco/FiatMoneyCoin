@@ -11,7 +11,7 @@ class CurrencyView: UIView {
     
     lazy var header: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 44)
+        label.font = UIFont.systemFont(ofSize: 38)
         label.text = "Add new currency"
         return label
     }()
@@ -73,13 +73,15 @@ class CurrencyView: UIView {
         }
         
         cancelButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().inset(50)
             make.top.equalTo(currencyPickerView.snp.bottom).inset(20)
+            make.width.equalTo(100)
         }
         
         addCurrencyButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(20)
+            make.trailing.equalToSuperview().inset(50)
             make.top.equalTo(currencyPickerView.snp.bottom).inset(20)
+            make.width.equalTo(100)
         }
     }
     
