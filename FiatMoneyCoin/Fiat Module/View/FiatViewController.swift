@@ -13,19 +13,18 @@ import SnapKit
 class FiatViewController: UIViewController {
 	var presenter: FiatPresenterProtocol!
     var fiatTotalView: FiatTotalView!
-//    var fiatTableView: UITableView!
+    var fiatTableView: UITableView!
     
-//    @IBOutlet weak var fiatTotalView: UIView!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var totalValue: UILabel!
-    @IBOutlet weak var earnValue: UILabel!
-    @IBOutlet weak var earnPercent: UILabel!
+//    @IBOutlet weak var tableView: UITableView!
+//    @IBOutlet weak var totalValue: UILabel!
+//    @IBOutlet weak var earnValue: UILabel!
+//    @IBOutlet weak var earnPercent: UILabel!
     
 	override func viewDidLoad() {
         super.viewDidLoad()
         setupTotalView()
-//        setupTableView()
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,33 +45,26 @@ class FiatViewController: UIViewController {
             make.trailing.equalToSuperview().inset(0)
             make.height.equalTo(225)
         }
-//        fiatTotalView.layer.backgroundColor = Constants.backgroundColorView
-//        fiatTotalView.layer.cornerRadius = 10
-//        fiatTotalView.layer.masksToBounds = true
-//        totalValue.text = "foo"
-//        earnValue.text = "bar"
-//        earnPercent.text = "baz"
-        
     }
     
-//    func setupTableView() {
-//        fiatTableView = UITableView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-//        fiatTableView.register(FiatCell.self, forCellReuseIdentifier: FiatCell.reuseId)
-//        fiatTableView.delegate = self
-//        fiatTableView.dataSource = self
-//        fiatTableView.separatorStyle = .none
-//        fiatTableView.rowHeight = 100
-//        fiatTableView.backgroundColor = .black
-//
-//        self.view.addSubview(fiatTableView)
-//
-//        fiatTableView.snp.makeConstraints { make in
-//            make.top.equalTo(fiatTotalView.snp.bottom)
-//            make.leading.equalToSuperview()
-//            make.trailing.equalToSuperview()
-//            make.bottom.equalTo(view.safeAreaInsets.bottom)
-//        }
-//    }
+    func setupTableView() {
+        fiatTableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        fiatTableView.register(FiatCell.self, forCellReuseIdentifier: FiatCell.reuseId)
+        fiatTableView.delegate = self
+        fiatTableView.dataSource = self
+        fiatTableView.separatorStyle = .none
+        fiatTableView.rowHeight = 100
+        fiatTableView.backgroundColor = .black
+
+        self.view.addSubview(fiatTableView)
+
+        fiatTableView.snp.makeConstraints { make in
+            make.top.equalTo(fiatTotalView.snp.bottom).inset(-10)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+        }
+    }
 }
 
 // MARK: - TableView
@@ -95,6 +87,6 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Bindings
 extension FiatViewController: FiatViewProtocol {
     func updateFiatView() {
-        tableView.reloadData()
+        fiatTableView.reloadData()
     }
 }
