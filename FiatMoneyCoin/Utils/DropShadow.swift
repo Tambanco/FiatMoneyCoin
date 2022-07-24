@@ -23,7 +23,6 @@ class DropShadow: DropShadowProtocol {
         onView.layer.shadowOpacity = 0.5
         onView.layer.shadowOffset = .zero
         onView.layer.shadowRadius = 10
-        print("convenience #1 worked")
         self.init()
     }
     
@@ -32,10 +31,8 @@ class DropShadow: DropShadowProtocol {
         onView.layer.shadowOpacity = opacity
         onView.layer.shadowOffset = offset
         onView.layer.shadowRadius = radius
-        print("convenience #2 worked")
         self.init()
     }
-    
     
     deinit {
         print("DropShadow deinited")
