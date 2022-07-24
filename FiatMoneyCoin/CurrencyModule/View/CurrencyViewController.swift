@@ -25,9 +25,9 @@ class CurrencyViewController: UIViewController {
     func  setupCurrencyView() {
         currencyView = CurrencyView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         self.view.addSubview(currencyView)
-        
+        currencyView.backgroundColor = .brown
         currencyView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(300)
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
@@ -64,6 +64,10 @@ class CurrencyViewController: UIViewController {
         presenter.newCurrencyValue?.newSymbol = newSymbol
         presenter.newCurrencyValue?.newValue = newValue
         presenter.setNewValue()
+    }
+    
+    deinit {
+        print("CurrencyViewController deinited")
     }
 }
 

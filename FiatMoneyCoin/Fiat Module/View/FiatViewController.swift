@@ -12,6 +12,7 @@ import UIKit
 class FiatViewController: UIViewController {
 	var presenter: FiatPresenterProtocol!
     var fiatTotalView: FiatTotalView!
+    var dropShadow: DropShadowProtocol!
     var fiatTableView: UITableView!
     var addNewFiatButton: UIButton!
     
@@ -24,14 +25,11 @@ class FiatViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchCurrency()
-        fiatTotalView.layer.shadowColor = UIColor.black.cgColor
-        fiatTotalView.layer.shadowOpacity = 0.5
-        fiatTotalView.layer.shadowOffset = .zero
-        fiatTotalView.layer.shadowRadius = 10
     }
     
     func setupTotalView() {
         fiatTotalView = FiatTotalView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        dropShadow = DropShadow(onView: fiatTotalView)
         view.addSubview(fiatTotalView)
         
         fiatTotalView.snp.makeConstraints { make in
@@ -76,6 +74,9 @@ class FiatViewController: UIViewController {
         }
     }
     
+    deinit {
+        print("FiatViewController deinited")
+    }
 }
 
 // MARK: - TableView
