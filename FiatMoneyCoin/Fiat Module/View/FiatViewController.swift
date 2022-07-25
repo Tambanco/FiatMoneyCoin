@@ -36,7 +36,7 @@ class FiatViewController: UIViewController {
             make.top.equalTo(self.view.safeAreaLayoutGuide)
             make.leading.equalToSuperview().inset(0)
             make.trailing.equalToSuperview().inset(0)
-            make.height.equalTo(225)
+            make.height.equalTo(200)
         }
     }
     

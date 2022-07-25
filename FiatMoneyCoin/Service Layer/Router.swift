@@ -49,4 +49,8 @@ class Router: RouterProtocol {
             navigationController.popToRootViewController(animated: true)
         }
     }
+    
+    deinit {
+        print("Route deinit")
+    }
 }

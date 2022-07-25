@@ -13,7 +13,7 @@ class CurrencyView: UIView {
     
     lazy var header: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 38)
+        label.font = UIFont.systemFont(ofSize: 40)
         label.text = "Add new currency"
         return label
     }()

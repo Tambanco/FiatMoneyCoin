@@ -17,7 +17,7 @@ class FiatTotalView: UIView {
     
     lazy var fiatHeader: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 44)
+        label.font = UIFont.systemFont(ofSize: 40)
         label.textColor = .white
         label.text = "Fiat money"
         return label
