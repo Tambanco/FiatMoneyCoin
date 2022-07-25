@@ -9,6 +9,8 @@ import UIKit
 
 class CurrencyView: UIView {
     
+    var presenter: CurrencyPresenterProtocol!
+    
     lazy var header: UILabel! = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 38)

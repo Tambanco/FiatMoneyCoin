@@ -32,6 +32,9 @@ class CurrencyViewController: UIViewController {
             make.height.equalTo(UIScreen.main.bounds.height * 0.5)
         }
         
+        self.currencyView.cancelButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
+        self.currencyView.addCurrencyButton.addTarget(self, action: #selector(addAction), for: .touchUpInside)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -47,23 +50,24 @@ class CurrencyViewController: UIViewController {
     }
     
     func setupPickerView() {
-        currencyView.currencyPickerView.delegate = self
-        currencyView.currencyPickerView.dataSource = self
-        currencyView.newValueTextField.addTarget(self, action: #selector(textFieldEndEditing), for: .editingChanged)
+        self.currencyView.currencyPickerView.delegate = self
+        self.currencyView.currencyPickerView.dataSource = self
+        self.currencyView.newValueTextField.addTarget(self, action: #selector(textFieldEndEditing), for: .editingChanged)
     }
     
     @objc func textFieldEndEditing() {
         newValue = currencyView.newValueTextField.text
     }
-    @IBAction func cancelButton(_ sender: UIButton) {
-        presenter.cancel()
-    }
     
-    @IBAction func addButton(_ sender: UIButton) {
+    @objc func addAction() {
         guard let newSymbol = newSymbol else { return }
         presenter.newCurrencyValue?.newSymbol = newSymbol
         presenter.newCurrencyValue?.newValue = newValue
         presenter.setNewValue()
+    }
+    
+    @objc func cancelAction() {
+        presenter.cancel()
     }
     
     deinit {
