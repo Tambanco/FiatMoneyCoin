@@ -62,6 +62,7 @@ class CurrencyView: UIView {
         newValueTextField.snp.makeConstraints { make in
             make.top.equalTo(header.snp.bottom).inset(-20)
             make.leading.equalToSuperview().inset(20)
+            make.trailing.equalToSuperview().inset(20)
         }
         
         currencyPickerView.snp.makeConstraints { make in
