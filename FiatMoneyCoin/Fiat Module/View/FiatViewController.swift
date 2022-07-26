@@ -10,13 +10,13 @@
 import UIKit
 
 class FiatViewController: UIViewController {
-	var presenter: FiatPresenterProtocol!
+    var presenter: FiatPresenterProtocol!
     var fiatTotalView: FiatTotalView!
     var dropShadow: DropShadowProtocol!
     var fiatTableView: UITableView!
     var addNewFiatButton: UIButton!
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setupTotalView()
         setupTableView()
@@ -98,9 +98,9 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let trash = UIContextualAction(style: .normal,
-                                        title: "Delete") { [weak self] (action, view, completionHandler) in
-                                            self?.moveToTrash()
-                                            completionHandler(true)
+                                       title: "Delete") { [weak self] (action, view, completionHandler) in
+            self?.moveToTrash(index: indexPath.row)
+            completionHandler(true)
         }
         trash.backgroundColor = .systemRed
         let configuration = UISwipeActionsConfiguration(actions: [trash])
@@ -108,8 +108,8 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         return configuration
     }
     
-    func moveToTrash() {
-        print("remove swiped")
+    func moveToTrash(index: Int) {
+        presenter.removeCurrency(rowIndex: index)
     }
 }
 

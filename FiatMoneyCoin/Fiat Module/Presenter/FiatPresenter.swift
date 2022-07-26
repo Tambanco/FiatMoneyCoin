@@ -22,6 +22,7 @@ protocol FiatPresenterProtocol: AnyObject {
     var convertedCurrency: String? { get set }
     func showCurrencyView()
     func fetchCurrency()
+    func removeCurrency(rowIndex: Int)
     func currencyConverter(amount: String?, symbol: String?)
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
@@ -39,6 +40,11 @@ class FiatPresenter: FiatPresenterProtocol {
         let amountCurrency = router?.newCurrency?.newValue
         let amountCurrencySymbol = router?.newCurrency?.newSymbol
         currencyConverter(amount: amountCurrency, symbol: amountCurrencySymbol)
+    }
+    
+    func removeCurrency(rowIndex: Int) {
+        fiatCurrencyList.remove(at: rowIndex)
+        self.view?.updateFiatView()
     }
     
     func currencyConverter(amount: String?, symbol: String?) {
