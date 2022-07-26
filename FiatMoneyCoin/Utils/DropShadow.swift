@@ -20,7 +20,7 @@ class DropShadow: DropShadowProtocol {
     
     convenience init(onView: UIView) {
         onView.layer.shadowColor = UIColor.black.cgColor
-        onView.layer.shadowOpacity = 0.5
+        onView.layer.shadowOpacity = 0.4
         onView.layer.shadowOffset = .zero
         onView.layer.shadowRadius = 10
         self.init()
