@@ -29,4 +29,8 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         view.presenter = presenter
         return view
     }
+    
+    deinit {
+        print("AssemblyModuleBuilder deinit")
+    }
 }
