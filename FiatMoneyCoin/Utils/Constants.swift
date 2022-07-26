@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct Constants {
-    static let backgroundColorView: CGColor = UIColor.systemBlue.cgColor
-    static let backgroundColorCell: CGColor = UIColor.systemBlue.cgColor
-    static let backgroundColorButton: UIColor = .systemBlue
+    static let backgroundColorView: UIColor = UIColor.systemCyan
+    static let backgroundColorCell: CGColor = UIColor.systemCyan.cgColor
+    static let backgroundColorButton: UIColor = .systemCyan
 }

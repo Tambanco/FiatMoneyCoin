@@ -28,6 +28,7 @@ class FiatViewController: UIViewController {
     }
     
     func setupTotalView() {
+        self.navigationController?.navigationBar.tintColor = Constants.backgroundColorButton
         fiatTotalView = FiatTotalView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         dropShadow = DropShadow(onView: fiatTotalView)
         
@@ -62,6 +63,7 @@ class FiatViewController: UIViewController {
     func setupAddButton() {
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
+        config.baseBackgroundColor = Constants.backgroundColorButton
         config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         addNewFiatButton = UIButton(configuration: config, primaryAction: UIAction() { _ in
             self.presenter.showCurrencyView()
