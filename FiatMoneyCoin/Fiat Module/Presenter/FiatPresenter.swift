@@ -20,6 +20,9 @@ protocol FiatPresenterProtocol: AnyObject {
     var fiatCurrencyList: [FiatModel] { get set }
     var baseCurrency: String { get set }
     var convertedCurrency: String? { get set }
+    var fiatCalculator: FiatCalculatorProtocol! { get set }
+    var totalValue: String? { get set }
+    
     func showCurrencyView()
     func fetchCurrency()
     func removeCurrency(rowIndex: Int)
@@ -28,6 +31,8 @@ protocol FiatPresenterProtocol: AnyObject {
 }
 
 class FiatPresenter: FiatPresenterProtocol {
+    var totalValue: String?
+    var fiatCalculator: FiatCalculatorProtocol! = FiatCalculator()
     var baseCurrency: String = "RUB"
     var convertedCurrency: String?
     var fiatCurrencyList: [FiatModel] = []
@@ -40,6 +45,7 @@ class FiatPresenter: FiatPresenterProtocol {
         let amountCurrency = router?.newCurrency?.newValue
         let amountCurrencySymbol = router?.newCurrency?.newSymbol
         currencyConverter(amount: amountCurrency, symbol: amountCurrencySymbol)
+        totalValue = fiatCalculator.calculateTotalValue(values: fiatCurrencyList)
     }
     
     func removeCurrency(rowIndex: Int) {
