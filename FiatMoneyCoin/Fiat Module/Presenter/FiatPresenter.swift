@@ -77,4 +77,8 @@ class FiatPresenter: FiatPresenterProtocol {
         self.networkService = networkService
         self.router = router
     }
+    
+    deinit {
+        print("FiatPresenter deinited")
+    }
 }
