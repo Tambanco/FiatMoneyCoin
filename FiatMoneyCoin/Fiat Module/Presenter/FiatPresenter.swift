@@ -13,6 +13,7 @@ import UIKit
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
     func updateFiatView()
+    func updateTotalView(totalValue: String?)
 }
 
 // MARK: Input protocol
@@ -46,6 +47,7 @@ class FiatPresenter: FiatPresenterProtocol {
         let amountCurrencySymbol = router?.newCurrency?.newSymbol
         currencyConverter(amount: amountCurrency, symbol: amountCurrencySymbol)
         totalValue = fiatCalculator.calculateTotalValue(values: fiatCurrencyList)
+        self.view?.updateTotalView(totalValue: totalValue)
     }
     
     func removeCurrency(rowIndex: Int) {
