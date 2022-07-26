@@ -95,6 +95,22 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         cell.earnPercent.text = String("0" + " " + "%")
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let trash = UIContextualAction(style: .normal,
+                                        title: "Delete") { [weak self] (action, view, completionHandler) in
+                                            self?.moveToTrash()
+                                            completionHandler(true)
+        }
+        trash.backgroundColor = .systemRed
+        let configuration = UISwipeActionsConfiguration(actions: [trash])
+        
+        return configuration
+    }
+    
+    func moveToTrash() {
+        print("remove swiped")
+    }
 }
 
 // MARK: - Bindings

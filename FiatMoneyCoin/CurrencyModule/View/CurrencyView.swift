@@ -21,6 +21,7 @@ class CurrencyView: UIView {
     lazy var newValueTextField: UITextField! = {
         let textField = UITextField()
         textField.placeholder = "Enter new value"
+        textField.keyboardType = .decimalPad
         return textField
     }()
     
