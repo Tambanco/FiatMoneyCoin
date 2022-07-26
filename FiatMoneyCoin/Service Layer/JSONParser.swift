@@ -34,7 +34,9 @@ class JSONParser: Parcerable {
         
         do {
             let converted = try decoder.decode(ConvertedModel.self, from: json)
-            convertedValue = String(converted.result)
+            let convertedDouble = converted.result
+            let convertedTrimedValue = Double(round(100 * convertedDouble) / 100)
+            convertedValue = String(convertedTrimedValue)
             
         } catch {
             print("parsing result of conversion failure")
