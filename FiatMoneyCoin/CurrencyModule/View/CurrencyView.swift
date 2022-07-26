@@ -8,7 +8,6 @@
 import UIKit
 
 class CurrencyView: UIView {
-    
     var presenter: CurrencyPresenterProtocol!
     
     lazy var header: UILabel! = {
@@ -21,6 +20,7 @@ class CurrencyView: UIView {
     lazy var newValueTextField: UITextField! = {
         let textField = UITextField()
         textField.placeholder = "Enter new value"
+        textField.keyboardType = .decimalPad
         return textField
     }()
     
@@ -32,6 +32,7 @@ class CurrencyView: UIView {
     lazy var cancelButton: UIButton! = {
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
+        config.baseBackgroundColor = Constants.backgroundColorButton
         let button = UIButton(configuration: config)
         button.setTitle("Cancel", for: .normal)
         return button
@@ -40,6 +41,7 @@ class CurrencyView: UIView {
     lazy var addCurrencyButton: UIButton! = {
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
+        config.baseBackgroundColor = Constants.backgroundColorButton
         let button = UIButton(configuration: config)
         button.setTitle("Add", for: .normal)
         return button

@@ -13,6 +13,7 @@ import UIKit
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
     func updateFiatView()
+    func updateTotalView(totalValue: String?)
 }
 
 // MARK: Input protocol
@@ -20,13 +21,19 @@ protocol FiatPresenterProtocol: AnyObject {
     var fiatCurrencyList: [FiatModel] { get set }
     var baseCurrency: String { get set }
     var convertedCurrency: String? { get set }
+    var fiatCalculator: FiatCalculatorProtocol! { get set }
+    var totalValue: String? { get set }
+    
     func showCurrencyView()
     func fetchCurrency()
+    func removeCurrency(rowIndex: Int)
     func currencyConverter(amount: String?, symbol: String?)
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class FiatPresenter: FiatPresenterProtocol {
+    var totalValue: String?
+    var fiatCalculator: FiatCalculatorProtocol! = FiatCalculator()
     var baseCurrency: String = "RUB"
     var convertedCurrency: String?
     var fiatCurrencyList: [FiatModel] = []
@@ -39,6 +46,13 @@ class FiatPresenter: FiatPresenterProtocol {
         let amountCurrency = router?.newCurrency?.newValue
         let amountCurrencySymbol = router?.newCurrency?.newSymbol
         currencyConverter(amount: amountCurrency, symbol: amountCurrencySymbol)
+        totalValue = fiatCalculator.calculateTotalValue(values: fiatCurrencyList)
+        self.view?.updateTotalView(totalValue: totalValue)
+    }
+    
+    func removeCurrency(rowIndex: Int) {
+        fiatCurrencyList.remove(at: rowIndex)
+        self.view?.updateFiatView()
     }
     
     func currencyConverter(amount: String?, symbol: String?) {

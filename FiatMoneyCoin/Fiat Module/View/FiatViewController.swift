@@ -10,13 +10,13 @@
 import UIKit
 
 class FiatViewController: UIViewController {
-	var presenter: FiatPresenterProtocol!
+    var presenter: FiatPresenterProtocol!
     var fiatTotalView: FiatTotalView!
     var dropShadow: DropShadowProtocol!
     var fiatTableView: UITableView!
     var addNewFiatButton: UIButton!
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setupTotalView()
         setupTableView()
@@ -28,6 +28,7 @@ class FiatViewController: UIViewController {
     }
     
     func setupTotalView() {
+        self.navigationController?.navigationBar.tintColor = Constants.backgroundColorButton
         fiatTotalView = FiatTotalView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         dropShadow = DropShadow(onView: fiatTotalView)
         
@@ -62,6 +63,7 @@ class FiatViewController: UIViewController {
     func setupAddButton() {
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
+        config.baseBackgroundColor = Constants.backgroundColorButton
         config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         addNewFiatButton = UIButton(configuration: config, primaryAction: UIAction() { _ in
             self.presenter.showCurrencyView()
@@ -95,10 +97,29 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         cell.earnPercent.text = String("0" + " " + "%")
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let trash = UIContextualAction(style: .normal,
+                                       title: "Delete") { [weak self] (action, view, completionHandler) in
+            self?.moveToTrash(index: indexPath.row)
+            completionHandler(true)
+        }
+        trash.backgroundColor = .systemRed
+        let configuration = UISwipeActionsConfiguration(actions: [trash])
+        
+        return configuration
+    }
+    
+    func moveToTrash(index: Int) {
+        presenter.removeCurrency(rowIndex: index)
+    }
 }
 
 // MARK: - Bindings
 extension FiatViewController: FiatViewProtocol {
+    func updateTotalView(totalValue: String?) {
+        self.fiatTotalView.totalValue.text = totalValue
+    }
     func updateFiatView() {
         fiatTableView.reloadData()
     }
