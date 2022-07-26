@@ -58,4 +58,8 @@ final class NewtworkService: NetworkServiceProtocol {
         }
         task.resume()
     }
+    
+    deinit {
+        print("NewtworkService deinit")
+    }
 }
