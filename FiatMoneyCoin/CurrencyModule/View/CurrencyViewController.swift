@@ -12,7 +12,6 @@ import UIKit
 class CurrencyViewController: UIViewController {
     var presenter: CurrencyPresenterProtocol!
     var currencyView: CurrencyView!
-    
     private var newValue: String?
     private var newSymbol: String?
     
