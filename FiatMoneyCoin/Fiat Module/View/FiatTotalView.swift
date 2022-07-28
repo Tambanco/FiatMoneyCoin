@@ -39,14 +39,14 @@ class FiatTotalView: UIView {
     
     lazy var totalValue: UILabel! = {
         let label = UILabel()
-        label.text = "totalValue"
+        label.text = "0"
         label.textColor = .white
         return label
     }()
     
     lazy var eranValue: UILabel! = {
         let label = UILabel()
-        label.text = "eranValue"
+        label.text = "0"
         label.textColor = .white
         return label
     }()

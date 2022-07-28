@@ -26,7 +26,7 @@ class FiatViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        presenter.fetchCurrency()
+            presenter.fetchCurrency()
     }
     
     func setupNavigationBar() {
