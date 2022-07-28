@@ -20,7 +20,6 @@ class JSONParser: Parcerable {
         do {
             let fiatList = try decoder.decode(FiatRawModel.self, from: json)
             fiatsSymbols = fiatList.symbols.compactMap{ "\($0.description) \($1.symbolDescription)" }.sorted()
-            
         } catch {
             print("parsing symbols failure")
         }
