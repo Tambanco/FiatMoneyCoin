@@ -28,6 +28,7 @@ protocol FiatPresenterProtocol: AnyObject {
     func fetchCurrency()
     func removeCurrency(rowIndex: Int)
     func currencyConverter(amount: String?, symbol: String?)
+    
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
 
