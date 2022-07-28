@@ -84,10 +84,6 @@ class FiatViewController: UIViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(70)
         }
     }
-    
-    deinit {
-        print("FiatViewController deinited")
-    }
 }
 
 // MARK: - TableView
@@ -106,6 +102,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+// MARK: - Cell manipulation
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let trash = UIContextualAction(style: .normal,
                                        title: "Удалить") { [weak self] (action, view, completionHandler) in

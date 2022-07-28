@@ -76,10 +76,6 @@ class CurrencyViewController: UIViewController {
     @objc func cancelAction() {
         presenter.cancel()
     }
-    
-    deinit {
-        print("CurrencyViewController deinited")
-    }
 }
 
 // MARK: - PickerView

@@ -14,10 +14,12 @@ protocol FiatCalculatorProtocol: AnyObject {
 class FiatCalculator: FiatCalculatorProtocol {
     func calculateTotalValue(values: [FiatModel]) -> String? {
         var baseCurrencyValues: [String] = []
-        let mapedValues = values.compactMap { elements in
-            let newBaseValue = elements.amountBaseCurrency
-            baseCurrencyValues.append(newBaseValue)
+        _ = values.compactMap { elements in
+            let newBaseValue = elements.convertedValue
+            baseCurrencyValues.append(newBaseValue ?? "0")
         }
+        
+        print(baseCurrencyValues)
         
         return baseCurrencyValues.first
     }

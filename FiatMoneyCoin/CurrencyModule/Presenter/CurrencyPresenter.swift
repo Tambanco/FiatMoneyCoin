@@ -65,8 +65,4 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
             }
         })
     }
-    
-    deinit {
-        print("CurrencyPresenter deinited")
-    }
 }

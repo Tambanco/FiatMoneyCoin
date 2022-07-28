@@ -98,8 +98,4 @@ class FiatTotalView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    deinit {
-        print("FiatTotalView deinited")
-    }
 }
