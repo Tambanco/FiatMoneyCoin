@@ -19,20 +19,20 @@ class FiatTotalView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 40)
         label.textColor = .white
-        label.text = "Fiat money"
+        label.text = "Фиатные деньги"
         return label
     }()
     
     lazy var totalLabel: UILabel! = {
         let label = UILabel()
-        label.text = "Total:"
+        label.text = "Сумма:"
         label.textColor = .white
         return label
     }()
     
     lazy var earnLabel: UILabel! = {
         let label = UILabel()
-        label.text = "Earn:"
+        label.text = "Заработок:"
         label.textColor = .white
         return label
     }()
