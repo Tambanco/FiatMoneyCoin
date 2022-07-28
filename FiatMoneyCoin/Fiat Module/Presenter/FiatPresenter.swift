@@ -28,6 +28,7 @@ protocol FiatPresenterProtocol: AnyObject {
     func fetchCurrency()
     func removeCurrency(rowIndex: Int)
     func currencyConverter(amount: String?, symbol: String?)
+    
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
 
@@ -46,7 +47,6 @@ class FiatPresenter: FiatPresenterProtocol {
         let amountCurrency = router?.newCurrency?.newValue
         let amountCurrencySymbol = router?.newCurrency?.newSymbol
         currencyConverter(amount: amountCurrency, symbol: amountCurrencySymbol)
-        totalValue = fiatCalculator.calculateTotalValue(values: fiatCurrencyList)
         self.view?.updateTotalView(totalValue: totalValue)
     }
     
@@ -59,7 +59,7 @@ class FiatPresenter: FiatPresenterProtocol {
         guard symbol != nil else { return }
         let symbolToConvert = symbol!
         let currencyCode = String(symbolToConvert.prefix(3))
-        networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount!, completion: { [weak self] result in
+        networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount ?? "", completion: { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
@@ -68,12 +68,13 @@ class FiatPresenter: FiatPresenterProtocol {
                     let amountCurrency = self.router?.newCurrency?.newValue
                     let amountCurrencySymbol = self.router?.newCurrency?.newSymbol
                     
-                    let newValue = FiatModel(amountCurrency: amountCurrency ?? "foo",
-                                             amountCurrencySymbol: amountCurrencySymbol ?? "bar",
+                    let newValue = FiatModel(amountCurrency: amountCurrency ?? "0",
+                                             amountCurrencySymbol: amountCurrencySymbol ?? "",
                                              amountBaseCurrency: self.baseCurrency,
-                                             convertedValue: "\(self.convertedCurrency!) \(self.baseCurrency)")
+                                             convertedValue: "\(self.convertedCurrency!)")
                     self.fiatCurrencyList.append(newValue)
                     self.view?.updateFiatView()
+                    self.view?.updateTotalView(totalValue: self.fiatCalculator.calculateTotalValue(values: self.fiatCurrencyList))
                 case .failure(let error):
                     print(error)
                 }
@@ -90,9 +91,5 @@ class FiatPresenter: FiatPresenterProtocol {
         self.view = view
         self.networkService = networkService
         self.router = router
-    }
-    
-    deinit {
-        print("FiatPresenter deinited")
     }
 }

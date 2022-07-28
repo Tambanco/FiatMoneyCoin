@@ -17,8 +17,16 @@ class CurrencyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         setupCurrencyView()
         setupPickerView()
+    }
+    
+    func setupNavigationBar() {
+        let backButton = UIBarButtonItem()
+        backButton.title = "Назад"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.tintColor = Constants.backgroundColorButton
     }
     
     func  setupCurrencyView() {
@@ -67,10 +75,6 @@ class CurrencyViewController: UIViewController {
     
     @objc func cancelAction() {
         presenter.cancel()
-    }
-    
-    deinit {
-        print("CurrencyViewController deinited")
     }
 }
 

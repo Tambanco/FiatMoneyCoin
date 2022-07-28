@@ -20,6 +20,7 @@ class FiatCell: UITableViewCell {
     
     lazy var currencyImage: UIImageView! = {
         let imageView = UIImageView()
+        imageView.tintColor = .black
         return imageView
     }()
     
@@ -71,7 +72,7 @@ class FiatCell: UITableViewCell {
         }
         
         amountCurrency.snp.makeConstraints { make in
-            make.leading.equalTo(currencyImage.snp.trailing).inset(-10)
+            make.leading.equalTo(currencyImage.snp.trailing).inset(-15)
             make.top.equalToSuperview().inset(10)
         }
         
@@ -81,7 +82,7 @@ class FiatCell: UITableViewCell {
         }
         
         convertedValue.snp.makeConstraints { make in
-            make.leading.equalTo(currencyImage.snp.trailing).inset(-10)
+            make.leading.equalTo(currencyImage.snp.trailing).inset(-15)
             make.top.equalTo(amountCurrency.snp.bottom).inset(-7)
         }
 

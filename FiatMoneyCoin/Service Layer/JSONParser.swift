@@ -44,8 +44,4 @@ class JSONParser: Parcerable {
         
         return convertedValue
     }
-    
-    deinit {
-        print("JSONParser deinit")
-    }
 }

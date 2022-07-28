@@ -13,13 +13,13 @@ class CurrencyView: UIView {
     lazy var header: UILabel! = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 40)
-        label.text = "Add new currency"
+        label.text = "Новая валюта"
         return label
     }()
     
     lazy var newValueTextField: UITextField! = {
         let textField = UITextField()
-        textField.placeholder = "Enter new value"
+        textField.placeholder = "Введите значение"
         textField.keyboardType = .decimalPad
         return textField
     }()
@@ -34,7 +34,7 @@ class CurrencyView: UIView {
         config.cornerStyle = .capsule
         config.baseBackgroundColor = Constants.backgroundColorButton
         let button = UIButton(configuration: config)
-        button.setTitle("Cancel", for: .normal)
+        button.setTitle("Отмена", for: .normal)
         return button
     }()
     
@@ -43,7 +43,7 @@ class CurrencyView: UIView {
         config.cornerStyle = .capsule
         config.baseBackgroundColor = Constants.backgroundColorButton
         let button = UIButton(configuration: config)
-        button.setTitle("Add", for: .normal)
+        button.setTitle("Добавить", for: .normal)
         return button
     }()
     
@@ -76,21 +76,17 @@ class CurrencyView: UIView {
         cancelButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(50)
             make.top.equalTo(currencyPickerView.snp.bottom).inset(-20)
-            make.width.equalTo(100)
+            make.width.equalTo(120)
         }
         
         addCurrencyButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(50)
             make.top.equalTo(currencyPickerView.snp.bottom).inset(-20)
-            make.width.equalTo(100)
+            make.width.equalTo(120)
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        print("CurrencyView deinited")
     }
 }

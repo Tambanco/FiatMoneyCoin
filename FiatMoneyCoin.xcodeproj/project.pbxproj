@@ -141,6 +141,7 @@
 		4919649628718B32000B8D98 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				495E242A28900E29007EEC5F /* FiatCalculator.swift */,
 				4919649428718B25000B8D98 /* Constants.swift */,
 				497F53892873631600465DF6 /* HexColor.swift */,
 				495E2420288D920C007EEC5F /* DropShadow.swift */,
