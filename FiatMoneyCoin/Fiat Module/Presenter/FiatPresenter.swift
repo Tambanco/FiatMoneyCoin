@@ -72,9 +72,8 @@ class FiatPresenter: FiatPresenterProtocol {
                                              amountBaseCurrency: self.baseCurrency,
                                              convertedValue: "\(self.convertedCurrency!)")
                     self.fiatCurrencyList.append(newValue)
-                    let array = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrencyList)
-                    print(array)
                     self.view?.updateFiatView()
+                    self.view?.updateTotalView(totalValue: self.fiatCalculator.calculateTotalValue(values: self.fiatCurrencyList))
                 case .failure(let error):
                     print(error)
                 }
