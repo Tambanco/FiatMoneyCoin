@@ -14,6 +14,7 @@ class FiatViewController: UIViewController {
     var presenter: FiatPresenterProtocol!
     var fiatTotalView: FiatTotalView!
     var dropShadow: DropShadowProtocol!
+    var gradientor: GradientProtocol!
     var fiatTableView: UITableView!
     var addNewFiatButton: UIButton!
     
@@ -26,7 +27,22 @@ class FiatViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            presenter.fetchCurrency()
+        super.viewWillAppear(true)
+        //        gradientor = Gradientor()
+        //        gradientor.setGradientForView(view: fiatTotalView)
+        let colorTop =  UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 255.0/255.0, green: 94.0/255.0, blue: 58.0/255.0, alpha: 1.0).cgColor
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorBottom]
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+//        setGradientForView(viewForGradient: fiatTotalView)
+        presenter.fetchCurrency()
+    }
+    
+    func setGradientForView(viewForGradient: UIView) {
     }
     
     func setupNavigationBar() {
@@ -39,7 +55,6 @@ class FiatViewController: UIViewController {
     func setupTotalView() {
         fiatTotalView = FiatTotalView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         dropShadow = DropShadow(onView: fiatTotalView)
-        
         view.addSubview(fiatTotalView)
         
         fiatTotalView.snp.makeConstraints { make in
@@ -102,7 +117,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-// MARK: - Cell manipulation
+    // MARK: - Cell manipulation
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let trash = UIContextualAction(style: .normal,
                                        title: "Удалить") { [weak self] (action, view, completionHandler) in
