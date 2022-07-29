@@ -12,4 +12,6 @@ struct Constants {
     static let backgroundColorView: UIColor = UIColor.systemCyan
     static let backgroundColorCell: CGColor = UIColor.systemCyan.cgColor
     static let backgroundColorButton: UIColor = .systemCyan
+    
+    static let cornerRadiusForView: Double = 20.0
 }

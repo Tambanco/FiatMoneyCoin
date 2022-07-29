@@ -28,18 +28,10 @@ class FiatViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        //        gradientor = Gradientor()
-        //        gradientor.setGradientForView(view: fiatTotalView)
-        let colorTop =  UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 255.0/255.0, green: 94.0/255.0, blue: 58.0/255.0, alpha: 1.0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorBottom]
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-        
-//        setGradientForView(viewForGradient: fiatTotalView)
-        presenter.fetchCurrency()
+        DispatchQueue.main.async {
+            self.gradientor = Gradientor(view: self.fiatTotalView.fiatCardView, topColor: UIColor.systemBlue.cgColor, bottomColor: UIColor.systemCyan.cgColor)
+            self.presenter.fetchCurrency()
+        }
     }
     
     func setGradientForView(viewForGradient: UIView) {
