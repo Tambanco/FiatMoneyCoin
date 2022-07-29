@@ -11,7 +11,6 @@ class FiatTotalView: UIView {
     lazy var fiatCardView: UIView! = {
         let view = UIView()
         view.layer.cornerRadius = 15
-//        view.backgroundColor = Constants.backgroundColorView
         return view
     }()
     

@@ -146,10 +146,10 @@
 			isa = PBXGroup;
 			children = (
 				496D205C2892D1A900C0D549 /* FiatCalculator.swift */,
-				4919649428718B25000B8D98 /* Constants.swift */,
 				497F53892873631600465DF6 /* HexColor.swift */,
 				495E2420288D920C007EEC5F /* DropShadow.swift */,
 				496D2060289327E500C0D549 /* Gradientor.swift */,
+				4919649428718B25000B8D98 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

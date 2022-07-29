@@ -29,7 +29,14 @@ class FiatViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         DispatchQueue.main.async {
-            self.gradientor = Gradientor(view: self.fiatTotalView.fiatCardView, topColor: UIColor.systemBlue.cgColor, bottomColor: UIColor.systemCyan.cgColor)
+            let colorOne = Constants.colorOne
+            let colorTwo = Constants.colorTwo
+            let viewForGradient = self.fiatTotalView.fiatCardView
+            
+            self.gradientor = Gradientor(forView: viewForGradient ?? UIView(),
+                                         topColor: colorOne,
+                                         bottomColor: colorTwo)
+            
             self.presenter.fetchCurrency()
         }
     }
