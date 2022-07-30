@@ -60,7 +60,7 @@ class FiatViewController: UIViewController {
             make.top.equalTo(self.view.safeAreaLayoutGuide)
             make.leading.equalToSuperview().inset(0)
             make.trailing.equalToSuperview().inset(0)
-            make.height.equalTo(200)
+            make.height.equalTo(190)
         }
     }
     
@@ -75,7 +75,7 @@ class FiatViewController: UIViewController {
         self.view.addSubview(fiatTableView)
         
         fiatTableView.snp.makeConstraints { make in
-            make.top.equalTo(fiatTotalView.snp.bottom).inset(-10)
+            make.top.equalTo(fiatTotalView.snp.bottom).inset(-50)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)

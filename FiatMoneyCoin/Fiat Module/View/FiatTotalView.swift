@@ -50,6 +50,14 @@ class FiatTotalView: UIView {
         return label
     }()
     
+    lazy var currencyHeader: UILabel! = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 32)
+//        label.textColor = .white
+        label.text = "Валюты"
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -59,6 +67,7 @@ class FiatTotalView: UIView {
         fiatCardView.addSubview(totalValue)
         fiatCardView.addSubview(earnLabel)
         fiatCardView.addSubview(eranValue)
+        fiatCardView.addSubview(currencyHeader)
         
         fiatCardView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(10)
@@ -91,6 +100,11 @@ class FiatTotalView: UIView {
         eranValue.snp.makeConstraints { make in
             make.leading.equalTo(earnLabel.snp.trailing).inset(-10)
             make.centerY.equalTo(earnLabel)
+        }
+        
+        currencyHeader.snp.makeConstraints { make in
+            make.leading.equalTo(fiatHeader)
+            make.top.equalTo(fiatCardView.snp.bottom).inset(-10)
         }
     }
     
