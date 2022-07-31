@@ -16,6 +16,7 @@ class FiatViewController: UIViewController {
     var dropShadow: DropShadowProtocol!
     var gradientor: GradientProtocol!
     var animator: AnimatorProtocol!
+    var hapticTouch: HapticFeedBackerProtocol!
     var fiatTableView: UITableView!
     var addNewFiatButton: UIButton!
     
@@ -94,18 +95,11 @@ class FiatViewController: UIViewController {
         config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         addNewFiatButton = UIButton(configuration: config, primaryAction: UIAction() { _ in
             self.presenter.showCurrencyView()
+            self.hapticTouch = HapticFeedBacker(option: 4)
         })
         
         view.addSubview(addNewFiatButton)
-        UIView.animate(withDuration: 0.6,
-            animations: {
-            self.addNewFiatButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
-            },
-            completion: { _ in
-            UIView.animate(withDuration: 0.6) {
-                    self.addNewFiatButton.transform = CGAffineTransform.identity
-                }
-            })
+        animator = Animator(forButton: addNewFiatButton, firstDuration: 0.3, secondDuration: 0.3)
         addNewFiatButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(30)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(70)
