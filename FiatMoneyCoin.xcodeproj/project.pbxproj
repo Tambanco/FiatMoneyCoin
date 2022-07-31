@@ -298,8 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				49C6FE3B286C9C6600D996AE /* FiatModel.swift */,
-				4954555E288742CB00793DFE /* ConvertedModel.swift */,
 				4908DEDD2887269C00D229A8 /* FiatTotalModel.swift */,
+				4954555E288742CB00793DFE /* ConvertedModel.swift */,
 				494F531D286B00CB00F23709 /* FiatRawModel.swift */,
 			);
 			path = Model;
