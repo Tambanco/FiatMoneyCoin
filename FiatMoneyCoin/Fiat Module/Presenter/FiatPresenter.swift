@@ -52,7 +52,10 @@ class FiatPresenter: FiatPresenterProtocol {
     
     func removeCurrency(rowIndex: Int) {
         fiatCurrencyList.remove(at: rowIndex)
-        self.view?.updateFiatView()
+        DispatchQueue.main.async {
+            self.view?.updateTotalView(totalValue: self.fiatCalculator.calculateTotalValue(values: self.fiatCurrencyList))
+            self.view?.updateFiatView()
+        }
     }
     
     func currencyConverter(amount: String?, symbol: String?) {

@@ -95,11 +95,9 @@ class FiatViewController: UIViewController {
         config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         addNewFiatButton = UIButton(configuration: config, primaryAction: UIAction() { _ in
             self.presenter.showCurrencyView()
-            self.hapticTouch = HapticFeedBacker(option: 4)
         })
         
         view.addSubview(addNewFiatButton)
-        animator = Animator(forButton: addNewFiatButton, firstDuration: 0.3, secondDuration: 0.3)
         addNewFiatButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(30)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(70)
