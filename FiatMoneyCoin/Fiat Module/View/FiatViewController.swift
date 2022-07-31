@@ -122,7 +122,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - Cell manipulation
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let trash = UIContextualAction(style: .normal,
-                                       title: nil) { [weak self] (action, view, completionHandler) in
+                                       title: "Удалить") { [weak self] (action, view, completionHandler) in
             self?.moveToTrash(index: indexPath.row)
             completionHandler(true)
         }
