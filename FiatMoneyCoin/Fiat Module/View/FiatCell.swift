@@ -13,7 +13,7 @@ class FiatCell: UITableViewCell {
     
     lazy var cellView: UIView! = {
         let view = UIView()
-        view.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.1)
+        view.backgroundColor = UIColor(hexString: colorCode.six.rawValue).withAlphaComponent(0.5)
         view.layer.cornerRadius = 15
         return view
     }()
@@ -50,6 +50,8 @@ class FiatCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: FiatCell.reuseId)
+        
+        backgroundColor = .clear
         
         addSubview(cellView)
         cellView.addSubview(currencyImage)

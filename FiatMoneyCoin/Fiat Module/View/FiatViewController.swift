@@ -21,6 +21,7 @@ class FiatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        setupFiatView()
         setupTotalView()
         setupTableView()
         setupAddButton()
@@ -29,29 +30,30 @@ class FiatViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         DispatchQueue.main.async {
-            let colorOne = Constants.colorOne
-            let colorTwo = Constants.colorTwo
             let viewForGradient = self.fiatTotalView.fiatCardView
-            
+        
             self.gradientor = Gradientor(forView: viewForGradient ?? UIView(),
-                                         topColor: colorOne,
-                                         bottomColor: colorTwo)
+                                         topColor: UIColor(hexString: colorCode.four.rawValue).cgColor,
+                                         bottomColor: UIColor(hexString: colorCode.three.rawValue).cgColor)
             
             self.presenter.fetchCurrency()
         }
     }
     
-    func setGradientForView(viewForGradient: UIView) {
-    }
-    
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         let backButton = UIBarButtonItem()
         backButton.title = "Назад"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         self.navigationController?.navigationBar.tintColor = Constants.backgroundColorButton
     }
     
-    func setupTotalView() {
+    private func setupFiatView() {
+        gradientor = Gradientor(forView: self.view,
+                                topColor: UIColor(hexString: colorCode.five.rawValue).withAlphaComponent(0.1).cgColor,
+                                bottomColor: UIColor(hexString: colorCode.six.rawValue).withAlphaComponent(0.1).cgColor)
+    }
+    
+    private func setupTotalView() {
         fiatTotalView = FiatTotalView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         dropShadow = DropShadow(onView: fiatTotalView)
         view.addSubview(fiatTotalView)
@@ -64,12 +66,13 @@ class FiatViewController: UIViewController {
         }
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         fiatTableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         fiatTableView.register(FiatCell.self, forCellReuseIdentifier: FiatCell.reuseId)
         fiatTableView.delegate = self
         fiatTableView.dataSource = self
         fiatTableView.separatorStyle = .none
+        fiatTableView.backgroundColor = .clear
         fiatTableView.rowHeight = 100
         
         self.view.addSubview(fiatTableView)
@@ -82,7 +85,7 @@ class FiatViewController: UIViewController {
         }
     }
     
-    func setupAddButton() {
+    private func setupAddButton() {
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
         config.baseBackgroundColor = Constants.backgroundColorButton
@@ -119,11 +122,12 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - Cell manipulation
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let trash = UIContextualAction(style: .normal,
-                                       title: "Удалить") { [weak self] (action, view, completionHandler) in
+                                       title: nil) { [weak self] (action, view, completionHandler) in
             self?.moveToTrash(index: indexPath.row)
             completionHandler(true)
         }
         trash.backgroundColor = .systemRed
+        trash.image = UIImage(systemName: "trash")
         let configuration = UISwipeActionsConfiguration(actions: [trash])
         
         return configuration
