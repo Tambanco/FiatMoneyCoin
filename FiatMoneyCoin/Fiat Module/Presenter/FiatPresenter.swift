@@ -82,8 +82,7 @@ class FiatPresenter: FiatPresenterProtocol {
                     print(error)
                 }
             }
-        }
-        )
+        })
     }
     
     func showCurrencyView() {

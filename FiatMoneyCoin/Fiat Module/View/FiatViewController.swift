@@ -33,7 +33,7 @@ class FiatViewController: UIViewController {
         super.viewWillAppear(true)
         DispatchQueue.main.async {
             let viewForGradient = self.fiatTotalView.fiatCardView
-        
+            
             self.gradientor = Gradientor(forView: viewForGradient ?? UIView(),
                                          topColor: UIColor(hexString: colorCode.four.rawValue).cgColor,
                                          bottomColor: UIColor(hexString: colorCode.three.rawValue).cgColor)
@@ -90,7 +90,6 @@ class FiatViewController: UIViewController {
     private func setupAddButton() {
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
-        config.baseBackgroundColor = Constants.backgroundColorButton
         config.baseBackgroundColor = UIColor(hexString: colorCode.three.rawValue)
         config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         addNewFiatButton = UIButton(configuration: config, primaryAction: UIAction() { _ in

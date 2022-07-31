@@ -40,5 +40,4 @@ class Gradientor: GradientProtocol {
     
         self.init()
     }
-    
 }
