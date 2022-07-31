@@ -89,6 +89,7 @@ class FiatViewController: UIViewController {
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
         config.baseBackgroundColor = Constants.backgroundColorButton
+        config.baseBackgroundColor = UIColor(hexString: colorCode.three.rawValue)
         config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         addNewFiatButton = UIButton(configuration: config, primaryAction: UIAction() { _ in
             self.presenter.showCurrencyView()

@@ -54,6 +54,7 @@ class FiatTotalView: UIView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 32)
         label.text = "Валюты"
+        label.textColor = UIColor(hexString: "#2b2b2b")
         return label
     }()
     
