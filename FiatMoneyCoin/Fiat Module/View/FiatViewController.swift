@@ -15,6 +15,7 @@ class FiatViewController: UIViewController {
     var fiatTotalView: FiatTotalView!
     var dropShadow: DropShadowProtocol!
     var gradientor: GradientProtocol!
+    var animator: AnimatorProtocol!
     var fiatTableView: UITableView!
     var addNewFiatButton: UIButton!
     
@@ -96,7 +97,15 @@ class FiatViewController: UIViewController {
         })
         
         view.addSubview(addNewFiatButton)
-        
+        UIView.animate(withDuration: 0.6,
+            animations: {
+            self.addNewFiatButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+            },
+            completion: { _ in
+            UIView.animate(withDuration: 0.6) {
+                    self.addNewFiatButton.transform = CGAffineTransform.identity
+                }
+            })
         addNewFiatButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(30)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(70)
