@@ -41,6 +41,7 @@
 		497F53B22874D1A700465DF6 /* CurrencyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F53B12874D1A700465DF6 /* CurrencyPresenter.swift */; };
 		49AA32C328966BD800D69C34 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA32C228966BD800D69C34 /* Animator.swift */; };
 		49AA32C5289685BC00D69C34 /* HapticFeedBacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA32C4289685BC00D69C34 /* HapticFeedBacker.swift */; };
+		49AA32C72896B44D00D69C34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AA32C62896B44D00D69C34 /* Main.storyboard */; };
 		49C6FE3A286C9AC500D996AE /* AssemblyModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6FE39286C9AC500D996AE /* AssemblyModuleBuilder.swift */; };
 		49C6FE3C286C9C6600D996AE /* FiatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6FE3B286C9C6600D996AE /* FiatModel.swift */; };
 /* End PBXBuildFile section */
@@ -100,6 +101,7 @@
 		497F53B12874D1A700465DF6 /* CurrencyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPresenter.swift; sourceTree = "<group>"; };
 		49AA32C228966BD800D69C34 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		49AA32C4289685BC00D69C34 /* HapticFeedBacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedBacker.swift; sourceTree = "<group>"; };
+		49AA32C62896B44D00D69C34 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		49C6FE39286C9AC500D996AE /* AssemblyModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyModuleBuilder.swift; sourceTree = "<group>"; };
 		49C6FE3B286C9C6600D996AE /* FiatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +187,7 @@
 				4968CB93286AFE780085DDB6 /* Assets.xcassets */,
 				4968CB95286AFE780085DDB6 /* LaunchScreen.storyboard */,
 				4968CB98286AFE780085DDB6 /* Info.plist */,
+				49AA32C62896B44D00D69C34 /* Main.storyboard */,
 			);
 			name = "Supporting files";
 			path = "FiatMoneyCoin/Supporting files";
@@ -430,6 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AA32C72896B44D00D69C34 /* Main.storyboard in Resources */,
 				4968CB97286AFE780085DDB6 /* LaunchScreen.storyboard in Resources */,
 				4968CB94286AFE780085DDB6 /* Assets.xcassets in Resources */,
 			);
