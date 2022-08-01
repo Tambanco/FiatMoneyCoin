@@ -20,7 +20,6 @@ protocol RouterProtocol: RouterMain {
 }
 
 class Router: RouterProtocol {
-    var newCurrency: NewCurrencyModel? = NewCurrencyModel()
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
     

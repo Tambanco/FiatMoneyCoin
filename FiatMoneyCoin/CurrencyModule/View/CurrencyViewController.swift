@@ -13,6 +13,7 @@ import CoreData
 class CurrencyViewController: UIViewController {
     var presenter: CurrencyPresenterProtocol!
     var currencyView: CurrencyView!
+    
     private var newValue: String?
     private var newSymbol: String?
     
@@ -70,13 +71,13 @@ class CurrencyViewController: UIViewController {
     @objc func addAction() {
         guard let newSymbol = newSymbol else { return }
         guard let newValue = newValue else { return }
-        presenter.newCurrencyValue?.newSymbol = newSymbol
-        presenter.newCurrencyValue?.newValue = newValue
+        presenter.newValueToSave = newValue
+        presenter.newSymbolCodeToSave = newSymbol
         presenter.saveToCoreData()
     }
     
     @objc func cancelAction() {
-        presenter.cancel()
+        presenter.cancelAdding()
     }
 }
 

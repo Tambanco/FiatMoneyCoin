@@ -9,28 +9,32 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 // MARK: Output protocol
 protocol CurrencyViewProtocol: AnyObject {
     func success()
     func failure(error: Error)
 }
-
+ 
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
-    var storageService: StorageService? { get set }
+    var newValueToSave: String? { get set }
+    var newSymbolCodeToSave: String? { get set }
+    
     var symbols: [String]? { get set }
-    var newCurrencyValue: NewCurrencyModel? { get set }
-    func setNewValue()
+    var storageService: StorageService? { get set }
     func saveToCoreData()
-    func cancel()
+    func cancelAdding()
     init(router: RouterProtocol, view: CurrencyViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
-    var storageService: StorageService? = StorageService()
+    var newValueToSave: String?
+    var newSymbolCodeToSave: String?
     
-    var newCurrencyValue: NewCurrencyModel? = NewCurrencyModel()
+    var newCurrencyForSave: [NSManagedObject] = []
+    var storageService: StorageService? = StorageService()
     var symbols: [String]? = []
     
     weak var view: CurrencyViewProtocol?
@@ -38,11 +42,12 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     var networkService: NetworkServiceProtocol?
     
     func saveToCoreData() {
-        storageService?.saveToCoreData(newValue: "foo")
+        storageService?.saveToCoreData(newData: newValueToSave, entityName: "NewCurrency", key: "newValue")
+        storageService?.saveToCoreData(newData: newSymbolCodeToSave, entityName: "NewCurrency", key: "newSymbolCode")
         router?.popToRoot()
     }
     
-    func cancel() {
+    func cancelAdding() {
         router?.popToRoot()
     }
     

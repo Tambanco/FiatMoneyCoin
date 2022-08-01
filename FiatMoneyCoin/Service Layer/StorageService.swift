@@ -10,27 +10,22 @@ import UIKit
 import CoreData
 
 protocol StorageServiceProtocol: AnyObject {
-    func saveToCoreData(newValue: String)
+    func saveToCoreData(newData: String?, entityName: String, key: String)
 }
 
 class StorageService: StorageServiceProtocol {
-    var fiatCurrencies: [NSManagedObject] = []
-
-    func saveToCoreData(newValue: String) {
+    func saveToCoreData(newData: String?, entityName: String, key: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Currency", in: managedContext)!
-        let currency = NSManagedObject(entity: entity, insertInto: managedContext)
-        
-        currency.setValue(newValue, forKey: "totalCurrency")
+        let entity = NSEntityDescription.entity(forEntityName: entityName, in: managedContext)!
+        let objectToSave = NSManagedObject(entity: entity, insertInto: managedContext)
         
         do {
             try managedContext.save()
-            fiatCurrencies.append(currency)
+            objectToSave.setValue(newData, forKey: key)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-    
 }

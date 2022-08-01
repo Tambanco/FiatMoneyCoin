@@ -11,7 +11,6 @@
 		4908DED92886E70900D229A8 /* CurrencyPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DED82886E70900D229A8 /* CurrencyPresenterTest.swift */; };
 		4908DEDC2886FB4400D229A8 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DEDB2886FB4400D229A8 /* RouterTest.swift */; };
 		4908DEDE2887269C00D229A8 /* FiatTotalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DEDD2887269C00D229A8 /* FiatTotalModel.swift */; };
-		4910880F28881E3500E1A1DE /* NewCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4910880E28881E3500E1A1DE /* NewCurrencyModel.swift */; };
 		4919649528718B25000B8D98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919649428718B25000B8D98 /* Constants.swift */; };
 		493A50E9289714A100337FE3 /* Currency+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A50E7289714A100337FE3 /* Currency+CoreDataClass.swift */; };
 		493A50EA289714A100337FE3 /* Currency+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A50E8289714A100337FE3 /* Currency+CoreDataProperties.swift */; };
@@ -70,7 +69,6 @@
 		4908DED82886E70900D229A8 /* CurrencyPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPresenterTest.swift; sourceTree = "<group>"; };
 		4908DEDB2886FB4400D229A8 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		4908DEDD2887269C00D229A8 /* FiatTotalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatTotalModel.swift; sourceTree = "<group>"; };
-		4910880E28881E3500E1A1DE /* NewCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCurrencyModel.swift; sourceTree = "<group>"; };
 		4919649428718B25000B8D98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		493A50E7289714A100337FE3 /* Currency+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+CoreDataClass.swift"; sourceTree = "<group>"; };
 		493A50E8289714A100337FE3 /* Currency+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -285,7 +283,6 @@
 		497F53B52874D1EC00465DF6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4910880E28881E3500E1A1DE /* NewCurrencyModel.swift */,
 				497F53AF2874D18600465DF6 /* SymbolsModel.swift */,
 			);
 			path = Model;
@@ -482,7 +479,6 @@
 				493A50E9289714A100337FE3 /* Currency+CoreDataClass.swift in Sources */,
 				49AA32CF2896C8AF00D69C34 /* StorageService.swift in Sources */,
 				497F53B22874D1A700465DF6 /* CurrencyPresenter.swift in Sources */,
-				4910880F28881E3500E1A1DE /* NewCurrencyModel.swift in Sources */,
 				49AA32C5289685BC00D69C34 /* HapticFeedBacker.swift in Sources */,
 				497F53AD2874D17700465DF6 /* CurrencyViewController.swift in Sources */,
 				4968CB8A286AFE780085DDB6 /* SceneDelegate.swift in Sources */,
