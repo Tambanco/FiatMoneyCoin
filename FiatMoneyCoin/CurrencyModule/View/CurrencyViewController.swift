@@ -8,8 +8,10 @@
 //
 
 import UIKit
+import CoreData
 
 class CurrencyViewController: UIViewController {
+    var currencies: [NSManagedObject] = []
     var presenter: CurrencyPresenterProtocol!
     var currencyView: CurrencyView!
     private var newValue: String?
@@ -68,6 +70,8 @@ class CurrencyViewController: UIViewController {
     
     @objc func addAction() {
         guard let newSymbol = newSymbol else { return }
+        guard let newValue = newValue else { return }
+        self.saveToCoreData(totalCurrency: newValue)
         presenter.newCurrencyValue?.newSymbol = newSymbol
         presenter.newCurrencyValue?.newValue = newValue
         presenter.setNewValue()
@@ -75,6 +79,23 @@ class CurrencyViewController: UIViewController {
     
     @objc func cancelAction() {
         presenter.cancel()
+    }
+    
+    func saveToCoreData(totalCurrency: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Currency", in: managedContext)!
+        let currency = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        currency.setValue(totalCurrency, forKey: "totalCurrency")
+        
+        do {
+            try managedContext.save()
+            currencies.append(currency)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
 }
 

@@ -9,6 +9,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 // MARK: Output protocol
 protocol FiatViewProtocol: AnyObject {
@@ -18,6 +19,7 @@ protocol FiatViewProtocol: AnyObject {
 
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
+    var fiatCurrenciesFromCoreData: [NSManagedObject] { get set }
     var fiatCurrencyList: [FiatModel] { get set }
     var baseCurrency: String { get set }
     var convertedCurrency: String? { get set }
@@ -33,6 +35,8 @@ protocol FiatPresenterProtocol: AnyObject {
 }
 
 class FiatPresenter: FiatPresenterProtocol {
+    var fiatCurrenciesFromCoreData: [NSManagedObject] = []
+    
     var totalValue: String?
     var fiatCalculator: FiatCalculatorProtocol! = FiatCalculator()
     var baseCurrency: String = "RUB"
