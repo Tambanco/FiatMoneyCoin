@@ -14,7 +14,6 @@ protocol RouterMain {
 }
 
 protocol RouterProtocol: RouterMain {
-    var newCurrency: NewCurrencyModel? { get set }
     func initialViewController()
     func showCurrencyView()
     func popToRoot()

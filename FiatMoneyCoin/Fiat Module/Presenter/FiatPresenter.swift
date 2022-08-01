@@ -20,36 +20,34 @@ protocol FiatViewProtocol: AnyObject {
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
     var fiatCurrenciesFromCoreData: [NSManagedObject] { get set }
-    
-    var baseCurrency: String { get set }
-    var convertedCurrency: String? { get set }
+    var totalValue: [NSManagedObject] { get set }
+    var baseCurrency: String { get }
+//    var convertedCurrency: String? { get set }
     var fiatCalculator: FiatCalculatorProtocol! { get set }
-    var totalValue: String? { get set }
     
     func showCurrencyView()
     func fetchCurrency()
     func removeCurrency(rowIndex: Int)
-    func currencyConverter(amount: String?, symbol: String?)
+//    func currencyConverter(amount: String?, symbol: String?)
     
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class FiatPresenter: FiatPresenterProtocol {
+    var totalValue: [NSManagedObject] = []
     var fiatCurrenciesFromCoreData: [NSManagedObject] = []
     
-    var totalValue: String?
+//    var totalValue: String?
     var fiatCalculator: FiatCalculatorProtocol! = FiatCalculator()
     var baseCurrency: String = "RUB"
-    var convertedCurrency: String?
+//    var convertedCurrency: String?
     
     weak var view: FiatViewProtocol?
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
     
     func fetchCurrency() {
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Currency")
         
@@ -61,9 +59,8 @@ class FiatPresenter: FiatPresenterProtocol {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-//        let amountCurrency = router?.newCurrency?.newValue
-//        let amountCurrencySymbol = router?.newCurrency?.newSymbol
-//        currencyConverter(amount: amountCurrency, symbol: amountCurrencySymbol)
+        
+//        currencyConverter(amount: fiatCurrenciesFromCoreData, symbol: amountCurrencySymbol)
 //        self.view?.updateTotalView(totalValue: totalValue)
     }
     
@@ -75,32 +72,32 @@ class FiatPresenter: FiatPresenterProtocol {
         }
     }
     
-    func currencyConverter(amount: String?, symbol: String?) {
-        guard symbol != nil else { return }
-        let symbolToConvert = symbol!
-        let currencyCode = String(symbolToConvert.prefix(3))
-        networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount ?? "", completion: { [weak self] result in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let convertedValue):
-                    self.convertedCurrency = convertedValue
-                    let amountCurrency = self.router?.newCurrency?.newValue
-                    let amountCurrencySymbol = self.router?.newCurrency?.newSymbol
-                    
-                    let newValue = FiatModel(amountCurrency: amountCurrency ?? "0",
-                                             amountCurrencySymbol: amountCurrencySymbol ?? "",
-                                             amountBaseCurrency: self.baseCurrency,
-                                             convertedValue: "\(self.convertedCurrency!)")
-//                    self.fiatCurrencyList.append(newValue)
-                    self.view?.updateFiatView()
-//                    self.view?.updateTotalView(totalValue: self.fiatCalculator.calculateTotalValue(values: self.fiatCurrencyList))
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        })
-    }
+//    func currencyConverter(amount: String?, symbol: String?) {
+//        guard symbol != nil else { return }
+//        let symbolToConvert = symbol!
+//        let currencyCode = String(symbolToConvert.prefix(3))
+//        networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount ?? "", completion: { [weak self] result in
+//            guard let self = self else { return }
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success(let convertedValue):
+//                    self.convertedCurrency = convertedValue
+//                    let amountCurrency = self.router?.newCurrency?.newValue
+//                    let amountCurrencySymbol = self.router?.newCurrency?.newSymbol
+//
+//                    let newValue = FiatModel(amountCurrency: amountCurrency ?? "0",
+//                                             amountCurrencySymbol: amountCurrencySymbol ?? "",
+//                                             amountBaseCurrency: self.baseCurrency,
+//                                             convertedValue: "\(self.convertedCurrency!)")
+////                    self.fiatCurrencyList.append(newValue)
+//                    self.view?.updateFiatView()
+////                    self.view?.updateTotalView(totalValue: self.fiatCalculator.calculateTotalValue(values: self.fiatCurrencyList))
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            }
+//        })
+//    }
     
     func showCurrencyView() {
         router?.showCurrencyView()
