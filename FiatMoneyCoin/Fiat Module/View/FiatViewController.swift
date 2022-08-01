@@ -107,15 +107,20 @@ class FiatViewController: UIViewController {
 // MARK: - TableView
 extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.fiatCurrencyList.count
+//        return presenter.fiatCurrencyList.count
+        print(presenter.fiatCurrenciesFromCoreData.count)
+        return presenter.fiatCurrenciesFromCoreData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FiatCell.reuseId, for: indexPath) as! FiatCell
         cell.currencyImage.image = UIImage(systemName: "dollarsign.circle.fill")
-        cell.amountCurrency.text = presenter.fiatCurrencyList[indexPath.row].amountCurrency
-        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList[indexPath.row].amountCurrencySymbol
-        cell.convertedValue.text = presenter.fiatCurrencyList[indexPath.row].convertedValue
+        cell.amountCurrency.text = presenter.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "totalCurrency") as? String
+        cell.amountCurrencySymbol.text = presenter.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "currencySymbol") as? String
+        cell.convertedValue.text = presenter.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "convertedValue") as? String
+//        cell.amountCurrency.text = presenter.fiatCurrencyList[indexPath.row].amountCurrency
+//        cell.amountCurrencySymbol.text = presenter.fiatCurrencyList[indexPath.row].amountCurrencySymbol
+//        cell.convertedValue.text = presenter.fiatCurrencyList[indexPath.row].convertedValue
         cell.earnPercent.text = String("0" + " " + "%")
         return cell
     }
