@@ -6,19 +6,33 @@
 //
 
 import Foundation
+import CoreData
 
 protocol FiatCalculatorProtocol: AnyObject {
-    func calculateTotalValue(values: [FiatModel]) -> String?
+    func calculateTotalValue(values: [NSManagedObject]) -> String?
 }
 
 class FiatCalculator: FiatCalculatorProtocol {
-    func calculateTotalValue(values: [FiatModel]) -> String? {
-        var baseCurrencyValues: [String] = []
-        let mapedValues = values.compactMap { elements in
-            let newBaseValue = elements.amountBaseCurrency
-            baseCurrencyValues.append(newBaseValue)
+    func calculateTotalValue(values: [NSManagedObject]) -> String? {
+        var baseCurrencyStringValues: [String] = []
+        var doubleValues: [Double] = []
+        var trimDoubleValues: [Double] = []
+        _ = values.compactMap { elements in
+            let newBaseValue = elements.value(forKey: "convertedValue")
+            baseCurrencyStringValues.append(newBaseValue as? String ?? "0")
         }
         
-        return baseCurrencyValues.first
+        _ = baseCurrencyStringValues.compactMap { stringValue in
+            let newDoubleValue = Double(stringValue)
+            doubleValues.append(newDoubleValue ?? 0)
+        }
+        
+        doubleValues.forEach { element in
+            let newTrimValue = Double(round(100 * element) / 100)
+            trimDoubleValues.append(newTrimValue)
+        }
+        
+        let totalSum = "\(trimDoubleValues.reduce(0, +))"
+        return totalSum
     }
 }

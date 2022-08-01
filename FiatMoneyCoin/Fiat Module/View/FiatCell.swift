@@ -13,13 +13,14 @@ class FiatCell: UITableViewCell {
     
     lazy var cellView: UIView! = {
         let view = UIView()
-        view.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.1)
+        view.backgroundColor = UIColor(hexString: colorCode.six.rawValue).withAlphaComponent(0.5)
         view.layer.cornerRadius = 15
         return view
     }()
     
     lazy var currencyImage: UIImageView! = {
         let imageView = UIImageView()
+        imageView.tintColor = .black
         return imageView
     }()
     
@@ -50,6 +51,8 @@ class FiatCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: FiatCell.reuseId)
         
+        backgroundColor = .clear
+        
         addSubview(cellView)
         cellView.addSubview(currencyImage)
         cellView.addSubview(amountCurrency)
@@ -60,8 +63,8 @@ class FiatCell: UITableViewCell {
         cellView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(10)
             make.trailing.equalToSuperview().inset(10)
-            make.top.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(5)
+            make.bottom.equalToSuperview().inset(5)
         }
         
         currencyImage.snp.makeConstraints { make in
@@ -71,7 +74,7 @@ class FiatCell: UITableViewCell {
         }
         
         amountCurrency.snp.makeConstraints { make in
-            make.leading.equalTo(currencyImage.snp.trailing).inset(-10)
+            make.leading.equalTo(currencyImage.snp.trailing).inset(-15)
             make.top.equalToSuperview().inset(10)
         }
         
@@ -81,7 +84,7 @@ class FiatCell: UITableViewCell {
         }
         
         convertedValue.snp.makeConstraints { make in
-            make.leading.equalTo(currencyImage.snp.trailing).inset(-10)
+            make.leading.equalTo(currencyImage.snp.trailing).inset(-15)
             make.top.equalTo(amountCurrency.snp.bottom).inset(-7)
         }
 

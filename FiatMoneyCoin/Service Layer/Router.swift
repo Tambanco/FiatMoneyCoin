@@ -14,14 +14,12 @@ protocol RouterMain {
 }
 
 protocol RouterProtocol: RouterMain {
-    var newCurrency: NewCurrencyModel? { get set }
     func initialViewController()
     func showCurrencyView()
     func popToRoot()
 }
 
 class Router: RouterProtocol {
-    var newCurrency: NewCurrencyModel? = NewCurrencyModel()
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
     
@@ -48,9 +46,5 @@ class Router: RouterProtocol {
         if let navigationController = navigationController {
             navigationController.popToRootViewController(animated: true)
         }
-    }
-    
-    deinit {
-        print("Route deinit")
     }
 }

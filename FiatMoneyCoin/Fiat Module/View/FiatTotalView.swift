@@ -11,43 +11,50 @@ class FiatTotalView: UIView {
     lazy var fiatCardView: UIView! = {
         let view = UIView()
         view.layer.cornerRadius = 15
-        view.backgroundColor = Constants.backgroundColorView
         return view
     }()
     
     lazy var fiatHeader: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 40)
+        label.font = UIFont.boldSystemFont(ofSize: 32)
         label.textColor = .white
-        label.text = "Fiat money"
+        label.text = "Фиатные деньги"
         return label
     }()
     
     lazy var totalLabel: UILabel! = {
         let label = UILabel()
-        label.text = "Total:"
+        label.text = "Сумма:"
         label.textColor = .white
         return label
     }()
     
     lazy var earnLabel: UILabel! = {
         let label = UILabel()
-        label.text = "Earn:"
+        label.text = "Заработок:"
         label.textColor = .white
         return label
     }()
     
     lazy var totalValue: UILabel! = {
         let label = UILabel()
-        label.text = "totalValue"
+        label.text = "0"
         label.textColor = .white
         return label
     }()
     
     lazy var eranValue: UILabel! = {
         let label = UILabel()
-        label.text = "eranValue"
+        label.text = "0"
         label.textColor = .white
+        return label
+    }()
+    
+    lazy var currencyHeader: UILabel! = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.text = "Валюты"
+        label.textColor = UIColor(hexString: "#2b2b2b")
         return label
     }()
     
@@ -60,6 +67,7 @@ class FiatTotalView: UIView {
         fiatCardView.addSubview(totalValue)
         fiatCardView.addSubview(earnLabel)
         fiatCardView.addSubview(eranValue)
+        fiatCardView.addSubview(currencyHeader)
         
         fiatCardView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(10)
@@ -93,13 +101,14 @@ class FiatTotalView: UIView {
             make.leading.equalTo(earnLabel.snp.trailing).inset(-10)
             make.centerY.equalTo(earnLabel)
         }
+        
+        currencyHeader.snp.makeConstraints { make in
+            make.leading.equalTo(fiatHeader)
+            make.top.equalTo(fiatCardView.snp.bottom).inset(-10)
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        print("FiatTotalView deinited")
     }
 }

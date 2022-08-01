@@ -8,17 +8,27 @@
 //
 
 import UIKit
+import CoreData
 
 class CurrencyViewController: UIViewController {
     var presenter: CurrencyPresenterProtocol!
     var currencyView: CurrencyView!
+    
     private var newValue: String?
     private var newSymbol: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         setupCurrencyView()
         setupPickerView()
+    }
+    
+    func setupNavigationBar() {
+        let backButton = UIBarButtonItem()
+        backButton.title = "Назад"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.tintColor = Constants.backgroundColorButton
     }
     
     func  setupCurrencyView() {
@@ -60,17 +70,14 @@ class CurrencyViewController: UIViewController {
     
     @objc func addAction() {
         guard let newSymbol = newSymbol else { return }
-        presenter.newCurrencyValue?.newSymbol = newSymbol
-        presenter.newCurrencyValue?.newValue = newValue
-        presenter.setNewValue()
+        guard let newValue = newValue else { return }
+        presenter.newValueToSave = newValue
+        presenter.newSymbolCodeToSave = newSymbol
+        presenter.saveToCoreData()
     }
     
     @objc func cancelAction() {
-        presenter.cancel()
-    }
-    
-    deinit {
-        print("CurrencyViewController deinited")
+        presenter.cancelAdding()
     }
 }
 

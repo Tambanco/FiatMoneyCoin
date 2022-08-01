@@ -15,7 +15,6 @@ protocol DropShadowProtocol: AnyObject {
 class DropShadow: DropShadowProtocol {
     
     required init() {
-        print("DropShadow initialized")
     }
     
     convenience init(onView: UIView) {
@@ -32,9 +31,5 @@ class DropShadow: DropShadowProtocol {
         onView.layer.shadowOffset = offset
         onView.layer.shadowRadius = radius
         self.init()
-    }
-    
-    deinit {
-        print("DropShadow deinited")
     }
 }
