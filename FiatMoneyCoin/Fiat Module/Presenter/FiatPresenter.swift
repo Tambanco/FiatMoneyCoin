@@ -20,7 +20,7 @@ protocol FiatViewProtocol: AnyObject {
 // MARK: Input protocol
 protocol FiatPresenterProtocol: AnyObject {
     var fiatCurrenciesFromCoreData: [NSManagedObject] { get set }
-//    var fiatCurrencyList: [FiatModel] { get set }
+    
     var baseCurrency: String { get set }
     var convertedCurrency: String? { get set }
     var fiatCalculator: FiatCalculatorProtocol! { get set }
