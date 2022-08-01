@@ -68,11 +68,11 @@ class FiatPresenter: FiatPresenterProtocol {
     }
     
     func removeCurrency(rowIndex: Int) {
-//        fiatCurrencyList.remove(at: rowIndex)
-//        DispatchQueue.main.async {
-//            self.view?.updateTotalView(totalValue: self.fiatCalculator.calculateTotalValue(values: self.fiatCurrencyList))
-//            self.view?.updateFiatView()
-//        }
+        fiatCurrenciesFromCoreData.remove(at: rowIndex)
+        DispatchQueue.main.async {
+            self.view?.updateTotalView(totalValue: self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData))
+            self.view?.updateFiatView()
+        }
     }
     
     func currencyConverter(amount: String?, symbol: String?) {

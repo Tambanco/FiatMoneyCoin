@@ -6,19 +6,20 @@
 //
 
 import Foundation
+import CoreData
 
 protocol FiatCalculatorProtocol: AnyObject {
-    func calculateTotalValue(values: [FiatModel]) -> String?
+    func calculateTotalValue(values: [NSManagedObject]) -> String?
 }
 
 class FiatCalculator: FiatCalculatorProtocol {
-    func calculateTotalValue(values: [FiatModel]) -> String? {
+    func calculateTotalValue(values: [NSManagedObject]) -> String? {
         var baseCurrencyStringValues: [String] = []
         var doubleValues: [Double] = []
         var trimDoubleValues: [Double] = []
         _ = values.compactMap { elements in
-            let newBaseValue = elements.convertedValue
-            baseCurrencyStringValues.append(newBaseValue ?? "0")
+            let newBaseValue = elements.value(forKey: "convertedValue")
+            baseCurrencyStringValues.append(newBaseValue as? String ?? "0")
         }
         
         _ = baseCurrencyStringValues.compactMap { stringValue in
