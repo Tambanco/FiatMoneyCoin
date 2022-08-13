@@ -202,7 +202,6 @@
 				494F532E286B37E600F23709 /* JSONParser.swift */,
 				4966A2B02878DF8500FFB855 /* Router.swift */,
 				49AA32CE2896C8AF00D69C34 /* StorageService.swift */,
-				4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */,
 			);
 			path = "Service Layer";
 			sourceTree = "<group>";
@@ -210,8 +209,6 @@
 		4968CB7B286AFE780085DDB6 = {
 			isa = PBXGroup;
 			children = (
-				493A50E7289714A100337FE3 /* Currency+CoreDataClass.swift */,
-				493A50E8289714A100337FE3 /* Currency+CoreDataProperties.swift */,
 				4968CB86286AFE780085DDB6 /* FiatMoneyCoin */,
 				494F5327286B0B2400F23709 /* Supporting files */,
 				4968CBA0286AFE780085DDB6 /* FiatMoneyCoinTests */,
@@ -235,6 +232,7 @@
 			children = (
 				494F531C286B002100F23709 /* App */,
 				494F532A286B0F8800F23709 /* Service Layer */,
+				49DB571E28A837B6005F1FAB /* CoreData Stack */,
 				494F5325286B00F100F23709 /* Fiat Module */,
 				497F53B32874D1B600465DF6 /* CurrencyModule */,
 				4919649628718B32000B8D98 /* Utils */,
@@ -324,6 +322,16 @@
 				494F5323286B00E500F23709 /* FiatPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		49DB571E28A837B6005F1FAB /* CoreData Stack */ = {
+			isa = PBXGroup;
+			children = (
+				493A50E7289714A100337FE3 /* Currency+CoreDataClass.swift */,
+				493A50E8289714A100337FE3 /* Currency+CoreDataProperties.swift */,
+				4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */,
+			);
+			path = "CoreData Stack";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

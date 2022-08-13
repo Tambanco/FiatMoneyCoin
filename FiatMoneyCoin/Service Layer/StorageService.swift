@@ -20,7 +20,7 @@ class StorageService: StorageServiceProtocol {
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: managedContext)!
         let objectToSave = NSManagedObject(entity: entity, insertInto: managedContext)
-        
+        print(newData, entityName, key)
         do {
             try managedContext.save()
             objectToSave.setValue(newData, forKey: key)
