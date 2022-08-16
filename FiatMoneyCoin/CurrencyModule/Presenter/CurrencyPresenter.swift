@@ -29,14 +29,8 @@ protocol CurrencyPresenterProtocol: AnyObject {
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
-    var newCurrencyValue: NewCurrency? {
-        didSet {
-            print(newCurrencyValue)
-        }
-    }
+    var newCurrencyValue: NewCurrency?
     
-    
-//    var newCurrencyForSave: [NSManagedObject] = []
     var storageService: StorageService? = StorageService()
     var symbols: [String]? = []
     
@@ -45,7 +39,6 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     var networkService: NetworkServiceProtocol?
     
     func saveToCoreData() {
-        print(newCurrencyValue)
         storageService?.saveToCoreData(newData: newCurrencyValue, entityName: "NewCurrency", key: "newValue")
         router?.popToRoot()
     }

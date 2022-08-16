@@ -5,17 +5,17 @@
         <attribute name="currencySymbol" optional="YES" attributeType="String"/>
         <attribute name="totalCurrency" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="NewCurrency" representedClassName="NewCurrency" syncable="YES" codeGenerationType="class">
+    <entity name="NewCurrency" representedClassName=".NewCurrency" syncable="YES">
         <attribute name="newSymbolCode" optional="YES" attributeType="String"/>
         <attribute name="newValue" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="TotalFiat" representedClassName="TotalFiat" syncable="YES" codeGenerationType="class">
+    <entity name="TotalFiat" representedClassName="TotalFiat" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="earn" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="Currency" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="TotalFiat" positionX="-54" positionY="18" width="128" height="59"/>
         <element name="NewCurrency" positionX="-36" positionY="36" width="128" height="59"/>
+        <element name="TotalFiat" positionX="-54" positionY="18" width="128" height="59"/>
     </elements>
 </model>
