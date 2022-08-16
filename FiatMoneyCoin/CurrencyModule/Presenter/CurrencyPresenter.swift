@@ -19,8 +19,7 @@ protocol CurrencyViewProtocol: AnyObject {
  
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
-    var newValueToSave: String? { get set }
-    var newSymbolCodeToSave: String? { get set }
+    var newCurrencyValue: NewCurrency? { get set }
     
     var symbols: [String]? { get set }
     var storageService: StorageService? { get set }
@@ -30,10 +29,14 @@ protocol CurrencyPresenterProtocol: AnyObject {
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
-    var newValueToSave: String?
-    var newSymbolCodeToSave: String?
+    var newCurrencyValue: NewCurrency? {
+        didSet {
+            print(newCurrencyValue)
+        }
+    }
     
-    var newCurrencyForSave: [NSManagedObject] = []
+    
+//    var newCurrencyForSave: [NSManagedObject] = []
     var storageService: StorageService? = StorageService()
     var symbols: [String]? = []
     
@@ -42,8 +45,8 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     var networkService: NetworkServiceProtocol?
     
     func saveToCoreData() {
-        storageService?.saveToCoreData(newData: newValueToSave, entityName: "NewCurrency", key: "newValue")
-        storageService?.saveToCoreData(newData: newSymbolCodeToSave, entityName: "NewCurrency", key: "newSymbolCode")
+        print(newCurrencyValue)
+        storageService?.saveToCoreData(newData: newCurrencyValue, entityName: "NewCurrency", key: "newValue")
         router?.popToRoot()
     }
     

@@ -10,11 +10,11 @@ import UIKit
 import CoreData
 
 protocol StorageServiceProtocol: AnyObject {
-    func saveToCoreData(newData: String?, entityName: String, key: String)
+    func saveToCoreData(newData: NewCurrency?, entityName: String, key: String)
 }
 
 class StorageService: StorageServiceProtocol {
-    func saveToCoreData(newData: String?, entityName: String, key: String) {
+    func saveToCoreData(newData: NewCurrency?, entityName: String, key: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
