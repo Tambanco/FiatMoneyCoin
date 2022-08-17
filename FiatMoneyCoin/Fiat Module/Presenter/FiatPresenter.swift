@@ -15,6 +15,7 @@ import CoreData
 protocol FiatViewProtocol: AnyObject {
     func updateFiatView()
     func updateTotalView(totalValue: String?)
+    func showEditAlert(alert: UIAlertController)
 }
 
 // MARK: Input protocol
@@ -64,7 +65,22 @@ class FiatPresenter: FiatPresenterProtocol {
     }
     
     func editCurrencyValue(rowIndex: Int) {
-        <#code#>
+        let alert = UIAlertController(title: "Новое значение", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Введите новое значение"
+        }
+        
+        let editAction = UIAlertAction(title: "Изменить", style: .default) { action in
+            print("izmenit")
+        }
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alert.addAction(editAction)
+        alert.addAction(cancelAction)
+
+        self.view?.showEditAlert(alert: alert)
     }
     
     func removeCurrency(rowIndex: Int) {

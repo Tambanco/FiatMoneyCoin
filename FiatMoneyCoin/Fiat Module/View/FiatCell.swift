@@ -27,14 +27,14 @@ class FiatCell: UITableViewCell {
     lazy var amountCurrency: UILabel! = {
         let label = UILabel()
         label.text = "currency"
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     
     lazy var amountCurrencySymbol: UILabel! = {
         let label = UILabel()
         label.text = "symbol"
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     

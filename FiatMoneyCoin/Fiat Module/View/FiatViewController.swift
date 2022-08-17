@@ -154,6 +154,10 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Bindings
 extension FiatViewController: FiatViewProtocol {
+    func showEditAlert(alert: UIAlertController) {
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func updateTotalView(totalValue: String?) {
         self.fiatTotalView.totalValue.text = totalValue ?? "0"
     }
