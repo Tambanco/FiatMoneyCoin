@@ -122,16 +122,29 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Cell manipulation
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let config = UIImage.SymbolConfiguration(textStyle: .largeTitle)
         let trash = UIContextualAction(style: .normal,
-                                       title: "Удалить") { [weak self] (action, view, completionHandler) in
+                                       title: nil) { [weak self] (action, view, completionHandler) in
             self?.moveToTrash(index: indexPath.row)
             completionHandler(true)
         }
         trash.backgroundColor = .systemRed
-        trash.image = UIImage(systemName: "trash")
-        let configuration = UISwipeActionsConfiguration(actions: [trash])
+        trash.image = UIImage(systemName: "trash.circle.fill", withConfiguration: config)
+        
+        let edit = UIContextualAction(style: .normal,
+                                      title: nil) { [weak self] (action, view, completionHandler) in
+            self?.editValue()
+        }
+        
+        edit.backgroundColor = .systemYellow
+        edit.image = UIImage(systemName: "pencil.circle.fill", withConfiguration: config)
+        let configuration = UISwipeActionsConfiguration(actions: [trash, edit])
         
         return configuration
+    }
+    
+    func editValue() {
+        print(#function)
     }
     
     func moveToTrash(index: Int) {
