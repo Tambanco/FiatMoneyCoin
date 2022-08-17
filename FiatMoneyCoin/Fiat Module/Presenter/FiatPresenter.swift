@@ -35,8 +35,6 @@ protocol FiatPresenterProtocol: AnyObject {
 class FiatPresenter: FiatPresenterProtocol {
     var totalValue: [NSManagedObject] = []
     var fiatCurrenciesFromCoreData: [NSManagedObject] = []
-    
-//    var totalValue: String?
     var fiatCalculator: FiatCalculatorProtocol! = FiatCalculator()
     var baseCurrency: String = "RUB"
     var convertedCurrency: String?
