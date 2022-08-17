@@ -29,6 +29,7 @@ protocol FiatPresenterProtocol: AnyObject {
     func showCurrencyView()
     func fetchCurrency()
     func removeCurrency(rowIndex: Int)
+    func editCurrencyValue(rowIndex: Int)
     
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
@@ -60,6 +61,10 @@ class FiatPresenter: FiatPresenterProtocol {
         } catch let error as NSError {
             print("Could not fetch. \(error.localizedDescription)")
         }
+    }
+    
+    func editCurrencyValue(rowIndex: Int) {
+        <#code#>
     }
     
     func removeCurrency(rowIndex: Int) {

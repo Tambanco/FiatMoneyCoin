@@ -133,7 +133,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         
         let edit = UIContextualAction(style: .normal,
                                       title: nil) { [weak self] (action, view, completionHandler) in
-            self?.editValue()
+            self?.editValue(index: indexPath.row)
         }
         
         edit.backgroundColor = .systemYellow
@@ -143,8 +143,8 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         return configuration
     }
     
-    func editValue() {
-        print(#function)
+    func editValue(index: Int) {
+        presenter.editCurrencyValue(rowIndex: index)
     }
     
     func moveToTrash(index: Int) {
