@@ -34,8 +34,6 @@ class StorageService: StorageServiceProtocol {
     func removeCurrency(object: NSManagedObject) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Currency", in: managedContext)!
-//        let currency = NSManagedObject(entity: entity, insertInto: managedContext)
         managedContext.delete(object)
         do {
             try managedContext.save()
