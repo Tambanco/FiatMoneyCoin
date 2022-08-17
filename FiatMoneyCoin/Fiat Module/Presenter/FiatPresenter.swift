@@ -24,6 +24,7 @@ protocol FiatPresenterProtocol: AnyObject {
     var baseCurrency: String { get }
     var convertedCurrency: String? { get set }
     var fiatCalculator: FiatCalculatorProtocol! { get set }
+    var storageService: StorageService? { get set }
     
     func showCurrencyView()
     func fetchCurrency()
@@ -33,6 +34,7 @@ protocol FiatPresenterProtocol: AnyObject {
 }
 
 class FiatPresenter: FiatPresenterProtocol {
+    var storageService: StorageService? = StorageService()
     var totalValue: [NSManagedObject] = []
     var fiatCurrenciesFromCoreData: [NSManagedObject] = []
     var fiatCalculator: FiatCalculatorProtocol! = FiatCalculator()
@@ -61,9 +63,11 @@ class FiatPresenter: FiatPresenterProtocol {
     }
     
     func removeCurrency(rowIndex: Int) {
+        storageService?.removeCurrency(object: fiatCurrenciesFromCoreData[rowIndex])
         fiatCurrenciesFromCoreData.remove(at: rowIndex)
         DispatchQueue.main.async {
-            self.view?.updateTotalView(totalValue: self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData))
+            let totalFiatValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
+            self.view?.updateTotalView(totalValue: totalFiatValue)
             self.view?.updateFiatView()
         }
     }
