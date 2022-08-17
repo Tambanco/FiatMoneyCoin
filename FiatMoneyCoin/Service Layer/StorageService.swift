@@ -13,16 +13,13 @@ protocol StorageServiceProtocol: AnyObject {
     func saveNewValue(newValue: String?, newSymbol: String?)
     func saveCurency(totalValue: String?, convertedValue: String?, currencySymbol: String?)
     func removeCurrency(object: NSManagedObject)
-    func updateTotalValue(newTotalValue: String?)
+    func updateTotalValue(update object: NSManagedObject)
 }
 
 class StorageService: StorageServiceProtocol {
-    func updateTotalValue(newTotalValue: String?) {
+    func updateTotalValue(update object: NSManagedObject) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Currency", in: managedContext)!
-        let currency = NSManagedObject(entity: entity, insertInto: managedContext)
-        currency.setValue(newTotalValue, forKey: "totalCurrency")
         do {
             try managedContext.save()
         } catch let error as NSError {
