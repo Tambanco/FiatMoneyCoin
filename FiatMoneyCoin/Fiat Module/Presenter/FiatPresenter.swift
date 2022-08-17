@@ -66,14 +66,17 @@ class FiatPresenter: FiatPresenterProtocol {
     
     func editCurrencyValue(rowIndex: Int) {
         let alert = UIAlertController(title: "Новое значение", message: nil, preferredStyle: .alert)
-        
         alert.addTextField { alertTextField in
             let oldValue = self.fiatCurrenciesFromCoreData[rowIndex].value(forKey: "totalCurrency")
             alertTextField.placeholder = oldValue as? String
         }
         
         let editAction = UIAlertAction(title: "Изменить", style: .default) { action in
-            print("izmenit")
+            let newTotalValue = alert.textFields?.first?.text
+            self.storageService?.updateTotalValue(newTotalValue: newTotalValue)
+            let totalFiatValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
+            self.view?.updateTotalView(totalValue: totalFiatValue)
+            self.view?.updateFiatView()
         }
         
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
