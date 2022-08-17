@@ -54,6 +54,9 @@ class FiatCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: FiatCell.reuseId)
         
         backgroundColor = .clear
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        selectedBackgroundView = bgColorView
         
         addSubview(cellView)
         cellView.addSubview(currencyImage)
