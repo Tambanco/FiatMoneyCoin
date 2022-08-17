@@ -27,20 +27,4 @@ class StorageService: StorageServiceProtocol {
             print("Could not save. \(error.localizedDescription)")
         }
     }
-    
-    
-    
-//    func saveToCoreData(newData: NewCurrency?, entityName: String, key: String) {
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//
-//        let managedContext = appDelegate.persistentContainer.viewContext
-//        let entity = NSEntityDescription.entity(forEntityName: entityName, in: managedContext)!
-//        let objectToSave = NSManagedObject(entity: entity, insertInto: managedContext)
-//        do {
-//            try managedContext.save()
-//            objectToSave.setValue(newData, forKey: key)
-//        } catch let error as NSError {
-//            print("Could not save. \(error.localizedDescription)")
-//        }
-//    }
 }

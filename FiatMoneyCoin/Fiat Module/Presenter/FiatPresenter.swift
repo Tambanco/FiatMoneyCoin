@@ -22,13 +22,12 @@ protocol FiatPresenterProtocol: AnyObject {
     var fiatCurrenciesFromCoreData: [NSManagedObject] { get set }
     var totalValue: [NSManagedObject] { get set }
     var baseCurrency: String { get }
-//    var convertedCurrency: String? { get set }
+    var convertedCurrency: String? { get set }
     var fiatCalculator: FiatCalculatorProtocol! { get set }
     
     func showCurrencyView()
     func fetchCurrency()
     func removeCurrency(rowIndex: Int)
-//    func currencyConverter(amount: String?, symbol: String?)
     
     init(router: RouterProtocol, view: FiatViewProtocol, networkService: NetworkServiceProtocol)
 }
@@ -40,7 +39,7 @@ class FiatPresenter: FiatPresenterProtocol {
 //    var totalValue: String?
     var fiatCalculator: FiatCalculatorProtocol! = FiatCalculator()
     var baseCurrency: String = "RUB"
-//    var convertedCurrency: String?
+    var convertedCurrency: String?
     
     weak var view: FiatViewProtocol?
     var router: RouterProtocol?
@@ -57,7 +56,7 @@ class FiatPresenter: FiatPresenterProtocol {
                 self.view?.updateFiatView()
             }
         } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+            print("Could not fetch. \(error.localizedDescription)")
         }
         
 //        currencyConverter(amount: fiatCurrenciesFromCoreData, symbol: amountCurrencySymbol)
