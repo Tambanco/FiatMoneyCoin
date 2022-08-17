@@ -16,12 +16,14 @@ protocol CurrencyViewProtocol: AnyObject {
     func success()
     func failure(error: Error)
 }
- 
+
 // MARK: Input protocol
 protocol CurrencyPresenterProtocol: AnyObject {
     var newValueToSave: String? { get set }
     var newSymbolToSave: String? { get set }
     var symbols: [String]? { get set }
+    var baseCurrency: String { get }
+    var convertedCurrency: String? { get set }
     var storageService: StorageService? { get set }
     func saveToCoreData()
     func cancelAdding()
@@ -29,6 +31,8 @@ protocol CurrencyPresenterProtocol: AnyObject {
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
+    var convertedCurrency: String?
+    var baseCurrency: String = "RUB"
     var newValueToSave: String?
     var newSymbolToSave: String?
     
@@ -40,8 +44,27 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     var networkService: NetworkServiceProtocol?
     
     func saveToCoreData() {
-        storageService?.saveNewCurrency(newValue: newValueToSave, newSymbol: newSymbolToSave)
+        storageService?.saveNewValue(newValue: newValueToSave, newSymbol: newSymbolToSave)
+        currencyConverter(amount: newValueToSave, symbol: newSymbolToSave)
         router?.popToRoot()
+    }
+    
+    func currencyConverter(amount: String?, symbol: String?) {
+        guard symbol != nil else { return }
+        let symbolToConvert = symbol!
+        let currencyCode = String(symbolToConvert.prefix(3))
+        networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount ?? "", completion: { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let convertedValue):
+                    self.convertedCurrency = convertedValue
+                    self.storageService?.saveCurency(totalValue: self.newValueToSave, convertedValue: self.convertedCurrency, currencySymbol: self.newSymbolToSave)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        })
     }
     
     func cancelAdding() {

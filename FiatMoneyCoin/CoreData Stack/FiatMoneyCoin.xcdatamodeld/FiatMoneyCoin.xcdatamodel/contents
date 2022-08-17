@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Currency" representedClassName=".Currency" syncable="YES">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G72" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Currency" representedClassName=".Currency" syncable="YES" codeGenerationType="class">
         <attribute name="convertedValue" optional="YES" attributeType="String"/>
         <attribute name="currencySymbol" optional="YES" attributeType="String"/>
         <attribute name="totalCurrency" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="NewCurrency" representedClassName=".NewCurrency" syncable="YES">
+    <entity name="NewCurrency" representedClassName=".NewCurrency" syncable="YES" codeGenerationType="class">
         <attribute name="newSymbolCode" optional="YES" attributeType="String"/>
         <attribute name="newValue" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="TotalFiat" representedClassName="TotalFiat" syncable="YES">
+    <entity name="TotalFiat" representedClassName="TotalFiat" syncable="YES" codeGenerationType="class">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="earn" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>

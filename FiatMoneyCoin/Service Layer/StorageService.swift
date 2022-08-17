@@ -10,11 +10,27 @@ import UIKit
 import CoreData
 
 protocol StorageServiceProtocol: AnyObject {
-    func saveNewCurrency(newValue: String?, newSymbol: String?)
+    func saveNewValue(newValue: String?, newSymbol: String?)
+    func saveCurency(totalValue: String?, convertedValue: String?, currencySymbol: String?)
 }
 
 class StorageService: StorageServiceProtocol {
-    func saveNewCurrency(newValue: String?, newSymbol: String?) {
+    func saveCurency(totalValue: String?, convertedValue: String?, currencySymbol: String?) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Currency", in: managedContext)!
+        let currency = NSManagedObject(entity: entity, insertInto: managedContext)
+        currency.setValue(totalValue, forKey: "totalCurrency")
+        currency.setValue(convertedValue, forKey: "convertedValue")
+        currency.setValue(currencySymbol, forKey: "currencySymbol")
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error.localizedDescription)")
+        }
+    }
+    
+    func saveNewValue(newValue: String?, newSymbol: String?) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "NewCurrency", in: managedContext)!
