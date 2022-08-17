@@ -136,7 +136,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
             self?.editValue(index: indexPath.row)
         }
         
-        edit.backgroundColor = .systemGray
+        edit.backgroundColor = .systemGray2
         edit.image = UIImage(systemName: "pencil.circle.fill", withConfiguration: config)
         let configuration = UISwipeActionsConfiguration(actions: [trash, edit])
         
