@@ -13,7 +13,6 @@ protocol DropShadowProtocol: AnyObject {
 }
 
 class DropShadow: DropShadowProtocol {
-    
     required init() {
     }
     

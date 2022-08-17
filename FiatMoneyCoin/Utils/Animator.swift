@@ -14,8 +14,8 @@ protocol AnimatorProtocol {
 }
 
 class Animator: AnimatorProtocol {
-    
-    required init() {}
+    required init() {
+    }
     
     convenience init(forButton: UIButton, firstDuration: TimeInterval, secondDuration: TimeInterval) {
         UIView.animate(withDuration: firstDuration,
@@ -31,6 +31,5 @@ class Animator: AnimatorProtocol {
     }
     
     func animateButton(button: UIButton) {
-        
     }
 }

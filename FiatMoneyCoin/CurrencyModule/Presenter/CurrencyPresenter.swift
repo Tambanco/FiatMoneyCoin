@@ -35,7 +35,6 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     var baseCurrency: String = "RUB"
     var newValueToSave: String?
     var newSymbolToSave: String?
-    
     var storageService: StorageService? = StorageService()
     var symbols: [String]? = []
     
