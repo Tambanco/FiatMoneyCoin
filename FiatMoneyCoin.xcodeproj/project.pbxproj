@@ -12,8 +12,6 @@
 		4908DEDC2886FB4400D229A8 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DEDB2886FB4400D229A8 /* RouterTest.swift */; };
 		4908DEDE2887269C00D229A8 /* FiatTotalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908DEDD2887269C00D229A8 /* FiatTotalModel.swift */; };
 		4919649528718B25000B8D98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919649428718B25000B8D98 /* Constants.swift */; };
-		493A50E9289714A100337FE3 /* Currency+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A50E7289714A100337FE3 /* Currency+CoreDataClass.swift */; };
-		493A50EA289714A100337FE3 /* Currency+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A50E8289714A100337FE3 /* Currency+CoreDataProperties.swift */; };
 		49437ED328888FF40092BCA6 /* FiatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49437ED228888FF40092BCA6 /* FiatCell.swift */; };
 		49437ED62888926C0092BCA6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 49437ED52888926C0092BCA6 /* SnapKit */; };
 		494F531E286B00CB00F23709 /* FiatRawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F531D286B00CB00F23709 /* FiatRawModel.swift */; };
@@ -25,8 +23,6 @@
 		495E241D2889F9F5007EEC5F /* FiatTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E241C2889F9F5007EEC5F /* FiatTotalView.swift */; };
 		495E241F288AB6EE007EEC5F /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E241E288AB6EE007EEC5F /* CurrencyView.swift */; };
 		495E2421288D920C007EEC5F /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E2420288D920C007EEC5F /* DropShadow.swift */; };
-		4960456028AC2569003AF22E /* NewCurrency+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4960455E28AC2569003AF22E /* NewCurrency+CoreDataClass.swift */; };
-		4960456128AC2569003AF22E /* NewCurrency+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4960455F28AC2569003AF22E /* NewCurrency+CoreDataProperties.swift */; };
 		4966A2B12878DF8500FFB855 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966A2B02878DF8500FFB855 /* Router.swift */; };
 		4968CB88286AFE780085DDB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB87286AFE780085DDB6 /* AppDelegate.swift */; };
 		4968CB8A286AFE780085DDB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968CB89286AFE780085DDB6 /* SceneDelegate.swift */; };
@@ -72,8 +68,6 @@
 		4908DEDB2886FB4400D229A8 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		4908DEDD2887269C00D229A8 /* FiatTotalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatTotalModel.swift; sourceTree = "<group>"; };
 		4919649428718B25000B8D98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		493A50E7289714A100337FE3 /* Currency+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+CoreDataClass.swift"; sourceTree = "<group>"; };
-		493A50E8289714A100337FE3 /* Currency+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49437ED228888FF40092BCA6 /* FiatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatCell.swift; sourceTree = "<group>"; };
 		494F531D286B00CB00F23709 /* FiatRawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatRawModel.swift; sourceTree = "<group>"; };
 		494F531F286B00D700F23709 /* FiatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatViewController.swift; sourceTree = "<group>"; };
@@ -84,8 +78,6 @@
 		495E241C2889F9F5007EEC5F /* FiatTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatTotalView.swift; sourceTree = "<group>"; };
 		495E241E288AB6EE007EEC5F /* CurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyView.swift; sourceTree = "<group>"; };
 		495E2420288D920C007EEC5F /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
-		4960455E28AC2569003AF22E /* NewCurrency+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewCurrency+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4960455F28AC2569003AF22E /* NewCurrency+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewCurrency+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4966A2B02878DF8500FFB855 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		4968CB84286AFE780085DDB6 /* FiatMoneyCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiatMoneyCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4968CB87286AFE780085DDB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -331,10 +323,6 @@
 		49DB571E28A837B6005F1FAB /* CoreData Stack */ = {
 			isa = PBXGroup;
 			children = (
-				4960455E28AC2569003AF22E /* NewCurrency+CoreDataClass.swift */,
-				4960455F28AC2569003AF22E /* NewCurrency+CoreDataProperties.swift */,
-				493A50E7289714A100337FE3 /* Currency+CoreDataClass.swift */,
-				493A50E8289714A100337FE3 /* Currency+CoreDataProperties.swift */,
 				4968CB90286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld */,
 			);
 			path = "CoreData Stack";
@@ -476,12 +464,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493A50EA289714A100337FE3 /* Currency+CoreDataProperties.swift in Sources */,
 				495E241F288AB6EE007EEC5F /* CurrencyView.swift in Sources */,
 				494F5321286B00D700F23709 /* FiatViewController.swift in Sources */,
 				495E241D2889F9F5007EEC5F /* FiatTotalView.swift in Sources */,
 				4968CB88286AFE780085DDB6 /* AppDelegate.swift in Sources */,
-				4960456028AC2569003AF22E /* NewCurrency+CoreDataClass.swift in Sources */,
 				494F532F286B37E600F23709 /* JSONParser.swift in Sources */,
 				494F5324286B00E500F23709 /* FiatPresenter.swift in Sources */,
 				496D2061289327E500C0D549 /* Gradientor.swift in Sources */,
@@ -491,7 +477,6 @@
 				495E2421288D920C007EEC5F /* DropShadow.swift in Sources */,
 				4966A2B12878DF8500FFB855 /* Router.swift in Sources */,
 				49C6FE3A286C9AC500D996AE /* AssemblyModuleBuilder.swift in Sources */,
-				493A50E9289714A100337FE3 /* Currency+CoreDataClass.swift in Sources */,
 				49AA32CF2896C8AF00D69C34 /* StorageService.swift in Sources */,
 				497F53B22874D1A700465DF6 /* CurrencyPresenter.swift in Sources */,
 				49AA32C5289685BC00D69C34 /* HapticFeedBacker.swift in Sources */,
@@ -502,7 +487,6 @@
 				4919649528718B25000B8D98 /* Constants.swift in Sources */,
 				49AA32C328966BD800D69C34 /* Animator.swift in Sources */,
 				497F53B02874D18600465DF6 /* SymbolsModel.swift in Sources */,
-				4960456128AC2569003AF22E /* NewCurrency+CoreDataProperties.swift in Sources */,
 				497F538A2873631600465DF6 /* HexColor.swift in Sources */,
 				496D205D2892D1A900C0D549 /* FiatCalculator.swift in Sources */,
 				494F531E286B00CB00F23709 /* FiatRawModel.swift in Sources */,
