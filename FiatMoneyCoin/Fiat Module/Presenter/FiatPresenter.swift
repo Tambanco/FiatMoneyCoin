@@ -53,14 +53,13 @@ class FiatPresenter: FiatPresenterProtocol {
         do {
             fiatCurrenciesFromCoreData = try managedContext.fetch(fetchRequest)
             DispatchQueue.main.async {
+                let totalFiatValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
+                self.view?.updateTotalView(totalValue: totalFiatValue)
                 self.view?.updateFiatView()
             }
         } catch let error as NSError {
             print("Could not fetch. \(error.localizedDescription)")
         }
-        
-//        currencyConverter(amount: fiatCurrenciesFromCoreData, symbol: amountCurrencySymbol)
-//        self.view?.updateTotalView(totalValue: totalValue)
     }
     
     func removeCurrency(rowIndex: Int) {
@@ -70,33 +69,6 @@ class FiatPresenter: FiatPresenterProtocol {
             self.view?.updateFiatView()
         }
     }
-    
-//    func currencyConverter(amount: String?, symbol: String?) {
-//        guard symbol != nil else { return }
-//        let symbolToConvert = symbol!
-//        let currencyCode = String(symbolToConvert.prefix(3))
-//        networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount ?? "", completion: { [weak self] result in
-//            guard let self = self else { return }
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success(let convertedValue):
-//                    self.convertedCurrency = convertedValue
-//                    let amountCurrency = self.router?.newCurrency?.newValue
-//                    let amountCurrencySymbol = self.router?.newCurrency?.newSymbol
-//
-//                    let newValue = FiatModel(amountCurrency: amountCurrency ?? "0",
-//                                             amountCurrencySymbol: amountCurrencySymbol ?? "",
-//                                             amountBaseCurrency: self.baseCurrency,
-//                                             convertedValue: "\(self.convertedCurrency!)")
-////                    self.fiatCurrencyList.append(newValue)
-//                    self.view?.updateFiatView()
-////                    self.view?.updateTotalView(totalValue: self.fiatCalculator.calculateTotalValue(values: self.fiatCurrencyList))
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//        })
-//    }
     
     func showCurrencyView() {
         router?.showCurrencyView()
