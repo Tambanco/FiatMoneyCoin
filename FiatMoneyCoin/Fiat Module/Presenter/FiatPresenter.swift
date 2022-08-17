@@ -75,9 +75,10 @@ class FiatPresenter: FiatPresenterProtocol {
             let newTotalValue = alert.textFields?.first?.text
             self.fiatCurrenciesFromCoreData[rowIndex].setValue(newTotalValue, forKey: "totalCurrency")
             self.storageService?.updateTotalValue(update: self.fiatCurrenciesFromCoreData[rowIndex])
-            let totalFiatValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
-            self.view?.updateTotalView(totalValue: totalFiatValue)
+            
+            let updatedTotalValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
             self.view?.updateFiatView()
+            self.view?.updateTotalView(totalValue: updatedTotalValue)
         }
         
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
