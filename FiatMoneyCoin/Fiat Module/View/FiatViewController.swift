@@ -38,7 +38,9 @@ class FiatViewController: UIViewController {
                                          topColor: UIColor(hexString: colorCode.four.rawValue).cgColor,
                                          bottomColor: UIColor(hexString: colorCode.three.rawValue).cgColor)
             
-            self.presenter.fetchCurrency()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.presenter.fetchCurrency()
+            }
         }
     }
     
@@ -122,16 +124,29 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Cell manipulation
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let config = UIImage.SymbolConfiguration(textStyle: .largeTitle)
         let trash = UIContextualAction(style: .normal,
-                                       title: "Удалить") { [weak self] (action, view, completionHandler) in
+                                       title: nil) { [weak self] (action, view, completionHandler) in
             self?.moveToTrash(index: indexPath.row)
             completionHandler(true)
         }
         trash.backgroundColor = .systemRed
-        trash.image = UIImage(systemName: "trash")
-        let configuration = UISwipeActionsConfiguration(actions: [trash])
+        trash.image = UIImage(systemName: "trash.circle.fill", withConfiguration: config)
+        
+        let edit = UIContextualAction(style: .normal,
+                                      title: nil) { [weak self] (action, view, completionHandler) in
+            self?.editValue(index: indexPath.row)
+        }
+        
+        edit.backgroundColor = .systemGray2
+        edit.image = UIImage(systemName: "pencil.circle.fill", withConfiguration: config)
+        let configuration = UISwipeActionsConfiguration(actions: [trash, edit])
         
         return configuration
+    }
+    
+    func editValue(index: Int) {
+        presenter.editCurrencyValue(rowIndex: index)
     }
     
     func moveToTrash(index: Int) {
@@ -141,6 +156,10 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Bindings
 extension FiatViewController: FiatViewProtocol {
+    func showEditAlert(alert: UIAlertController) {
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func updateTotalView(totalValue: String?) {
         self.fiatTotalView.totalValue.text = totalValue ?? "0"
     }

@@ -69,10 +69,8 @@ class CurrencyViewController: UIViewController {
     }
     
     @objc func addAction() {
-        guard let newSymbol = newSymbol else { return }
-        guard let newValue = newValue else { return }
         presenter.newValueToSave = newValue
-        presenter.newSymbolCodeToSave = newSymbol
+        presenter.newSymbolToSave = newSymbol
         presenter.saveToCoreData()
     }
     

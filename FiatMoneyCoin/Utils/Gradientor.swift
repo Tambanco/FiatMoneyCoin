@@ -13,8 +13,8 @@ protocol GradientProtocol: AnyObject {
 }
 
 class Gradientor: GradientProtocol {
-    
-    required init() {}
+    required init() {
+    }
     
     convenience init(forView: UIView, topColor: CGColor, bottomColor: CGColor) {
         let gradientLayer = CAGradientLayer()
@@ -37,7 +37,7 @@ class Gradientor: GradientProtocol {
         gradientLayer.frame = forView.bounds
         gradientLayer.cornerRadius = forView.layer.cornerRadius
         forView.layer.insertSublayer(gradientLayer, at:0)
-    
+        
         self.init()
     }
 }

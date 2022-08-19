@@ -27,12 +27,14 @@ class FiatCell: UITableViewCell {
     lazy var amountCurrency: UILabel! = {
         let label = UILabel()
         label.text = "currency"
+        label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
     }()
     
     lazy var amountCurrencySymbol: UILabel! = {
         let label = UILabel()
         label.text = "symbol"
+        label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
     }()
     
@@ -52,6 +54,9 @@ class FiatCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: FiatCell.reuseId)
         
         backgroundColor = .clear
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        selectedBackgroundView = bgColorView
         
         addSubview(cellView)
         cellView.addSubview(currencyImage)

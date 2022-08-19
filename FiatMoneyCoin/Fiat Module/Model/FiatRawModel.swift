@@ -29,4 +29,3 @@ struct Symbol: Codable {
         case code
     }
 }
-
