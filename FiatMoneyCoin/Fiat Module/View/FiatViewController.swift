@@ -38,7 +38,7 @@ class FiatViewController: UIViewController {
                                          topColor: UIColor(hexString: colorCode.four.rawValue).cgColor,
                                          bottomColor: UIColor(hexString: colorCode.three.rawValue).cgColor)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.presenter.fetchCurrency()
             }
         }
