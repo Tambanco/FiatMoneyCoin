@@ -32,7 +32,8 @@ class FiatCalculator: FiatCalculatorProtocol {
             trimDoubleValues.append(newTrimValue)
         }
         
-        let totalSum = "\(trimDoubleValues.reduce(0, +))"
-        return totalSum
+        let totalSum = trimDoubleValues.reduce(0, +)
+
+        return String(Double(round(100 * totalSum) / 100))
     }
 }
