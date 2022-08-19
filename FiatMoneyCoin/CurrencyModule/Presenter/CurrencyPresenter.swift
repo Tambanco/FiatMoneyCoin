@@ -43,8 +43,8 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     var networkService: NetworkServiceProtocol?
     
     func saveToCoreData() {
-        storageService?.saveNewValue(newValue: newValueToSave, newSymbol: newSymbolToSave)
         currencyConverter(amount: newValueToSave, symbol: newSymbolToSave)
+        storageService?.saveNewValue(newValue: newValueToSave, newSymbol: newSymbolToSave)
         router?.popToRoot()
     }
     
