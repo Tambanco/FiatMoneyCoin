@@ -51,7 +51,6 @@ class FiatPresenter: FiatPresenterProtocol {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Currency")
-        
         do {
             fiatCurrenciesFromCoreData = try managedContext.fetch(fetchRequest)
             DispatchQueue.main.async {
