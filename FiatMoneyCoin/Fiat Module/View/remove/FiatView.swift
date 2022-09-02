@@ -12,7 +12,6 @@ class FiatView: UIView {
     private lazy var pageControll = createPageControl()
     private lazy var tableView = createTableView()
     
-    
     lazy var fiatCardView: UIView! = {
         let view = UIView()
         view.layer.cornerRadius = 15

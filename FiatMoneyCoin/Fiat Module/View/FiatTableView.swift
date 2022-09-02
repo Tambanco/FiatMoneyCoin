@@ -17,6 +17,7 @@ class FiatTableView: UIView {
         fiatTableView.delegate = self
         fiatTableView.dataSource = self
         fiatTableView.rowHeight = 100
+        fiatTableView.separatorStyle = .none
         
         addSubview(fiatTableView)
         
@@ -24,7 +25,6 @@ class FiatTableView: UIView {
             make.leading.trailing.equalToSuperview()
             make.top.bottom.equalToSuperview()
         }
-        
     }
 
     @available(*, unavailable)
@@ -35,7 +35,7 @@ class FiatTableView: UIView {
 
 fileprivate extension FiatTableView {
     private func createFiatTableView() -> UITableView{
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let tableView = UITableView(frame: CGRect.zero)
         return tableView
     }
 }
@@ -57,12 +57,11 @@ extension FiatTableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TableViewHeader(frame: CGRect.zero)
-        headerView.backgroundColor = .systemCyan
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200
+        return 150
     }
     
     // MARK: - Cell manipulation

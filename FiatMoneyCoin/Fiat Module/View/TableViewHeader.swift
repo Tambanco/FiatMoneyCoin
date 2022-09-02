@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class TableViewHeader: UIView {
+    private var dropShadow: DropShadowProtocol!
+    private var gradientor: GradientProtocol!
     private lazy var pageControl = createPageControl()
     private lazy var headerLabel = createHeaderLabel()
     private lazy var totalLabel = createTotalLabel()
@@ -19,6 +21,12 @@ class TableViewHeader: UIView {
         addSubview(pageControl)
         pageControl.addSubview(headerLabel)
         pageControl.addSubview(totalLabel)
+        pageControl.backgroundColor = .systemCyan
+        
+        pageControl.layer.shadowColor = UIColor.systemRed.cgColor
+        pageControl.layer.shadowOffset = CGSize(width: 5, height: 5)
+        pageControl.layer.cornerRadius = 20
+        pageControl.layer.shadowOpacity = 1.0
         
         pageControl.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(10)
@@ -26,12 +34,12 @@ class TableViewHeader: UIView {
         }
         
         headerLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(10)
+            make.leading.equalToSuperview().inset(20)
             make.top.equalToSuperview().inset(10)
         }
         
         totalLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(10)
+            make.leading.equalToSuperview().inset(20)
             make.top.equalTo(headerLabel.snp.bottom).inset(-20)
         }
     }
@@ -45,8 +53,9 @@ class TableViewHeader: UIView {
 fileprivate extension TableViewHeader {
     private func createPageControl() -> UIPageControl{
         let pageControl = UIPageControl()
-        pageControl.backgroundColor = .systemBlue
-        pageControl.numberOfPages = 2
+        pageControl.numberOfPages = 1
+        pageControl.layer.cornerRadius = 20
+        pageControl.layer.masksToBounds = true
         return pageControl
     }
     
@@ -65,13 +74,3 @@ fileprivate extension TableViewHeader {
         return label
     }
 }
-
-//extension TableViewHeader: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-//        <#code#>
-//    }
-//
-//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-//        <#code#>
-//    }
-//}
