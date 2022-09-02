@@ -186,6 +186,8 @@ extension FiatViewController {
         let backButton = UIBarButtonItem()
         backButton.title = "Назад"
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
+        
     }
     
     @objc private func addTapped() {
