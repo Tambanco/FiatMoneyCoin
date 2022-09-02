@@ -170,7 +170,6 @@ extension FiatViewController {
         settingsButton.backgroundColor = UIColor(hexString: "#e96443")
         settingsButton.tintColor = UIColor(hexString: "e96443")
         settingsButton.layer.cornerRadius = 10
-        
         if let imageView = settingsButton.imageView {
             settingsButton.bringSubviewToFront(imageView)
         }
@@ -179,18 +178,16 @@ extension FiatViewController {
         gradientor = Gradientor(forView: settingsButton,
                                 topColor: UIColor.systemGray4.cgColor,
                                 bottomColor: UIColor.systemGray5.cgColor)
-        settingsButton.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
+        settingsButton.addTarget(self, action: #selector(settingsTapped), for: .touchUpInside)
         let rightBarButton = UIBarButtonItem(customView: settingsButton)
         self.navigationItem.rightBarButtonItems = [rightBarButton]
-        
-        let backButton = UIBarButtonItem()
-        backButton.title = "Назад"
-        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        
-        
     }
     
-    @objc private func addTapped() {
+    @objc private func settingsTapped() {
         print("foo")
+    }
+    
+    @objc private func profileTapped() {
+        print("profileTapped")
     }
 }

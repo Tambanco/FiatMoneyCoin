@@ -103,7 +103,7 @@ class FiatView: UIView {
         }
         
         currencyHeader.snp.makeConstraints { make in
-            make.leading.equalTo(fiatHeader)
+            make.leading.equalToSuperview().inset(10)
             make.top.equalTo(fiatCardView.snp.bottom).inset(-10)
         }
     }
