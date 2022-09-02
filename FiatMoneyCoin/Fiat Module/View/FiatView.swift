@@ -8,6 +8,11 @@
 import UIKit
 
 class FiatView: UIView {
+    
+    private lazy var pageControll = createPageControl()
+    private lazy var tableView = createTableView()
+    
+    
     lazy var fiatCardView: UIView! = {
         let view = UIView()
         view.layer.cornerRadius = 15
@@ -114,7 +119,16 @@ class FiatView: UIView {
 }
 
 fileprivate extension FiatView {
-    private func createFiatCardView() {
-        
+    private func createPageControl() -> UIPageControl{
+        let pageControl = UIPageControl()
+        pageControl.backgroundColor = .systemGray5
+        return pageControl
     }
+    
+    private func createTableView() -> UITableView{
+        let tableView = UITableView()
+        tableView.backgroundColor = .systemTeal
+        return tableView
+    }
+    
 }

@@ -8,8 +8,13 @@
 import UIKit
 import SnapKit
 
+extension UITableViewCell {
+    static var reuseId: String {
+        return String(describing: Self.self)
+    }
+}
+
 class FiatCell: UITableViewCell {
-    static let reuseId = "FiatCell"
     
     lazy var cellView: UIView! = {
         let view = UIView()
@@ -53,7 +58,7 @@ class FiatCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: FiatCell.reuseId)
         
-        backgroundColor = .clear
+//        backgroundColor = .systemRed
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.clear
         selectedBackgroundView = bgColorView

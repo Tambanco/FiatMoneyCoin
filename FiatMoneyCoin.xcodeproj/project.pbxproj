@@ -40,6 +40,8 @@
 		49AA32C328966BD800D69C34 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA32C228966BD800D69C34 /* Animator.swift */; };
 		49AA32C5289685BC00D69C34 /* HapticFeedBacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA32C4289685BC00D69C34 /* HapticFeedBacker.swift */; };
 		49AA32CF2896C8AF00D69C34 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA32CE2896C8AF00D69C34 /* StorageService.swift */; };
+		49B8F59528C23E8200CF8478 /* FiatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B8F59428C23E8200CF8478 /* FiatTableView.swift */; };
+		49B8F59728C2404900CF8478 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B8F59628C2404900CF8478 /* TableViewHeader.swift */; };
 		49C6FE3A286C9AC500D996AE /* AssemblyModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6FE39286C9AC500D996AE /* AssemblyModuleBuilder.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,8 @@
 		49AA32C228966BD800D69C34 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		49AA32C4289685BC00D69C34 /* HapticFeedBacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedBacker.swift; sourceTree = "<group>"; };
 		49AA32CE2896C8AF00D69C34 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		49B8F59428C23E8200CF8478 /* FiatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatTableView.swift; sourceTree = "<group>"; };
+		49B8F59628C2404900CF8478 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		49C6FE39286C9AC500D996AE /* AssemblyModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyModuleBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,6 +304,8 @@
 			isa = PBXGroup;
 			children = (
 				494F531F286B00D700F23709 /* FiatViewController.swift */,
+				49B8F59428C23E8200CF8478 /* FiatTableView.swift */,
+				49B8F59628C2404900CF8478 /* TableViewHeader.swift */,
 				495E241C2889F9F5007EEC5F /* FiatView.swift */,
 				49437ED228888FF40092BCA6 /* FiatCell.swift */,
 			);
@@ -476,11 +482,13 @@
 				497F53AD2874D17700465DF6 /* CurrencyViewController.swift in Sources */,
 				4968CB8A286AFE780085DDB6 /* SceneDelegate.swift in Sources */,
 				4968CB92286AFE780085DDB6 /* FiatMoneyCoin.xcdatamodeld in Sources */,
+				49B8F59728C2404900CF8478 /* TableViewHeader.swift in Sources */,
 				4954555F288742CB00793DFE /* ConvertedModel.swift in Sources */,
 				4919649528718B25000B8D98 /* Constants.swift in Sources */,
 				49AA32C328966BD800D69C34 /* Animator.swift in Sources */,
 				497F53B02874D18600465DF6 /* SymbolsModel.swift in Sources */,
 				497F538A2873631600465DF6 /* HexColor.swift in Sources */,
+				49B8F59528C23E8200CF8478 /* FiatTableView.swift in Sources */,
 				496D205D2892D1A900C0D549 /* FiatCalculator.swift in Sources */,
 				494F531E286B00CB00F23709 /* FiatRawModel.swift in Sources */,
 			);
