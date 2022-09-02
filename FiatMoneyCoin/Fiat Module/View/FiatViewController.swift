@@ -12,13 +12,13 @@ import UIKit
 
 class FiatViewController: UIViewController {
     var presenter: FiatPresenterProtocol!
-    var fiatTotalView: FiatTotalView!
-    var dropShadow: DropShadowProtocol!
-    var gradientor: GradientProtocol!
-    var animator: AnimatorProtocol!
-    var hapticTouch: HapticFeedBackerProtocol!
-    var fiatTableView: UITableView!
-    var addNewFiatButton: UIButton!
+    private var fiatTotalView: FiatTotalView!
+    private var dropShadow: DropShadowProtocol!
+    private var gradientor: GradientProtocol!
+    private var animator: AnimatorProtocol!
+    private var hapticTouch: HapticFeedBackerProtocol!
+    private var fiatTableView: UITableView!
+    private var addNewFiatButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
