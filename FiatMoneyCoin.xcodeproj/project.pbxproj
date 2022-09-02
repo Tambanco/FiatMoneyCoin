@@ -19,7 +19,7 @@
 		494F5329286B0F8400F23709 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F5328286B0F8400F23709 /* NetworkService.swift */; };
 		494F532F286B37E600F23709 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F532E286B37E600F23709 /* JSONParser.swift */; };
 		4954555F288742CB00793DFE /* ConvertedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954555E288742CB00793DFE /* ConvertedModel.swift */; };
-		495E241D2889F9F5007EEC5F /* FiatTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E241C2889F9F5007EEC5F /* FiatTotalView.swift */; };
+		495E241D2889F9F5007EEC5F /* FiatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E241C2889F9F5007EEC5F /* FiatView.swift */; };
 		495E241F288AB6EE007EEC5F /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E241E288AB6EE007EEC5F /* CurrencyView.swift */; };
 		495E2421288D920C007EEC5F /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E2420288D920C007EEC5F /* DropShadow.swift */; };
 		4966A2B12878DF8500FFB855 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966A2B02878DF8500FFB855 /* Router.swift */; };
@@ -72,7 +72,7 @@
 		494F5328286B0F8400F23709 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		494F532E286B37E600F23709 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		4954555E288742CB00793DFE /* ConvertedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertedModel.swift; sourceTree = "<group>"; };
-		495E241C2889F9F5007EEC5F /* FiatTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatTotalView.swift; sourceTree = "<group>"; };
+		495E241C2889F9F5007EEC5F /* FiatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatView.swift; sourceTree = "<group>"; };
 		495E241E288AB6EE007EEC5F /* CurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyView.swift; sourceTree = "<group>"; };
 		495E2420288D920C007EEC5F /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 		4966A2B02878DF8500FFB855 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -300,7 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				494F531F286B00D700F23709 /* FiatViewController.swift */,
-				495E241C2889F9F5007EEC5F /* FiatTotalView.swift */,
+				495E241C2889F9F5007EEC5F /* FiatView.swift */,
 				49437ED228888FF40092BCA6 /* FiatCell.swift */,
 			);
 			path = View;
@@ -460,7 +460,7 @@
 			files = (
 				495E241F288AB6EE007EEC5F /* CurrencyView.swift in Sources */,
 				494F5321286B00D700F23709 /* FiatViewController.swift in Sources */,
-				495E241D2889F9F5007EEC5F /* FiatTotalView.swift in Sources */,
+				495E241D2889F9F5007EEC5F /* FiatView.swift in Sources */,
 				4968CB88286AFE780085DDB6 /* AppDelegate.swift in Sources */,
 				494F532F286B37E600F23709 /* JSONParser.swift in Sources */,
 				494F5324286B00E500F23709 /* FiatPresenter.swift in Sources */,

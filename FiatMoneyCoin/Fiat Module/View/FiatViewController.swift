@@ -12,7 +12,7 @@ import UIKit
 
 class FiatViewController: UIViewController {
     var presenter: FiatPresenterProtocol!
-    private var fiatTotalView: FiatTotalView!
+    private var fiatTotalView: FiatView!
     private var dropShadow: DropShadowProtocol!
     private var gradientor: GradientProtocol!
     private var animator: AnimatorProtocol!
@@ -47,8 +47,15 @@ class FiatViewController: UIViewController {
     private func setupNavigationBar() {
         let backButton = UIBarButtonItem()
         backButton.title = "Назад"
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.tintColor = Constants.backgroundColorButton
+        navigationItem.title = "Hello, User 🎉"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        let play = UIBarButtonItem(title: "Play", style: .plain, target: self, action: #selector(playTapped))
+        
+        
+        
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        navigationController?.navigationBar.tintColor = Constants.backgroundColorButton
     }
     
     private func setupFiatView() {
@@ -58,7 +65,7 @@ class FiatViewController: UIViewController {
     }
     
     private func setupTotalView() {
-        fiatTotalView = FiatTotalView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        fiatTotalView = FiatView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         dropShadow = DropShadow(onView: fiatTotalView)
         view.addSubview(fiatTotalView)
         
