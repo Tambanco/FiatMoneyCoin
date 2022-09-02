@@ -49,13 +49,16 @@ class FiatViewController: UIViewController {
         backButton.title = "Назад"
         navigationItem.title = "Hello, User 🎉"
         navigationController?.navigationBar.prefersLargeTitles = true
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        let play = UIBarButtonItem(title: "Play", style: .plain, target: self, action: #selector(playTapped))
+        let settings = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(addTapped))
         
         
-        
+        navigationItem.rightBarButtonItems = [settings]
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         navigationController?.navigationBar.tintColor = Constants.backgroundColorButton
+    }
+    
+    @objc private func addTapped() {
+        
     }
     
     private func setupFiatView() {
