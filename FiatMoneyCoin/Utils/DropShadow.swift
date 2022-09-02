@@ -13,8 +13,7 @@ protocol DropShadowProtocol: AnyObject {
 }
 
 class DropShadow: DropShadowProtocol {
-    required init() {
-    }
+    required init() {}
     
     convenience init(onView: UIView) {
         onView.layer.shadowColor = UIColor.black.cgColor

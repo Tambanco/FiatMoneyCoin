@@ -44,23 +44,6 @@ class FiatViewController: UIViewController {
         }
     }
     
-    private func setupNavigationBar() {
-        let backButton = UIBarButtonItem()
-        backButton.title = "Назад"
-        navigationItem.title = "Hello, User 🎉"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        let settings = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(addTapped))
-        
-        
-        navigationItem.rightBarButtonItems = [settings]
-        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        navigationController?.navigationBar.tintColor = Constants.backgroundColorButton
-    }
-    
-    @objc private func addTapped() {
-        
-    }
-    
     private func setupFiatView() {
         gradientor = Gradientor(forView: self.view,
                                 topColor: UIColor(hexString: colorCode.five.rawValue).withAlphaComponent(0.1).cgColor,
@@ -175,5 +158,37 @@ extension FiatViewController: FiatViewProtocol {
     }
     func updateFiatView() {
         fiatTableView.reloadData()
+    }
+}
+
+extension FiatViewController {
+    private func setupNavigationBar() {
+        let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "gear")
+        settingsButton.setImage(imageView.image, for: .normal)
+        settingsButton.backgroundColor = UIColor(hexString: "#e96443")
+        settingsButton.tintColor = UIColor(hexString: "e96443")
+        settingsButton.layer.cornerRadius = 10
+        
+        if let imageView = settingsButton.imageView {
+            settingsButton.bringSubviewToFront(imageView)
+        }
+        
+        dropShadow = DropShadow(onView: settingsButton)
+        gradientor = Gradientor(forView: settingsButton,
+                                topColor: UIColor.systemGray4.cgColor,
+                                bottomColor: UIColor.systemGray5.cgColor)
+        settingsButton.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
+        let rightBarButton = UIBarButtonItem(customView: settingsButton)
+        self.navigationItem.rightBarButtonItems = [rightBarButton]
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Назад"
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
+    @objc private func addTapped() {
+        print("foo")
     }
 }
