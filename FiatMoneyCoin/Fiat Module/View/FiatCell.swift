@@ -15,45 +15,15 @@ extension UITableViewCell {
 }
 
 class FiatCell: UITableViewCell {
+    private var dropShadow: DropShadowProtocol!
+    private var gradientor: GradientProtocol!
     
-    lazy var cellView: UIView! = {
-        let view = UIView()
-        view.backgroundColor = UIColor(hexString: colorCode.six.rawValue).withAlphaComponent(0.5)
-        view.layer.cornerRadius = 15
-        return view
-    }()
-    
-    lazy var currencyImage: UIImageView! = {
-        let imageView = UIImageView()
-        imageView.tintColor = .black
-        return imageView
-    }()
-    
-    lazy var amountCurrency: UILabel! = {
-        let label = UILabel()
-        label.text = "currency"
-        label.font = UIFont.boldSystemFont(ofSize: 17)
-        return label
-    }()
-    
-    lazy var amountCurrencySymbol: UILabel! = {
-        let label = UILabel()
-        label.text = "symbol"
-        label.font = UIFont.boldSystemFont(ofSize: 17)
-        return label
-    }()
-    
-    lazy var convertedValue: UILabel! = {
-        let label = UILabel()
-        label.text = "converted"
-        return label
-    }()
-    
-    lazy var earnPercent: UILabel! = {
-        let label = UILabel()
-        label.text = "earnPercent"
-        return label
-    }()
+    private lazy var cellView = createCellView()
+    lazy var currencyImage = createCurrencyImage()
+    lazy var amountCurrency = createAmountCurrency()
+    lazy var amountCurrencySymbol = createAmountCurrencySymbol()
+    lazy var convertedValue = createConvertedValue()
+    lazy var earnPercent = createEarnPercent()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: FiatCell.reuseId)
@@ -106,5 +76,46 @@ class FiatCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+fileprivate extension FiatCell {
+    private func createCellView() -> UIView{
+        let view = UIView()
+        view.backgroundColor = UIColor(hexString: colorCode.six.rawValue).withAlphaComponent(0.7)
+        view.layer.cornerRadius = 15
+        return view
+    }
+    
+    private func createCurrencyImage() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.tintColor = .black
+        return imageView
+    }
+    
+    private func createAmountCurrency() -> UILabel{
+        let label = UILabel()
+        label.text = "currency"
+        label.font = UIFont.boldSystemFont(ofSize: 17)
+        return label
+    }
+    
+    private func createAmountCurrencySymbol() -> UILabel{
+        let label = UILabel()
+        label.text = "symbol"
+        label.font = UIFont.boldSystemFont(ofSize: 17)
+        return label
+    }
+    
+    private func createConvertedValue() -> UILabel{
+        let label = UILabel()
+        label.text = "converted"
+        return label
+    }
+    
+    private func createEarnPercent() -> UILabel{
+        let label = UILabel()
+        label.text = "earnPercent"
+        return label
     }
 }

@@ -8,6 +8,8 @@
 import UIKit
 
 class FiatTableView: UIView {
+    private var dropShadow: DropShadowProtocol!
+    private var gradientor: GradientProtocol!
     lazy var fiatTableView = createFiatTableView()
     
     override init(frame: CGRect) {
@@ -34,7 +36,7 @@ class FiatTableView: UIView {
 }
 
 fileprivate extension FiatTableView {
-    private func createFiatTableView() -> UITableView{
+    private func createFiatTableView() -> UITableView {
         let tableView = UITableView(frame: CGRect.zero)
         return tableView
     }
@@ -57,11 +59,15 @@ extension FiatTableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TableViewHeader(frame: CGRect.zero)
+        dropShadow = DropShadow(onView: headerView)
+        gradientor = Gradientor(forView: headerView,
+                                topColor: UIColor.systemBlue.cgColor,
+                                bottomColor: UIColor.systemRed.cgColor)
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 300
+        return 150
     }
     
     // MARK: - Cell manipulation
