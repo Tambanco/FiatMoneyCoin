@@ -12,12 +12,12 @@ import UIKit
 
 class FiatViewController: UIViewController {
     var presenter: FiatPresenterProtocol!
-    private var fiatTotalView: FiatView!
     private var dropShadow: DropShadowProtocol!
-    private var fiatTableView: FiatTableView!
     private var gradientor: GradientProtocol!
     private var animator: AnimatorProtocol!
     private var hapticTouch: HapticFeedBackerProtocol!
+    
+    private var fiatTableView: FiatTableView!
     private var addNewFiatButton: UIButton!
     
     private func createFiatTableView() {
@@ -65,10 +65,10 @@ extension FiatViewController: FiatViewProtocol {
     }
     
     func updateTotalView(totalValue: String?) {
-        self.fiatTotalView.totalValue.text = totalValue ?? "0"
+//        self.fiatTotalView.totalValue.text = totalValue ?? "0"
     }
     func updateFiatView() {
-//        fiatTableView.reloadData()
+        fiatTableView.fiatTableView.reloadData()
     }
 }
 

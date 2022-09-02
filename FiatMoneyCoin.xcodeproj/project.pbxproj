@@ -291,14 +291,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		49B8F59828C25C7800CF8478 /* remove */ = {
-			isa = PBXGroup;
-			children = (
-				495E241C2889F9F5007EEC5F /* FiatView.swift */,
-			);
-			path = remove;
-			sourceTree = "<group>";
-		};
 		49C6FE41286D9F8900D996AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,8 +306,8 @@
 				494F531F286B00D700F23709 /* FiatViewController.swift */,
 				49B8F59428C23E8200CF8478 /* FiatTableView.swift */,
 				49B8F59628C2404900CF8478 /* TableViewHeader.swift */,
+				495E241C2889F9F5007EEC5F /* FiatView.swift */,
 				49437ED228888FF40092BCA6 /* FiatCell.swift */,
-				49B8F59828C25C7800CF8478 /* remove */,
 			);
 			path = View;
 			sourceTree = "<group>";

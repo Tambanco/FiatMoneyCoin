@@ -8,7 +8,7 @@
 import UIKit
 
 class FiatTableView: UIView {
-    private lazy var fiatTableView = createFiatTableView()
+    lazy var fiatTableView = createFiatTableView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,7 +61,7 @@ extension FiatTableView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 150
+        return 300
     }
     
     // MARK: - Cell manipulation
