@@ -11,7 +11,7 @@ class FiatTableView: UIView {
     private var dropShadow: DropShadowProtocol!
     private var gradientor: GradientProtocol!
     lazy var fiatTableView = createFiatTableView()
-    var mainPresenter = FiatViewController().presenter
+    lazy var totalValue = "full"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,9 +51,9 @@ extension FiatTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FiatCell.reuseId, for: indexPath) as! FiatCell
         cell.currencyImage.image = UIImage(systemName: "dollarsign.circle.fill")
-        cell.amountCurrency.text = mainPresenter?.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "totalCurrency") as? String
-        cell.amountCurrencySymbol.text = mainPresenter?.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "convertedValue") as? String
-        cell.convertedValue.text = mainPresenter?.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "convertedValue") as? String
+        cell.amountCurrency.text = "foo"
+        cell.amountCurrencySymbol.text = "bar"
+        cell.convertedValue.text = "baz"
         cell.earnPercent.text = String("0" + " " + "%")
         return cell
     }
@@ -64,6 +64,7 @@ extension FiatTableView: UITableViewDelegate, UITableViewDataSource {
         gradientor = Gradientor(forView: headerView,
                                 topColor: UIColor.systemBlue.cgColor,
                                 bottomColor: UIColor.systemRed.cgColor)
+        headerView.totalValue = totalValue
         return headerView
     }
     

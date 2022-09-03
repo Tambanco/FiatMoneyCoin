@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 class TableViewHeader: UIView {
-    lazy var totalValue = 0
     private lazy var cardView = createCardView()
     private lazy var headerLabel = createHeaderLabel()
     private lazy var totalLabel = createTotalLabel()
+    lazy var totalValue = "empty"
     
     override init(frame: CGRect) {
         super.init(frame: frame)

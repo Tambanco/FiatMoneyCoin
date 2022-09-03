@@ -64,7 +64,7 @@ extension FiatViewController: FiatViewProtocol {
     }
     
     func updateTotalView(totalValue: String?) {
-        //        self.fiatTotalView.totalValue.text = totalValue ?? "0"
+        self.fiatTableView.totalValue = totalValue ?? "0"
     }
     func updateFiatView() {
         fiatTableView.fiatTableView.reloadData()
