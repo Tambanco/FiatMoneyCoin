@@ -15,6 +15,7 @@ class FiatViewController: UIViewController {
     private var gradientor: GradientProtocol!
     private var animator: AnimatorProtocol!
     private var hapticTouch: HapticFeedBackerProtocol!
+    private let refreshControl = UIRefreshControl()
     
     var presenter: FiatPresenterProtocol!
     private var fiatTableView: UITableView!
@@ -31,17 +32,22 @@ class FiatViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        DispatchQueue.main.async {
-            let viewForGradient = self.fiatTableView.tableHeaderView
-
-            self.gradientor = Gradientor(forView: viewForGradient ?? UIView(),
-                                         topColor: UIColor(hexString: colorCode.four.rawValue).cgColor,
-                                         bottomColor: UIColor(hexString: colorCode.three.rawValue).cgColor)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.presenter.fetchCurrency()
-            }
+        let viewForGradient = self.fiatTableView.tableHeaderView
+        
+        self.gradientor = Gradientor(forView: viewForGradient ?? UIView(),
+                                     topColor: UIColor(hexString: colorCode.four.rawValue).cgColor,
+                                     bottomColor: UIColor(hexString: colorCode.three.rawValue).cgColor)
+        self.presenter.fetchCurrency { _ in
+            fiatTableView.reloadData()
         }
+    }
+    
+    @objc func refresh() {
+        self.fiatTableView.reloadData()
+        presenter.fetchCurrency { view in
+            fiatTableView.reloadData()
+        }
+        refreshControl.endRefreshing()
     }
     
     func setupFiatTableView() {
@@ -52,7 +58,11 @@ class FiatViewController: UIViewController {
         fiatTableView.rowHeight = 100
         fiatTableView.separatorStyle = .none
         
+        refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
+        refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+        
         view.addSubview(fiatTableView)
+        fiatTableView.addSubview(refreshControl)
         
         fiatTableView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -110,7 +120,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TableViewHeader(frame: CGRect.zero)
         dropShadow = DropShadow(onView: headerView)
-        gradientor = Gradientor(forView: headerView.cardView,
+        gradientor = Gradientor(forView: headerView,
                                 topColor: UIColor.systemBlue.cgColor,
                                 bottomColor: UIColor.systemRed.cgColor)
         headerView.totalLabel.text = "Сумма: \(totalValue)"
@@ -153,7 +163,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
+// MARK: - NavBar
 extension FiatViewController {
     private func setupNavigationBar() {
         let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))

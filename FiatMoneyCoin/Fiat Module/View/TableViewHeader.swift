@@ -11,8 +11,7 @@ import UIKit
 class TableViewHeader: UIView {
     lazy var cardView = createCardView()
     private lazy var headerLabel = createHeaderLabel()
-     lazy var totalLabel = createTotalLabel()
-//    lazy var totalValue = "0"
+    lazy var totalLabel = createTotalLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,12 +24,12 @@ class TableViewHeader: UIView {
             make.leading.trailing.equalToSuperview().inset(10)
             make.top.bottom.equalToSuperview().inset(10)
         }
-
+        
         headerLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(20)
             make.top.equalToSuperview().inset(10)
         }
-
+        
         totalLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(20)
             make.top.equalTo(headerLabel.snp.bottom).inset(-20)

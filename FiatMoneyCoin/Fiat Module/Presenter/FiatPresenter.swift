@@ -28,7 +28,7 @@ protocol FiatPresenterProtocol: AnyObject {
     var storageService: StorageService? { get set }
     
     func showCurrencyView()
-    func fetchCurrency()
+    func fetchCurrency(completion: ((() -> Void)?) -> Void)
     func removeCurrency(rowIndex: Int)
     func editCurrencyValue(rowIndex: Int)
     
@@ -47,17 +47,25 @@ class FiatPresenter: FiatPresenterProtocol {
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
     
-    func fetchCurrency() {
+    func fetchCurrency(completion: ((() -> Void)?) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Currency")
         do {
             fiatCurrenciesFromCoreData = try managedContext.fetch(fetchRequest)
-            DispatchQueue.main.async {
-                let totalFiatValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
-                self.view?.updateTotalView(totalValue: totalFiatValue)
-                self.view?.updateFiatView()
+            let userInitiatedQueue = DispatchQueue.global(qos: .userInitiated)
+            userInitiatedQueue.async {
+                let updatedTotalValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
+                DispatchQueue.main.async {
+                    self.view?.updateFiatView()
+                    self.view?.updateTotalView(totalValue: updatedTotalValue)
+                }
             }
+//                let totalFiatValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
+//                self.view?.updateTotalView(totalValue: totalFiatValue)
+////                self.view?.updateFiatView()
+//            print("fetch completed")
+//            completion(self.view?.updateFiatView)
         } catch let error as NSError {
             print("Could not fetch. \(error.localizedDescription)")
         }
@@ -74,8 +82,8 @@ class FiatPresenter: FiatPresenterProtocol {
             let newTotalValue = alert.textFields?.first?.text
             self.fiatCurrenciesFromCoreData[rowIndex].setValue(newTotalValue, forKey: "totalCurrency")
             self.storageService?.updateTotalValue(update: self.fiatCurrenciesFromCoreData[rowIndex])
-            
             let updatedTotalValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
+            
             self.view?.updateFiatView()
             self.view?.updateTotalView(totalValue: updatedTotalValue)
         }
