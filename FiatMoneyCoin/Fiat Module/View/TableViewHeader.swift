@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 class TableViewHeader: UIView {
-    private lazy var cardView = createCardView()
+    lazy var cardView = createCardView()
     private lazy var headerLabel = createHeaderLabel()
-    private lazy var totalLabel = createTotalLabel()
-    lazy var totalValue = "empty"
+     lazy var totalLabel = createTotalLabel()
+//    lazy var totalValue = "0"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,7 +63,7 @@ fileprivate extension TableViewHeader {
     private func createTotalLabel() -> UILabel{
         let label = UILabel()
         label.textColor = .white
-        label.text = "Сумма: \(totalValue)"
+        label.text = "Сумма: "
         return label
     }
 }

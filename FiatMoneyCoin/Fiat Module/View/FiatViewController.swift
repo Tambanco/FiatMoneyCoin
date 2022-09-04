@@ -11,17 +11,16 @@ import Foundation
 import UIKit
 
 class FiatViewController: UIViewController {
-    var presenter: FiatPresenterProtocol!
     private var dropShadow: DropShadowProtocol!
     private var gradientor: GradientProtocol!
     private var animator: AnimatorProtocol!
     private var hapticTouch: HapticFeedBackerProtocol!
-    private var fiatTableView: FiatTableView!
+    
+    var presenter: FiatPresenterProtocol!
+    private var fiatTableView: UITableView!
     private var addNewFiatButton: UIButton!
     
-    private func createFiatTableView() {
-        fatalError()
-    }
+    private var totalValue: String = "0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +29,29 @@ class FiatViewController: UIViewController {
         setupAddButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        DispatchQueue.main.async {
+            let viewForGradient = self.fiatTableView.tableHeaderView
+
+            self.gradientor = Gradientor(forView: viewForGradient ?? UIView(),
+                                         topColor: UIColor(hexString: colorCode.four.rawValue).cgColor,
+                                         bottomColor: UIColor(hexString: colorCode.three.rawValue).cgColor)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.presenter.fetchCurrency()
+            }
+        }
+    }
+    
     func setupFiatTableView() {
-        fiatTableView = FiatTableView(frame: CGRect.zero)
+        fiatTableView = UITableView(frame: CGRect.zero)
+        fiatTableView.register(FiatCell.self, forCellReuseIdentifier: FiatCell.reuseId)
+        fiatTableView.delegate = self
+        fiatTableView.dataSource = self
+        fiatTableView.rowHeight = 100
+        fiatTableView.separatorStyle = .none
+        
         view.addSubview(fiatTableView)
         
         fiatTableView.snp.makeConstraints { make in
@@ -64,12 +84,75 @@ extension FiatViewController: FiatViewProtocol {
     }
     
     func updateTotalView(totalValue: String?) {
-        self.fiatTableView.totalValue = totalValue ?? "0"
+        self.totalValue = totalValue ?? "0"
     }
+    
     func updateFiatView() {
-        fiatTableView.fiatTableView.reloadData()
+        fiatTableView.reloadData()
     }
 }
+
+extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.fiatCurrenciesFromCoreData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FiatCell.reuseId, for: indexPath) as! FiatCell
+        cell.currencyImage.image = UIImage(systemName: "dollarsign.circle.fill")
+        cell.amountCurrency.text = presenter.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "totalCurrency") as? String
+        cell.amountCurrencySymbol.text = presenter.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "currencySymbol") as? String
+        cell.convertedValue.text = presenter.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "convertedValue") as? String
+        cell.earnPercent.text = String("0" + " " + "%")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = TableViewHeader(frame: CGRect.zero)
+        dropShadow = DropShadow(onView: headerView)
+        gradientor = Gradientor(forView: headerView.cardView,
+                                topColor: UIColor.systemBlue.cgColor,
+                                bottomColor: UIColor.systemRed.cgColor)
+        headerView.totalLabel.text = "Сумма: \(totalValue)"
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 150
+    }
+    
+    // MARK: - Cell manipulation
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let config = UIImage.SymbolConfiguration(textStyle: .largeTitle)
+        let trash = UIContextualAction(style: .normal,
+                                       title: nil) { [weak self] (action, view, completionHandler) in
+            self?.moveToTrash(index: indexPath.row)
+            completionHandler(true)
+        }
+        trash.backgroundColor = .systemRed
+        trash.image = UIImage(systemName: "trash.circle.fill", withConfiguration: config)
+        
+        let edit = UIContextualAction(style: .normal,
+                                      title: nil) { [weak self] (action, view, completionHandler) in
+            self?.editValue(index: indexPath.row)
+        }
+        
+        edit.backgroundColor = .systemGray2
+        edit.image = UIImage(systemName: "pencil.circle.fill", withConfiguration: config)
+        let configuration = UISwipeActionsConfiguration(actions: [trash, edit])
+        
+        return configuration
+    }
+    
+    func editValue(index: Int) {
+        presenter.editCurrencyValue(rowIndex: index)
+    }
+    
+    func moveToTrash(index: Int) {
+        presenter.removeCurrency(rowIndex: index)
+    }
+}
+
 
 extension FiatViewController {
     private func setupNavigationBar() {

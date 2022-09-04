@@ -11,7 +11,6 @@ class FiatTableView: UIView {
     private var dropShadow: DropShadowProtocol!
     private var gradientor: GradientProtocol!
     lazy var fiatTableView = createFiatTableView()
-    lazy var totalValue = "full"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,7 +63,6 @@ extension FiatTableView: UITableViewDelegate, UITableViewDataSource {
         gradientor = Gradientor(forView: headerView,
                                 topColor: UIColor.systemBlue.cgColor,
                                 bottomColor: UIColor.systemRed.cgColor)
-        headerView.totalValue = totalValue
         return headerView
     }
     
