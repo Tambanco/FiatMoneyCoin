@@ -7,17 +7,18 @@
 
 import UIKit
 
-class ActualGradientButton: UIButton {
-
+class GradientButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         gradientLayer.frame = bounds
     }
 
     private lazy var gradientLayer: CAGradientLayer = {
+        let colorOne = UIColor(hexString: "e96443")
+        let colorTwo = UIColor(hexString: "904e95")
         let l = CAGradientLayer()
         l.frame = self.bounds
-        l.colors = [UIColor.systemGray5.cgColor, UIColor.systemGray6.cgColor]
+        l.colors = [colorOne.cgColor, colorTwo.cgColor]
         l.startPoint = CGPoint(x: 0, y: 0.5)
         l.endPoint = CGPoint(x: 1, y: 0.5)
         l.cornerRadius = l.bounds.width / 2

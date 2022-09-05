@@ -19,7 +19,7 @@ class FiatViewController: UIViewController {
     
     var presenter: FiatPresenterProtocol!
     private var fiatTableView: UITableView!
-    private var addNewFiatButton: ActualGradientButton!
+    private var addNewFiatButton: GradientButton!
     private var headerView: TableViewHeader!
     
     private var totalValue: String = "0"
@@ -33,12 +33,9 @@ class FiatViewController: UIViewController {
         setupFiatTableView()
         setupAddButton()
         presenter.fetchCurrency()
-    }
-    
-    @objc func refresh() {
-        self.fiatTableView.reloadData()
-        presenter.fetchCurrency()
-        refreshControl.endRefreshing()
+//        self.navigationController?.navigationBar.subviews.forEach {
+//                $0.clipsToBounds = false
+//            }
     }
     
     func setupFiatTableView() {
@@ -61,12 +58,18 @@ class FiatViewController: UIViewController {
         }
     }
     
+    @objc func refresh() {
+        self.fiatTableView.reloadData()
+        presenter.fetchCurrency()
+        refreshControl.endRefreshing()
+    }
+    
     private func setupAddButton() {
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = .clear
-        config.baseForegroundColor = UIColor(hexString: "#e96443")
+        config.baseForegroundColor = .white
         config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .medium))
-        addNewFiatButton = ActualGradientButton(configuration: config, primaryAction: UIAction() { _ in
+        addNewFiatButton = GradientButton(configuration: config, primaryAction: UIAction() { _ in
             self.presenter.showCurrencyView()
         })
         
@@ -74,7 +77,7 @@ class FiatViewController: UIViewController {
         addNewFiatButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(40)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(90)
-            make.height.width.equalTo(40)
+            make.height.width.equalTo(50)
         }
         
         dropShadow = DropShadow(onView: addNewFiatButton)
@@ -160,7 +163,8 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - NavBar
 extension FiatViewController {
     private func setupNavigationBar() {
-        let settingsButton = ActualGradientButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        navigationController?.navigationBar.backgroundColor = .white
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "gear")
         settingsButton.setImage(imageView.image, for: .normal)
