@@ -20,7 +20,6 @@ class FiatViewController: UIViewController {
     var presenter: FiatPresenterProtocol!
     private var fiatTableView: UITableView!
     private var addNewFiatButton: UIButton!
-    private var headerView: TableViewHeader!
     
     private var totalValue: String = "0"
     
@@ -29,10 +28,11 @@ class FiatViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        presenter.fetchCurrency()
         setupNavigationBar()
         setupFiatTableView()
         setupAddButton()
-        presenter.fetchCurrency()
     }
     
     @objc func refresh() {
@@ -64,9 +64,7 @@ class FiatViewController: UIViewController {
     private func setupAddButton() {
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
-//        config.baseBackgroundColor = UIColor(hexString: colorCode.three.rawValue)
-//        config.baseBackgroundColor = UIColor.systemGray5
-        config.baseForegroundColor = UIColor(hexString: colorCode.three.rawValue)
+        config.baseBackgroundColor = UIColor(hexString: colorCode.three.rawValue)
         config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
         addNewFiatButton = UIButton(configuration: config, primaryAction: UIAction() { _ in
             self.presenter.showCurrencyView()
@@ -76,17 +74,7 @@ class FiatViewController: UIViewController {
         addNewFiatButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(40)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(90)
-            make.height.width.equalTo(40)
         }
-        
-        dropShadow = DropShadow(onView: addNewFiatButton)
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.systemTeal.cgColor, UIColor.systemCyan.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        gradientLayer.frame = addNewFiatButton.bounds
-        gradientLayer.cornerRadius = addNewFiatButton.layer.cornerRadius
-        addNewFiatButton.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 
@@ -101,6 +89,7 @@ extension FiatViewController: FiatViewProtocol {
     }
     
     func updateFiatView() {
+        guard let fiatTableView = fiatTableView else { return }
         fiatTableView.reloadData()
     }
 }
@@ -121,7 +110,7 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        headerView = TableViewHeader(frame: CGRect.zero)
+        let headerView = TableViewHeader(frame: CGRect.zero)
         dropShadow = DropShadow(onView: headerView)
         gradientor = Gradientor(forView: headerView,
                                 topColor: UIColor.systemBlue.cgColor,
