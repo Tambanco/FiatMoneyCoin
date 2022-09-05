@@ -117,9 +117,6 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         headerView = TableViewHeader(frame: CGRect.zero)
         dropShadow = DropShadow(onView: headerView)
-        gradientor = Gradientor(forView: headerView,
-                                topColor: UIColor.systemBlue.cgColor,
-                                bottomColor: UIColor.systemRed.cgColor)
         headerView.totalLabel.text = "Сумма: \(totalValue)"
         return headerView
     }

@@ -44,10 +44,10 @@ class TableViewHeader: UIView {
 
 fileprivate extension TableViewHeader {
     private func createCardView() -> UIView{
-        let cardView = UIView()
+        let cardView = GradientView()
         cardView.layer.cornerRadius = 20
-        cardView.layer.masksToBounds = true
-        cardView.backgroundColor = .systemCyan
+        cardView.layer.masksToBounds = false
+//        cardView.backgroundColor = .systemCyan
         return cardView
     }
     
