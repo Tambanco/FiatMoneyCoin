@@ -35,7 +35,7 @@ class FiatViewController: UIViewController {
         let viewForGradient = self.fiatTableView.tableHeaderView
         
         self.gradientor = Gradientor(forView: viewForGradient ?? UIView(),
-                                     topColor: UIColor(hexString: colorCode.four.rawValue).cgColor,
+                                     topColor: UIColor(hexString: colorCoitde.four.rawValue).cgColor,
                                      bottomColor: UIColor(hexString: colorCode.three.rawValue).cgColor)
         self.presenter.fetchCurrency { _ in
             fiatTableView.reloadData()
