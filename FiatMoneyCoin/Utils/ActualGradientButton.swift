@@ -17,7 +17,7 @@ class ActualGradientButton: UIButton {
     private lazy var gradientLayer: CAGradientLayer = {
         let l = CAGradientLayer()
         l.frame = self.bounds
-        l.colors = [UIColor.systemGray5.cgColor, UIColor.systemGray4.cgColor]
+        l.colors = [UIColor.systemGray5.cgColor, UIColor.systemGray6.cgColor]
         l.startPoint = CGPoint(x: 0, y: 0.5)
         l.endPoint = CGPoint(x: 1, y: 0.5)
         l.cornerRadius = l.bounds.width / 2

@@ -160,21 +160,16 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - NavBar
 extension FiatViewController {
     private func setupNavigationBar() {
-        let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let settingsButton = ActualGradientButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "gear")
         settingsButton.setImage(imageView.image, for: .normal)
-        settingsButton.backgroundColor = UIColor(hexString: "#e96443")
         settingsButton.tintColor = UIColor(hexString: "e96443")
-        settingsButton.layer.cornerRadius = 10
         if let imageView = settingsButton.imageView {
             settingsButton.bringSubviewToFront(imageView)
         }
         
         dropShadow = DropShadow(onView: settingsButton)
-        gradientor = Gradientor(forView: settingsButton,
-                                topColor: UIColor.systemGray4.cgColor,
-                                bottomColor: UIColor.systemGray5.cgColor)
         settingsButton.addTarget(self, action: #selector(settingsTapped), for: .touchUpInside)
         let rightBarButton = UIBarButtonItem(customView: settingsButton)
         self.navigationItem.rightBarButtonItems = [rightBarButton]
