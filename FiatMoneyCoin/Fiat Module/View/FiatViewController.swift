@@ -25,33 +25,18 @@ class FiatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupNavigationBar()
-//        setupFiatTableView()
-//        setupAddButton()
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        
-//        self.gradientor = Gradientor(forView: viewForGradient ?? UIView(),
-//                                     topColor: UIColor(hexString: colorCode.four.rawValue).cgColor,
-//                                     bottomColor: UIColor(hexString: colorCode.three.rawValue).cgColor)
-//        self.presenter.fetchCurrency { _ in
-//            fiatTableView.reloadData()
-//        }
-//    }
     
     override func viewDidAppear(_ animated: Bool) {
         setupNavigationBar()
         setupFiatTableView()
         setupAddButton()
+        presenter.fetchCurrency()
     }
     
     @objc func refresh() {
         self.fiatTableView.reloadData()
-        presenter.fetchCurrency { view in
-            fiatTableView.reloadData()
-        }
+        presenter.fetchCurrency()
         refreshControl.endRefreshing()
     }
     

@@ -28,7 +28,7 @@ protocol FiatPresenterProtocol: AnyObject {
     var storageService: StorageService? { get set }
     
     func showCurrencyView()
-    func fetchCurrency(completion: ((() -> Void)?) -> Void)
+    func fetchCurrency()
     func removeCurrency(rowIndex: Int)
     func editCurrencyValue(rowIndex: Int)
     
@@ -47,25 +47,15 @@ class FiatPresenter: FiatPresenterProtocol {
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
     
-    func fetchCurrency(completion: ((() -> Void)?) -> Void) {
+    func fetchCurrency() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Currency")
         do {
             fiatCurrenciesFromCoreData = try managedContext.fetch(fetchRequest)
-            let userInitiatedQueue = DispatchQueue.global(qos: .userInitiated)
-            userInitiatedQueue.async {
                 let updatedTotalValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
-                DispatchQueue.main.async {
-                    self.view?.updateFiatView()
                     self.view?.updateTotalView(totalValue: updatedTotalValue)
-                }
-            }
-//                let totalFiatValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
-//                self.view?.updateTotalView(totalValue: totalFiatValue)
-////                self.view?.updateFiatView()
-//            print("fetch completed")
-//            completion(self.view?.updateFiatView)
+            self.view?.updateFiatView()
         } catch let error as NSError {
             print("Could not fetch. \(error.localizedDescription)")
         }
