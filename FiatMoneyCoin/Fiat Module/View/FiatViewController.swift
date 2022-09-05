@@ -49,7 +49,7 @@ class FiatViewController: UIViewController {
         fiatTableView.rowHeight = 100
         fiatTableView.separatorStyle = .none
         
-        refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
+        refreshControl.attributedTitle = NSAttributedString(string: "")
         refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
         
         view.addSubview(fiatTableView)
@@ -63,13 +63,9 @@ class FiatViewController: UIViewController {
     
     private func setupAddButton() {
         var config = UIButton.Configuration.filled()
-//        config.cornerStyle = .capsule
-//        config.baseBackgroundColor = UIColor(hexString: colorCode.three.rawValue)
-//        config.baseBackgroundColor = UIColor.systemGray5
-//        config.baseForegroundColor = UIColor(hexString: colorCode.three.rawValue)
         config.baseBackgroundColor = .clear
         config.baseForegroundColor = UIColor(hexString: "#e96443")
-        config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+        config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .medium))
         addNewFiatButton = ActualGradientButton(configuration: config, primaryAction: UIAction() { _ in
             self.presenter.showCurrencyView()
         })
