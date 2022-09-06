@@ -42,6 +42,8 @@ class FiatPresenter: FiatPresenterProtocol {
     var fiatCalculator: FiatCalculatorProtocol! = FiatCalculator()
     var baseCurrency: String = "RUB"
     var convertedCurrency: String?
+    var newValueToSave: String?
+    var newSymbolToSave: String?
     
     weak var view: FiatViewProtocol?
     var router: RouterProtocol?
@@ -75,12 +77,8 @@ class FiatPresenter: FiatPresenterProtocol {
         
         let editAction = UIAlertAction(title: "Изменить", style: .default) { action in
             let newTotalValue = alert.textFields?.first?.text
-            self.fiatCurrenciesFromCoreData[rowIndex].setValue(newTotalValue, forKey: "totalCurrency")
-            self.storageService?.updateTotalValue(update: self.fiatCurrenciesFromCoreData[rowIndex])
-            let updatedTotalValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
-            
-            self.view?.updateFiatView()
-            self.view?.updateTotalView(totalValue: updatedTotalValue)
+            let symbol = self.fiatCurrenciesFromCoreData[rowIndex].value(forKey: "currencySymbol")
+            self.currencyConverter(amount: newTotalValue, symbol: symbol as? String, index: rowIndex)
         }
         
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
@@ -92,23 +90,28 @@ class FiatPresenter: FiatPresenterProtocol {
         self.view?.updateFiatView()
     }
     
-    func currencyConverter(amount: String?, symbol: String?) {
+    func currencyConverter(amount: String?, symbol: String?, index: Int) {
         guard symbol != nil else { return }
         let symbolToConvert = symbol!
         let currencyCode = String(symbolToConvert.prefix(3))
         networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount ?? "", completion: { [weak self] result in
             guard let self = self else { return }
-            DispatchQueue.main.async {
                 switch result {
                 case .success(let convertedValue):
                     self.convertedCurrency = convertedValue
-                    self.storageService?.saveCurency(totalValue: self.newValueToSave,
-                                                     convertedValue: self.convertedCurrency,
-                                                     currencySymbol: self.newSymbolToSave)
+                    self.fiatCurrenciesFromCoreData[index].setValue(amount, forKey: "totalCurrency")
+                    self.fiatCurrenciesFromCoreData[index].setValue(self.convertedCurrency, forKey: "convertedValue")
+                    
+                    self.storageService?.updateTotalValue(update: self.fiatCurrenciesFromCoreData[index])
+                    
+                    let updatedTotalValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
+                    DispatchQueue.main.async {
+                        self.view?.updateFiatView()
+                        self.view?.updateTotalView(totalValue: updatedTotalValue)
+                    }
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-            }
         })
     }
     
