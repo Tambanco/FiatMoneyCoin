@@ -31,7 +31,7 @@ class CurrencyViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = Constants.backgroundColorButton
     }
     
-    func  setupCurrencyView() {
+    func setupCurrencyView() {
         currencyView = CurrencyView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         self.view.addSubview(currencyView)
         view.backgroundColor = .white
