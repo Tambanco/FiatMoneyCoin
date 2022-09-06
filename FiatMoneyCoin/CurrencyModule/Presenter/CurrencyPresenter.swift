@@ -58,7 +58,7 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
                 switch result {
                 case .success(let convertedValue):
                     self.convertedCurrency = convertedValue
-                    self.storageService?.saveCurency(totalValue: self.newValueToSave,
+                    self.storageService?.saveCurrency(totalValue: self.newValueToSave,
                                                      convertedValue: self.convertedCurrency,
                                                      currencySymbol: self.newSymbolToSave)
                 case .failure(let error):

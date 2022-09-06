@@ -11,7 +11,7 @@ import CoreData
 
 protocol StorageServiceProtocol: AnyObject {
     func saveNewValue(newValue: String?, newSymbol: String?)
-    func saveCurency(totalValue: String?, convertedValue: String?, currencySymbol: String?)
+    func saveCurrency(totalValue: String?, convertedValue: String?, currencySymbol: String?)
     func removeCurrency(object: NSManagedObject)
     func updateTotalValue(update object: NSManagedObject)
 }

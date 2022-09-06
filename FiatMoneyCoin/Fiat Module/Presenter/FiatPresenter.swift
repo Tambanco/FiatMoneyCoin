@@ -92,6 +92,26 @@ class FiatPresenter: FiatPresenterProtocol {
         self.view?.updateFiatView()
     }
     
+    func currencyConverter(amount: String?, symbol: String?) {
+        guard symbol != nil else { return }
+        let symbolToConvert = symbol!
+        let currencyCode = String(symbolToConvert.prefix(3))
+        networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount ?? "", completion: { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let convertedValue):
+                    self.convertedCurrency = convertedValue
+                    self.storageService?.saveCurency(totalValue: self.newValueToSave,
+                                                     convertedValue: self.convertedCurrency,
+                                                     currencySymbol: self.newSymbolToSave)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        })
+    }
+    
     func removeCurrency(rowIndex: Int) {
         storageService?.removeCurrency(object: fiatCurrenciesFromCoreData[rowIndex])
         fiatCurrenciesFromCoreData.remove(at: rowIndex)

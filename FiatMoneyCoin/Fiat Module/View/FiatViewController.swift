@@ -19,23 +19,67 @@ class FiatViewController: UIViewController {
     
     var presenter: FiatPresenterProtocol!
     private var fiatTableView: UITableView!
-    private var addNewFiatButton: GradientButton!
+    private var addNewFiatButton: UIButton!
     private var headerView: TableViewHeader!
     
     private var totalValue: String = "0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         setupNavigationBar()
         setupFiatTableView()
         setupAddButton()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         presenter.fetchCurrency()
-//        self.navigationController?.navigationBar.subviews.forEach {
-//                $0.clipsToBounds = false
-//            }
+        self.navigationController?.navigationBar.subviews.forEach {
+                $0.clipsToBounds = false
+            }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        configureAddButton()
+        configureMainView()
+//        configureHeaderView()
+    }
+    
+    private func configureHeaderView() {
+        let colorOne = UIColor(hexString: "e96443")
+        let colorTwo = UIColor(hexString: "904e95")
+        let l = CAGradientLayer()
+        l.frame = self.fiatTableView.tableHeaderView?.bounds ?? CGRect.zero
+        l.colors = [colorOne.cgColor, colorTwo.cgColor]
+        l.startPoint = CGPoint(x: 0, y: 0)
+        l.endPoint = CGPoint(x: 1, y: 1)
+        l.cornerRadius = 20
+        self.fiatTableView.tableHeaderView?.layer.insertSublayer(l, at: 0)
+    }
+    
+    private func configureMainView() {
+        let colorOne = UIColor.systemGray5
+        let colorTwo = UIColor.systemGray6
+        let l = CAGradientLayer()
+        l.frame = self.view.bounds
+        l.colors = [colorOne.cgColor, colorTwo.cgColor]
+        l.startPoint = CGPoint(x: 0, y: 0)
+        l.endPoint = CGPoint(x: 1, y: 1)
+        l.cornerRadius = 20
+        view.layer.insertSublayer(l, at: 0)
+        
+    }
+    
+    private func configureAddButton() {
+        let colorOne = UIColor(hexString: "e96443")
+        let colorTwo = UIColor(hexString: "904e95")
+        let l = CAGradientLayer()
+        l.frame = addNewFiatButton.bounds
+        l.colors = [colorOne.cgColor, colorTwo.cgColor]
+        l.startPoint = CGPoint(x: 0, y: 0)
+        l.endPoint = CGPoint(x: 1, y: 1)
+        l.cornerRadius = l.bounds.width / 2
+        addNewFiatButton.layer.insertSublayer(l, at: 0)
     }
     
     func setupFiatTableView() {
@@ -45,6 +89,7 @@ class FiatViewController: UIViewController {
         fiatTableView.dataSource = self
         fiatTableView.rowHeight = 100
         fiatTableView.separatorStyle = .none
+        fiatTableView.backgroundColor = .clear
         
         refreshControl.attributedTitle = NSAttributedString(string: "")
         refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
@@ -69,7 +114,7 @@ class FiatViewController: UIViewController {
         config.baseBackgroundColor = .clear
         config.baseForegroundColor = .white
         config.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(scale: .medium))
-        addNewFiatButton = GradientButton(configuration: config, primaryAction: UIAction() { _ in
+        addNewFiatButton = UIButton(configuration: config, primaryAction: UIAction() { _ in
             self.presenter.showCurrencyView()
         })
         
@@ -118,11 +163,26 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         headerView = TableViewHeader(frame: CGRect.zero)
         dropShadow = DropShadow(onView: headerView)
         headerView.totalLabel.text = "Сумма: \(totalValue)"
+        headerView.cardView = getGradientBackgroundView()
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 150
+    }
+    
+    private func getGradientBackgroundView() -> UIView {
+      let gradientBackgroundView = UIView()
+
+      // Prepare Gradient Layer
+      let gradientLayer = CAGradientLayer()
+      gradientLayer.frame.size = CGSize(width: self.fiatTableView.frame.size.width, height: 150)
+      gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+      gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+      gradientLayer.colors = [UIColor.blue.cgColor, UIColor.green.cgColor]
+      // Add layer to view
+      gradientBackgroundView.layer.addSublayer(gradientLayer)
+      return gradientBackgroundView
     }
     
     // MARK: - Cell manipulation
@@ -161,11 +221,11 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
 extension FiatViewController {
     private func setupNavigationBar() {
         let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.backgroundColor = .clear
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "gear")
+        imageView.image = UIImage(systemName: "gearshape.fill")
         settingsButton.setImage(imageView.image, for: .normal)
-        settingsButton.tintColor = UIColor(hexString: "e96443")
+        settingsButton.tintColor = UIColor.systemGray
         if let imageView = settingsButton.imageView {
             settingsButton.bringSubviewToFront(imageView)
         }

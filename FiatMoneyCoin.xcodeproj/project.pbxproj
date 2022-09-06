@@ -13,8 +13,7 @@
 		4919649528718B25000B8D98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919649428718B25000B8D98 /* Constants.swift */; };
 		49437ED328888FF40092BCA6 /* FiatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49437ED228888FF40092BCA6 /* FiatCell.swift */; };
 		49437ED62888926C0092BCA6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 49437ED52888926C0092BCA6 /* SnapKit */; };
-		494F51BE28C667E800C5DA8E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F51BD28C667E800C5DA8E /* GradientButton.swift */; };
-		494F51C028C69A2600C5DA8E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F51BF28C69A2600C5DA8E /* GradientView.swift */; };
+		494F51C328C6A50F00C5DA8E /* GradientNavBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F51C228C6A50F00C5DA8E /* GradientNavBarButton.swift */; };
 		494F531E286B00CB00F23709 /* FiatRawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F531D286B00CB00F23709 /* FiatRawModel.swift */; };
 		494F5321286B00D700F23709 /* FiatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F531F286B00D700F23709 /* FiatViewController.swift */; };
 		494F5324286B00E500F23709 /* FiatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F5323286B00E500F23709 /* FiatPresenter.swift */; };
@@ -70,8 +69,7 @@
 		4908DEDB2886FB4400D229A8 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		4919649428718B25000B8D98 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		49437ED228888FF40092BCA6 /* FiatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatCell.swift; sourceTree = "<group>"; };
-		494F51BD28C667E800C5DA8E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
-		494F51BF28C69A2600C5DA8E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		494F51C228C6A50F00C5DA8E /* GradientNavBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNavBarButton.swift; sourceTree = "<group>"; };
 		494F531D286B00CB00F23709 /* FiatRawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatRawModel.swift; sourceTree = "<group>"; };
 		494F531F286B00D700F23709 /* FiatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatViewController.swift; sourceTree = "<group>"; };
 		494F5323286B00E500F23709 /* FiatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatPresenter.swift; sourceTree = "<group>"; };
@@ -167,9 +165,8 @@
 		494F51C128C6A45000C5DA8E /* Gradients */ = {
 			isa = PBXGroup;
 			children = (
-				494F51BD28C667E800C5DA8E /* GradientButton.swift */,
-				494F51BF28C69A2600C5DA8E /* GradientView.swift */,
 				496D2060289327E500C0D549 /* Gradientor.swift */,
+				494F51C228C6A50F00C5DA8E /* GradientNavBarButton.swift */,
 			);
 			path = Gradients;
 			sourceTree = "<group>";
@@ -487,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495E241F288AB6EE007EEC5F /* CurrencyView.swift in Sources */,
+				494F51C328C6A50F00C5DA8E /* GradientNavBarButton.swift in Sources */,
 				494F5321286B00D700F23709 /* FiatViewController.swift in Sources */,
 				495E241D2889F9F5007EEC5F /* FiatView.swift in Sources */,
 				4968CB88286AFE780085DDB6 /* AppDelegate.swift in Sources */,
@@ -499,7 +497,6 @@
 				4966A2B12878DF8500FFB855 /* Router.swift in Sources */,
 				49C6FE3A286C9AC500D996AE /* AssemblyModuleBuilder.swift in Sources */,
 				49AA32CF2896C8AF00D69C34 /* StorageService.swift in Sources */,
-				494F51BE28C667E800C5DA8E /* GradientButton.swift in Sources */,
 				497F53B22874D1A700465DF6 /* CurrencyPresenter.swift in Sources */,
 				49AA32C5289685BC00D69C34 /* HapticFeedBacker.swift in Sources */,
 				497F53AD2874D17700465DF6 /* CurrencyViewController.swift in Sources */,
@@ -512,7 +509,6 @@
 				497F53B02874D18600465DF6 /* SymbolsModel.swift in Sources */,
 				497F538A2873631600465DF6 /* HexColor.swift in Sources */,
 				49B8F59528C23E8200CF8478 /* FiatTableView.swift in Sources */,
-				494F51C028C69A2600C5DA8E /* GradientView.swift in Sources */,
 				496D205D2892D1A900C0D549 /* FiatCalculator.swift in Sources */,
 				494F531E286B00CB00F23709 /* FiatRawModel.swift in Sources */,
 			);

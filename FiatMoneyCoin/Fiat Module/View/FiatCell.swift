@@ -28,6 +28,8 @@ class FiatCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: FiatCell.reuseId)
         
+        backgroundColor = .clear
+        
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.clear
         selectedBackgroundView = bgColorView
@@ -82,7 +84,8 @@ class FiatCell: UITableViewCell {
 fileprivate extension FiatCell {
     private func createCellView() -> UIView{
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: colorCode.six.rawValue).withAlphaComponent(0.7)
+//        view.backgroundColor = UIColor(hexString: colorCode.six.rawValue).withAlphaComponent(0.7)
+        view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 15
         return view
     }
