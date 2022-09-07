@@ -54,16 +54,22 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
         let currencyCode = String(symbolToConvert.prefix(3))
         networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount ?? "", completion: { [weak self] result in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let convertedValue):
-                    self.convertedCurrency = convertedValue
+            switch result {
+            case .success(let convertedValue):
+                guard let convertedValue = convertedValue else { return }
+                let doubleConvertedValue = Double(convertedValue)
+                guard let doubleConvertedValue = doubleConvertedValue else { return }
+                
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .currency
+                if let formattedCellTotal = formatter.string(from: doubleConvertedValue as NSNumber) {
+                    self.convertedCurrency = formattedCellTotal
                     self.storageService?.saveCurrency(totalValue: self.newValueToSave,
-                                                     convertedValue: self.convertedCurrency,
-                                                     currencySymbol: self.newSymbolToSave)
-                case .failure(let error):
-                    print(error.localizedDescription)
+                                                      convertedValue: self.convertedCurrency,
+                                                      currencySymbol: self.newSymbolToSave)
                 }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         })
     }
@@ -83,14 +89,14 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     func getSymbols() {
         networkService?.getCurrencyList(completion: { [weak self] result in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let symbols):
-                    self.symbols = symbols
+            switch result {
+            case .success(let symbols):
+                self.symbols = symbols
+                DispatchQueue.main.async {
                     self.view?.success()
-                case .failure(let error):
-                    self.view?.failure(error: error)
                 }
+            case .failure(let error):
+                self.view?.failure(error: error)
             }
         })
     }

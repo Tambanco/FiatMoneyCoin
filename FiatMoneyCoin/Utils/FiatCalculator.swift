@@ -33,7 +33,12 @@ class FiatCalculator: FiatCalculatorProtocol {
         }
         
         let totalSum = trimDoubleValues.reduce(0, +)
-
-        return String(Double(round(100 * totalSum) / 100))
+        
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        let priceString = currencyFormatter.string(from: NSNumber(value: totalSum))
+        
+        return priceString
     }
 }

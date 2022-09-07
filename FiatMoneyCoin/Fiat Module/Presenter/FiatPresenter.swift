@@ -96,12 +96,13 @@ class FiatPresenter: FiatPresenterProtocol {
         let currencyCode = String(symbolToConvert.prefix(3))
         networkService?.convertTwoCurrensies(from: currencyCode, to: baseCurrency, amount: amount ?? "", completion: { [weak self] result in
             guard let self = self else { return }
-                switch result {
-                case .success(let convertedValue):
+            switch result {
+            case .success(let convertedValue):
+                let queue = DispatchQueue.global(qos: .utility)
+                queue.async {
                     self.convertedCurrency = convertedValue
                     self.fiatCurrenciesFromCoreData[index].setValue(amount, forKey: "totalCurrency")
                     self.fiatCurrenciesFromCoreData[index].setValue(self.convertedCurrency, forKey: "convertedValue")
-                    
                     self.storageService?.updateTotalValue(update: self.fiatCurrenciesFromCoreData[index])
                     
                     let updatedTotalValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
@@ -109,19 +110,25 @@ class FiatPresenter: FiatPresenterProtocol {
                         self.view?.updateFiatView()
                         self.view?.updateTotalView(totalValue: updatedTotalValue)
                     }
-                case .failure(let error):
-                    print(error.localizedDescription)
                 }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         })
     }
     
     func removeCurrency(rowIndex: Int) {
-        storageService?.removeCurrency(object: fiatCurrenciesFromCoreData[rowIndex])
-        fiatCurrenciesFromCoreData.remove(at: rowIndex)
-        DispatchQueue.main.async {
+        let queue = DispatchQueue.global(qos: .utility)
+        queue.async {
+            self.storageService?.removeCurrency(object: self.fiatCurrenciesFromCoreData[rowIndex])
+            self.fiatCurrenciesFromCoreData.remove(at: rowIndex)
             let totalFiatValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
-            self.view?.updateTotalView(totalValue: totalFiatValue)
-            self.view?.updateFiatView()
+            print(Thread.current)
+            DispatchQueue.main.async {
+                self.view?.updateTotalView(totalValue: totalFiatValue)
+                self.view?.updateFiatView()
+                print(Thread.current)
+            }
         }
     }
     

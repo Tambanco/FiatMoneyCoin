@@ -44,18 +44,7 @@ class FiatViewController: UIViewController {
         configureMainView()
 //        configureHeaderView()
     }
-    
-    private func configureHeaderView() {
-        let colorOne = UIColor(hexString: "e96443")
-        let colorTwo = UIColor(hexString: "904e95")
-        let l = CAGradientLayer()
-        l.frame = self.fiatTableView.tableHeaderView?.bounds ?? CGRect.zero
-        l.colors = [colorOne.cgColor, colorTwo.cgColor]
-        l.startPoint = CGPoint(x: 0, y: 0)
-        l.endPoint = CGPoint(x: 1, y: 1)
-        l.cornerRadius = 20
-        self.fiatTableView.tableHeaderView?.layer.insertSublayer(l, at: 0)
-    }
+
     
     private func configureMainView() {
         let colorOne = UIColor.systemGray5
@@ -67,7 +56,7 @@ class FiatViewController: UIViewController {
         l.endPoint = CGPoint(x: 1, y: 1)
         l.cornerRadius = 20
         view.layer.insertSublayer(l, at: 0)
-        
+
     }
     
     private func configureAddButton() {
@@ -163,26 +152,11 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         headerView = TableViewHeader(frame: CGRect.zero)
         dropShadow = DropShadow(onView: headerView)
         headerView.totalLabel.text = "Сумма: \(totalValue)"
-        headerView.cardView = getGradientBackgroundView()
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 150
-    }
-    
-    private func getGradientBackgroundView() -> UIView {
-      let gradientBackgroundView = UIView()
-
-      // Prepare Gradient Layer
-      let gradientLayer = CAGradientLayer()
-      gradientLayer.frame.size = CGSize(width: self.fiatTableView.frame.size.width, height: 150)
-      gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-      gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-      gradientLayer.colors = [UIColor.blue.cgColor, UIColor.green.cgColor]
-      // Add layer to view
-      gradientBackgroundView.layer.addSublayer(gradientLayer)
-      return gradientBackgroundView
     }
     
     // MARK: - Cell manipulation
