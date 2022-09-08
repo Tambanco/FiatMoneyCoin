@@ -58,13 +58,14 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
             case .success(let convertedValue):
                 guard let convertedValue = convertedValue else { return }
                 let doubleConvertedValue = Double(convertedValue)
+                
                 guard let doubleConvertedValue = doubleConvertedValue else { return }
                 
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .currency
-                if let formattedCellTotal = formatter.string(from: doubleConvertedValue as NSNumber) {
+                if formatter.string(from: doubleConvertedValue as NSNumber) != nil {
                     DispatchQueue.main.async {
-                        self.convertedCurrency = formattedCellTotal
+                        self.convertedCurrency = convertedValue
                         self.storageService?.saveCurrency(totalValue: self.newValueToSave,
                                                           convertedValue: self.convertedCurrency,
                                                           currencySymbol: self.newSymbolToSave)

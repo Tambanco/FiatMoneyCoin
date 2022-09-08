@@ -143,7 +143,16 @@ extension FiatViewController: UITableViewDelegate, UITableViewDataSource {
         cell.currencyImage.image = UIImage(systemName: "dollarsign.circle.fill")
         cell.amountCurrency.text = presenter.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "totalCurrency") as? String
         cell.amountCurrencySymbol.text = presenter.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "currencySymbol") as? String
-        cell.convertedValue.text = presenter.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "convertedValue") as? String
+        
+        let notFormattedValue = presenter.fiatCurrenciesFromCoreData[indexPath.row].value(forKey: "convertedValue") as? String
+        let doubleNotFormattedValue = Double(notFormattedValue ?? "")
+        
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        let formattedValue = currencyFormatter.string(from: NSNumber(value: doubleNotFormattedValue ?? 0))
+        
+        cell.convertedValue.text = formattedValue
         cell.earnPercent.text = String("0" + " " + "%")
         return cell
     }

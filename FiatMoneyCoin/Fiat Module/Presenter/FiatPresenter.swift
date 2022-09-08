@@ -53,13 +53,18 @@ class FiatPresenter: FiatPresenterProtocol {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Currency")
-        do {
-            self.fiatCurrenciesFromCoreData = try managedContext.fetch(fetchRequest)
-            let updatedTotalValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
-            self.view?.updateTotalView(totalValue: updatedTotalValue)
-            self.view?.updateFiatView()
-        } catch let error as NSError {
-            print("Could not fetch. \(error.localizedDescription)")
+        let fetchQueue = DispatchQueue.global(qos: .utility)
+        fetchQueue.async {
+            do {
+                self.fiatCurrenciesFromCoreData = try managedContext.fetch(fetchRequest)
+                DispatchQueue.main.async {
+                    let updatedTotalValue = self.fiatCalculator.calculateTotalValue(values: self.fiatCurrenciesFromCoreData)
+                    self.view?.updateTotalView(totalValue: updatedTotalValue)
+                    self.view?.updateFiatView()
+                }
+            } catch let error as NSError {
+                print("Could not fetch. \(error.localizedDescription)")
+            }
         }
     }
     
