@@ -16,6 +16,7 @@ class FiatCalculator: FiatCalculatorProtocol {
     func calculateTotalValue(values: [NSManagedObject]) -> String? {
         var baseCurrencyStringValues: [String] = []
         var doubleValues: [Double] = []
+        
         var trimDoubleValues: [Double] = []
         _ = values.compactMap { elements in
             let newBaseValue = elements.value(forKey: "convertedValue")

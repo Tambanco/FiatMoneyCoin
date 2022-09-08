@@ -63,10 +63,13 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .currency
                 if let formattedCellTotal = formatter.string(from: doubleConvertedValue as NSNumber) {
-                    self.convertedCurrency = formattedCellTotal
-                    self.storageService?.saveCurrency(totalValue: self.newValueToSave,
-                                                      convertedValue: self.convertedCurrency,
-                                                      currencySymbol: self.newSymbolToSave)
+                    DispatchQueue.main.async {
+                        self.convertedCurrency = formattedCellTotal
+                        self.storageService?.saveCurrency(totalValue: self.newValueToSave,
+                                                          convertedValue: self.convertedCurrency,
+                                                          currencySymbol: self.newSymbolToSave)
+                    }
+                    
                 }
             case .failure(let error):
                 print(error.localizedDescription)
