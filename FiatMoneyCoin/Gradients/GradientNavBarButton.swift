@@ -12,7 +12,7 @@ class GradientNavBarButton: UIButton {
         super.layoutSubviews()
         gradientLayer.frame = bounds
     }
-
+    
     private lazy var gradientLayer: CAGradientLayer = {
         let colorOne = UIColor.white
         let colorTwo = UIColor.white

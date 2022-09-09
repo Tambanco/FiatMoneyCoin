@@ -33,17 +33,16 @@ class FiatViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         presenter.fetchCurrency()
         self.navigationController?.navigationBar.subviews.forEach {
-                $0.clipsToBounds = false
-            }
+            $0.clipsToBounds = false
+        }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configureAddButton()
         configureMainView()
-//        configureHeaderView()
     }
-
+    
     
     private func configureMainView() {
         let colorOne = UIColor.systemGray5
@@ -55,7 +54,6 @@ class FiatViewController: UIViewController {
         l.endPoint = CGPoint(x: 1, y: 1)
         l.cornerRadius = 20
         view.layer.insertSublayer(l, at: 0)
-
     }
     
     private func configureAddButton() {
@@ -66,7 +64,7 @@ class FiatViewController: UIViewController {
         l.colors = [colorOne.cgColor, colorTwo.cgColor]
         l.startPoint = CGPoint(x: 0, y: 0)
         l.endPoint = CGPoint(x: 1, y: 1)
-        l.cornerRadius = l.bounds.width / 2
+        l.cornerRadius = l.bounds.width / 2 + 0.5
         addNewFiatButton.layer.insertSublayer(l, at: 0)
     }
     

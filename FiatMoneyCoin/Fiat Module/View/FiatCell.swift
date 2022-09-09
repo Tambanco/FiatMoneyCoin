@@ -67,7 +67,7 @@ class FiatCell: UITableViewCell {
             make.leading.equalTo(currencyImage.snp.trailing).inset(-15)
             make.top.equalTo(amountCurrency.snp.bottom).inset(-7)
         }
-
+        
         earnPercent.snp.makeConstraints { make in
             make.centerY.equalTo(convertedValue)
             make.leading.equalTo(convertedValue.snp.trailing).inset(-10)
@@ -83,7 +83,7 @@ class FiatCell: UITableViewCell {
 fileprivate extension FiatCell {
     private func createCellView() -> UIView{
         let view = UIView()
-//        view.backgroundColor = UIColor(hexString: colorCode.six.rawValue).withAlphaComponent(0.7)
+        //        view.backgroundColor = UIColor(hexString: colorCode.six.rawValue).withAlphaComponent(0.7)
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 15
         return view

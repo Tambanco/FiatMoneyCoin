@@ -19,14 +19,14 @@ class Animator: AnimatorProtocol {
     
     convenience init(forButton: UIButton, firstDuration: TimeInterval, secondDuration: TimeInterval) {
         UIView.animate(withDuration: firstDuration,
-            animations: {
+                       animations: {
             forButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
-            },
-            completion: { _ in
+        },
+                       completion: { _ in
             UIView.animate(withDuration: secondDuration) {
                 forButton.transform = CGAffineTransform.identity
-                }
-            })
+            }
+        })
         self.init()
     }
     

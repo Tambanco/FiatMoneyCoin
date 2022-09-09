@@ -8,7 +8,7 @@
 import UIKit
 
 class HeaderView: UIView {
-
+    
     lazy var headerCardView = createCardView()
     private lazy var headerLabel = createHeaderLabel()
     lazy var totalLabel = createTotalLabel()
@@ -41,7 +41,7 @@ class HeaderView: UIView {
             make.top.equalTo(headerLabel.snp.bottom).inset(-20)
         }
     }
-
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
