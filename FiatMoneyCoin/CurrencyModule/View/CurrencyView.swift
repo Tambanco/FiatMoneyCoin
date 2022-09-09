@@ -40,11 +40,11 @@ class CurrencyView: UIView {
             make.top.equalTo(newValueTextField.snp.bottom).inset(-10)
             make.leading.equalTo(10)
             make.trailing.equalTo(-10)
-            make.height.equalTo(50)
+            make.height.equalTo(40)
         }
         
         currencyPickerView.snp.makeConstraints { make in
-            make.top.equalTo(searchCurrencyTextField.snp.bottom).inset(-20)
+            make.top.equalTo(searchCurrencyTextField.snp.bottom)
             make.leading.equalToSuperview().inset(20)
             make.trailing.equalToSuperview().inset(20)
         }
@@ -75,10 +75,17 @@ fileprivate extension CurrencyView {
         return label
     }
     
+    private func createNewValueTextField() -> UITextField{
+        let textField = UITextField()
+        textField.placeholder = "Введите значение"
+        textField.keyboardType = .decimalPad
+        return textField
+    }
+    
     private func createSearchCurrencyTextField() -> UISearchBar {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search"
-        searchBar.setPositionAdjustment(UIOffset(horizontal: 20, vertical: 0), for: .search)
+        searchBar.setPositionAdjustment(UIOffset(horizontal: 0, vertical: 0), for: .search)
         searchBar.searchTextField.font = UIFont(name: "MarkPro", size: 15)
         searchBar.searchTextField.backgroundColor = UIColor(hexString: "FFFFFF")
         searchBar.backgroundImage = UIImage()
@@ -89,12 +96,6 @@ fileprivate extension CurrencyView {
         return searchBar
     }
     
-    private func createNewValueTextField() -> UITextField{
-        let textField = UITextField()
-        textField.placeholder = "Введите значение"
-        textField.keyboardType = .decimalPad
-        return textField
-    }
     
     private func createCurrencyPickerView() -> UIPickerView{
         let pickerView = UIPickerView()
