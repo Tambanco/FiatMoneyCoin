@@ -38,8 +38,8 @@ class CurrencyView: UIView {
         
         searchCurrencyTextField.snp.makeConstraints { make in
             make.top.equalTo(newValueTextField.snp.bottom).inset(-10)
-            make.leading.equalTo(20)
-            make.trailing.equalTo(-20)
+            make.leading.equalTo(10)
+            make.trailing.equalTo(-10)
             make.height.equalTo(50)
         }
         
@@ -75,9 +75,17 @@ fileprivate extension CurrencyView {
         return label
     }
     
-    private func createSearchCurrencyTextField() -> UISearchBar{
+    private func createSearchCurrencyTextField() -> UISearchBar {
         let searchBar = UISearchBar()
-        searchBar.backgroundColor = .clear
+        searchBar.placeholder = "Search"
+        searchBar.setPositionAdjustment(UIOffset(horizontal: 20, vertical: 0), for: .search)
+        searchBar.searchTextField.font = UIFont(name: "MarkPro", size: 15)
+        searchBar.searchTextField.backgroundColor = UIColor(hexString: "FFFFFF")
+        searchBar.backgroundImage = UIImage()
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        let imageV = textFieldInsideSearchBar?.leftView as! UIImageView
+        imageV.image = imageV.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        imageV.tintColor = UIColor(hexString: "FF6E4E")
         return searchBar
     }
     
