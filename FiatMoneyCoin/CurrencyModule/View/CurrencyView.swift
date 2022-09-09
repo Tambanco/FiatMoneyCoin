@@ -10,6 +10,7 @@ import UIKit
 class CurrencyView: UIView {
     private lazy var header = createHeader()
     lazy var newValueTextField = createNewValueTextField()
+    private lazy var searchCurrencyTextField = createSearchCurrencyTextField()
     lazy var currencyPickerView = createCurrencyPickerView()
     lazy var cancelButton = createCancelButton()
     lazy var addCurrencyButton = createAddCurrencyButton()
@@ -19,6 +20,7 @@ class CurrencyView: UIView {
         
         addSubview(header)
         addSubview(newValueTextField)
+        addSubview(searchCurrencyTextField)
         addSubview(currencyPickerView)
         addSubview(cancelButton)
         addSubview(addCurrencyButton)
@@ -34,8 +36,15 @@ class CurrencyView: UIView {
             make.trailing.equalToSuperview().inset(20)
         }
         
+        searchCurrencyTextField.snp.makeConstraints { make in
+            make.top.equalTo(newValueTextField.snp.bottom).inset(-10)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
+            make.height.equalTo(50)
+        }
+        
         currencyPickerView.snp.makeConstraints { make in
-            make.top.equalTo(newValueTextField.snp.bottom).inset(-20)
+            make.top.equalTo(searchCurrencyTextField.snp.bottom).inset(-20)
             make.leading.equalToSuperview().inset(20)
             make.trailing.equalToSuperview().inset(20)
         }
@@ -66,6 +75,12 @@ fileprivate extension CurrencyView {
         return label
     }
     
+    private func createSearchCurrencyTextField() -> UISearchBar{
+        let searchBar = UISearchBar()
+        searchBar.backgroundColor = .clear
+        return searchBar
+    }
+    
     private func createNewValueTextField() -> UITextField{
         let textField = UITextField()
         textField.placeholder = "Введите значение"
@@ -75,6 +90,7 @@ fileprivate extension CurrencyView {
     
     private func createCurrencyPickerView() -> UIPickerView{
         let pickerView = UIPickerView()
+//        pickerView.backgroundColor = .systemRed
         return pickerView
     }
     

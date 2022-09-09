@@ -49,13 +49,13 @@ class CurrencyViewController: UIViewController {
     }
     
     func setupCurrencyView() {
-        currencyView = CurrencyView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        currencyView = CurrencyView()
         self.view.addSubview(currencyView)
         view.backgroundColor = .white
         currencyView.snp.makeConstraints { make in
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
             make.width.equalTo(UIScreen.main.bounds.width)
-            make.height.equalTo(UIScreen.main.bounds.height * 0.5)
+            make.height.equalTo(UIScreen.main.bounds.height * 0.6)
         }
         
         self.currencyView.cancelButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
