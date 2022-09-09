@@ -42,22 +42,29 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     var newValueToSave: String?
     var newSymbolToSave: String?
     var storageService: StorageService? = StorageService()
-    var symbols: [String]? = []
+    var symbols: [String]? = [] {
+        didSet {
+            guard let symbols = symbols else { return }
+            filteredData = symbols
+        }
+    }
     
     weak var view: CurrencyViewProtocol?
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
     
-    
     func fetchSearchText(searchText: String) {
-        guard let symbols = symbols else { return }
-        if !symbols.isEmpty {
+        
+        print("searchText: \(searchText)")
+        if !searchText.isEmpty {
+            guard let symbols = symbols else { return }
             filteredData = symbols.filter { $0.contains(searchText)}
-            print(filteredData)
+            self.view?.updatePickerView(filteredData: filteredData)
+            
         } else {
-            filteredData = symbols
+            guard let symbols = symbols else { return }
+            self.view?.updatePickerView(filteredData: symbols)
         }
-        self.view?.updatePickerView(filteredData: filteredData)
     }
     
     func saveToCoreData() {

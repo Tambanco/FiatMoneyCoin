@@ -92,6 +92,7 @@ fileprivate extension CurrencyView {
         searchBar.searchTextField.font = UIFont(name: "MarkPro", size: 15)
         searchBar.searchTextField.backgroundColor = UIColor(hexString: "FFFFFF")
         searchBar.backgroundImage = UIImage()
+        searchBar.textContentType = .middleName
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         let imageV = textFieldInsideSearchBar?.leftView as! UIImageView
         imageV.image = imageV.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)

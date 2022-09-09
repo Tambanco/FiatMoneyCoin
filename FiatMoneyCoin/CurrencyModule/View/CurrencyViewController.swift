@@ -128,18 +128,6 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return 1
     }
     
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return presenter.symbols?.count ?? 0
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return presenter.symbols?[row]
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        newSymbol = presenter.symbols?[row]
-//    }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return presenter.filteredData.count
     }
@@ -156,8 +144,11 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 // MARK: - Binding
 extension CurrencyViewController: CurrencyViewProtocol {
     func updatePickerView(filteredData: [String]) {
+        print(filteredData.count)
         currencyView.currencyPickerView.reloadAllComponents()
-        newSymbol = presenter.filteredData[currencyView.currencyPickerView.selectedRow(inComponent: 0)]
+        if filteredData.count != 0 {
+            newSymbol = presenter.filteredData[currencyView.currencyPickerView.selectedRow(inComponent: 0)]
+        }
     }
     
     func dismissView() {
