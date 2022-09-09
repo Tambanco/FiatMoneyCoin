@@ -51,19 +51,20 @@ class CurrencyView: UIView {
         
         cancelButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(50)
-            make.top.equalTo(currencyPickerView.snp.bottom).inset(-20)
+            make.top.equalTo(currencyPickerView.snp.bottom).inset(0)
             make.height.equalTo(40)
             make.width.equalTo(120)
         }
         
         addCurrencyButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(50)
-            make.top.equalTo(currencyPickerView.snp.bottom).inset(-20)
+            make.top.equalTo(currencyPickerView.snp.bottom).inset(0)
             make.height.equalTo(40)
             make.width.equalTo(120)
         }
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

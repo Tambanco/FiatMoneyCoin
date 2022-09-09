@@ -66,9 +66,9 @@ class CurrencyViewController: UIViewController {
         self.view.addSubview(currencyView)
         view.backgroundColor = .white
         currencyView.snp.makeConstraints { make in
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(-20)
             make.width.equalTo(UIScreen.main.bounds.width)
-            make.height.equalTo(UIScreen.main.bounds.height * 0.6)
+            make.height.equalTo(UIScreen.main.bounds.height * 0.55)
         }
         
         self.currencyView.cancelButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
@@ -107,6 +107,17 @@ class CurrencyViewController: UIViewController {
     @objc func cancelAction() {
         presenter.cancelAdding()
         dismiss(animated: true)
+    }
+}
+
+// MARK: - SearchBar
+extension CurrencyViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("textDidChange")
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("searchBarTextDidEndEditing")
     }
 }
 
