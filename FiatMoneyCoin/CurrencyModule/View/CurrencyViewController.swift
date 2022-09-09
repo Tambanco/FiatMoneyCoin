@@ -128,21 +128,38 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return 1
     }
     
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return presenter.symbols?.count ?? 0
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return presenter.symbols?[row]
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        newSymbol = presenter.symbols?[row]
+//    }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return presenter.symbols?.count ?? 0
+        return presenter.filteredData.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return presenter.symbols?[row]
+        return presenter.filteredData[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        newSymbol = presenter.symbols?[row]
+        newSymbol = presenter.filteredData[row]
     }
 }
 
 // MARK: - Binding
 extension CurrencyViewController: CurrencyViewProtocol {
+    func updatePickerView(filteredData: [String]) {
+        currencyView.currencyPickerView.reloadAllComponents()
+        newSymbol = presenter.filteredData[currencyView.currencyPickerView.selectedRow(inComponent: 0)]
+    }
+    
     func dismissView() {
         dismiss(animated: true)
     }

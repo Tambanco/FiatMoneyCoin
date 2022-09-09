@@ -15,6 +15,7 @@ import CoreData
 protocol CurrencyViewProtocol: AnyObject {
     func success()
     func failure(error: Error)
+    func updatePickerView(filteredData: [String])
     func dismissView()
 }
 
@@ -53,8 +54,10 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
         if !symbols.isEmpty {
             filteredData = symbols.filter { $0.contains(searchText)}
             print(filteredData)
+        } else {
+            filteredData = symbols
         }
-       
+        self.view?.updatePickerView(filteredData: filteredData)
     }
     
     func saveToCoreData() {
@@ -114,6 +117,8 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
             case .success(let symbols):
                 self.symbols = symbols
                 DispatchQueue.main.async {
+                    guard let symbols = symbols else { return }
+                    self.filteredData = symbols
                     self.view?.success()
                 }
             case .failure(let error):
