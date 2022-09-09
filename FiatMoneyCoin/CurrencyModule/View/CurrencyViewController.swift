@@ -26,7 +26,20 @@ class CurrencyViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        configureCancelButton()
         configureAddButton()
+    }
+    
+    private func configureCancelButton() {
+        let colorOne = UIColor(hexString: "e96443")
+        let colorTwo = UIColor(hexString: "904e95")
+        let l = CAGradientLayer()
+        l.frame = currencyView.addCurrencyButton.bounds
+        l.colors = [colorOne.cgColor, colorTwo.cgColor]
+        l.startPoint = CGPoint(x: 0, y: 0)
+        l.endPoint = CGPoint(x: 1, y: 1)
+        l.cornerRadius = 20
+        currencyView.cancelButton.layer.insertSublayer(l, at: 0)
     }
     
     private func configureAddButton() {
@@ -37,7 +50,7 @@ class CurrencyViewController: UIViewController {
         l.colors = [colorOne.cgColor, colorTwo.cgColor]
         l.startPoint = CGPoint(x: 0, y: 0)
         l.endPoint = CGPoint(x: 1, y: 1)
-        l.cornerRadius = l.bounds.width / 2
+        l.cornerRadius = 20
         currencyView.addCurrencyButton.layer.insertSublayer(l, at: 0)
     }
     

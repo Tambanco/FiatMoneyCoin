@@ -52,12 +52,14 @@ class CurrencyView: UIView {
         cancelButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(50)
             make.top.equalTo(currencyPickerView.snp.bottom).inset(-20)
+            make.height.equalTo(40)
             make.width.equalTo(120)
         }
         
         addCurrencyButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(50)
             make.top.equalTo(currencyPickerView.snp.bottom).inset(-20)
+            make.height.equalTo(40)
             make.width.equalTo(120)
         }
     }
@@ -104,18 +106,20 @@ fileprivate extension CurrencyView {
     }
     
     private func createCancelButton() -> UIButton{
-        var config = UIButton.Configuration.filled()
+        var config = UIButton.Configuration.plain()
         config.cornerStyle = .capsule
-        config.baseBackgroundColor = Constants.backgroundColorButton
+        config.baseForegroundColor = .white
+//        config.baseBackgroundColor = Constants.backgroundColorButton
         let button = UIButton(configuration: config)
         button.setTitle("Отмена", for: .normal)
         return button
     }
     
     private func createAddCurrencyButton() -> UIButton{
-        var config = UIButton.Configuration.filled()
+        var config = UIButton.Configuration.plain()
         config.cornerStyle = .capsule
-        config.baseBackgroundColor = Constants.backgroundColorButton
+        config.baseForegroundColor = .white
+//        config.baseBackgroundColor = Constants.backgroundColorButton
         let button = UIButton(configuration: config)
         button.setTitle("Добавить", for: .normal)
         return button

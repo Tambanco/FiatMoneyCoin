@@ -20,7 +20,6 @@
 		494F5329286B0F8400F23709 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F5328286B0F8400F23709 /* NetworkService.swift */; };
 		494F532F286B37E600F23709 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F532E286B37E600F23709 /* JSONParser.swift */; };
 		4954555F288742CB00793DFE /* ConvertedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954555E288742CB00793DFE /* ConvertedModel.swift */; };
-		495E241D2889F9F5007EEC5F /* FiatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E241C2889F9F5007EEC5F /* FiatView.swift */; };
 		495E241F288AB6EE007EEC5F /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E241E288AB6EE007EEC5F /* CurrencyView.swift */; };
 		495E2421288D920C007EEC5F /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E2420288D920C007EEC5F /* DropShadow.swift */; };
 		4961360F28C9325700D1C8F2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961360E28C9325700D1C8F2 /* HeaderView.swift */; };
@@ -41,7 +40,6 @@
 		49AA32C328966BD800D69C34 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA32C228966BD800D69C34 /* Animator.swift */; };
 		49AA32C5289685BC00D69C34 /* HapticFeedBacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA32C4289685BC00D69C34 /* HapticFeedBacker.swift */; };
 		49AA32CF2896C8AF00D69C34 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA32CE2896C8AF00D69C34 /* StorageService.swift */; };
-		49B8F59528C23E8200CF8478 /* FiatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B8F59428C23E8200CF8478 /* FiatTableView.swift */; };
 		49B8F59728C2404900CF8478 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B8F59628C2404900CF8478 /* TableViewHeader.swift */; };
 		49C6FE3A286C9AC500D996AE /* AssemblyModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6FE39286C9AC500D996AE /* AssemblyModuleBuilder.swift */; };
 /* End PBXBuildFile section */
@@ -76,7 +74,6 @@
 		494F5328286B0F8400F23709 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		494F532E286B37E600F23709 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		4954555E288742CB00793DFE /* ConvertedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertedModel.swift; sourceTree = "<group>"; };
-		495E241C2889F9F5007EEC5F /* FiatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatView.swift; sourceTree = "<group>"; };
 		495E241E288AB6EE007EEC5F /* CurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyView.swift; sourceTree = "<group>"; };
 		495E2420288D920C007EEC5F /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 		4961360E28C9325700D1C8F2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -101,7 +98,6 @@
 		49AA32C228966BD800D69C34 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		49AA32C4289685BC00D69C34 /* HapticFeedBacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedBacker.swift; sourceTree = "<group>"; };
 		49AA32CE2896C8AF00D69C34 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
-		49B8F59428C23E8200CF8478 /* FiatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatTableView.swift; sourceTree = "<group>"; };
 		49B8F59628C2404900CF8478 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		49C6FE39286C9AC500D996AE /* AssemblyModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyModuleBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,7 +179,6 @@
 			children = (
 				49C6FE41286D9F8900D996AE /* Model */,
 				49C6FE42286D9F9A00D996AE /* View */,
-				49A52FBD28C4B62400387C8C /* toBeRemoved */,
 				49C6FE43286D9FBA00D996AE /* Presenter */,
 			);
 			path = "Fiat Module";
@@ -300,15 +295,6 @@
 				495E241E288AB6EE007EEC5F /* CurrencyView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		49A52FBD28C4B62400387C8C /* toBeRemoved */ = {
-			isa = PBXGroup;
-			children = (
-				495E241C2889F9F5007EEC5F /* FiatView.swift */,
-				49B8F59428C23E8200CF8478 /* FiatTableView.swift */,
-			);
-			path = toBeRemoved;
 			sourceTree = "<group>";
 		};
 		49C6FE41286D9F8900D996AE /* Model */ = {
@@ -486,7 +472,6 @@
 				495E241F288AB6EE007EEC5F /* CurrencyView.swift in Sources */,
 				494F51C328C6A50F00C5DA8E /* GradientNavBarButton.swift in Sources */,
 				494F5321286B00D700F23709 /* FiatViewController.swift in Sources */,
-				495E241D2889F9F5007EEC5F /* FiatView.swift in Sources */,
 				4968CB88286AFE780085DDB6 /* AppDelegate.swift in Sources */,
 				494F532F286B37E600F23709 /* JSONParser.swift in Sources */,
 				494F5324286B00E500F23709 /* FiatPresenter.swift in Sources */,
@@ -508,7 +493,6 @@
 				49AA32C328966BD800D69C34 /* Animator.swift in Sources */,
 				497F53B02874D18600465DF6 /* SymbolsModel.swift in Sources */,
 				497F538A2873631600465DF6 /* HexColor.swift in Sources */,
-				49B8F59528C23E8200CF8478 /* FiatTableView.swift in Sources */,
 				496D205D2892D1A900C0D549 /* FiatCalculator.swift in Sources */,
 				494F531E286B00CB00F23709 /* FiatRawModel.swift in Sources */,
 			);
