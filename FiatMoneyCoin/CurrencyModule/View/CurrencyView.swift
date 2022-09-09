@@ -10,7 +10,7 @@ import UIKit
 class CurrencyView: UIView {
     private lazy var header = createHeader()
     lazy var newValueTextField = createNewValueTextField()
-    private lazy var searchCurrencyTextField = createSearchCurrencyTextField()
+    lazy var searchCurrencyTextField = createSearchCurrencyTextField()
     lazy var currencyPickerView = createCurrencyPickerView()
     lazy var cancelButton = createCancelButton()
     lazy var addCurrencyButton = createAddCurrencyButton()

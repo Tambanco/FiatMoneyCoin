@@ -26,12 +26,16 @@ protocol CurrencyPresenterProtocol: AnyObject {
     var baseCurrency: String { get }
     var convertedCurrency: String? { get set }
     var storageService: StorageService? { get set }
+    var filteredData: [String] { get set }
+    
+    func fetchSearchText(searchText: String)
     func saveToCoreData()
     func cancelAdding()
     init(router: RouterProtocol, view: CurrencyViewProtocol, networkService: NetworkServiceProtocol)
 }
 
 class CurrencyPresenter: CurrencyPresenterProtocol {
+    var filteredData: [String] = []
     var convertedCurrency: String?
     var baseCurrency: String = "RUB"
     var newValueToSave: String?
@@ -42,6 +46,16 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     weak var view: CurrencyViewProtocol?
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
+    
+    
+    func fetchSearchText(searchText: String) {
+        guard let symbols = symbols else { return }
+        if !symbols.isEmpty {
+            filteredData = symbols.filter { $0.contains(searchText)}
+            print(filteredData)
+        }
+       
+    }
     
     func saveToCoreData() {
         currencyConverter(amount: newValueToSave, symbol: newSymbolToSave)

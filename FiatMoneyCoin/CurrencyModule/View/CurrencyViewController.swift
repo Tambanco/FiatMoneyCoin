@@ -21,6 +21,7 @@ class CurrencyViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupCurrencyView()
+        setupSearchBar()
         setupPickerView()
     }
     
@@ -88,6 +89,10 @@ class CurrencyViewController: UIViewController {
         self.view.frame.origin.y = 0
     }
     
+    private func setupSearchBar() {
+        self.currencyView.searchCurrencyTextField.delegate = self
+    }
+    
     func setupPickerView() {
         self.currencyView.currencyPickerView.delegate = self
         self.currencyView.currencyPickerView.dataSource = self
@@ -113,11 +118,7 @@ class CurrencyViewController: UIViewController {
 // MARK: - SearchBar
 extension CurrencyViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("textDidChange")
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("searchBarTextDidEndEditing")
+        presenter.fetchSearchText(searchText: searchText)
     }
 }
 
