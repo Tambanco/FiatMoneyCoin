@@ -24,6 +24,23 @@ class CurrencyViewController: UIViewController {
         setupPickerView()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        configureAddButton()
+    }
+    
+    private func configureAddButton() {
+        let colorOne = UIColor(hexString: "e96443")
+        let colorTwo = UIColor(hexString: "904e95")
+        let l = CAGradientLayer()
+        l.frame = currencyView.addCurrencyButton.bounds
+        l.colors = [colorOne.cgColor, colorTwo.cgColor]
+        l.startPoint = CGPoint(x: 0, y: 0)
+        l.endPoint = CGPoint(x: 1, y: 1)
+        l.cornerRadius = l.bounds.width / 2
+        currencyView.addCurrencyButton.layer.insertSublayer(l, at: 0)
+    }
+    
     func setupNavigationBar() {
         let backButton = UIBarButtonItem()
         backButton.title = "Назад"
@@ -76,6 +93,7 @@ class CurrencyViewController: UIViewController {
     
     @objc func cancelAction() {
         presenter.cancelAdding()
+        dismiss(animated: true)
     }
 }
 
@@ -100,6 +118,10 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 // MARK: - Binding
 extension CurrencyViewController: CurrencyViewProtocol {
+    func dismissView() {
+        dismiss(animated: true)
+    }
+    
     func success() {
         currencyView.currencyPickerView.reloadAllComponents()
         newSymbol = presenter.symbols?[currencyView.currencyPickerView.selectedRow(inComponent: 0)]

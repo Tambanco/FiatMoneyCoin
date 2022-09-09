@@ -15,6 +15,7 @@ import CoreData
 protocol CurrencyViewProtocol: AnyObject {
     func success()
     func failure(error: Error)
+    func dismissView()
 }
 
 // MARK: Input protocol
@@ -46,6 +47,7 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
         currencyConverter(amount: newValueToSave, symbol: newSymbolToSave)
         storageService?.saveNewValue(newValue: newValueToSave, newSymbol: newSymbolToSave)
         router?.popToRoot()
+        self.view?.dismissView()
     }
     
     func currencyConverter(amount: String?, symbol: String?) {
@@ -80,6 +82,7 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     
     func cancelAdding() {
         router?.popToRoot()
+        self.view?.dismissView()
     }
     
     required init(router: RouterProtocol, view: CurrencyViewProtocol, networkService: NetworkServiceProtocol) {

@@ -29,7 +29,7 @@ class CurrencyView: UIView {
         return pickerView
     }()
     
-    lazy var cancelButton: UIButton! = {
+    lazy var cancelButton: UIButton = {
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
         config.baseBackgroundColor = Constants.backgroundColorButton
@@ -38,7 +38,7 @@ class CurrencyView: UIView {
         return button
     }()
     
-    lazy var addCurrencyButton: UIButton! = {
+    lazy var addCurrencyButton: UIButton = {
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
         config.baseBackgroundColor = Constants.backgroundColorButton
