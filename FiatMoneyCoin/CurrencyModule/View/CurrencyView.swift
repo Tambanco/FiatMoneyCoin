@@ -8,44 +8,11 @@
 import UIKit
 
 class CurrencyView: UIView {
-    var presenter: CurrencyPresenterProtocol!
-    
-    lazy var header: UILabel! = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 32)
-        label.text = "Новая валюта"
-        return label
-    }()
-    
-    lazy var newValueTextField: UITextField! = {
-        let textField = UITextField()
-        textField.placeholder = "Введите значение"
-        textField.keyboardType = .decimalPad
-        return textField
-    }()
-    
-    lazy var currencyPickerView: UIPickerView! = {
-        let pickerView = UIPickerView()
-        return pickerView
-    }()
-    
-    lazy var cancelButton: UIButton = {
-        var config = UIButton.Configuration.filled()
-        config.cornerStyle = .capsule
-        config.baseBackgroundColor = Constants.backgroundColorButton
-        let button = UIButton(configuration: config)
-        button.setTitle("Отмена", for: .normal)
-        return button
-    }()
-    
-    lazy var addCurrencyButton: UIButton = {
-        var config = UIButton.Configuration.filled()
-        config.cornerStyle = .capsule
-        config.baseBackgroundColor = Constants.backgroundColorButton
-        let button = UIButton(configuration: config)
-        button.setTitle("Добавить", for: .normal)
-        return button
-    }()
+    private lazy var header = createHeader()
+    lazy var newValueTextField = createNewValueTextField()
+    lazy var currencyPickerView = createCurrencyPickerView()
+    lazy var cancelButton = createCancelButton()
+    lazy var addCurrencyButton = createAddCurrencyButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -88,5 +55,44 @@ class CurrencyView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+fileprivate extension CurrencyView {
+    private func createHeader() -> UILabel{
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.text = "Новая валюта"
+        return label
+    }
+    
+    private func createNewValueTextField() -> UITextField{
+        let textField = UITextField()
+        textField.placeholder = "Введите значение"
+        textField.keyboardType = .decimalPad
+        return textField
+    }
+    
+    private func createCurrencyPickerView() -> UIPickerView{
+        let pickerView = UIPickerView()
+        return pickerView
+    }
+    
+    private func createCancelButton() -> UIButton{
+        var config = UIButton.Configuration.filled()
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = Constants.backgroundColorButton
+        let button = UIButton(configuration: config)
+        button.setTitle("Отмена", for: .normal)
+        return button
+    }
+    
+    private func createAddCurrencyButton() -> UIButton{
+        var config = UIButton.Configuration.filled()
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = Constants.backgroundColorButton
+        let button = UIButton(configuration: config)
+        button.setTitle("Добавить", for: .normal)
+        return button
     }
 }
