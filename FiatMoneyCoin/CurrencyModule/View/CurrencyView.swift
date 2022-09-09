@@ -101,7 +101,6 @@ fileprivate extension CurrencyView {
     
     private func createCurrencyPickerView() -> UIPickerView{
         let pickerView = UIPickerView()
-//        pickerView.backgroundColor = .systemRed
         return pickerView
     }
     
@@ -109,7 +108,6 @@ fileprivate extension CurrencyView {
         var config = UIButton.Configuration.plain()
         config.cornerStyle = .capsule
         config.baseForegroundColor = .white
-//        config.baseBackgroundColor = Constants.backgroundColorButton
         let button = UIButton(configuration: config)
         button.setTitle("Отмена", for: .normal)
         return button
@@ -119,7 +117,6 @@ fileprivate extension CurrencyView {
         var config = UIButton.Configuration.plain()
         config.cornerStyle = .capsule
         config.baseForegroundColor = .white
-//        config.baseBackgroundColor = Constants.backgroundColorButton
         let button = UIButton(configuration: config)
         button.setTitle("Добавить", for: .normal)
         return button
