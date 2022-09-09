@@ -12,7 +12,6 @@ import UIKit
 
 class FiatViewController: UIViewController {
     private var dropShadow: DropShadowProtocol!
-    private var gradientor: GradientProtocol!
     private var animator: AnimatorProtocol!
     private var hapticTouch: HapticFeedBackerProtocol!
     private let refreshControl = UIRefreshControl()

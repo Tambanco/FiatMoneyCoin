@@ -16,7 +16,6 @@ extension UITableViewCell {
 
 class FiatCell: UITableViewCell {
     private var dropShadow: DropShadowProtocol!
-    private var gradientor: GradientProtocol!
     
     private lazy var cellView = createCellView()
     lazy var currencyImage = createCurrencyImage()

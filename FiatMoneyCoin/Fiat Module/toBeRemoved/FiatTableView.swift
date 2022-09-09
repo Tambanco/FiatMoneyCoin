@@ -9,7 +9,6 @@ import UIKit
 
 class FiatTableView: UIView {
     private var dropShadow: DropShadowProtocol!
-    private var gradientor: GradientProtocol!
     lazy var fiatTableView = createFiatTableView()
     
     override init(frame: CGRect) {
@@ -60,9 +59,6 @@ extension FiatTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TableViewHeader(frame: CGRect.zero)
         dropShadow = DropShadow(onView: headerView)
-        gradientor = Gradientor(forView: headerView,
-                                topColor: UIColor.systemBlue.cgColor,
-                                bottomColor: UIColor.systemRed.cgColor)
         return headerView
     }
     
