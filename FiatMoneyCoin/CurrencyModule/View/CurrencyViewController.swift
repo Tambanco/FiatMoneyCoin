@@ -88,8 +88,6 @@ class CurrencyViewController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.view.frame.origin.y -= keyboardSize.height
-            
-            self.view.layoutSubviews()
         }
     }
     
@@ -167,10 +165,14 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 // MARK: - Binding
 extension CurrencyViewController: CurrencyViewProtocol {
     func updatePickerView(filteredData: [String]) {
-        print(filteredData.count)
+        var filteredSymbols = filteredData
         currencyView.currencyPickerView.reloadAllComponents()
-        if filteredData.count != 0 {
-            newSymbol = presenter.filteredData[currencyView.currencyPickerView.selectedRow(inComponent: 0)]
+        print(filteredSymbols)
+        if !filteredData.isEmpty {
+            newSymbol = filteredSymbols[currencyView.currencyPickerView.selectedRow(inComponent: 0)]
+        } else {
+            guard let symbols = presenter.symbols else { return }
+            filteredSymbols = symbols
         }
     }
     
