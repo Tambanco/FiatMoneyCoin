@@ -21,6 +21,7 @@ class CurrencyViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupCurrencyView()
+        setupNewCurrencyTextField()
         setupSearchBar()
         setupPickerView()
     }
@@ -29,6 +30,11 @@ class CurrencyViewController: UIViewController {
         super.viewDidLayoutSubviews()
         configureCancelButton()
         configureAddButton()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        currencyView.newValueTextField.becomeFirstResponder()
     }
     
     private func configureCancelButton() {
@@ -82,11 +88,17 @@ class CurrencyViewController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.view.frame.origin.y -= keyboardSize.height
+            
+            self.view.layoutSubviews()
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
+    }
+    
+    private func setupNewCurrencyTextField() {
+        self.currencyView.newValueTextField.delegate = self
     }
     
     private func setupSearchBar() {
@@ -115,14 +127,25 @@ class CurrencyViewController: UIViewController {
     }
 }
 
-// MARK: - SearchBar
+// MARK: - TextField delegate
+extension CurrencyViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.view.frame.origin.y = 0
+    }
+}
+
+// MARK: - SearchBar delegate
 extension CurrencyViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter.fetchSearchText(searchText: searchText)
     }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.view.frame.origin.y = 0
+    }
 }
 
-// MARK: - PickerView
+// MARK: - PickerView delegate
 extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
