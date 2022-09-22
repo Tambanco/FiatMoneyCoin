@@ -166,13 +166,13 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension CurrencyViewController: CurrencyViewProtocol {
     func updatePickerView(filteredData: [String]) {
         var filteredSymbols = filteredData
-        currencyView.currencyPickerView.reloadAllComponents()
+//        currencyView.currencyPickerView.reloadAllComponents()
         print(filteredSymbols)
         if !filteredData.isEmpty {
             newSymbol = filteredSymbols[currencyView.currencyPickerView.selectedRow(inComponent: 0)]
+            currencyView.currencyPickerView.reloadAllComponents()
         } else {
-            guard let symbols = presenter.symbols else { return }
-            filteredSymbols = symbols
+            currencyView.currencyPickerView.reloadAllComponents()
         }
     }
     

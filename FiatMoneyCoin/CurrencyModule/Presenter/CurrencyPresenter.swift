@@ -54,24 +54,30 @@ class CurrencyPresenter: CurrencyPresenterProtocol {
     var networkService: NetworkServiceProtocol?
     
     func fetchSearchText(searchText: String) {
-        
         print("searchText: \(searchText)")
         if !searchText.isEmpty {
             guard let symbols = symbols else { return }
             filteredData = symbols.filter { $0.contains(searchText)}
             self.view?.updatePickerView(filteredData: filteredData)
-            
         } else {
             guard let symbols = symbols else { return }
-            self.view?.updatePickerView(filteredData: symbols)
+            filteredData = symbols
+            self.view?.updatePickerView(filteredData: filteredData)
         }
     }
     
     func saveToCoreData() {
-        currencyConverter(amount: newValueToSave, symbol: newSymbolToSave)
-        storageService?.saveNewValue(newValue: newValueToSave, newSymbol: newSymbolToSave)
-        router?.popToRoot()
-        self.view?.dismissView()
+        
+        let savingQueue = DispatchQueue.global(qos: .utility)
+        self.currencyConverter(amount: self.newValueToSave, symbol: self.newSymbolToSave)
+        savingQueue.async {
+            self.storageService?.saveNewValue(newValue: self.newValueToSave, newSymbol: self.newSymbolToSave)
+            self.router?.popToRoot()
+            
+            DispatchQueue.main.async {
+                self.view?.dismissView()
+            }
+        }
     }
     
     func currencyConverter(amount: String?, symbol: String?) {
